@@ -19,7 +19,7 @@
     <header class="container">
       <hgroup>
         <h1>DWES</h1>
-        <p>Desenvolupament web en entorn servidor</p>
+        <p>Desenvolupament WEB en entorn servidor</p>
       </hgroup>
       
     </header>
