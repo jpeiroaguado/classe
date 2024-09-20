@@ -4,39 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--Activitat 2_04. 204dadesPersonales.html i 204dadesPersonales.php: És el mateix
+    exercici que l'anterior, però separant la lògica. En el primer fitxer crearem el formulari per
+    a introduir les dades i després recollirem les dades i generarem la taula en el segon arxiu.-->
 </head>
 <body>
     <form action="204dadesPersonals.php" method="get">
-
-    <p><label for="nom">Nombre:</label></p>
-    </form>
-    <?php
-    <table border="2">
+    <table >
         <tr>
             <td></td>
             <td></td>
         </tr>
         <tr>
             <td>Nom:</td>
-            <td><?=$nom?></td>
+            <td><input type="text" name="nom" id="nom"></input></td>
         </tr>
         <tr>
             <td>Cognoms:</td>
-            <td><?=$cognoms?></td>
+            <td><input type="text" name="cognoms" id="cognoms"></td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td><?=$mail?></td>
+            <td><input type="email" name="email" id="email"></td>
         </tr>
         <tr>
             <td>Any de naixement:</td>
-            <td><?=$any_naixement?></td>
+            <td><input type="date" name="any_naixement" id="any_naixement"></td>
         </tr>
         <tr>
             <td>Telèfon</td>
-            <td><?=$telefon?></td>
+            <td><input type="text" name="telefon" id="telefon"></td>
         </tr>
     </table>
-    ?>
+    <input type="submit" value="Enviar">
+
+</form>
 </body>
 </html>

@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table tr{
+            border: 2px solid black;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -16,7 +25,7 @@
     $any_naixement="1986";
     $telefon="674755426";
     ?>
-    <table border="2">
+    <table>
         <tr>
             <td></td>
             <td></td>

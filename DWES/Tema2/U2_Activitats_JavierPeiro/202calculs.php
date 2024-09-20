@@ -7,9 +7,9 @@
 </head>
 <body>
     <?php
-    /*Activitat 2_02. 202calculs.php: Escriu un programa que utilitze les variables $x i $y.
+    /* Activitat 2_02. 202calculs.php: Escriu un programa que utilitze les variables $x i $y.
     Assigna'ls els valors 166 i 999 respectivament. Tot seguit, mostra per pantalla el valor de cada
-    variable, la suma, la resta, la divisió i la multiplicació.*/
+    variable, la suma, la resta, la divisió i la multiplicació. */
     $x=166;
     $y=999;
     echo "La variable X val $x, mentre que a variable Y val $y <br>";
