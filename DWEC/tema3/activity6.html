@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    ACTIVITY 6 – Number guessing game
+    - Make a web page that implements a game of finding a random number under the premises
+    explained below:
+        o The page will calculate a number from 1 to 100
+        o It will then ask the user for the number
+        o If the user types something that is not a number, the error is indicated and the
+        number is requested again.
+        o If the number entered by the user is correct, it is indicated that it was correct and
+        we will finish the game
+        o If not, it tells you if the number is smaller or higher and asks again what it is
+        o If any box is canceled, the game ends up indicating that the game was canceled.
+        o In the end if the game has been successfully completed the number of attempts is
+        indicated
+        o The user is allowed to play again using a confirmation box
+    -->
+</head>
+<body>
+    <script>
+            //Generamos un numero rándom
+            var num=parseInt(Math.random()*100)+1;
+            num2=prompt("Introduce un número:");
+
+            do{
+                num2=prompt("Introduce un número válido:");
+            }while(isNaN(num2));
+            do{
+                if(num>num2){
+                    num2=prompt("El número introducido es menor, vuelve a intentarlo:");
+                }else{
+                    num2=prompt("El número introducido es mayor, vuelve a intentarlo:");
+                }
+            }while(num2!=num){
+                  
+            }
+            document.write("Es el "+num+" ¡¡Has acertado!!");
+    </script>
+</body>
+</html>

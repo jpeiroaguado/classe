@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    − Create a web application that asks, in different prompt boxes: the name, surname, salary
+    (number with decimals) and age of a person (a number).
+    − We will assume that the user enters the data correctly (we will not validate it).
+    − The page will indicate the written name and surname, age and salary (once recalculated with
+    what the following points indicate)
+    ✓ If the salary is greater than 2500 euros, it will not change
+    ✓ If the salary is between 1000 and 2500:
+        ▪ If in addition, the age is greater than 45 years, it is raised by 5%
+        ▪ If the age is less than 45 or equal, it is raised by 10%
+    ✓ If the indicated salary is less than 1000
+        ▪ The salary for people under 30 years will be exactly 1100 euros
+        ▪ If the age is between 30 and 45 years, the salary goes up by 5%
+        ▪ For those over 45, it rises by 20%
+    -->
+</head>
+<body>
+    <script>
+        //Tomamos los datos
+        var nombre=prompt("¿Escribe tu nombre");
+        var apellidos=prompt("¿Escribe tus apellidos");
+        var salario=parseFloat(prompt("¿Escribe tu salario"));
+        var edad=parseInt(prompt("¿Escribe tu edad"));
+        if(salario>2500){
+            //No cambiamos el salario
+        }else if(salario >= 1000 && edad>45){
+            //Si el salario es mayor que 1000 y es mayor de 45 años, sumará un 5%
+            let nuevosalario=salario/100*5;
+            salario=salario+nuevosalario;
+        }else if(salario >= 1000 && edad<=45){
+            //Si el salario es mayor que 1000 y es menor de 45 años, sumará un 10%
+            let nuevosalario=salario/100*10;
+            salario=salario+nuevosalario;
+        }else if(salario<1000 && edad<30){
+            //Si el salario es menor de 1000 y tiene menos de 30 años, pasa a ser 1100
+            salario=1100;
+        }else if(salario<=1000 && edad>=30 && edad<=45){
+            //si el salario es menor de 1000 y está entre 30 y 45 años, amentará un 5%
+            let nuevosalario=salario/100*5;
+            salario=salario+nuevosalario;
+        }else if(salario<=1000 && edad>45){
+            //Si el salario es menor de 1000 y es mayor de 45, el salario aumentará en un 20%
+            let nuevosalario=salario/100*20;
+            salario=salario+nuevosalario;
+        }
+        //Imprimimos los resultados
+        document.write('Tu nombre es: '+nombre+', tus apellidos son: '+apellidos+', tu edad es: '+edad+' y tu salario es: '+salario);
+    </script>
+</body>
+</html>
