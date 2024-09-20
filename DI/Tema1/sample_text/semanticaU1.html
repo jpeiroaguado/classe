@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title> Ejempl marcado semántico</title>
+    <meta charser="utf-8">
+    <meta name="author=" content="JPeiro">
+    <meta name="theme-color" content="FF0000">
+    <link rel="icon" href="./img/miniatura.png">
+    <style>
+        del{display:none;}
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Trabajo sobre <strong>El Quijote.</strong></h1>
+    </header>
+    <nav>
+        <p>
+            <a href="#intro">Introducción</a> |
+            <a href="#cap1">Capítulo 1</a> |
+            <a href="https://es.wikipedia.org/wiki/Don_Quijote_de_la_Mancha#Temática" target="_blank">Temática</a> |
+            <!-- target="_blank" abre el enlace en una nueva pestaña -->
+            <a href="#contacta">Contacta</a>
+        </p>
+    </nav>
+    <main>
+        <article id="intro">
+            <h3>Introducción</h3>
+            <p><strong>El Quijote<strong> es un <em>libro de caballeria</em> que se ha convertido en un <em>Clasico de la literatura española.</em></p>
+            <p>El libro comiensza con la famosa frase <cite>"En un lugar de la mancha..."</cite></p>
+            <p> <img src="./img/quijote_saura.jpg" width="400"></p>
+            <p><small>Extracto de la Wikipedia.</small></p>
+            <p>Texto escrito en <code>HTML5 <del>HTML4.01</del></code></p>
+            <p>Fecha: <time datetime="25/03/2019"> Dia del padre</time></p>
+        </article>
+        <article id="cap1">
+            <h3>Capítulo 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+    </main>
+    <aside>
+        <section id="contacta">
+            <h3>Datos de contacto</h3>
+            <p><a href="tel:+606628233">Tel.: 606628233</a></p>
+            <p><a href="mailto:admnin@elquijote.es">email: admin@elquijote.es</a></p>
+        </section>
+    </aside>
+    <footer>
+        <hr>
+        <a href="#">Subir arriba</a>
+        <p><small>copyright 2024</small></p>
+        <p><small>Descarga<a href="./descarregues/file.zip">aquí</a> nuestra política de usuario</small></p>
+        <!-- Un enlace a un recurso no reconocido descargará el recurso -->
+    </footer>
+    
+</body>
+</html>

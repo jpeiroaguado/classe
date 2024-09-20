@@ -7,10 +7,18 @@
 </head>
 <body>
     <script>
-        let nombre=prompt("¿Escribe tu nombre");
-        let apellidos=prompt("¿Escribe tus apellidos");
-        let salario=prompt("¿Escribe tu salario");
-        let edad=prompt("¿Escribe tu edad");
+        //Tomamos los datos
+        var nombre=prompt("¿Escribe tu nombre");
+        var apellidos=prompt("¿Escribe tus apellidos");
+        var salario=parseFloat(prompt("¿Escribe tu salario"));
+        var edad=parseInt(prompt("¿Escribe tu edad"));
+        if(salario>2500){
+            //No cambiamos el salario
+        }else if(salary >= 1000 && edad<=45){
+            let nuevosalario=salario/100*10;
+            salario=salario+nuevosalario;
+        }
+
         alert(`Tu nombre es ${nombre}, tus apellidos son ${apellidos}, tu edad es ${edad} y tu salario es ${salario}`);
     </script>
 </body>
