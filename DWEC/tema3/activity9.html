@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--ACTIVITY 9 – Factorial
+    - Create a web page that asks the user for a positive integer and calculates its factorial
+    - The factorial of 5 (usually denoted as 5!) is the result of multiplying 1*2*3*4*5, that is: 120-->
 </head>
 <body>
     <script>
-        
+        var numero=parseInt(prompt("Introduce un número entero positivo:"));
+        var vectorial=1;
+        for(i=1;i<=numero;i++){
+            vectorial*=i;
+        }
+        document.write("El vectorial de "+numero+" es :"+vectorial);
     </script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    ❑ ACTIVITY11 – Random Boxes
+    - Create a web application that displays 2000 squares of random color of 50 pixels.
+    - The position on the screen will also be random
+    -->
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        for(x=0;x<5000;x++){
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+            //Color del div
+            document.write("<div style='background-color: rgb("+r+", "+g+", "+b+");");
+            vectorx=parseInt(Math.random()*101);
+            vectory=parseInt(Math.random()*101);
+            document.write("left:"+vectorx+"%;");
+            document.write("top:"+vectory+"%;");
+            document.write("'></div>");
+        }
+    </script>
+    
+</body>
+</html>
