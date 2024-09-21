@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    ACTIVITY 7 – Triangle of asterisks
+    - Create a Web application that asks the user for a positive integer
+    - If what the user types is not a number or it is not positive, the page will not display anything.
+    It will go blank.
+    - The application will write a triangle with as many asterisks as the user number indicates.
+    - To make the effect more effective we will use, to write the asterisks, a monospaced letter.
+    EX:
+    -->
+</head>
+<body>
+    <script>
+        var cant=prompt("Introduce una cantidad de filas:");
+        if(isNaN(cant)==true||cant<0){}else{
+                var contast=0;
+                for(i=0;i<cant;i++){
+                    for(x=0;x<=i;x++){
+                        document.write("* ");
+                    }
+                    document.write("<br>");
+                }
+            }
+</script>
+</body>
+</html>

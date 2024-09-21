@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--ACTIVITY 8 – Other asterisk triangles
+    - Do a practice similar to the previous one but get other triangles (CHOOSE AT LEAST 2 FROM
+    THE FOLLOWING ACTIVITIES)-->
+</head>
+<body>
+    <script>
+        var cant=prompt("Introduce una cantidad de filas:");
+        if(isNaN(cant)==true||cant<0){}else{
+                for(i=cant;i>=0;i--){
+                    for(x=0;x<=i;x++){
+                        document.write("* ");
+                    }
+                    document.write("<br>");
+                }
+            document.write("<hr>");
+
+            for (b=cant;b>=0;b--){
+                for(c=0;c<=cant-b;c++){
+                    document.write("&nbsp");
+                }
+                for(c=1;c<=b;c++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            document.write("<hr>");
+
+            for (b=0;b<=cant;b++){
+                for(c=0;c<=cant-b;c++){
+                    document.write("&nbsp");
+                }
+                for(c=1;c<=b;c++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+    }   
+        
+    </script>
+    
+</body>
+</html>
