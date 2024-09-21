@@ -11,6 +11,7 @@
 <body>
     <script>
         var cant=prompt("Introduce una cantidad de filas:");
+        //Igual que el ejercicio anterior, pero empezando por la base y decreciendo.
         if(isNaN(cant)==true||cant<0){}else{
                 for(i=cant;i>=0;i--){
                     for(x=0;x<=i;x++){
@@ -19,18 +20,21 @@
                     document.write("<br>");
                 }
             document.write("<hr>");
-
+            /*Imprimimos espacio en blanco hasta que toque imprimir el asterisco, 
+            Como condicionante terminará cuando las interacciones del bucle anidado sean menores que la cantidad 
+            Menos las interacciones del bucle padre, lo que imprimirá espacios en blanco hasta que haya que imprimir asteriscos.*/
             for (b=cant;b>=0;b--){
                 for(c=0;c<=cant-b;c++){
                     document.write("&nbsp");
                 }
+            //Imprime los asteriscos tras haber impreso los espacios en blanco
                 for(c=1;c<=b;c++){
                     document.write("*");
                 }
                 document.write("<br>");
             }
             document.write("<hr>");
-
+            //El mismo que el anterior, pero empezando desde la primera interacción, tan solo hay que cambiar los parámetros del bucle padre.
             for (b=0;b<=cant;b++){
                 for(c=0;c<=cant-b;c++){
                     document.write("&nbsp");

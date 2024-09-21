@@ -12,21 +12,27 @@
     - Example of some rows:-->
     <style>
         table {
-        table-layout: fixed;
-        width: 50%;
-        border-collapse: collapse;
-        border: 3px solid black;
+            /* Hacemos un poco de css para que se muestre un poco algo más visual */
+            table-layout: fixed;
+            width: 50%;
+            border-collapse: collapse;
+            border: 3px solid black;
         }
         table tr td:nth-child(odd) {
-            background-color: #a5a5a5; /* Color de fondo para columnas de numeros */
+            /* Color de fondo para columnas de numeros */
+            background-color: #c6c6c6; 
         }
     </style>
 </head>
 <body>
     <script>
+        //Creamos la variable caruni para almacenar el caracter de la tabla y el contador para ir incrementando
         document.write("<table>");
         var caruni='';
         var contador=0;
+        /*Creamos el bucle y el bucle anidado que imprimirá 1000 filas con 20 columnas cada una cada 2 columnas 
+        imprimirán la posición del carácter dentro de la tabla y el propio carácter(10000). En cada interacción del bucle
+        anidado imprimimos dos columnas, una para cada dato.*/
         for(i=1;i<=1000;i++){
             document.write("<tr>");
             for(x=0;x<10;x++){

@@ -16,9 +16,11 @@
 </head>
 <body>
     <script>
+        //introducimos las filas
         var cant=prompt("Introduce una cantidad de filas:");
+        //Si la cadena introducida no es un número o es menor que 0, simplemente termina. Si es un número entra entro de la función.
         if(isNaN(cant)==true||cant<0){}else{
-                var contast=0;
+                //Imprime tantos asteriscos como filas haya impreso, en el problema dices que imprimamos asteriscos (por ejemplo 7) pero creo que te referías a la altura del triángulo.
                 for(i=0;i<cant;i++){
                     for(x=0;x<=i;x++){
                         document.write("* ");
