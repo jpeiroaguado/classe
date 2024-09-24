@@ -47,12 +47,20 @@ if(isset($_GET['nom'])){
     $nom_contador_a = substr_count($nom, 'a');
     echo "Cuantes 'a' te el nom: ".$nom_contador_a."<br>";
     // Agafem el nom en minuscules ja que el caracter 'A' no es el mateix que 'a'
-    $nom_posicio_a = strpos($nom_minuscules, 'a');
+    $nom_pposicio_a = strpos($nom_minuscules, 'a');
     // Mostrem el resultat tant si la trobar com no, amés sumem 1 a la posició ja que comença de 0
-    if ($nom_posicio_a !== false) {
-            echo "La primera lletra 'a' es troba en la posició: " . ($nom_posicio_a + 1);
+    if ($nom_pposicio_a !== false) {
+            echo "La primera lletra 'a' es troba en la posició: " . ($nom_pposicio_a + 1)."<br>";
         } else {
-            echo "No s'ha trobat la lletra 'a' al nom.";
+            echo "-1 No s'ha trobat la lletra 'a' al nom.<br>";
     }
+    //Trobem la última posició de la lletra 'a'
+    $nom_uposicio_a= strrpos($nom_minuscules, 'a');
+    if ($nom_pposicio_a !== false) {
+        echo "La última lletra 'a' es troba en la posició: " . ($nom_uposicio_a + 1)."<br>";
+    } else {
+        echo "-1 No s'ha trobat la lletra 'a' al nom.";
+    }
+    
 }
 ?>

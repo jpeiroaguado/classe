@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    ACTIVITY 1 – Caesar style encryption
+− Caesar encryption consists of taking each letter of a message and moving it in the alphabet the number that
+gives a key. For example, if key=2 , the letter A scrolls 2, it will become C.
+− Taking into account that Caesar encryption works with a full alphabet and by displacement (in the example
+above the letter Z is usually converted to B), create a page that asks the user for a text and a key and writes
+the same text but moving the characters in the Unicode table the number that indicates the key.
+    -->
+</head>
+<body>
+    <script>
+            var cadena=prompt("Introduce una cadena");
+            cadena=cadena.toUpperCase();
+            var caesar=parseInt(prompt("Introduce el valor de encriptación: "));
+            document.write("La cadena es: "+cadena+"<br>");
+            document.write("El valor de la clave para la encriptación Caesar es: "+caesar+"<br>");
+            /*for(x=0;x<cadena.length;x++){
+                let codi=cadena.charCodeAt(x);
+                codi=codi+caesar;
+                codi >= 65 && codi <= 90;
+                codi = (codi - 65 + caesar) % 26 + 65;
+                cadena +=String.fromCharCode(codi);
+            }
+            document.write(cadena);*/
+        
+
+    </script>
+</body>
+</html>
