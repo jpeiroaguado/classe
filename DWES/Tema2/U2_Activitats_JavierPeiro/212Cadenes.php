@@ -59,8 +59,12 @@ if(isset($_GET['nom'])){
     if ($nom_pposicio_a !== false) {
         echo "La última lletra 'a' es troba en la posició: " . ($nom_uposicio_a + 1)."<br>";
     } else {
-        echo "-1 No s'ha trobat la lletra 'a' al nom.";
+        echo "-1 No s'ha trobat la lletra 'a' al nom.<br>";
     }
-    
+    $nom_oper0=str_replace("o", "0", $nom_minuscules);
+    echo "Las 'o' han sido remplazadas por '0': ".$nom_oper0."<br>";
+    if(substr($nom_minuscules, 0, 2) === 'al'){
+        echo "El nom SI comença per al";
+    }else echo "El nom NO comença per al";
 }
 ?>
