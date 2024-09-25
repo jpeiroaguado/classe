@@ -10,6 +10,7 @@ Utilitza ara els operadors lògics.
 <p><input type="submit"></p>
 </form>
 <?php
+//fem un if amb elseifs u depenent del cas imprimeix una cosa o altra.
 if(isset($_GET["num1"],$_GET["num2"],$_GET["num3"])){
     $num1=$_GET["num1"];
     $num2=$_GET["num2"];
