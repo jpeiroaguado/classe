@@ -15,19 +15,25 @@ the same text but moving the characters in the Unicode table the number that ind
 </head>
 <body>
     <script>
-            var cadena=prompt("Introduce una cadena");
-            cadena=cadena.toUpperCase();
+            let mens=prompt("Introduce una cadena");
             var caesar=parseInt(prompt("Introduce el valor de encriptación: "));
-            document.write("La cadena es: "+cadena+"<br>");
-            document.write("El valor de la clave para la encriptación Caesar es: "+caesar+"<br>");
-            /*for(x=0;x<cadena.length;x++){
-                let codi=cadena.charCodeAt(x);
-                codi=codi+caesar;
-                codi >= 65 && codi <= 90;
-                codi = (codi - 65 + caesar) % 26 + 65;
-                cadena +=String.fromCharCode(codi);
+            let cadena="";
+            
+            mens=mens.toUpperCase();
+            
+            for(x=0;x<mens.length;x++){
+                let codi=mens.charAt(x).charCodeAt(0);
+        
+                if(codi+caesar> 90){
+                    codi+=caesar-26;
+                }else{
+                    codi+=caesar;
+                }
+                cadena+=String.fromCharCode(codi);
             }
-            document.write(cadena);*/
+            document.write("La cadena original es: "+mens+"<br>");
+            document.write("El valor de la clave para la encriptación Caesar es: "+caesar+"<br>");
+            document.write("El valor per a la cadena encriptada es: "+cadena);
         
 
     </script>
