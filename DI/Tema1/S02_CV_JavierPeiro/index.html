@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<title>Curriculum Vitae</title>
 	<meta name="theme-color" content="#008080">
 	<meta name="author=" content="JPeiro">
 	<meta name="robots" content="index, nofollow">
@@ -16,29 +17,45 @@
 	<style>
 		aside {
 			position: fixed;
-			width: 20%;
-			height: 90%;
+			width: 230px;
+			margin-top: 50px;
 			background-color: rgb(91, 91, 128);
 			padding: 10px;
 			color: aliceblue;
 		}
 		main {
-			float: left;
-			width: 75%;
-			margin-left: 25%;
-			height: 100%;
+			position: absolute;
+			margin-top: 270px;
+			margin-left: 270px;
 			padding: 10px;
+			width: 1000px;
+			text-align:left;
 		}
 		nav {
-			float: left;
-			margin-left: 25%;
+			position: absolute;
+			margin-top: 210px;
+			margin-left: 270px;
 		}
 		header{
 			float: left;
-			margin-left: 25%;
+			margin-left: 270px;
 		}
 		progress{
 			float: right;
+			width: 100px;
+		}
+		.fecha{
+			text-align:right;
+			float:right;
+		}
+		footer{
+			position:absolute;
+			margin-top: 1900px;
+			margin-left: 500px;
+  			width: 100%;
+		}
+		img{
+			width: 230px;
 		}
 	</style>
 
@@ -51,7 +68,7 @@
 	</header>
 	
 	<aside>
-		<span><img src="./img/foto.jpg" width="100%"></span>
+		<span><img src="./img/foto.jpg"></span>
 		<h3>Datos de contacto</h3>
 		<hr>
 		<strong>Dirección</strong>
@@ -62,11 +79,20 @@
 		<p>674755426</p>
 		<strong>E-mail</strong>
 		<p>javierpeiroaguado@gmail.com</p>
-		<h3>Habilidades</h3>
-		<p>Proactividad	 <progress max="100" value="90"></progress> </p>
-		<p>Comunicación	 <progress max="100" value="90"></progress> </p>
-		<p>Trabajo en equipo  <progress max="100" value="90"></progress> </p>
-		<p>Autonomía	 <progress max="100" value="100"></progress> </p>
+		<h3>Conocimientos</h3>
+			<p>Javascrypt	 <progress max="100" value="100"></progress> </p>
+			<p>Angular	 <progress max="100" value="90"></progress> </p>
+			<p>React  <progress max="100" value="75"></progress> </p>
+			<p>PHP	 <progress max="100" value="100"></progress> </p>
+			<p>Larabel	 <progress max="100" value="90"></progress> </p>
+			<p>Symfony	 <progress max="100" value="75"></progress> </p>
+		<h3>Otras Habilidades</h3>
+			<p>Proactividad	 <progress max="100" value="90"></progress> </p>
+			<p>Comunicación	 <progress max="100" value="90"></progress> </p>
+			<p>Trabajo en equipo  <progress max="100" value="100"></progress> </p>
+			<p>Mobilidad	 <progress max="100" value="90"></progress> </p>
+			<p>Compromiso	 <progress max="100" value="90"></progress> </p>
+			<p>0 Días de baja en mi vida laboral. </p>
 		
 	</aside>
 	<nav>
@@ -76,22 +102,25 @@
 		<hr>
 		<h3 id="experiencia">EXPERIENCIA</h3>
 		<hr>
-		<section>
-			<p>17/12/2004<br>
-				07/07/2005</p>
-		</section>
-		
+		<article class="fecha">
+			17/12/2004<br>
+				07/07/2005
+		</article>
+		<article class="informacion">
 			<h3>Camarero</h3>
 			<em>FOODS S.L.</em>
 			<ul>
 				<li>Camarero de barra</li>
 				<li>Camarero de cocina</li>
 				<li>Toma de comandas</li>
+				<li>Atención a clientes</li>
 			</ul>
-		<section>
-			<p>27/06/2005<br>
-				02/06/2007</p>
-		</section>
+		</article>
+		<article class="fecha">
+			27/06/2005<br>
+				02/06/2007
+		</article>
+		<article class="informacion">
 			<h3>Trabajos en ETT</h3>
 			<em>UNIQUE INTERIM ETT, S.A.U.</em>
 			<ul>
@@ -101,21 +130,26 @@
 				<li>Repostaje y cobro en gasolineras</li>
 				<li>Mozo de almacen en varias empresas</li>
 			</ul>
-		<section>
-			<p>30/06/2007<br>
-			11/10/2009</p>
-		</section>
+		</article>
+		<article class="fecha">
+			30/06/2007<br>
+			11/10/2009
+		</article>
+		<article class="informacion">
 			<h3>Taquillero</h3>
 			<em>ECSA GESTORA, S.L.</em>
 			<ul>
 				<li>Cobro en caja</li>
 				<li>Gestión de abonos con los clientes</li>
 				<li>Control del parking y sus instalaciones</li>
+				<li>Atención a clientes</li>
 			</ul>
-		<section>
-			<p>01/07/2009<br>
-			04/09/2012</p>
-		</section>
+		</article>
+		<article class="fecha">
+			01/07/2009<br>
+			04/09/2012
+		</article>
+		<article class="informacion">
 			<h3>Gerente de aparcamiento</h3>
 			<em>ESTACIONAMIENTOS Y SERVICIOS, S.A.</em>
 			<ul>
@@ -126,20 +160,24 @@
 				<li>Informes y inovaciones varias</li>
 				<li>Atención a clientes</li>
 			</ul>
-		<section>
-			<p>04/06/2014<br>
-			04/09/2014</p>
-		</section>
+		</article>
+		<article class="fecha">
+			04/06/2014<br>
+			04/09/2014
+		</article>
+		<article class="informacion">
 			<h3>Operario en fábrica de tablones</h3>
 			<em>MECANIZADO DE LA MADERA RICHARTE,S.L.</em>
 			<ul>
 				<li>Operario en línea de producción</li>
 				<li>Manejo de maquinaria de grabado de madera</li>
 			</ul>
-		<section>
-			<p>01/07/2009<br>
-			04/09/2012</p>
-		</section>
+		</article>
+		<article class="fecha">
+			01/07/2009<br>
+			04/09/2012
+		</article>
+		<article class="informacion">
 			<h3>Gerente de aparcamiento</h3>
 			<em>ESTACIONAMIENTOS Y SERVICIOS, S.A.</em>
 			<ul>
@@ -150,10 +188,12 @@
 				<li>Informes y inovaciones varias</li>
 				<li>Atención a clientes</li>
 			</ul>
-		<section>
-			<p>06/02/2015<br>
-			22/07/2024</p>
-		</section>
+		</article>	
+		<article class="fecha">
+			06/02/2015<br>
+			22/07/2024
+		</article>
+		<article class="informacion">
 			<h3>Operador de aparcamiento</h3>
 			<em>ALJAMIL S.A.</em>
 			<ul>
@@ -164,29 +204,45 @@
 				<li>Gestión de abonos</li>
 				<li>Atención a clientes</li>
 			</ul>
+			<br>
+		</article>
 		<hr>
 		<h3 id="educacion">EDUCACIÓN</h3>
 		<hr>
-		<section>
-			<ul>
-				<li>ESO (IES Vall de la safor, Villalonga, 2004)</li>
-				<li>Desarrollo de Aplicaciones Web (IES Marí Enriquez, Gandía)(2025)</li>
-			</ul>
-			
-		</section>
+			<article class="informacion">
+				<ul>
+					<article class="fecha">
+						2004
+					</article>
+					<li>ESO (IES Vall de la safor, Villalonga) </li>
+					<article class="fecha">
+						2025
+					</article>
+					<li>Desarrollo de Aplicaciones Web (IES Marí Enriquez, Gandía)</li>
+				</ul>
+			</article>
+		
 		<hr>
+		<br>
 		<h3 id="idiomas">IDIOMAS</h3>
 		<hr>
-		<section>
+		<article class="informacion">
+			<article class="fecha">
+				2016
+			</article>
 			<ul>
-				<li>Inglés B2 (2016)</li>
-				<li>Valenciano B1 (2022)</li>
-			</ul>
-		</section>
+				<li>Inglés B2</li>
+			<article class="fecha">
+				2022
+			</article>
+					<li>Valenciano B1</li>
+				</ul>
+		</article>
 	</main>
 	
-	<section>
-		
-	</section>
+	<footer>
+		<strong><p>Copyright Javier Peiro Aguado            </strong>
+		<a href="#">Volver al inicio</a></p>
+	</footer>
 </body>
 </html>

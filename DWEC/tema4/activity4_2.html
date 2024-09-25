@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+   ❑ ACTIVITY 2 – Polyalphabetic style encryption
+− It is about improving the previous encryption in which each letter always corresponds to the same encrypted
+letter (which facilitates its decryption)
+− That is why we will make a similar web application, but now as a key we will ask for a text to encrypt that must
+contain numbers. The key will be encrypted cyclically:
+− Example:
+message: This is the message
+Key 12345
+Encrypted message: Ujlw%ju#xmf"pixtcji
+− The encrypted message is formed that way:
+o T+1=U
+o h+2=j
+o i+3=l
+o s+4=w
+o (white space)+5=%
+o i+1=j
+o s+2=u
+o etc.
+    -->
+</head>
+<body>
+    <script>
+            let mens=prompt("Introduce una cadena");
+            var caesar=parseInt(prompt("Introduce el valor de encriptación: "));
+            let cadena="";
+            
+            mens=mens.toUpperCase();
+            
+            for(x=0;x<mens.length;x++){
+
+                let codi=mens.charAt(x).charCodeAt(0);
+                if(codi+caesar> 90){
+                    codi+=caesar-26;
+                }else{
+                    codi+=caesar;
+                }
+                cadena+=String.fromCharCode(codi);
+            }
+            document.write("La cadena original es: "+mens+"<br>");
+            document.write("El valor de la clave para la encriptación Caesar es: "+caesar+"<br>");
+            document.write("El valor per a la cadena encriptada es: "+cadena);
+        
+
+    </script>
+</body>
+</html>
