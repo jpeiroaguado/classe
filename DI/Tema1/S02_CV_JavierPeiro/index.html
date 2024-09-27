@@ -3,22 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Curriculum Vitae</title>
+	<!--Etiquetas meta-->
 	<meta name="theme-color" content="#008080">
-	<meta name="author=" content="JPeiro">
+	<meta name="description" content="pagina de prueba pizzas" property="JPeiro">
 	<meta name="robots" content="index, nofollow">
-	<link rel="icon" href="./img/miniatura.png">
+	<link rel="icon" href="./img/favicon.jpg">
 	<meta property="og:title" content="Curriculum Vitae">
 	<meta property="og:description" content="Este es el currículum vitae de Javier Peiro Aguado">
-	<!--Aquí añadiríamos el link -->
 	<meta property="og:url" content="index.html">
 	<meta property="og:type" content="profile">
-	<!-- falta añadir la imágen -->
 	<meta property="og:image" content="favicon.jpg">
 	<style>
 		aside {
 			position: fixed;
 			width: 230px;
-			margin-top: 50px;
+			margin-top: 30px;
 			background-color: rgb(91, 91, 128);
 			padding: 10px;
 			color: aliceblue;
@@ -50,7 +49,7 @@
 		}
 		footer{
 			position:absolute;
-			margin-top: 1900px;
+			margin-top: 2000px;
 			margin-left: 500px;
   			width: 100%;
 		}
@@ -61,14 +60,14 @@
 
 </head>
 <body>
+	<!--Cabecera de la web-->
 	<header>
-		<!-- Insertar aquí una foto -->
 		<h1>CURRICULUM VITAE <br> JAVIER PEIRO AGUADO</h1>
 		<h3>Programador de aplicaciones web</h3>
 	</header>
-	
+	<!--Menú lateral flotante-->
 	<aside>
-		<span><img src="./img/foto.jpg"></span>
+		<span><img src="./img/foto.jpg" alt=""></span>
 		<h3>Datos de contacto</h3>
 		<hr>
 		<strong>Dirección</strong>
@@ -88,25 +87,29 @@
 			<p>Symfony	 <progress max="100" value="75"></progress> </p>
 		<h3>Otras Habilidades</h3>
 			<p>Proactividad	 <progress max="100" value="90"></progress> </p>
-			<p>Comunicación	 <progress max="100" value="90"></progress> </p>
+			<p>Comunicación	 <progress max="100" value="80"></progress> </p>
 			<p>Trabajo en equipo  <progress max="100" value="100"></progress> </p>
 			<p>Mobilidad	 <progress max="100" value="90"></progress> </p>
-			<p>Compromiso	 <progress max="100" value="90"></progress> </p>
+			<p>Compromiso	 <progress max="100" value="100"></progress> </p>
 			<p>0 Días de baja en mi vida laboral. </p>
 		
 	</aside>
+	<!--Barra de navegación-->
 	<nav>
 		<a href="#experiencia">Experencia</a> | <a href="#educacion">Educación</a> | <a href="#idiomas">Idiomas</a>
 	</nav>
+	<!--Cuerpo principal. Cada bloque de experiencia laboral está como artículo. 
+	No he podido quitar los errores en las fechas no se muy bien porqué, he intentado varias maneras...-->
 	<main>
 		<hr>
 		<h3 id="experiencia">EXPERIENCIA</h3>
 		<hr>
-		<article class="fecha">
-			17/12/2004<br>
-				07/07/2005
-		</article>
+		
 		<article class="informacion">
+			<section class="fecha">
+				<time datetime="17-12-2004">17-12-2004</time><br>
+				<time datetime="07-07-2005">07-07-2005</time>
+			</section>
 			<h3>Camarero</h3>
 			<em>FOODS S.L.</em>
 			<ul>
@@ -116,11 +119,12 @@
 				<li>Atención a clientes</li>
 			</ul>
 		</article>
-		<article class="fecha">
-			27/06/2005<br>
-				02/06/2007
-		</article>
+	
 		<article class="informacion">
+			<section class="fecha">
+				<time datetime="27-06-2005">27-06-2005</time><br>
+				<time datetime="02-06-2007">02-06-2007</time>
+			</section>
 			<h3>Trabajos en ETT</h3>
 			<em>UNIQUE INTERIM ETT, S.A.U.</em>
 			<ul>
@@ -131,11 +135,12 @@
 				<li>Mozo de almacen en varias empresas</li>
 			</ul>
 		</article>
-		<article class="fecha">
-			30/06/2007<br>
-			11/10/2009
-		</article>
+		
 		<article class="informacion">
+			<section class="fecha">
+				<time datetime="30-06-2007">30-06-2007</time><br>
+				<time datetime="11-10-2009">11-10-2009</time>
+			</section>
 			<h3>Taquillero</h3>
 			<em>ECSA GESTORA, S.L.</em>
 			<ul>
@@ -145,11 +150,12 @@
 				<li>Atención a clientes</li>
 			</ul>
 		</article>
-		<article class="fecha">
-			01/07/2009<br>
-			04/09/2012
-		</article>
+		
 		<article class="informacion">
+			<section class="fecha">
+				<time datetime="01-07-2009">01-07-2009</time><br>
+				<time datetime="04-09-2012">04-09-2012</time>
+			</section>
 			<h3>Gerente de aparcamiento</h3>
 			<em>ESTACIONAMIENTOS Y SERVICIOS, S.A.</em>
 			<ul>
@@ -161,11 +167,12 @@
 				<li>Atención a clientes</li>
 			</ul>
 		</article>
-		<article class="fecha">
-			04/06/2014<br>
-			04/09/2014
-		</article>
+		
 		<article class="informacion">
+			<section class="fecha">
+				<time datetime="04-06-2014">04-06-2014</time><br>
+				<time datetime="04-09-2014">04-09-2014</time>
+			</section>
 			<h3>Operario en fábrica de tablones</h3>
 			<em>MECANIZADO DE LA MADERA RICHARTE,S.L.</em>
 			<ul>
@@ -173,27 +180,12 @@
 				<li>Manejo de maquinaria de grabado de madera</li>
 			</ul>
 		</article>
-		<article class="fecha">
-			01/07/2009<br>
-			04/09/2012
-		</article>
+		
 		<article class="informacion">
-			<h3>Gerente de aparcamiento</h3>
-			<em>ESTACIONAMIENTOS Y SERVICIOS, S.A.</em>
-			<ul>
-				<li>Organización de plantillas y equipos</li>
-				<li>Reparación de maquinaria</li>
-				<li>Mantenimiento del parking, instalaciones y equipos informáticos</li>
-				<li>Gestión de recaudación</li>
-				<li>Informes y inovaciones varias</li>
-				<li>Atención a clientes</li>
-			</ul>
-		</article>	
-		<article class="fecha">
-			06/02/2015<br>
-			22/07/2024
-		</article>
-		<article class="informacion">
+			<section class="fecha">
+				<time datetime="06-02-2015">06-02-2015</time><br>
+				<time datetime="22-07-2024">22-07-2024</time>
+			</section>
 			<h3>Operador de aparcamiento</h3>
 			<em>ALJAMIL S.A.</em>
 			<ul>
@@ -211,13 +203,9 @@
 		<hr>
 			<article class="informacion">
 				<ul>
-					<article class="fecha">
-						2004
-					</article>
+					<time datetime="01-01-2004" class="fecha">2004</time>
 					<li>ESO (IES Vall de la safor, Villalonga) </li>
-					<article class="fecha">
-						2025
-					</article>
+					<time datetime="01-01-2025" class="fecha">2025</time>
 					<li>Desarrollo de Aplicaciones Web (IES Marí Enriquez, Gandía)</li>
 				</ul>
 			</article>
@@ -227,21 +215,17 @@
 		<h3 id="idiomas">IDIOMAS</h3>
 		<hr>
 		<article class="informacion">
-			<article class="fecha">
-				2016
-			</article>
 			<ul>
+			<time datetime="2012-01-01" class="fecha">2012</time>	
 				<li>Inglés B2</li>
-			<article class="fecha">
-				2022
-			</article>
-					<li>Valenciano B1</li>
-				</ul>
+			<time datetime="2016-01-01" class="fecha">2016</time>	
+				<li>Valenciano B1</li>
+			</ul>
 		</article>
 	</main>
-	
+	<!--Un pequeño pié de página-->
 	<footer>
-		<strong><p>Copyright Javier Peiro Aguado            </strong>
+		<p><strong>Copyright Javier Peiro Aguado</strong>
 		<a href="#">Volver al inicio</a></p>
 	</footer>
 </body>
