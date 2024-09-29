@@ -26,10 +26,11 @@ $dines=$dines%20;
 $B10=intdiv($dines, 10);
 $dines=$dines%10;
 $B5=intdiv($dines, 5);
-$dines=$dines%25;
+$dines=$dines%5;
 $M2=intdiv($dines, 2);
 $dines=$dines%2;
 $M1=intdiv($dines, 1);
+
 
 echo "
 <p>$B500 Billets de 500€.</p>
