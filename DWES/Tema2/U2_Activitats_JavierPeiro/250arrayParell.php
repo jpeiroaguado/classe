@@ -23,8 +23,7 @@ function arrayParells(array $numalea): int{
     $parells=0;
     foreach($numalea as $nal){
         $nal=intval($nal);
-        if (esParell($nal)==true){
-            print "<br>".$nal;
+        if (esParell($nal)){
             $parells++;
         }
     }

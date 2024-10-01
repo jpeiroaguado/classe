@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primitive Lottery Combinations</title>
+    <style>
+       
+
+        #combinations-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .combination {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="combinations-container"></div>
+    <script>
+        function generateRandomCombination() {
+        let combination = [];
+        while (combination.length < 6) {
+            let randomNum = Math.floor(Math.random() * 49) + 1;
+            if (!combination.includes(randomNum)) {
+                combination.push(randomNum);
+            }
+        }
+        return combination;
+    }
+
+    function generateCombinations() {
+        let combinationsContainer = document.getElementById("combinations-container");
+        for (let i = 0; i < 50; i++) {
+            let combination = generateRandomCombination();
+            let combinationDiv = document.createElement("div");
+            combinationDiv.className = "combination";
+            combinationDiv.textContent = combination.join(" ");
+            combinationsContainer.appendChild(combinationDiv);
+        }
+    }
+
+    generateCombinations();
+    </script>
+</body>
+</html
