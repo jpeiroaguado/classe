@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--ACTIVITY 5 – Password validation
+    − We want to make a web application that asks the user for a name and password. We will ask
+    for both data using text input boxes (although it is not the best method)
+    − We assume that the user is entering the information to register in some service. The password
+    will be visible so we will not ask to repeat it.
+    − The username may only be made up of lowercase letters and numbers, otherwise we will
+    indicate the error and ask for the name again.
+    − What we will validate about the password is that it has at least one element of the following:
+    ✓ A capital letter
+    ✓ A lowercase letter
+    ✓ A number
+    ✓ A character that is neither letter nor number
+    − Although it would be easier to solve this practice with regular expressions (we will see them
+    later) we will do it without them as an opportunity to practice with strings.
+    − If the password does not comply with what is indicated in the previous point, we will ask the
+    user to indicate it again. When the password is right, we will indicate with a message that the
+    information has been stored properly.
+    − In the event of any cancellation in the boxes, the application terminates. We will indicate this
+    with a message.-->
+</head>
+<body>
+    <form action="activity4_5.html">
+        <label>Introduce tu nombre, solo se aceptan minusculas y números: <input type="text" id="nombre" name="nombre"></label><br>
+        <label>Introduce tu contraseña:<input type="text" id="contraseña" name="contraseña"></label><br>
+        <input type="submit" id="enviar">
+    </form>
+    <script>
+        element.addEventListener(enviar, function());{
+
+        }
+        let nombre=getElementById(nombre);
+        let contraseña=getElementById(contraseña);
+        for (let x=0;x<nombre.length;x++){
+            if(nombre.charCodeAt[x]<97||nombre.charCodeAt[x]>122&&nombre.charCodeAt[x]IsNaN){
+                document.write("El nombre solo puede estar en minusculas, vuelve a intentarlo");
+            }
+        }   
+    </script>
+   
+    
+</body>
+</html>

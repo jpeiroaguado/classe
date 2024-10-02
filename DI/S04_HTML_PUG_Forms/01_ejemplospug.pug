@@ -1,0 +1,24 @@
+doctype
+-var titulo="Ejemplo de pug"
+-var lista=["Actualidad", "Deportes", "Economia"]
+html(lang="es")
+	head
+		title Esto es un #{titulo}
+		meta(charset="utf-8")
+		meta(name="author", content="JPeiro")
+	body
+		// Cabecera
+		header
+			h1 #{titulo}
+		nav
+			ul
+				//- Ejemplo de bucle
+				each item in lista
+					li #{item}
+		main
+			//- Cuando no pongo nada es div
+			section#noticias.red
+				.galeria
+				#fotoespecial
+		aside
+		footer

@@ -27,12 +27,11 @@ function arrayParells(array $numalea): int{
             $parells++;
         }
     }
-    print "<br>".$parells;
     return $parells;
     
 }
-$arrayalea[]=arrayAleatori(15, 1, 10);
+$arrayalea=arrayAleatori(15, 1, 10);
 print_r($arrayalea);
 $nparells=arrayParells($arrayalea);
-echo "<br>".$nparells;
+echo "<br> Hi han ".$nparells." parells.";
 ?>

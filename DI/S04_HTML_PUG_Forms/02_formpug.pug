@@ -1,0 +1,60 @@
+doctype
+-var tit="Form en Pug"
+html(lang="es")
+	head
+		title #{tit}
+		meta(charset="utf-8")
+	body
+		header
+			h1 #{tit}
+		main
+			form(name="datos", action="procesa.php", method="get", autocomplete="on")
+				fieldset
+					legend Datos Personales
+					p
+						label(for name="nom") Nombre:
+						input(type="text", id="nom", name="nom", maxlength="100", autofocus, required, placeholder="Nombre y apellidos")
+					p
+						label(for="hombre") Hombre
+						input(type="radio", name="sexe", id="hombre" value="hombre") 
+						br
+						label(for="mujer") Mujer
+						input(type="radio", name="sexe", id="mujer", value="mujer")
+						br
+						label(for="helicopterodecombate") Helicoptero de combate
+						input(type="radio", name="sexe", id="helicopterodecombate", value="Helicoptero de combate", checked)
+					p
+						label(for="edad") Edad
+						input(type="number", name="edad", id="edad", required, min="18", max="99", value="18")
+					p
+						label(for="fnac") Fecha de nacimiento:
+						input(type="date", name="fnac", id="fnac", required, min="1926-01-31")
+					p
+						label(for="email") E-mail:
+						input(type="email", name="email", id="email")
+					p
+						label(for="color") Color:
+						input(type="color", name="color", id="color")
+				fieldset
+					legend Formación
+					p
+						label(for="estudios") Nivel de Estudios
+						select(name="estudios", id="estudios")
+							option(value="eso") E.S.O
+							option(value="bachiller") Bachiller/FP
+							option(value="universidad") Universidad
+					p
+						label(for="idiomas") Idiomas
+						select(name="idiomas", id="idiomas", multiple, size="2")
+							option(value="al") Aleman
+							option(value="fr") Frances
+							option(value="en") Ingles
+							option(value="ru") Ruso
+					p
+						label(for="carnet") Carnet de Conducir:
+						input(tye="text", name="carnet", id="carnet", maxlength="2", pattern="[A-Z][1-9]", required)
+				//- Botones
+				p
+					input(type="reset", value="borrar")
+					input(type="submit", value="enviar")
+					
