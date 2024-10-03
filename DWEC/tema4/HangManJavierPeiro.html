@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div name="contenedor" id="contenedor"></div>
+    
+    
+</body>
+<script>
+
+    const words= ["Sentinel","Ass", 'Beer', "Slug","Windbreaker","killer"];
+    function randomWord(){//generamos una palabra aleatoria y la devolvemos
+            const randomword=Math.floor(Math.random()*words.length);
+            return words[randomword];
+    }
+    function startGame(word){
+       //We initiate the variable "game" with the atributes hiddenword (the word spolitted on *), letters and number of fails.
+        let hiddenword=word.split('').map(()=>'*'.join(''));
+        let letters=[];
+        let fails=6;
+        return {hiddenword, letters, fails};
+    }
+    function updateHiddenword(hiddenWord,word){//To actualitze the hiddenword of game
+        return word.split('').map(letter=>letters.include(letter)?letter:'*').join('');
+    }
+
+    function play(){
+        while(true){//while the game is running do all
+            let contenedor = document.getElementById("contenedor");
+            const rword=randomWord();
+            const game=startGame(rword);
+
+            
+            contenedor.innerHTML = "La palabra es: "+ game.hiddenword+"<br> Te quedan "+game.fails+" intentos.";
+
+            let letter=promt("Introduce una letra o prueba la palabra entera:");
+
+            if(letter.length>1){//We try the full word
+                if(letra==rword){
+                    contenedor.innerHTML="¡¡Has ganado!!"; 
+                }else{
+                    contenedor.innerHTML="¡Incorrecto!";
+                    game.fails--;
+                    if(game.fails==0){
+                        contenedor.innerHTML="Has perdido :(";
+                    }
+                }
+            }else{//The try of a letter, and check the game
+                if(!game.letters.includes(letter)){
+                    game.letters.push(letra);
+                    game.hiddenword=updateHiddenword(rword, game.letters);
+
+                    if (game.hiddenword==rword){
+                        contenedor.innerHTML="¡¡Has ganado!!";
+                    }else if(game.fails==0){
+                        contenedor.innerHTML="Has perdido :(";
+                    }
+                }
+            }
+        }
+    }
+    
+play(); //we start the game. Sorry isn't work, i trie split it in functions and all, but I am not faster enough... I am very hungry and my wife too... I did all i can :)
+</script>
+</html>

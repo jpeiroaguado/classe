@@ -25,22 +25,27 @@
     with a message.-->
 </head>
 <body>
-    <form action="activity4_5.html">
-        <label>Introduce tu nombre, solo se aceptan minusculas y números: <input type="text" id="nombre" name="nombre"></label><br>
-        <label>Introduce tu contraseña:<input type="text" id="contraseña" name="contraseña"></label><br>
-        <input type="submit" id="enviar">
+    <form action="activity4_5.html" name="formulario">
+        <label for="nombre">Introduce tu nombre, solo se aceptan minusculas y números: <input type="text" id="nombre" name="nombre" required></label><br>
+        <label for="contraseña">Introduce tu contraseña:<input type="text" id="contraseña" name="contraseña" required></label><br>
+        <input type="submit">
     </form>
     <script>
-        element.addEventListener(enviar, function());{
+        const formulario=document.getElementById('formulario');
 
-        }
-        let nombre=getElementById(nombre);
-        let contraseña=getElementById(contraseña);
-        for (let x=0;x<nombre.length;x++){
-            if(nombre.charCodeAt[x]<97||nombre.charCodeAt[x]>122&&nombre.charCodeAt[x]IsNaN){
-                document.write("El nombre solo puede estar en minusculas, vuelve a intentarlo");
-            }
-        }   
+            formulario.addEventListener('submit', function(){
+
+                let nombre=getElementById(nombre).textContent;
+                let contraseña=getElementById(contraseña);
+                for (let x=0;x<nombre.length;x++){
+                    const caracter=nombre.charCodeAt(x);
+                    document.write(nombre.charCodeAt(x));
+                    if((caracter>=97&&caracter<=122)&&!(caracter >= 48 && charcode <=57)){
+                        alert("El nombre solo puede estar en minusculas, vuelve a intentarlo");
+                        return;
+                    }
+                }
+            });
     </script>
    
     

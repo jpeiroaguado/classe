@@ -12,8 +12,11 @@
 //Creem l'array
 $noms=['Javier', 'Pedro', 'Noa', 'Victor'];
 //Mostrem els elements
-echo 'Has introducido: '.(count($noms)).' nombres.<br>';
-$nomsjunts='Javier Pedro Noa Victor';
+echo 'Hay: '.(count($noms)).' nombres.<br>';
+$nomsjunts=implode(" ", $noms);
+print_r($nomsjunts);
+echo "<br>";
+//extra;
 print_r(explode(' ', $nomsjunts));
 shuffle($noms);
 ?><br><?php
