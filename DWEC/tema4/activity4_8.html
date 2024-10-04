@@ -7,13 +7,16 @@
 </head>
 <body>
     <script>
-        const arraynum=[];
+        var arraynum=[];
         do{
-            $numero=prompt("Introduce un número, el programa parará cuando escribas un 0");
-            arraynum=arraynum.push($numero);
-        }while($numero!=0);
-        const initialValue=0;
-        const sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initial)
+            var numero=prompt("Introduce un número, el programa parará cuando escribas un 0");
+            numero=parseInt(numero);
+            arraynum=arraynum.push(numero);
+        }while(numero!==0&&isNaN(numero));
+        var initialValue=0;
+        var sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initialValue);
+        media=sumarraynum/arraynum.length;
+        document.write(media);
     </script>
 </body>
 </html>
