@@ -8,10 +8,13 @@ Una funció com aquesta és una forma senzilla de mantenir correctes les vostres
 d’imatges, fins i tot si les imatges es mouen a un nou camí o servidor. Només cal canviar la
 variable global, per exemple, de /images a http://images.example.com/.-->
 <?php
-$rutaImatges="/imatges";
+$rutaImatges="imatges";
 function retornarEtiquetaImagen($nomArchiu, $alt = '', $height = null, $width = null) {
+    global $rutaImatges;
     $url=$rutaImatges.'/'.$nomArchiu;
     $etiqueta = "<img src='$url' alt='$alt' height='$height' width='$width'>";
     return $etiqueta;
 }
+$etiqueta=retornarEtiquetaImagen("foto2.jpg", "foto2.jpg", 200, 150);
+echo $etiqueta;
 ?>

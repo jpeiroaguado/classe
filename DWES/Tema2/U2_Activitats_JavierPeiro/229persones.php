@@ -1,3 +1,8 @@
+<!--
+229persones.php: Mitjançant un array bidimensional, emmagatzema el nom, alçada i
+email de 5 persones. Per això, crea un array de persones, sent cada persona un array
+associatiu: [ ['nom'=>'Aitor', 'altura'=>182, 'email'=>'aitor@correo.com'],[ …],… ]
+Posteriorment, recorre l'array i mostra'l en una taula HTML.-->
 <style>
     table {
         border-collapse: collapse;

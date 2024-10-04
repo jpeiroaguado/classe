@@ -14,7 +14,7 @@ if(isset($_GET["num1"])){
     $num2=$_GET['num2'];
 
     foreach($funcions as $funcio){
-        echo "$funcio($num1, $num2)";
+        echo "$funcio ($num1, $num2): ";
         $resultat=$funcio($num1, $num2);
         echo $resultat."<br>";
     }

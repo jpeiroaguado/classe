@@ -1,4 +1,9 @@
-
+<!--
+230llegirQuantitat.html i 230llegirPersones.php: a partir d'un formulari amb un
+camp de quantitat de persones, generar un nou formulari per llegir el nom, alçada i email
+de quantitat persones. 230gestionarPersones.php: A partir de les persones
+introduïdes, mostrar les vostres dades en una taula, i posteriorment, destacar les dades
+del més alt i la del més baix.-->
     <?php
         $np=$_GET["np"];
         

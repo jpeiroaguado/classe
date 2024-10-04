@@ -1,8 +1,6 @@
-<?php
-    $files=$_GET['files'];
-    $columnes=$_GET['columnes'];
-
-?>
+<!--
+221formulari.html i 221equis.php: Basant-te en l'exercici anterior, ara només ha
+d'aparèixer el contingut de les dos diagonals.-->
 <style>
     table {
             border-collapse: collapse;
@@ -21,7 +19,10 @@
     <tbody>
         
 <?php
+    $files=$_GET['files'];
+    $columnes=$_GET['columnes'];
     $decreciente=$files;
+
     for($x=1;$x<=$columnes;$x++){
         echo "<tr>";
         for($y=1;$y<=$files;$y++){

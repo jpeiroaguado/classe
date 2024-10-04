@@ -1,4 +1,6 @@
 <DOCTYPE html>
+<!--
+215sumaAB.php: A partir de l'anterior, recodifica perquè funcione amb inici i fi.-->
     <head>
 </head>
 <body>

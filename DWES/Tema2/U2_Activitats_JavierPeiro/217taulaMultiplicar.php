@@ -1,3 +1,9 @@
+<!--$_COOKIE217taulaMultiplicar.php:
+Mostra dins d'una taula HTML la
+taula de multiplicar d'un número.
+Utiliza <thead> amb els seus
+respectius <th> y <tbody> per a
+dibuixar la taula.-->
 <DOCTYPE html>
     <head>
     <style>
@@ -53,7 +59,3 @@
 ?>
 </ul>
 </body>
-<?php
-
-
-?>

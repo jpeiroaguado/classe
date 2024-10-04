@@ -24,14 +24,14 @@ function pasarColorsaHexa(int $roig, int $verd, int $blau){
         echo "El color introduït no es valid.";
         return;
     }
-
+        //Pasem a hexadecimal i després a string per a treballar amb ells
         $roighex=dechex($roig);
         $roighex=strval($roighex);
         $verdhex=dechex($verd);
         $verdhex=strval($verdhex);
         $blauhex=dechex($blau);
         $blauhex=strval($blauhex);
-
+        //Si el color te 1 sol digit, añadim un 0 davant
         if(strlen($blauhex)==1){
             $blauhex="0".$blauhex;
         }
@@ -43,7 +43,7 @@ function pasarColorsaHexa(int $roig, int $verd, int $blau){
         if(strlen($roighex)==1){
             $roighex="0".$roighex;
         }
-
+        //concatenem per a tornar el valor complet del color
         $valorhex='#'.$roighex.$verdhex.$blauhex;
 
         return $valorhex;

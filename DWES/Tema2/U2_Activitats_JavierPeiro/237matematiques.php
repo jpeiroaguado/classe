@@ -1,14 +1,14 @@
 <!--
 237matematiques.php: Afegeix les funcions següents:
-● digits(int $num): int → retorna la quantitat de dígits d'un número.
-● digitN(int $num, int $pos): int → torna el dígit que ocupa, començant per
-l'esquerra, la posició $pos.
-● llevarPerDarrere(int $num, int $quantitat): int → li treu per darrere
-(dreta) $quantitat dígits.
-● llevarPerDavant(int $num, int $quantitat): int → li treu per davant
-(esquerra) $quantitat dígits.
-Per provar les funcions, feu ús tant de pas d'arguments posicionals com arguments amb
-nom.
+    ● digits(int $num): int → retorna la quantitat de dígits d'un número.
+    ● digitN(int $num, int $pos): int → torna el dígit que ocupa, començant per
+    l'esquerra, la posició $pos.
+    ● llevarPerDarrere(int $num, int $quantitat): int → li treu per darrere
+    (dreta) $quantitat dígits.
+    ● llevarPerDavant(int $num, int $quantitat): int → li treu per davant
+    (esquerra) $quantitat dígits.
+    Per provar les funcions, feu ús tant de pas d'arguments posicionals com arguments amb
+    nom.
 -->
 <?php
 function digits(int $num): int{

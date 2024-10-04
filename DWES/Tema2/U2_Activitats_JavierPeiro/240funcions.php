@@ -9,4 +9,6 @@ function retornarEtiquetaImagen($url, $alt = '', $height = null, $width = null) 
     $etiqueta = "<img src='$url' alt='$alt' height='$height' width='$width'>";
     return $etiqueta;
 }
+$etiqueta=retornarEtiquetaImagen("foto.jpg", "foto.jpg", 200, 150);
+echo $etiqueta;
 ?>

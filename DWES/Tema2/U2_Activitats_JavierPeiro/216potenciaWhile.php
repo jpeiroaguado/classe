@@ -1,6 +1,5 @@
-<?php
-
-?>
+<!--
+216potenciaDoWhile.php: Reescriu l'exercici anterior fent ús sols de do-while.-->
 <DOCTYPE html>
     <head>
 </head>

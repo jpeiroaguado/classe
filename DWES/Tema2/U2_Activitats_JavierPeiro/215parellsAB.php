@@ -1,4 +1,7 @@
 <DOCTYPE html>
+<!--
+215parellsAB.php: A partir de l'anterior, modifica el programa perquè funcione amb els
+paràmetres inici i fi.-->
     <head>
 </head>
 <body>
@@ -9,13 +12,16 @@
 </form>
 <ul>
 <?php
-    
+    if(isset($_GET["inici"],$_GET["fi"],)){
+        $inici=$_GET["inici"];
+        $fi=$_GET["fi"];
         $num=0;
-        for($x=1;$x<=10;$x++){
-                $num+=$x+1;
-                echo "<li>".$num."</li>";
+        for($x=$inici;$x<=$fi;$x++){
+            if($x%2==0){
+                echo "<li>".$x."</li>";
             }
-
+        }
+    }
 ?>
 </ul>
 </body>

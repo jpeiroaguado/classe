@@ -1,6 +1,6 @@
-<?php
-
-?>
+<!--
+216potencia.php: A partir d'una base i exponent, mitjançant l'acumulació de productes,
+calcula la potència utilitzant l'instrucció for.-->
 <DOCTYPE html>
     <head>
 </head>

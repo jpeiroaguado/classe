@@ -1,8 +1,9 @@
-<!--Una funció que retorne el nombre més gran de tots els números rebuts com a
-paràmetres: function major(): int. Utilitza les funcions func_get_args(), etc...
-No pots fer servir la funció max().
-● Una funció que concatene tots els paràmetres rebuts separant-los amb un espai:
-function concatenar(...$paraules) : string. Utilitza l'operador ..-->
+<!--
+    ● Una funció que retorne el nombre més gran de tots els números rebuts com a
+    paràmetres: function major(): int. Utilitza les funcions func_get_args(), etc...
+    No pots fer servir la funció max().
+    ● Una funció que concatene tots els paràmetres rebuts separant-los amb un espai:
+    function concatenar(...$paraules) : string. Utilitza l'operador ..-->
 <?php
 function major():int{
     $args = func_get_args();

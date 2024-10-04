@@ -1,12 +1,12 @@
 <!--234Alumnes.php: Resol els exercicis següents utilitzant funcions d'arrays:
-● Crea un array d'alumnes on cada element siga un altre array que continga
-nom i edat de l'alumne.
-● Crea una taula HTML en la qual es mostren totes les dades dels alumnes.
-● Utilitza la funció array_column per a obtenir un array indexat que continga
-únicament els noms dels alumnes i mostra’ls per pantalla.
-● Crea un array amb 10 números i utilitza la funció array_sum per a obtenir la
-suma dels 10 nombres.
-● Sense usar bucles for calcula la mitjana d'edat de l'alumnat.-->
+    ● Crea un array d'alumnes on cada element siga un altre array que continga
+    nom i edat de l'alumne.
+    ● Crea una taula HTML en la qual es mostren totes les dades dels alumnes.
+    ● Utilitza la funció array_column per a obtenir un array indexat que continga
+    únicament els noms dels alumnes i mostra’ls per pantalla.
+    ● Crea un array amb 10 números i utilitza la funció array_sum per a obtenir la
+    suma dels 10 nombres.
+    ● Sense usar bucles for calcula la mitjana d'edat de l'alumnat.-->
 <style>
     th{
         background-color: brown;

@@ -5,17 +5,9 @@ rebuda i genere una resposta de manera aleatòria entre un conjunt de respostes
 predefinides, emmagatzemades en un array: Si, no, potser, és clar que sí, per suposat que no,
 no ho tinc clar, segur, jo diria que sí, ni de conya, etc..
 Aquest exercici es basa en el joc de la Bola 8 màgica-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="224bola8.php" method="get">
-        <label>Fes una pregunta: <input type="textbox" name="pregunta"></label>
-        <input type="submit">
-    </form>
-</body>
-</html>
+<?php
+$pregunta=$_GET["pregunta"];
+$respostes=['Si', 'No', 'Pot ser', 'És clar que si', 'Per suposat que no', 'No ho tinc clar', 'Segur', 'Jo diria que si', 'Ni de conya', 'Ta mare per si acás'];
+$rand=rand(0,9);
+echo"A la pregunta: $pregunta <br>La resposta es: ".$respostes[$rand];
+?>

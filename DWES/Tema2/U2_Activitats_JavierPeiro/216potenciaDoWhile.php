@@ -1,6 +1,4 @@
-<?php
-
-?>
+<!--216potenciaWhile.php: Reescriu l'exercici anterior fent ús de while.-->
 <DOCTYPE html>
     <head>
 </head>

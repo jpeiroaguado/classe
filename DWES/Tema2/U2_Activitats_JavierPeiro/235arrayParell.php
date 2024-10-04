@@ -13,11 +13,11 @@ function esParell(int $num):bool{
     }else return false;
 }
 function arrayAleatori(int $tam, int $min, int $max):array{
-    $numalea=[];
+    $numsalea=[];
     for($x=0;$x<$tam;$x++){
-        $numalea[$x]=rand($min, $max);
+        $numsalea[$x]=rand($min, $max);
     }
-    return $numalea;
+    return $numsalea;
 }
 function arrayParells(array $numalea): int{
     $parells=0;
