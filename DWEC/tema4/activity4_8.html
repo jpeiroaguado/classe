@@ -11,11 +11,15 @@
         do{
             var numero=prompt("Introduce un número, el programa parará cuando escribas un 0");
             numero=parseInt(numero);
-            arraynum=arraynum.push(numero);
-        }while(numero!==0&&isNaN(numero));
+            if(!isNaN(numero)||$numero!==0){
+                arraynum.push(numero);
+            }else console.log("Por favor, introduce un número válido.");
+        }while(numero!==0);
         var initialValue=0;
         var sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initialValue);
-        media=sumarraynum/arraynum.length;
+        document.write(sumarraynum+"<br>");
+        document.write(arraynum.length-1+"<br>");
+        media=sumarraynum/(arraynum.length-1);
         document.write(media);
     </script>
 </body>
