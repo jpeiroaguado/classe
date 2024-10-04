@@ -10,10 +10,13 @@
         var arraynum=[];
         do{
             var numero=prompt("Introduce un número, el programa parará cuando escribas un 0");
+            if (numero===null){
+                document.write("Operación cancelada. El promedio no se calculará.");
+            }            
             numero=parseInt(numero);
             if(!isNaN(numero)||$numero!==0){
                 arraynum.push(numero);
-            }else console.log("Por favor, introduce un número válido.");
+            }else document.write("Por favor, introduce un número válido.");
         }while(numero!==0);
         var initialValue=0;
         var sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initialValue);
