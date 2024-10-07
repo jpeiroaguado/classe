@@ -9,21 +9,21 @@
     <script>
         var arraynum=[];
         do{
-            var numero=prompt("Introduce un número, el programa parará cuando escribas un 0");
+            var numero=prompt("Introduce a number, the program finish when you insert a 0");
             if (numero===null){
-                document.write("Operación cancelada. El promedio no se calculará.");
+                document.write("Operation cancelled. The result don't be printed.");
             }            
             numero=parseInt(numero);
             if(!isNaN(numero)||$numero!==0){
                 arraynum.push(numero);
-            }else document.write("Por favor, introduce un número válido.");
-        }while(numero!==0);
+            }else document.write("Please, introduce a valid number.");
+        }while(numero!==0||numero==isNaN);
         var initialValue=0;
         var sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initialValue);
-        document.write(sumarraynum+"<br>");
-        document.write(arraynum.length-1+"<br>");
+        document.write("You introduced: "+(arraynum.length-1)+" Numbers<br>");
+        document.write("The addition of all the numbers is: "+sumarraynum+"<br>");
         media=sumarraynum/(arraynum.length-1);
-        document.write(media);
+        document.write("The average of all numbers is: "+media);
     </script>
 </body>
 </html>
