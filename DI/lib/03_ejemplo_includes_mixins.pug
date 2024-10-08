@@ -1,0 +1,35 @@
+doctype
+-var titulo="Ejemplo de pug"
+-var lista=["Actualidad", "Deportes", "Economia"]
+include ../lib/mixins.pug
+html(lang="es")
+	head
+		title Esto es un #{titulo}
+		meta(charset="utf-8")
+		meta(name="author",content="JPeiro")
+		+infodoc("JavierPeiro", "Ejemplo de mixins e includes")
+	body
+		// Cabecera
+		header
+			h1 #{titulo}
+		nav
+			ul
+				//- Ejemplo de bucle
+				each item in lista
+					li #{item}
+		main
+			form
+				input(type="text",name="nave",list="navegadores")
+			//- Cuando no pongo nada es div
+			section#noticias.red
+				.galeria
+				#fotoespecial
+					+crearenlace("Ir a la galeria","galeria.php")
+					+crearenlace("Ir a google","http://google.com","_blank")
+		include ../lib/footer.pug
+		aside
+	datalist(id="navegadores")
+		option("Internet explorer")
+		option("Firefox")
+		option("Chrome")
+		footer

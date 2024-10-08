@@ -1,0 +1,7 @@
+//-Mixins reutilizables en los proyectos
+mixin infodoc(autor,descripcion,palabrasclave="")
+	meta(name="author",content=autor)
+	meta(name="description",content=descripcion)
+
+mixin crearenlace(nombre,url,ventana="_self")
+	a(href=url, target=ventana) Ir a #{nombre} &nbsp&nbsp

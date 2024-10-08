@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejemplos de elementos en cabecera</title>
+		<meta charset="utf-8"><!-- no hace falta cierre de etiqueta en elementos vacis-->
+		<meta name="author" content="J.Peiro"> <!-- nombre dle autor de la web -->
+		<meta name="description" content="Primer ejemplo HTML"><!-- breve descripción para los robots -->
+		<meta name="keywords" content="head elementos html"><!-- Indexa por estas palabras clave-->
+		<!--<meta http-equiv="refresh" content="3;URL=http://marca.es">--><!--redirecciona a otra url-->-->
+		<meta name="robots" content="noindex,follow"> <!-- no indexa la página acutal pero le dice al indexador que siga los enlaces-->
+		<!-- otras combinaciones: "index, nofollow" "noindex, nofollow" -->
+		<meta name="theme-color" content="red"><!-- Sirve para navegador móbil-->
+
+		<!--Metas para compartir en Redes Sociales generalmente con la descripción-->
+		<!-- Si tenemos estas etiquetas OGG, se crean enlaces visuales a mi página, por ejemplo en whatsapp u otras redes -->
+		<meta property="og:title" content="Primer ejemplo HTML">
+		<meta property="og:imatge" content="./img/noticia1.jpg">
+		<meta property="og:description" content="explicacion de cosas que podemos encontrar en la cabecera de un doc html">
+
+		<!-- Enlaces a otros documentos-->
+		<link rel="icon" type="image/jpg" href="./img/favicon.jpg"> <!--Icono de pestaña -->
+		<link rel="stylesheet" href="../css/hojadestilos.css"> <!-- hoja de estilos -->
+
+		<!--Código script, en este caso le hemos metido defer para que se carge al final, pero es recomendable meterlo al final -->
+		<scrypt type="dext/javascript" src="./js/script.js" defer></scrypt>
+		<!--Cosas que si o si hay que poner-->
+		<!-- title, meta charset, link a favicon y a CSS si l tiene -->
+		<!-- Recomendable: -->
+		<!-- meta="theme-color", meta="author", y "description", meta og (title e imagen) -->
+
+	</head>
+	<body>
+		<main>Hola mundo</main>
+	</body>
+</html>

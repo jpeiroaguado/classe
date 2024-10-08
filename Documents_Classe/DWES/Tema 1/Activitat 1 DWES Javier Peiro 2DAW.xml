@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <object alt="" name="Imatge1" object_type="graphic"/>
+ <object alt="" name="Imatge2" object_type="graphic"/>
+ <object alt="" name="Imatge3" object_type="graphic"/>
+ <object alt="" name="Imatge4" object_type="graphic"/>
+ <object alt="" name="Imatge5" object_type="graphic"/>
+ <paragraph index="24" node_type="writer">Javier Peiro Aguado	2 DAW</paragraph>
+ <paragraph index="25" node_type="writer">ACTIVITATS</paragraph>
+ <paragraph index="27" node_type="writer">Activitat 1.1. Inspeccionant sol·licituds des del terminal</paragraph>
+ <paragraph index="29" node_type="writer">i. 	http://www.google.com</paragraph>
+ <paragraph index="31" node_type="writer">Primer fa una petició http i li respon el codi 200 i que es un codi estàndard i que tot està correcte.</paragraph>
+ <paragraph index="33" node_type="writer">ii.	https://google.com</paragraph>
+ <paragraph index="35" node_type="writer">Al fer la petició, el servidor torna el codi 301, que significa que el contingut ha sigut mogut permanentment a una nova url. Al enviar la nova ubicació i fer les comprovacions torna a retornar el codi 200.
+
+iii).	https://www.google.com</paragraph>
+ <paragraph index="38" node_type="writer">Aquesta vegada torna igual el codi 200 com que tot està be, però utilitza el nou protocol 2 i fica la catxe en privat. Amés t’avisa de que no suporta p3p.</paragraph>
+ <paragraph index="40" node_type="writer">iv.	https://www.google.com/x</paragraph>
+ <paragraph index="42" node_type="writer">Aquesta vegada entra també amb el protocol http/2, però torna el codi 404, que es que no s’ha trobat el recurs requerit.</paragraph>
+ <paragraph index="45" node_type="writer">Activitat 1.2. Inspeccionar sol·licituds HTTP des del navegador</paragraph>
+ <paragraph index="50" node_type="writer">Activitat 1.3. Perfils desenvolupament web</paragraph>
+ <paragraph index="52" node_type="writer">Empresa: VICKY FOODS</paragraph>
+ <paragraph index="53" node_type="writer">Lloc de treball: Programador Fullstack PHPJavascript</paragraph>
+ <paragraph index="54" node_type="writer">Frameworks PHP: -</paragraph>
+ <paragraph index="55" node_type="writer">Requisits: </paragraph>
+ <paragraph index="56" node_type="writer">Cicle Formatiu Gradu Superior - Informática y Comunicaciones.
+Experiència mínima de 1 any.</paragraph>
+ <paragraph index="57" node_type="writer">PHP y/o Javascript.
+PostgreSQL, MySQL o similars. 
+Ferramentes de control de versions GIT.
+Programació orientada a objectes. 
+Orientació al client.</paragraph>
+ <paragraph index="58" node_type="writer">Salari: No disponible</paragraph>
+ <paragraph index="59" node_type="writer">Enllaç de la oferta: https://www.infojobs.net/gandia/programador-fullstack-phpjavascript/of-i7719fff66f4489ba062d7a19dd4d86?applicationOrigin=search-new&amp;page=1&amp;sortBy=RELEVANCE</paragraph>
+ <paragraph index="61" node_type="writer">Empresa: VALENCIANA DE PRODUCTOS ELÉCTRICOS</paragraph>
+ <paragraph index="62" node_type="writer">Lloc de treball: Programador WEB</paragraph>
+ <paragraph index="63" node_type="writer">Frameworks PHP: Symfony</paragraph>
+ <paragraph index="64" node_type="writer">Requisits: </paragraph>
+ <paragraph index="65" node_type="writer">Cicle Formatiu Gradu Superior - Tècnic Superior en Desenvolupament D’Aplicacions Web.</paragraph>
+ <paragraph index="66" node_type="writer">PHP/Symfony.
+Apache/java/Tomcat.
+Node.js/Angular.</paragraph>
+ <paragraph index="67" node_type="writer">Salari: 18.000€ - 24.000€ Brut/any.</paragraph>
+ <paragraph index="68" node_type="writer">Enllaç de la oferta: https://www.infojobs.net/picanya/programador-web/of-i5fcd4d33204d08aefb9cb37d0d56d3?applicationOrigin=search-new&amp;page=1&amp;sortBy=RELEVANCE</paragraph>
+ <paragraph index="71" node_type="writer">Empresa: MELT GROUP</paragraph>
+ <paragraph index="72" node_type="writer">Lloc de treball: Desenvolupador de negocis central.</paragraph>
+ <paragraph index="73" node_type="writer">Frameworks PHP: -</paragraph>
+ <paragraph index="74" node_type="writer">Requisits:
+	Al menys 3 anys d'experiència demostrable en programació de Dynamics NAV y 	Dynamics Business Central.
+	Al Code, Extensions y Esvents, C/AL, SQL.
+	Coneiximents de JIRA y Bitbucket y programació en Ionic.
+	Gestió de fitxers Json y XML.
+	Nivell d’anglés mínim B1.</paragraph>
+ <paragraph index="75" node_type="writer">Salari: 36.000€ - 43.000€ Brut/any</paragraph>
+ <paragraph index="76" node_type="writer">Enllaç de la oferta: https://www.infojobs.net/valencia/desarrollador-dynamics-business-central/of-i3bccef5fe44fe2a707f08c39e9e773?applicationOrigin=search-new&amp;page=1&amp;sortBy=RELEVANCE</paragraph>
+</indexing>

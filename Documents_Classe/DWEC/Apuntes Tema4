@@ -1,0 +1,20 @@
+Cuando haces shift y pop no necesitas pasar nada, shift añade al principio y pop elmina al final.
+Unshift añade al principio y requiere un contenido. Push añade al final y tanquien requiere un contenido.
+x.shift()
+x.pop()
+x.unshift("pepe")
+x.push("pepe")
+splice modifica las posiciones dadas en el array.
+slice toma las posiciones dadas sin modificar el array.
+x.slice(2, 4)
+x.splice (2,4)
+x.indexOf("1"). Si no lo encuentra devuelve -1, si lo encuentra devuelve la primera posición que encuentre.
+includes(true or folse)
+x.reverse()cambia del final al princiio las posiciones del array
+SE PUEDEN CONCATENAR MÉTODOS
+x.sort(x=>math random()) se le puede poner otra función
+let [n1, n2]=["Javier", "Julio"] Guarda varios arrays a la vez. n1 ocntendrá Javier, N2 Julio
+let array[1,2,3]
+let [p,,q]=[...array] Mostraria p=1, q=3.
+let [a,b,...rest]=[1,2,3,4,5] Asigna a=1,b=2 y a una tercera variable rest le asigna todo el resto (rest[3,4,5])
+
