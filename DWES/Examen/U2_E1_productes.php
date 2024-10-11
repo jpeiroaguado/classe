@@ -14,7 +14,17 @@ $productes=[
     <th>TOTAL<th>
 <?php
     $preus=[];
-    for($x=0;$x<=2;$x++){
+    foreach ($productes as $producte){
+        echo "<tr>";
+            echo "<td>".$producte[0]."</td>";
+            echo "<td>".$producte[1]."</td>";
+            echo "<td>".$producte[2]."</td>";
+            $preus=$producte[1]*$producte[2];
+            echo "<td>".$preus."</td>";
+        echo "</tr>";
+        
+    }
+    /*for($x=0;$x<=count($productes);$x++){
         echo "<tr>";
             echo "<td>".$productes[$x][0]."</td>";
             echo "<td>".$productes[$x][1]."</td>";
@@ -22,7 +32,7 @@ $productes=[
             $preus[$x]=$productes[$x][1]*$productes[$x][2];
             echo "<td>".$preus[$x]."</td>";
         echo "</tr>";
-    }
+    }*/
 ?>
 <?php
 $global=0;

@@ -7,10 +7,15 @@
 </head>
 <body>
     <script>
-        var nombre="";
+        var nombres=[];
         do{
-            nombre=prompt("Introduce a new unused name");
-
+            nombre=prompt("Introduce a new unused name: ");
+            if(nombres.includes(nombre)){
+                do{
+                    nombre=prompt("The name is already introduced, try another: ");
+                }while (nombres.includes(nombre));  
+            }
+            nombres.push(nombre);
             //set o map, includes per a buscar dins de un array o index
         }while (nombre!="fin");
     </script>
