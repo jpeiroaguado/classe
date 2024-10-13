@@ -1,0 +1,76 @@
+
+include header
+    head
+        title #{tit}
+        link(rel='stylesheet', href='estilos_formulario.css')
+    body
+        header
+            h1 #{tit}
+        main
+            form(name="curriculum", action="enviado.html", method="post")
+                nav 
+                    a(href="#datos") Datos Personales | 
+                    a(href="#formacion")  Formacion | 
+                    a(href="#contacto")  Contacto 
+                fieldset
+                    legend#datos DATOS PERSONALES
+                    br
+                    div
+                        label(for name="foto") Sube una foto:
+                        input(type="file", name="foto", accept="image/")
+                    br
+                    div
+                        label(for name="nombre") Nombre:
+                        input(type="text", id="nom", name="nom", maxlength="100", autofocus, required, placeholder="Ecribe tu nombre")
+                    br
+                    div
+                        label(for name="dni") DNI: 
+                        input(type="text" name="dni" pattern="[0-9]{8}[A-Z]" maxlength="100", required, placeholder="Ingresa un DNI válido")
+                    br
+                    div
+                        label(for name="hombre") Hombre
+                        input(type="radio", name="sexe", id="hombre" value="hombre")
+                        label(for name="mujer") Mujer
+                        input(type="radio", name="sexe", id="mujer" value="mujer") 
+                    br
+                    div
+                        label(for="edad") Edad
+                        input(type="number", name="edad", id="edad", required, min="18", max="99", placeholder="18")
+                    br
+                    div
+                        label(for="fnac") Fecha de nacimiento:
+                        input(type="date", name="fnac", id="fnac", required, min="1926-01-31")
+                    br
+                fieldset
+                    legend#formacion FORMACIÓN
+                    h4 ESTUDIOS
+                    select(id="estudios" list="estudio")
+                        option(value="") Selecciona un nivel de estudios
+                        datalist(id="estudio")   
+                            for estudio in estudios
+                                option(value=estudio) #{estudio}
+                    h4 IDIOMAS
+                    for idioma in idiomas
+                        label(for=idioma) He realizado #{idioma}:
+                        input(type="checkbox", name="idiomas" value=estudio)
+                        br
+                fieldset 
+                    legend#contacto CONTACTO 
+                    br
+                    div
+                        label(for="email") E-mail:
+                        input(type="email", name="email", id="email")
+                    br
+                    div
+                        label(for="telefono") Teléfono:
+                        input(type="tel", name="telefono", id="telefono")
+                    br
+                    div
+                        label(for="linkedin") Enlace al perfil de linkedin:
+                        input(type="text", name="linkedin", id="linkedin")
+                br
+                input.boton(type="submit", value="ENVIAR", class="boton")
+                input.boton(type="reset", value="BORRAR")
+                a(href='#')
+                    input.boton(type="button", value="VOLVER ARRIBA")
+                                

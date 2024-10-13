@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <meta charset="utf-8">
+  <head>
+    <title>Práctica Curriculum PUG</title>
+    <link rel="stylesheet" href="estilos_formulario.css">
+  </head>
+  <body>
+    <header>
+      <h1>Práctica Curriculum PUG</h1>
+    </header>
+    <main>
+      <form name="curriculum" action="enviado.html" method="post">
+        <nav> <a href="#datos">Datos Personales | </a><a href="#formacion"> Formacion | </a><a href="#contacto"> Contacto </a></nav>
+        <fieldset>
+          <legend id="datos">DATOS PERSONALES</legend><br>
+          <div>
+            <label for name="foto">Sube una foto:</label>
+            <input type="file" name="foto" accept="image/">
+          </div><br>
+          <div>
+            <label for name="nombre">Nombre:</label>
+            <input type="text" id="nom" name="nom" maxlength="100" autofocus required placeholder="Ecribe tu nombre">
+          </div><br>
+          <div>
+            <label for name="dni">DNI: </label>
+            <input type="text" name="dni" pattern="[0-9]{8}[A-Z]" maxlength="100" required placeholder="Ingresa un DNI válido">
+          </div><br>
+          <div>
+            <label for name="hombre">Hombre</label>
+            <input type="radio" name="sexe" id="hombre" value="hombre">
+            <label for name="mujer">Mujer</label>
+            <input type="radio" name="sexe" id="mujer" value="mujer">
+          </div><br>
+          <div>
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad" required min="18" max="99" placeholder="18">
+          </div><br>
+          <div>
+            <label for="fnac">Fecha de nacimiento:</label>
+            <input type="date" name="fnac" id="fnac" required min="1926-01-31">
+          </div><br>
+        </fieldset>
+        <fieldset>
+          <legend id="formacion">FORMACIÓN</legend>
+          <h4>ESTUDIOS</h4>
+          <select id="estudios" list="estudio">
+            <option value="">Selecciona un nivel de estudios</option>
+            <datalist id="estudio">  
+              <option value="ESO">ESO</option>
+              <option value="Bachiller">Bachiller</option>
+              <option value="FP MEdia">FP MEdia</option>
+              <option value="FP SUperior">FP SUperior</option>
+              <option value="Universidad">Universidad</option>
+            </datalist>
+          </select>
+          <h4>IDIOMAS</h4>
+          <label for="Ingles">He realizado Ingles:</label>
+          <input type="checkbox" name="idiomas"><br>
+          <label for="Francés">He realizado Francés:</label>
+          <input type="checkbox" name="idiomas"><br>
+          <label for="Italiano">He realizado Italiano:</label>
+          <input type="checkbox" name="idiomas"><br>
+          <label for="Chino">He realizado Chino:</label>
+          <input type="checkbox" name="idiomas"><br>
+          <label for="Portugués">He realizado Portugués:</label>
+          <input type="checkbox" name="idiomas"><br>
+          <label for="Ruso">He realizado Ruso:</label>
+          <input type="checkbox" name="idiomas"><br>
+        </fieldset>
+        <fieldset> 
+          <legend id="contacto">CONTACTO </legend><br>
+          <div>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email">
+          </div><br>
+          <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="telefono" id="telefono">
+          </div><br>
+          <div>
+            <label for="linkedin">Enlace al perfil de linkedin:</label>
+            <input type="text" name="linkedin" id="linkedin">
+          </div>
+        </fieldset><br>
+        <input class="boton boton" type="submit" value="ENVIAR">
+        <input class="boton" type="reset" value="BORRAR"><a href="#">
+          <input class="boton" type="button" value="VOLVER ARRIBA"></a>
+      </form>
+    </main>
+  </body>
+</html>
