@@ -6,14 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <iframe src="formulario" frameborder="0">
-        <form action="retringida.php" name="formulario">
+    <fieldset> <legend>Formulario de Login</legend>
+        <form action="restringida.php" name="formulario">
             <label for="correo">Correo electrónico: </label>
             <input type="mail" nombre="correo" required><br>
             <label for="contraseña">Contraseña: </label>
-            <input type="password" nombre="contraseña" required><br>
-            <input type="submit" value="Iniciar Sesión">
-        </form>
-    </iframe>
+            <input type="password" nombre="contraseña" required><br>   
+    </fieldset>
+    <label for="recordar">Recordar </label>
+    <input type="checkbox" name="recordar">
+
+    <input type="submit" value="Iniciar Sesión">
+    </form>
+        
 </body>
 </html>
