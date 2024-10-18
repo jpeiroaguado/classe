@@ -7,17 +7,32 @@
 </head>
 <body>
     <script>
-        var fibonacy=[];
-        var pos=0;
+        const fibonaci=[0, 1];
+
         function fibonacci (num){
-            fibo=fibonacy.push(fibonaci[pos-1]+fibonaci[pos-2]);
-            pos++;
-            document.write(fibonacy(pos)+", ");
-            return fibo;
+            for(x=0;x<=num;x++){
+                if(x>=2){
+                    fibonaci.push(fibonaci[x-1]+fibonaci[x-2]);
+                    document.write(fibonaci[x]+", ");
+                }  
+            }
+            return fibonaci[num];
         }
+        function fibonacciRecur(num){
+            if (num <= 1) {
+                return num;
+            } else {
+                return fibonacciRecur(num - 1) + fibonacciRecur(num - 2);
+            }
+            }
         var num=parseInt(prompt("Escribe el número de fibbonaccy que deseas saber: "));
         var valorFibo=fibonacci(num);
-        document.write("<br> "+valorFibo);
+        document.write("<br> Fibonnaci SIN función recursiva: "+valorFibo);
+
+        var valorFiboRecur=fibonacciRecur(num);
+        document.write("<br> Fibonnaci CON función recursiva: "+valorFiboRecur);
+
+
         
     </script>
     
