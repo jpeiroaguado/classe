@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #mensaje { 
+            color: red; 
+        }
+    </style>
     <!--ACTIVITY 5 – Password validation
     − We want to make a web application that asks the user for a name and password. We will ask
     for both data using text input boxes (although it is not the best method)
@@ -24,30 +29,74 @@
     − In the event of any cancellation in the boxes, the application terminates. We will indicate this
     with a message.-->
 </head>
-<body>
-    <form action="activity4_5.html" name="formulario">
-        <label for="nombre">Introduce tu nombre, solo se aceptan minusculas y números: <input type="text" id="nombre" name="nombre" required></label><br>
-        <label for="contraseña">Introduce tu contraseña:<input type="text" id="contraseña" name="contraseña" required></label><br>
-        <input type="submit">
-    </form>
+<body> 
+    <fieldset>
+        <legend>Validation Form</legend>
+        <form action="activity4_5.html" name="formulario" id="formulario">
+            <label for="nombre">Introduce tu nombre, solo se aceptan minusculas y números: <input type="text" id="nombre" name="nombre" required></label><br>
+            <label for="contraseña">Introduce tu contraseña:<input type="text" id="contraseña" name="contraseña" required></label><br>
+            <input type="submit" id="submit" name="submit" value="Enter">
+        </form>
+    </fieldset>
+    <p id="mensaje"></p>
     <script>
         const formulario=document.getElementById('formulario');
+        const mensaje=document.getElementById('mensaje');
 
-            formulario.addEventListener('submit', function(){
+            formulario.addEventListener('submit', function(event){
+                event.preventDefault();//We stop the submit, because we need check all first
 
-                let nombre=getElementById(nombre).textContent;
-                let contraseña=getElementById(contraseña);
-                for (let x=0;x<nombre.length;x++){
-                    const caracter=nombre.charCodeAt(x);
-                    document.write(nombre.charCodeAt(x));
-                    if((caracter>=97&&caracter<=122)&&!(caracter >= 48 && charcode <=57)){
-                        alert("El nombre solo puede estar en minusculas, vuelve a intentarlo");
-                        return;
+                const nombre = document.getElementById('nombre').value;
+                const contraseña = document.getElementById('contraseña').value;                
+                let validarNombre=true;
+                let validarContraseña=true;
+                //We use a regular expression /^ indicates the start of the chain
+                //[a-z0-9] mean it can be a character from a to z and 0 to 9
+                //the + mean they can repeat on the chain and the $ mantain all to the last char.
+                const regexNom =/^[a-z0-9]+$/;
+
+                
+                    //We check if the Name have only have lowercase letters
+                    if(!regexNom.test(nombre)){
+                        mensaje.textContent='The name can only have lowercases';
+                        validarNombre=false;
                     }
+            
+                /*//If i don't use regular spression I need do this. we check the password, we check one by one, and if is not then is un special character.
+
+                let mayuscula=false;
+                let minuscula=false;
+                let numero=false;
+                let especial=false;
+
+                for(c=0;c<contraseña.lenght;c++){
+                    const caracter=password[c];
+                    if (caracter<='A'&&caracter<='Z')
+                        mayuscula=true;
+                    else if (caracter<='a'&&caracter<='z')
+                        minuscula=true;
+                    else if (caracter<='0'&&caracter<='9')
+                        numero=true;
+                    else 
+                        especial=true;
                 }
+                if (mayuscula!=true&&minuscula!=true&&password!=true&&especial!=true)
+                    alert("La contraseña debe contener al menos una mayuscula, una minuscula, un número y un carácter especial");*/
+
+                //But we have the regular expressions to do faster.
+                //(?=) is an true defect if .* mean all other part of the string [a-z] is the range or character.
+                //If isn't a sigle character in the string, the (?=) is false, than all expression return false.
+                const exregCont = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/;
+
+                if (!exregCont.test(contraseña)) {
+                    mensaje.textContent='The password need contain a lowercase, a Uppercase, a number and a special character';
+                    validarContraseña=false;
+                }
+                if (validarNombre==true&&validarContraseña==true)
+                    mensaje.textContent='¡All corret!';
             });
+
     </script>
-   
     
 </body>
 </html>

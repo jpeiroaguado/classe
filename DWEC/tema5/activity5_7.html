@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function palindrome (expression){
+
+            expression=expression.toLowerCase();
+            expression=expression.normalize("NFD");
+            expression=expression.replace(/[^a-z]/g, '');
+
+            var lengthcadena=expression.length;
+
+            for(x=0;x<expression.length;x++){
+                if(expression.charAt(lengthcadena-1)!=expression.charAt(x))
+                    return false;
+                else 
+                    lengthcadena--;
+
+                if(x==lengthcadena-1||lengthcadena<x)
+                    return true;
+            }
+        }
+        if(expression=prompt("Whrite the text to know if it's palindrome: ")==true)
+            document.write("¡The text is palindrome!");
+        else 
+            document.write("The text ISN'T Palindrome");
+
+    </script>
+    
+</body>
+</html>

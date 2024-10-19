@@ -19,20 +19,23 @@ class CuentaBancaria {
     }
 
     public function validaUsuario($usuari, $pin) {
-        return $this->usuari==$usuari && $this->pin==$pin;
+        if($this->usuari==$usuari && $this->pin==$pin){
+            return true;
+        }
+        else{
+            return false;
+        }        
     }
 
     public function ingressar($cantitat) { 
             $this->entrades[] = $cantitat;
-            $this->$saldo += $cantitat;
+            $this->saldo += $cantitat;
     }
 
     public function traure($cantitat) {
-        if($cantitat<=$this->$saldo){
+        if($cantitat<=$this->saldo){
             $this->eixides[]=$cantitat;
             $this->saldo-=$cantitat;
-            /*echo $cantitat;
-            print_r($this->$eixides);*/
             return true;
         } else {
             return false;
@@ -40,21 +43,23 @@ class CuentaBancaria {
     }
 
     public function getSaldo() {
-        return $this->$saldo;
+        return $this->saldo;
     }
 
     public function getEntradas() {
-        return $this->$entrades;
+        return implode(', ', $this->entrades);
     }
 
     public function getSalidas() {
-        return $this->$eixides;
+        return implode(', ', $this->eixides);
     }
 }
 
 $compte = new CuentaBancaria("Eloy", "1234");
 $compte->ingressar(100);
+$compte->ingressar(500);
 $compte->traure(50);
+$compte->traure(25);
 
 echo "Saldo: " . $compte->getSaldo() . "<br>";
 echo "Entrades: " .$compte->getEntradas()."<br>"; 

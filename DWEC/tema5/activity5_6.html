@@ -8,29 +8,34 @@
 <body>
     <script>
         const fibonaci=[0, 1];
-
+        //Fibbo NO recursive function
         function fibonacci (num){
+            document.write("Fibonacci secuence: ")
             for(x=0;x<=num;x++){
                 if(x>=2){
                     fibonaci.push(fibonaci[x-1]+fibonaci[x-2]);
-                    document.write(fibonaci[x]+", ");
+                    if(x!=num)
+                        document.write(fibonaci[x]+", ");
+                    else
+                        document.write(fibonaci[x]+".");
                 }  
             }
             return fibonaci[num];
         }
+        //Fibbo recursive function
         function fibonacciRecur(num){
-            if (num <= 1) {
+            if (num <= 1) 
                 return num;
-            } else {
+             else 
                 return fibonacciRecur(num - 1) + fibonacciRecur(num - 2);
+            
             }
-            }
-        var num=parseInt(prompt("Escribe el número de fibbonaccy que deseas saber: "));
+        var num=parseInt(prompt("Write the position of the fibonacci sequence you want to know: "));
         var valorFibo=fibonacci(num);
-        document.write("<br> Fibonnaci SIN función recursiva: "+valorFibo);
+        document.write("<br> Fibonacci WITHOUT recursive function: "+valorFibo);
 
         var valorFiboRecur=fibonacciRecur(num);
-        document.write("<br> Fibonnaci CON función recursiva: "+valorFiboRecur);
+        document.write("<br> Fibonnaci WITH recursive function: "+valorFiboRecur);
 
 
         
