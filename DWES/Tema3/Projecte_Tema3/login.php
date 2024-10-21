@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemple de Web Mapes</title>
+    <?php require_once 'validacio.php'; ?>
 </head>
 <body>
     <fieldset>
@@ -16,7 +17,7 @@
         </form>
     </fieldset>
     <label for="recordar">No tornar a preguntar</label>
-    <input type="checkbox" name="recordar">
+    <input type="checkbox" name="recordar" id="recordar">
     <input type="submit" value="Iniciar Sesión">
 </body>
 </html>

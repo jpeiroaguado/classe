@@ -1,10 +1,16 @@
 <?php
+function neteja_dades($dada){
+    $dada=trim($dada);
+    $dada=stripslashes($dada);
+    $dada=htmlspecialchars($dada);
+    return $dada;
+}
 $usuaris = [
-    'eloy@mestre.es' => password_hash('ContProfe', PASSWORD_DEFAULT),
-    'javier@trompellot.es' => password_hash('ContTrompe', PASSWORD_DEFAULT),
+    'pedro@tupots.es' => password_hash('ContPedro', PASSWORD_DEFAULT),
+    'noa@gigachad.com' => password_hash('ContNoa', PASSWORD_DEFAULT),
 ];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $compter = $_POST['cuenta'];
+    $compter = $_POST['compter'];
     $cont = $_POST['cont'];
     $recordar = isset($_POST['recordar']) ? true : false;
     echo $compter." ".$cont;
@@ -13,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($recordar) {
             setcookie('mail',$compter, time() + 3600);
         }
-        header('Location: restringida.php');
+        header('Location: mapes.php');
         exit;
     } else {
         echo "¡¡Credencials incorrectes!!";
