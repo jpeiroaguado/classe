@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grouping App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+input {
+    margin-right: 10px;
+}
+
+#groups {
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <h1>Student Grouping Application</h1>
+    <input type="text" id="studentInput" placeholder="Enter student name">
+    <button id="addStudent">Add Student</button>
+    <button id="createGroups">Create Groups</button>
+    <button id="reset">Reset</button>
+    <div id="message"></div>
+    <div id="groups"></div>
+
+
+    <script>
+        let students = new Set();
+
+document.getElementById('addStudent').addEventListener('click', () => {
+    const input = document.getElementById('studentInput');
+    const name = input.value.trim();
+
+    if (name.toLowerCase() === 'end') {
+        input.value = '';
+        return;
+    }
+
+    if (students.has(name)) {
+        document.getElementById('message').innerText = `Name "${name}" is already in the list.`;
+    } else {
+        students.add(name);
+        document.getElementById('message').innerText = `Added: ${name}`;
+    }
+    input.value = '';
+});
+
+document.getElementById('createGroups').addEventListener('click', () => {
+    const studentArray = Array.from(students);
+    shuffleArray(studentArray);
+    const groups = createGroups(studentArray);
+    displayGroups(groups);
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+    students.clear();
+    document.getElementById('message').innerText = '';
+    document.getElementById('groups').innerHTML = '';
+});
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function createGroups(studentArray) {
+    const groups = [];
+    let groupSize = 3;
+
+    while (studentArray.length > 0) {
+        let group = studentArray.splice(0, groupSize);
+        if (group.length < groupSize && studentArray.length > 0) {
+            // If the last group has fewer than 3 members
+            let remaining = studentArray.splice(0, groupSize - group.length);
+            group = group.concat(remaining);
+        }
+        groups.push(group);
+    }
+
+    return groups;
+}
+
+function displayGroups(groups) {
+    const groupsDiv = document.getElementById('groups');
+    groupsDiv.innerHTML = '';
+    groups.forEach((group, index) => {
+        groupsDiv.innerHTML += `<p>Group ${index + 1}: ${group.join(', ')}</p>`;
+    });
+}
+    </script>
+</body>
+</html>

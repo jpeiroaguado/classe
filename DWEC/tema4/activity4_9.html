@@ -7,7 +7,10 @@
 </head>
 <body>
     <script>
-        var nombres=[];
+        
+    </script>
+    <script>
+        let nombres=[];
         do{
             nombre=prompt("Introduce a new unused name: ");
             if(nombres.includes(nombre)){
@@ -16,8 +19,29 @@
                 }while (nombres.includes(nombre));  
             }
             nombres.push(nombre);
-            //set o map, includes per a buscar dins de un array o index
-        }while (nombre!="fin");
+        }while (nombre!="end");
+        //We eliminathe the element end, who whas entered to finish the entry.
+        nombres.pop();
+
+        const grupos=[];
+        const restantes=[];
+
+        for (i=0;i<nombres.length;i+=3){
+                grupos.push(nombres.slice(i, i+3));
+        }
+
+        if(nombres.length%3!==0){
+            restantes.push(nombres.slice(-1, nombres.length%3));
+            while(restantes.length>0){
+                const randomInd = Math.floor(Math.random() * grupos.length);
+                grupos[randomInd].push(restantes.shift());
+                restantes.pop();
+            }
+        }
+
+        grupos.forEach((grupo, indice)=> {
+            document.write('Group '+(indice+1)+" :"+(grupo.join(', '))+"<br>");
+        });
     </script>
 </body>
 </html>
