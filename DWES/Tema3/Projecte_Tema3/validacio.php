@@ -20,15 +20,15 @@ $msgErrorContraseña='';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if(!empty($_POST['compter'])){
+    if(!empty($_POST['compter']&&array_key_exists($_POST['compter'], $usuaris))){
         $compter = neteja_dades($_POST['compter']);
+        if(!empty($_POST['contraseña'])&&password_verify($_POST['contraseña'], $usuaris[$compter])){
+            $contraseña = neteja_dades($_POST['contraseña']);
+        }else{
+            $msgErrorContraseña = "&#128561 Contraseña no valida.";
+        }
     }else{
         $msgErrorCompter = "&#128561 Compter no valid.";
-    }
-    if(!empty($_POST['contraseña'])){
-        $contraseña = neteja_dades($_POST['contraseña']);
-    }else{
-        $msgErrorContraseña = "&#128561 Contraseña no valida.";
     }
 
     $recordar = isset($_POST['recordar']) ? true : false;
@@ -36,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (array_key_exists($compter, $usuaris) && password_verify($contraseña, $usuaris[$compter])) {
         $_SESSION['usuari'] = $compter;
         if ($recordar) {
-            setcookie('mail',$compter, time() + 3600);
+            setcookie('usuari',$compter, time() + 3600);
         }
-        header('Location: mapes.php');
+        header('Location: menumapes.php');
         exit;
     } else {
         echo "¡¡Credencials incorrectes!!";
