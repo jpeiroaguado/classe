@@ -1,4 +1,4 @@
-Has tancat la sessió!!
+
 <?php
 
 session_start();

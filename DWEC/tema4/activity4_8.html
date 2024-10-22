@@ -8,6 +8,7 @@
 <body>
     <script>
         var arraynum=[];
+        //We introduce numbers until...
         do{
             var numero=prompt("Introduce a number, the program finish when you insert a 0");
             if (numero===null){
@@ -20,6 +21,7 @@
         }while(numero!==0||numero==isNaN);
         var initialValue=0;
         var sumarraynum=arraynum.reduce((acum, valpos) => acum+valpos,initialValue);
+        //we print it and calculate the average.
         document.write("You introduced: "+(arraynum.length-1)+" Numbers<br>");
         document.write("The addition of all the numbers is: "+sumarraynum+"<br>");
         media=sumarraynum/(arraynum.length-1);

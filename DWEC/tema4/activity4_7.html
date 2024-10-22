@@ -7,14 +7,15 @@
 </head>
 <body>
     <script>
-        var expression=prompt("Writhe the text to know if it's palindrome: ");
-        
+        var expression=prompt("Write the text to know if it's palindrome: ");
+        //We see "normalitze" the string
         expression=expression.toLowerCase();
         expression=expression.normalize("NFD");
         expression=expression.replace(/[^a-z]/g, '');
 
         var lengthcadena=expression.length;
 
+        //I did a bucle with 2 variables, one reads from the end and another for the start always comparing. If the compare fails or they surpass the other.
         for(x=0;x<expression.length;x++){
             if(expression.charAt(lengthcadena-1)!=expression.charAt(x)){
                 document.write("The text ISN'T Palindrome");

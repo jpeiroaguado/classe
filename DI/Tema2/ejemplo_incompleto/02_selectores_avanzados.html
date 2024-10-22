@@ -1,0 +1,104 @@
+<!doctype html>
+<html LANG="es">
+<head>
+  <meta charset="utf-8">
+  <title>Selectores</title>
+  <style type="text/css">
+    /*RESET DE ESTILOS */
+    *{
+      margin:0; padding:0;
+      text-decoration:none;
+      box-sizing:border-box;
+    }
+    /*ESTABLECEMOS FUENTE POR DEFECTO Y TAMAÑO*/
+    html{
+      font-family: Arial, Helvetica, sans-serif;/*Esto es heredable*/
+      font-size:16px;/*A partir de ahora en mi página 1rem=16px*/
+    }
+    h1{
+      font-size:1.5rem;/*1.5px * 16px = 24px*/
+      margin-bottom: 0.25em; /*em agafa el tamany de font del container, en este cas serien 4px*/
+    }
+    h2{
+      font-size: 1.2rem;
+    }
+    h3{
+      font-size: 1.1rem;
+    }
+
+    h1,h2,h3{
+      margin-bottom:1em;/*Deja un tamaño equivalente al tamaño de una 'm' de su fuente*/
+    }
+
+    /*SELECTORES DESCENDIENTES*/
+
+    h1#titul1 strong{
+      color: blue;
+    }
+    table td.rojo,
+    table th.rojo{
+      color:red;
+    }
+
+    td.rojo{
+      color:salmon;/*No sobreescribira el anterior ya que los anteriores son más específicos, cuanto menos especifico menos jerarquco es*/
+    }
+  </style>
+</head>
+
+<body>
+	<main>
+    <h1 id="titul1">Ejemplo <span><strong>selectores</strong></span> complejos </h1>
+    <p>Vamos a ver ejemplos de <strong><em>selectores</em></strong></p>
+    <p>También veremos  <strong>pseudo-clases</strong> ,
+         <em>pseudo-elementos</em> 
+       y <em>pseudo-estados</em> bla, bla, bla, bla
+    </p>
+    <a href="http://www.w3schools.com/cssref/css_selectors.asp" class="rojo">MÁS INFO</a>
+    <hr/>
+    <h1 id="titul2">Tabla</h1>
+    <table width="400" border="1">
+      <tr>
+        <th class="rojo">Clasificacion</th>
+        <th>Puntos</th>
+        <th>+info</th>
+      </tr>
+      <tr>
+        <td class="rojo">Alcoyano</td> <td>13</td>
+        <td><a href="http://cdalcoyano.com">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Elche</td> <td>10</td>
+        <td><a href="http://www.elchecf.es">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Alcoyano</td> <td>13</td>
+        <td><a href="http://cdalcoyano.com">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Elche</td> <td>10</td>
+        <td><a href="http://www.elchecf.es">web</a></td>
+      </tr>
+    </table>
+    <hr/>
+    <h1 id="titul3">Formulario</h1>
+    <form name="frmdatos">
+   		<input type="text" name="nombre" /><br/>
+        <input type="text" name="apellido" /><br/>
+        <select name="sexo">
+			<option value="h">hombre</option>
+            <option value="m">mujer</option>
+        </select><br/>
+        <select name="nacionalidad" disabled>
+			     <option value="ue" >Europeo</option>
+           <option value="no">No Europeo</option>
+        </select><br/>
+        <input type="checkbox" id="s1" name="sexo[]" value="h"/><label for="s1">Home</label>
+        &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="s2" name="sexo[]" value="d"/><label for="s2">Dona</label> <br/>
+        <input type="button" value="Enviar" />
+        <input type="button" value="Cancelar" />
+	</form> 
+	</main>  
+</body>
+</html>

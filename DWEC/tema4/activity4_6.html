@@ -8,6 +8,7 @@
 <body>
     <script>
         var num=[];
+        //We creathe the random numbers and print he table
         for(x=0;x<20;x++)
             num.push(parseInt(Math.random()*50)+1);
         var contador=0;
@@ -21,7 +22,7 @@
             document.write("</tr>");
         }
         document.write("</table><br>");
-            //We show the elements
+            //Then We show the elements and the asterisks.
         for(e=0;e<20;e++){
             document.write("Element "+(e+1)+"-> "+num[e]+" :");
             for(a=0;a<num[e];a++)

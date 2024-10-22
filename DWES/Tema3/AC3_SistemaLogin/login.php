@@ -8,7 +8,7 @@
 <body>
     <fieldset> <legend>Formulario de Login</legend>
         <form action="login.php" name="formulario" method="post">
-            <label for="correo">Correu electrónic: </label>
+            <label for="mail">Correu electrónic: </label>
             <input type="mail" name="mail" required><br>
             <label for="cont">Contraseña: </label>
             <input type="password" name="cont" required><br>   

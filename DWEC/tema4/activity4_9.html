@@ -20,28 +20,39 @@
             }
             nombres.push(nombre);
         }while (nombre!="end");
+        
         //We eliminathe the element end, who whas entered to finish the entry.
         nombres.pop();
 
         const grupos=[];
         const restantes=[];
+        //We shuffle the array to get random numbers
+        nombres.sort(() => Math.random() - 0.5);
 
+        //We remove the restants of the array, I don't know why it don't work well, sorry I was with my wife and try finish it, but don't work.. sorry
+        if(nombres.length%3!==0){
+            restantes.push(nombres.splice(-1, nombres.length%3));
+        }
+
+        //we mount the array
         for (i=0;i<nombres.length;i+=3){
                 grupos.push(nombres.slice(i, i+3));
         }
 
-        if(nombres.length%3!==0){
-            restantes.push(nombres.slice(-1, nombres.length%3));
-            while(restantes.length>0){
-                const randomInd = Math.floor(Math.random() * grupos.length);
+        //And finally we put it in random groups
+        if(restantes.length>0){
+            for(x=0;x<=restantes.length;x++){
+                let randomInd = Math.floor(Math.random() * grupos.length);
                 grupos[randomInd].push(restantes.shift());
                 restantes.pop();
             }
         }
 
+        //WE print it
         grupos.forEach((grupo, indice)=> {
             document.write('Group '+(indice+1)+" :"+(grupo.join(', '))+"<br>");
         });
+
     </script>
 </body>
 </html>
