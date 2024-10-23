@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <title>Selectores</title>
   <style type="text/css">
+    /*Los selectores tienen prioridad dependiendo de su jerarquia
+    (ID, CLASE, ELEMENTO)
+    por ejemplo h1 seria (0,0,1)
+    tr td seria(0,0,2)
+    h1#titul1 strong seria (1,0,2)*/
     /*RESET DE ESTILOS */
     *{
       margin:0; padding:0;
@@ -14,6 +19,7 @@
     html{
       font-family: Arial, Helvetica, sans-serif;/*Esto es heredable*/
       font-size:16px;/*A partir de ahora en mi página 1rem=16px*/
+      padding-left: 2em;
     }
     h1{
       font-size:1.5rem;/*1.5px * 16px = 24px*/
@@ -42,6 +48,89 @@
 
     td.rojo{
       color:salmon;/*No sobreescribira el anterior ya que los anteriores son más específicos, cuanto menos especifico menos jerarquco es*/
+    }
+    /*Todos los descendientes de un td, el selector * puede aplicarse a cualquier elemento y afecta a todos los descendientes, si pones table td > * afectara solo a los hijos*/
+    table td *{
+      color:purple;
+    }
+    /*PSEUDCLASE NOT*/
+
+    h1:not(#titul1){/*coge todos excepto el que especificas*/
+      color:green;
+    }
+    a:not(.rojo){
+      color:orange;
+    }
+    /*HERMANOS Y ADYACENTES*/
+    p.strong+em{
+      color:lime;
+    }
+    strong~ *{/**/
+      text-decoration: underline;
+    }
+    /*SELECTORES DE ATRIBUTO*/
+    table input[type="button"]{
+      background-color: blue;
+      color:white;
+      font-size: 1.1rem;/*1.1 por el tamaño de la fuente del container raiz (el html)*/
+      padding: 0.5em;/*Medida tomada del tamañao de su fuente actual, también es útil respecto al tamaño del propio contenedor*/
+    }
+
+    form a[href$=".es"]{
+    background-color:yellow;  /*enlaces que tengan href acabado en .es*/
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="number"],
+    form input[type="select"]{
+      font-family: 'Courier New', monospace;
+      margin:0.5em;
+    }
+    /*PSEUDO-ELEMENOS, PSEUDO-CLASES, PSEUDO-ESTADOS*/
+    h1::first-letter{/*Cogerá la primera letra de todos los títulos h1*/
+      font-size:2em;
+    }
+    p::selection{/*selección de raton*/
+      background-color:red;
+      color:lime;
+    }
+    p:hover{
+      text-decoration:underline;
+    }
+    table tr:nth-child(odd){/*Los tr que sean hijos impares de table*/
+      background-color: lightgrey;
+    }
+    table tr:first-child{/*actua sore el primer elemento hijo de un tr que sea hijo de una tabla*/
+      background-color: blue;
+      color:white;
+    }
+    h1:before{/*Inyecta cualquier contenido antes del h1*/
+      content:url('img/flecha.jpg');
+    }
+    p::after{/*Pone contenido después de cala elemento p*/
+      content: "-autor: J.Peiro";
+      font-size: 0.6em;;
+    }
+    form input:focus,
+    form select:focus{/*Da formatos a los elementos*/
+      background-color:olive;
+    }
+    form *:disabled{/*Da formato a todos los elementos deshabilitados*/
+      color:lightblue;
+    }
+    /*Posiblemente el selector más complejo que vereis*/
+    form input[type="checkbox"]:checked + label{/*Actua sobre el adyacente con el +*/
+      color:red;
+      font-size:1.2em;
+    }
+    /*El pseudoelemento :marker ae alusión a los puntos/números de las listas*/
+    ul.verde ::marker{
+      content:url(./img/flecha.jpg);
+      font-size: 0.5em;
+    }
+    section :is(h1, h2, h3){/*Selecciona a varios elementos para no tener que poner section h1, section h2, section h3, puede hacer con varios selectors por ejemplo :is(section, article)
+      hay una sección de ejemplos en los recursos del curso.*/
+      padding: 1em;
     }
   </style>
 </head>
@@ -82,7 +171,7 @@
     </table>
     <hr/>
     <h1 id="titul3">Formulario</h1>
-    <form name="frmdatos">
+    <form name="frmdatos" method="post">
    		<input type="text" name="nombre" /><br/>
         <input type="text" name="apellido" /><br/>
         <select name="sexo">
@@ -99,6 +188,12 @@
         <input type="button" value="Enviar" />
         <input type="button" value="Cancelar" />
 	</form> 
+  <!--Emet sintaxis amb el visual estudio: ul#lista.verde>li.items*3>a Creará la seguent llista:-->
+    <ul id="lista" class="verde">
+      <li class="items">Moniato1<a href=""></a></li>
+      <li class="items">Moniato2<a href=""></a></li>
+      <li class="items">Moniato3<a href=""></a></li>
+    </ul>
 	</main>  
 </body>
 </html>

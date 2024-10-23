@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php require_once 'funcionsmapes.php'; ?>
+    <?php require_once 'objectemapa.php'; ?>
 </head>
 <body>
     <h1>¡Hola! Benvinguts als mapes!</h1>

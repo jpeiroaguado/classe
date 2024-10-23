@@ -25,26 +25,24 @@
         nombres.pop();
 
         const grupos=[];
-        const restantes=[];
+        var restantes=[];
         //We shuffle the array to get random numbers
         nombres.sort(() => Math.random() - 0.5);
 
         //We remove the restants of the array, I don't know why it don't work well, sorry I was with my wife and try finish it, but don't work.. sorry
         if(nombres.length%3!==0){
-            restantes.push(nombres.splice(-1, nombres.length%3));
+            restantes=nombres.splice(-1*(nombres.length%3));
         }
-
         //we mount the array
         for (i=0;i<nombres.length;i+=3){
-                grupos.push(nombres.slice(i, i+3));
+                grupos.push(nombres.slice(i, 3));
         }
 
         //And finally we put it in random groups
         if(restantes.length>0){
             for(x=0;x<=restantes.length;x++){
-                let randomInd = Math.floor(Math.random() * grupos.length);
+                let randomInd = Math.floor(Math.random() * (grupos.length));
                 grupos[randomInd].push(restantes.shift());
-                restantes.pop();
             }
         }
 

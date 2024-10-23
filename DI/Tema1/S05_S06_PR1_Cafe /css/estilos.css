@@ -1,0 +1,13 @@
+header{
+    width: 100%;
+    height: 15rem;
+    background-color: #CCCC66;
+}
+header div:nth-child(1){
+    width: 10em;
+    height: 15em;
+}
+header div:nth-child(2){
+    width: 10em;
+    height: 15em;
+}
