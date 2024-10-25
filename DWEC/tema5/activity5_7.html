@@ -8,24 +8,25 @@
 <body>
     <script>
         function palindrome (expression){
-
+            //We filter it to compare
             expression=expression.toLowerCase();
             expression=expression.normalize("NFD");
             expression=expression.replace(/[^a-z]/g, '');
 
-            var lengthcadena=expression.length;
+            //We need a variable to a second counter because we start to compare the first but also the last letter and so
+            var lengthcadena=expression.length-1;
 
             for(x=0;x<expression.length;x++){
-                if(expression.charAt(lengthcadena-1)!=expression.charAt(x))
+                if(expression.charAt(lengthcadena)!=expression.charAt(x))
                     return false;
                 else 
                     lengthcadena--;
 
-                if(x==lengthcadena-1||lengthcadena<x)
+                if(x==lengthcadena||lengthcadena<x)
                     return true;
             }
         }
-        
+        //I know I don't need to put the ==true, but is easier for me to know we are working with boolean.
         if(palindrome(prompt("Write the text to know if it's palindrome: "))==true)
             document.write("¡The text is palindrome!");
         else 

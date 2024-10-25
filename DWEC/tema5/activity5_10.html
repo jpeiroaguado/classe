@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta nombre="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //We need the array and the condition
+        function filtro(array, condicion) {
+            const arrayFiltrada = [];
+        //For each element of the array we filter it with the condition
+        array.forEach(elemento => {
+            if (condicion(elemento)) {
+            arrayFiltrada.push(elemento);
+            }
+        });
+        return arrayFiltrada;
+    }
+        // We send an array of numbers and the callback function filters it with ODD numbers
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const numerosFiltrados = filtro(numeros, (numero) => numero % 2 === 0);//The first parameter is the array, the second parameter was the condition
+        document.write("Array de numeros: "+numeros+"<br>Array filtrado por números pares: "+numerosFiltrados+".<br>");
+
+        // Now with strings, we filter the words starting with 'a' letter.
+        const palabras = ["truculento", "aporía", "aurora", "melómano", "aforismo"];
+        const palabrasFiltradas = filtro(palabras, (palabra) => palabra.startsWith("a"));
+        document.write("Array de palabras: "+palabras+"<br>Array de palabras filtradas que empiezan por 'a': "+palabrasFiltradas+".<br>");
+
+        // Now with an array of objects with age greater than 35
+        const personas = [
+        { nombre: "Gema", edad: 32 },
+        { nombre: "Pedro", edad: 67 },
+        { nombre: "Javi", edad: 38 },
+        ];
+        
+        const personasFiltradas = filtro(personas, (persona) => persona.edad > 35);
+        const jsonPersonas = JSON.stringify(personasFiltradas);//We Json it to show it, I can do more beautiful but... isn't the point of that
+        document.write(jsonPersonas+".");
+    </script>
+</body>
+</html>

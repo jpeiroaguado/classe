@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palabras=[];
+        let palabra;
+
+        function anagram (palabras){
+            //We split the wort to sort the letter for easier comparision, and we get the first word to do it (it can be the second too but ok).
+            let letras=palabras[0].split('');
+            letras.sort();
+            letras=letras.join('');
+            validador=true;
+
+            palabras.forEach(palabra => {
+                //as always, we "normalitze" the word to compare it better,and also split, sort and join.
+                palabra=palabra.toLowerCase();
+                palabra=palabra.normalize("NFD");
+                palabra=palabra.replace(/[^a-z]/g, '');
+                palabra=palabra.split('');
+                palabra.sort();
+                palabra=palabra.join('');
+                
+                //We compare letter by letter because we sorted it, in case.
+                for(l=0;l<palabra.length;l++){
+                    if(palabra[l]!=letras[l]){
+                        validador=false;
+                        return validador;
+                    }
+                }
+            });
+            return validador;
+        }
+        
+
+        //We fill the array of words, also we pop the last word because it is "end".
+        do{
+            palabra=(prompt("Write another word, with a minimum of 2. To see if the words are anagrams enter 'end':"));
+            palabras.push(palabra);
+        }while(palabra!='end');
+
+        palabras.pop();
+
+        
+        let validator=anagram(palabras);
+
+        //We check whether the user has entered at least two words. If so, we proceed to check the result.
+        if(palabras.length<2){
+            document.write("¡You need introduce al least two words!")
+        }else if(validator==true)
+            document.write("¡All the words are anagrams! :D");
+        else 
+            document.write("The words aren't anagrams :(");
+
+    </script>
+</body>
+</html>

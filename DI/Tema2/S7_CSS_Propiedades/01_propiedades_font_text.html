@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Squirrel y dafonts son buenas páginas webn para encontrar fuentes*/
+        /*Google fonts es un recurso más rápido y encima está mantenido, el problema es que dependes de oogle y no tienes el control*/
+        /*DIRECTIVAS*/
+        /*Las directivas se parecen a los selectores pero no lo son, empiezan siepre por @*/
+        /*Dos fuentes descargadas desde google*/
+        @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Zen+Dots&display=swap');
+        @font-face{
+            font-family: "Fuente3D";
+            src: url('./ttf/3Dumb.ttf');
+        }
+        .quantico-regular {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.zen-dots-regular {
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+        
+        /*RESETS DE ESTILOS DE NAVEGADOR*/
+        *{
+            margin:0; padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        :root{
+            /*VARIABLES GLOBALES DE TODO EL CSS*/
+            /*Podeis utilizar cualquier valor como variable, asi para cambiar toda la web*/
+            --colordeFondo:rgb(30%,40%,5%);
+            --colorCab1: crimson;
+            --colorCab2: #02f0ff;
+            --fontPrincial: "Quantico", "Helvetica", sans-serif;
+            /*La fuente quantico es de gogole fonts*/
+            font-family: "Quantico", "Helvetica", sans-serif;/*sens-serif es un arquetipo*/
+            font-size:12px;
+            background-color: grey;
+        }
+        body{
+            background-color: var(--colordeFondo);
+            width: 80%;
+            background-color: white;
+            margin: 0 auto;/*arriba 0, izquierda 0, izquierda auto, abajo auto*/
+            padding: 1.5rem;/*es un shorthand o forma rápida de poner 4 propiedades como margin-top, margin-bot, etc*/
+        }
+        h1{
+            color: var(--colorCab1);
+            font-family: "Fuente3D", "Comic-sans", fantasy;
+            font-size:2rem;/*Esto seria 2*16px de la fuenta base = 32 px*/
+            margin-bottom:0,5em;/*esto serian 0.5*32=16px*/
+            letter-spacing:calc(1em/8);/*Función nueva de CSS que permite hacer pequeños cálculos*/
+            text-transform: uppercase;
+            word-spacing: 1.1em;
+            text-align: center;
+            text-shadow: darkcyan calc(1em/20) calc(1em/20) calc(1em/10), olive calc(1em/16) calc(1em/16) calc(1em/5);
+        }
+        h2{
+            color: var(--colorCab2);
+            font-family: "Zen-dots", "Times new Roman", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 100; /*100 es lo mismo  lighter, 300 normal, 600 bold y 900 bolder*/
+            margin-bottom: 1em;
+            font-style: italic; /*"oblique" es más inclinado que italic, pero si no lo permite cogerá italic*/
+            text-decoration: underline;
+
+        }
+        h2::first-letter{
+            font-family: 'Tranquila', 'Arial Narrow', Arial, serif;
+            font-size:2rem;
+            letter-spacing: 0.15em;
+        }
+
+        p{
+            text-align: justify;
+        }
+        a{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-stroke: 1px red;
+            fill-color: aqua;
+            -webkit-text-stroke: 1px aqua ;
+            -webkit-text-fill-color: white;
+        }
+    </style>
+</head>
+<body>
+	<main>
+    <h1 id="titul1">Ejemplo <span><strong>selectores</strong></span> complejos </h1>
+    <p>Vamos a ver ejemplos de <strong><em>selectores</em></strong></p>
+    <p>También veremos  <strong>pseudo-clases</strong> ,
+         <em>pseudo-elementos</em> 
+       y <em>pseudo-estados</em> bla, bla, bla, bla
+    </p>
+    <h2>Ejemplo de Titulo</h2>
+    <a href="http://www.w3schools.com/cssref/css_selectors.asp" class="rojo">MÁS INFO</a>
+    <hr/>
+    <h1 id="titul2">Tabla</h1>
+    <table width="400" border="1">
+      <tr>
+        <th class="rojo">Clasificacion</th>
+        <th>Puntos</th>
+        <th>+info</th>
+      </tr>
+      <tr>
+        <td class="rojo">Alcoyano</td> <td>13</td>
+        <td><a href="http://cdalcoyano.com">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Elche</td> <td>10</td>
+        <td><a href="http://www.elchecf.es">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Alcoyano</td> <td>13</td>
+        <td><a href="http://cdalcoyano.com">web</a></td>
+      </tr>
+      <tr>
+        <td class="rojo">Elche</td> <td>10</td>
+        <td><a href="http://www.elchecf.es">web</a></td>
+      </tr>
+    </table>
+    <hr/>
+    <h1 id="titul3">Formulario</h1>
+    <form name="frmdatos" method="post">
+   		<input type="text" name="nombre" /><br/>
+        <input type="text" name="apellido" /><br/>
+        <select name="sexo">
+			<option value="h">hombre</option>
+            <option value="m">mujer</option>
+        </select><br/>
+        <select name="nacionalidad" disabled>
+			     <option value="ue" >Europeo</option>
+           <option value="no">No Europeo</option>
+        </select><br/>
+        <input type="checkbox" id="s1" name="sexo[]" value="h"/><label for="s1">Home</label>
+        &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="s2" name="sexo[]" value="d"/><label for="s2">Dona</label> <br/>
+        <input type="button" value="Enviar" />
+        <input type="button" value="Cancelar" />
+	</form> 
+  <!--Emet sintaxis amb el visual estudio: ul#lista.verde>li.items*3>a Creará la seguent llista:-->
+    <ul id="lista" class="verde">
+      <li class="items">Moniato1<a href=""></a></li>
+      <li class="items">Moniato2<a href=""></a></li>
+      <li class="items">Moniato3<a href=""></a></li>
+    </ul>
+	</main>  
+</body>
+</html>

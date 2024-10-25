@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fibonacci</title>
 </head>
 <body>
     <script>
@@ -11,25 +11,34 @@
         //Fibbo NO recursive function
         function fibonacci (num){
             document.write("Fibonacci secuence: ")
-            for(x=0;x<=num;x++){
+            for(x=0;x<num;x++){
+                //If it don't enter in first secuences start to fill the fibonaccy secuence array
                 if(x>=2){
                     fibonaci.push(fibonaci[x-1]+fibonaci[x-2]);
-                    if(x!=num)
+                    if(x!=num-1)
                         document.write(fibonaci[x]+", ");
                     else
                         document.write(fibonaci[x]+".");
-                }  
+                }else if(x==0){//We check the first 2 secuences to print his value (0 and 1)
+                    document.write(fibonaci[0]+", ");
+                }else if(x==1){
+                    document.write(fibonaci[1]+", ");
+                }
             }
-            return fibonaci[num];
+            //We return the array
+            return fibonaci[num-1];
         }
         //Fibbo recursive function
         function fibonacciRecur(num){
-            if (num <= 1) 
-                return num;
-             else 
-                return fibonacciRecur(num - 1) + fibonacciRecur(num - 2);
-            
-            }
+            //Same as before, we check the first two, if is not the case, we start to fill the array.
+            if(num==1){
+                return fibonaci[0];
+            }else if(num==2){
+                return fibonaci[1];
+            }else 
+                return fibonacciRecur(num - 1) + fibonacciRecur(num - 2);    
+        }
+        //We get the wanted position and print it.
         var num=parseInt(prompt("Write the position of the fibonacci sequence you want to know: "));
         var valorFibo=fibonacci(num);
         document.write("<br> Fibonacci WITHOUT recursive function: "+valorFibo);

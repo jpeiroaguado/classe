@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribonacci</title>
+</head>
+<body>
+    <script>
+        const tribonacci=[0,0,1];
+        //Tribbo NO recursive function
+        function tribonaccy (num){
+            //We print the tribonacci secuence to compare
+            document.write("Tribonaccy secuence: ");
+            //As the fibonacci activity, we check the first 3 instances, then we start to fill the array.
+            for(x=0;x<num;x++){
+                if(x>=3){
+                    tribonacci.push(tribonacci[x-1]+tribonacci[x-2]+tribonacci[x-3]);
+                    if(x!=num-1)
+                        document.write(tribonacci[x]+", ");
+                    else
+                        document.write(tribonacci[x]+".");
+                }else if(x==0){
+                    document.write(tribonacci[0]+", ");
+                }else if(x==1){
+                    document.write(tribonacci[1]+", ");
+                }else if(x==2){
+                    document.write(tribonacci[2]+", ");
+                }
+            }
+            return tribonacci[num-1];
+        }
+        //Fibbo recursive function, same as fibbo, but with 3 interactions instead of 2.
+        function tribonaccyRecur(num){
+            if(num==1){
+                    return tribonacci[0];
+            }else if(num==2){
+                    return tribonacci[1];
+            }else if(num==3){
+                    return tribonacci[2];
+            }else 
+                return tribonaccyRecur(num - 1) + tribonaccyRecur(num - 2) + tribonaccyRecur(num - 3);
+            
+            }
+        //And we print both.
+        var num=parseInt(prompt("Write the position of the tribonaccy sequence you want to know: "));
+        var valorTribo=tribonaccy(num);
+        document.write("<br> Tribonaccy WITHOUT recursive function: "+valorTribo);
+
+        var valorTriboRecur=tribonaccyRecur(num);
+        document.write("<br> Tribonnaci WITH recursive function: "+valorTriboRecur);
+
+
+        
+    </script>

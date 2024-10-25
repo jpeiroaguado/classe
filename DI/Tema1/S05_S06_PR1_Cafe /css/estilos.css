@@ -1,13 +1,57 @@
+html{
+    font-size: 18px;
+    
+}
 header{
     width: 100%;
     height: 15rem;
-    background-color: #CCCC66;
+    background-color:#CCCC66;
+    display: flex; /* Convertimos el header en un contenedor flexible */
+    justify-content: space-between; /* Distribuimos los elementos de forma equitativa */
 }
-header div:nth-child(1){
-    width: 10em;
-    height: 15em;
+aside{
+    width: 20rem;
+    height: 80rem;
+    background-color:#CCCC66;
+    justify-content: space-between; /* Distribuimos los elementos de forma equitativa */
 }
-header div:nth-child(2){
-    width: 10em;
-    height: 15em;
+/*Atributos elementos en HEADER*/
+header img {
+    height: auto; /* Mantiene la proporción de las imágenes */
+    padding: 2rem;
+}
+  
+header img:first-child {
+    /* Estilos específicos para el primer elemento (logo.gif) */
+    width: 15rem;
+}
+  
+header img:last-child {
+    /* Estilos específicos para el último elemento (banner.gif) */
+    width: 55rem;
+}
+/*Atributos elementos en ASIDE*/
+aside div {
+    display: flex; /* New style */
+    flex-direction: column; /* New style */
+    font-size: 2.5rem;
+}
+
+aside div img[src="./img/grano.gif"]{
+    width:3rem;
+    height:3rem;
+    align-self: flex-end;
+}
+img.grano1[src="./img/grano.gif"]{
+    width:3rem;
+    height:3rem;
+    align-self: flex-end;
+    padding-right: 2rem;
+}
+img.grano2[src="./img/grano.gif"]{
+    padding-top: -1rem;
+}
+aside div img[src="./img/fotos.png"]{
+    width:20rem;
+    height:20rem;
 }

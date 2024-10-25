@@ -132,6 +132,29 @@
       hay una sección de ejemplos en los recursos del curso.*/
       padding: 1em;
     }
+    span~img{/*todos los hermanos*/
+      padding:5em;
+    }
+    img[target]{/*Cualquier elemento img selecionado*/
+      margin: 5em;
+    }
+    *[name^="ESS"]{/**/
+      font-language-override: es;
+    }
+    a[href$=".es"]{/*todos los enlaces que terminen por .es*/
+      font-language-override: es;
+    }
+    article :is(h1, h2, h3){/*E is actua como combinación para las otras, 
+      también se puede hacer :is(article, section) :is(h1, h2, h3)
+      esto afectaria tanto a los h1, h2 y h3 de article como a los de section*/
+      color:red;
+    }
+    section:has(div.verde){/*cogeria un section que tubiera al menos un hijo que fuese de la clase verde*/
+      color:green;
+    }
+    h1:before{/*insertaria la image del content davant de cada h1*/
+      content:url('img/foto.jpg');
+    }
   </style>
 </head>
 
