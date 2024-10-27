@@ -1,7 +1,7 @@
 <?php
 class DBConnection{
     //Database connection data
-    private static $severname="localhost";
+    private static $servername="localhost";
     private static $dbname="pelis";
     private static $username ="pelis";
     private static $password="0hk87seXpeLe4siu";
@@ -15,7 +15,7 @@ class DBConnection{
         try{
             $conn= new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             //set the PDO error mode to exception
-            $conn->stAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
         } catch (PDOException $e){
             echo "Connection failed: ".$e->getMessage();

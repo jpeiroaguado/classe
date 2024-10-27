@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Computadora {
+            constructor(marca, modelo, ram = 4, discoDuro = 512, pulgadas = 17) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.ram = ram;
+                this.discoDuro = discoDuro;
+                this.pulgadas = pulgadas;
+            }
+            toString() {
+                return `Marca: ${this.marca}, 
+                Modelo: ${this.modelo}, 
+                RAM: ${this.ram}, 
+                Disco Duro: ${this.discoDuro},
+                Pulgadas: ${this.pulgadas}"`;
+            }
+        }
+
+        class Portatil extends Computadora {
+            constructor(marca, modelo, ram, discoDuro = 256, pulgadas = 12, autonomia = 4) {
+                super(marca, modelo, ram, discoDuro, pulgadas);
+                this.autonomia = autonomy;
+            }
+        }
+
+
+        // Example usage:
+        let ordenador1 = new Computadora("Dell", "Alienware Aurora", 32, 21);
+        document.write(ordenador1.toString()+"<br>");
+
+        let portatil = new Portatil("Slimbook", "Titan", 32, 15, 7);
+        document.write(portatil.toString());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

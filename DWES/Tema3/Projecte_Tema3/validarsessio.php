@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 function neteja_dades($dada){
     $dada=trim($dada);
@@ -13,17 +13,19 @@ $usuaris = [
     'noa@gigachad.com' => password_hash('ContNoa', PASSWORD_DEFAULT),
 ];
 
+//Verifiquem que estiga tot correcte
 $compter='';
 $contraseña='';
 $msgErrorCompter='';
 $msgErrorContraseña='';
+$msgErrorCredencials='';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(!empty($_POST['compter']&&array_key_exists($_POST['compter'], $usuaris))){
         $compter = neteja_dades($_POST['compter']);
         if(!empty($_POST['contraseña'])&&password_verify($_POST['contraseña'], $usuaris[$compter])){
-            $contraseña = neteja_dades($_POST['contraseña']);
+            $contraseña = ($_POST['contraseña']);
         }else{
             $msgErrorContraseña = "&#128561 Contraseña no valida.";
         }
@@ -32,8 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $recordar = isset($_POST['recordar']) ? true : false;
-    echo $compter." ".$contraseña;
+//Si está tot correcte comprobem que l'usuari ha seleccionat la opció de recordar i setejem les cocokies.
     if (array_key_exists($compter, $usuaris) && password_verify($contraseña, $usuaris[$compter])) {
+        session_start();
         $_SESSION['usuari'] = $compter;
         if ($recordar) {
             setcookie('usuari',$compter, time() + 3600);
@@ -41,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: menumapes.php');
         exit;
     } else {
-        echo "¡¡Credencials incorrectes!!";
+        $msgErrorCredencials="¡¡Credencials incorrectes!!";
     }
 }
 

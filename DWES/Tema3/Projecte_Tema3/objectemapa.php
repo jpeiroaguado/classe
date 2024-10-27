@@ -19,12 +19,12 @@ class Mapa{
     public function nuevoTerritorio(territorio $nuevoTerritorio){
         $this->territorios[]=$nuevoTerritorio;
     }
-
+/*
     public function guardarEnCookie() {
         $mapaJson = json_encode($this);
         setcookie('mapa', $mapaJson, time() + 3600, '/');
     }
-    //llista de mapes
+
     public static function cargarDeCookie() {
         if (isset($_COOKIE['mapa'])) {
             $mapaJson = $_COOKIE['mapa'];
@@ -32,6 +32,7 @@ class Mapa{
         }
         return null;
     }
+*/
 }
 
 

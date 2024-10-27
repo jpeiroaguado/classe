@@ -1,6 +1,8 @@
-html{
+:root{
     font-size: 18px;
-    
+    padding: 1rem;
+    color: maroon;
+    content: justify;
 }
 header{
     width: 100%;
@@ -10,11 +12,21 @@ header{
     justify-content: space-between; /* Distribuimos los elementos de forma equitativa */
 }
 aside{
-    width: 20rem;
-    height: 80rem;
+    width: 20%;
+    padding: 20px;
     background-color:#CCCC66;
     justify-content: space-between; /* Distribuimos los elementos de forma equitativa */
+    flex-shrink: 0;
+    min-height: 100vh;
 }
+iframe {
+    width: 80%;
+    background-color:#CCCC66;
+}
+p{
+    font-size: 2em;
+}
+
 /*Atributos elementos en HEADER*/
 header img {
     height: auto; /* Mantiene la proporción de las imágenes */
@@ -29,8 +41,18 @@ header img:first-child {
 header img:last-child {
     /* Estilos específicos para el último elemento (banner.gif) */
     width: 55rem;
+    padding-right: 25%;
 }
 /*Atributos elementos en ASIDE*/
+#listaMenu{
+    list-style-type: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+#listaMenu a{
+    text-decoration: none;
+    color: maroon;
+}
 aside div {
     display: flex; /* New style */
     flex-direction: column; /* New style */
@@ -51,7 +73,70 @@ img.grano1[src="./img/grano.gif"]{
 img.grano2[src="./img/grano.gif"]{
     padding-top: -1rem;
 }
+/*Atributos iframe*/
 aside div img[src="./img/fotos.png"]{
     width:20rem;
     height:20rem;
 }
+.container {
+    display: flex;
+}
+
+img.grano3[src="./img/grano.gif"]{
+    float: left;
+    width:2rem;
+    height:2rem;
+}
+.contenedorForm {
+    width: 60%;
+}
+table.cultivo{
+    font-size: 1.5em;
+    border-collapse: collapse;
+    border: 0.15em, solid, white;
+    padding: 0.15em;
+}
+:is(td, th).cultivo {
+    border: 1px solid white;
+    padding: 10px; 
+}
+form.formContacto{
+    font-size: 1em;
+}
+label {
+    display:inline;
+    margin-left: 4rem;
+}
+input.form{
+    float: right;
+}
+select.form{
+    float: right;
+}
+textarea.form{
+    float: right;
+}
+input.boton{
+    margin-left: 20%;
+}
+img[src="./img/granos.jpg"]{
+    float:right;
+}
+ul.tipos{
+    clear:right;
+}
+nav.lista{
+    display: flex;
+    align-items: flex-start;
+}
+main.cuerpoPreparacion{
+    width:80%;
+}
+aside[name="widgets"]{
+    float:right;
+    align-content: center;
+    width: 20%;
+}
+
+
+
