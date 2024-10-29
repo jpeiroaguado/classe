@@ -5,12 +5,11 @@ function neteja_dades($dada){
     $dada=htmlspecialchars($dada);
     return $dada;
 }
-function estaAutenticado() {
+function estaAutenticat() {
     session_start();
-    if (isset($_SESSION['usuario'])) {
-        return true;
-    } else {
-        return false;
+    if (!isset($_SESSION['usuari'])) {
+        // Si no está autenticat, el redirigim a la página de login
+        header('Location: login.php');
     }
 }
 ?>

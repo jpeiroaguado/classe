@@ -1,11 +1,17 @@
 <?php
 class territorio {
-    private $nombre;
-    private $coordenadas;
+    private $nom;
+    private $coordenades;
 
-    public function __construct($nombre, $coordenadas) {
-        $this->nombre = $nombre;
-        $this->coordenadas = $coordenadas;
+    public function __construct($nom, $coordenades) {
+        $this->nom = $nom;
+        $this->coordenades = $coordenades;
+    }
+    public function toArray() {
+        return [
+            'nom' => $this->nom,
+            'descripcio' => $this->descripcio
+        ];
     }
 }
 ?>

@@ -1,14 +1,13 @@
 <?php
-session_start();
-include_once 'objectemapa.php';
 include_once 'funcions.php';
+include_once 'objectemapa.php';
 
 $NMapa='';
 $IMapa='';
 $msgErrorNMapa='';
 $msgErrorIMapa='';
 
-//Veriqfiquem que tot estiga correcte abans de fer res
+//Verifiquem que tot estiga correcte abans de fer res
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $NMapa='';
     $TMapa=$_POST['TMapa'];
@@ -36,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_COOKIE['mapas'])) {
             $mapasJson = $_COOKIE['mapas'];
             $arrayMapas=json_decode($mapasJson, true);
-            $arrayMapas[]=$mapa;
+            $arrayMapas[]=$mapa->toArray();
             $mapasJson = json_encode($arrayMapas);
         }else{//Si no crea un nou array, li fa un push amb el mapa y el codifica
             $arrayMapas=[];
-            $arrayMapas[]=$mapa;
+            $arrayMapas[]=$mapa->toArray();
             $mapasJson = json_encode($arrayMapas);
         }
         //Afegim el mapa al array y redirigim al menu

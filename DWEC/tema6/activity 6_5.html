@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validador de URLs</title>
+</head>
+<body>
+    <h1>Validador de URLs</h1>
+    <input type="text" id="URL" placeholder="Introduce la URL">
+    <button onclick="validateURL()">Validar URL</button>
+    <p id="resultado"></p>
+
+    <script>
+        function validateURL() {
+            const URL = document.getElementById("URL").value;
+            const urlPattern = /^(https?:\/\/{0,3})?([a-zA-Z0-9.-]+)?(:[a-zA-Z0-9.&%$-]+)?@?([a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+)(:\d+)?(\/[a-zA-Z0-9\/.-]*)?(\?.*)?$/;
+            
+            if (urlPattern.test(URL)) {
+                document.getElementById("resultado").innerText = "La URL es válida.";
+            } else {
+                document.getElementById("resultado").innerText = "La URL no es válida.";
+            }
+        }
+        /*
+    Explanation:
+    ^(https?:\/\/{0,3})?                The initial Pattern ^ followed by http and the s is optional and the / can be 0 or 3. All is optional.
+    ([a-zA-Z0-9.-]+)?                   Optional Username can have . and -
+    (:[a-zA-Z0-9.&%$-]+)*@)             Optional Password, need start after the username and with an : Also can have special characters like &, % or $
+    ?@?                                 Divide the Authentification part with the url "normal" one. The useranme and pass are optional also the @
+    ([a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]+)    The name of the machine,same as name, but with a period.
+    (:\d+)?                             Port, followed by any digit, optional, start with :    
+    (\/[a-zA-Z0-9\/.-]*)?(\?.*)?$/      Route, starting with a slash and after that can have more / and . we have the ? to put as many need.
+    */
+    </script>
+</body>
+</html>

@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insertar mapa</title>
     <?php 
+    include_once 'funcions.php';
+    estaAutenticat();
     require_once 'objectemapa.php'; 
     require_once 'validarmapa.php';
-    require_once 'funcions.php';
-    if (!estaAutenticado()){
-        header('Location: login.php');
-        exit();
-    }
     ?>
 
 </head>
@@ -26,10 +23,12 @@
                 <option value="5000x5000">Grande (5000x5000)</option>
                 <option value="10000x10000">Gigante (10000x10000)</option>
         </select><br>
-            <!-- Açí faría un type file amb una sessió al ftp per a putjar la imatge. Per a simplificar-ho li pasarem una URL -->   
+            <!-- Açí faría un type file per a putjar la imatge. Per a simplificar-ho degut al JSON li pasarem una URL... Fique el input per a que vegues que se com va <input type="file" id="imatge" name="imatge[]" accept="image/*" multiple>-->   
             <label for="IMapa">URL del Mapa: </label><input type="text" name="IMapa" placeholder="url del mapa" value="<?=$IMapa?>"><span style="background-color:red;"><?=$msgErrorIMapa?></span><br>        
         </fieldset>
     <input type="submit" value="Crear Mapa">
     </form>
+    <br>
+    <a href="menumapes.php">Tornar</a>
 </body>
 </html>

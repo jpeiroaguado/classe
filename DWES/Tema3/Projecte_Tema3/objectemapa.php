@@ -1,5 +1,4 @@
 <?php
-
 include_once 'objecteterritoris.php';
 class Mapa{
     private $nombre;
@@ -19,20 +18,16 @@ class Mapa{
     public function nuevoTerritorio(territorio $nuevoTerritorio){
         $this->territorios[]=$nuevoTerritorio;
     }
-/*
-    public function guardarEnCookie() {
-        $mapaJson = json_encode($this);
-        setcookie('mapa', $mapaJson, time() + 3600, '/');
-    }
 
-    public static function cargarDeCookie() {
-        if (isset($_COOKIE['mapa'])) {
-            $mapaJson = $_COOKIE['mapa'];
-            return json_decode($mapaJson, true);
-        }
-        return null;
+    public function toArray() {
+        return [
+            'nombre' => $this->nombre,
+            'tamaño' => $this->tamaño,
+            'adminMapa' => $this->adminMapa,
+            'imagen' => $this->imagen,
+            'territorios' => $this->territorios
+        ];
     }
-*/
 }
 
 

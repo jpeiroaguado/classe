@@ -16,18 +16,17 @@
     <form name="formContacto" class="formContacto" action="contacto.html">
         <div class="contenedorForm">
             <input type="hidden" id="IdUsuario" name="IdUsuario" value="2345">
-            <label for="nombre"><strong>Nombre*:</strong></label><input type="text" name="nombre" class="form" maxlength="20" autofocus required><br>
-            <label for="apellidos">Apellidos:</label><input type="text" name="apellidos" class="form" maxlength="30"><br>
-            <!--[^\s@]+@[^\s@]+\.[^\s]{2,} Este sería el pattern para un input de correo, pero ya que tenemos el tipo mail...-->
-            <label for="correo"><strong>Correo Electrónico*:</strong></label><input type="mail" name="email" class="form" maxlength="30" required><br>
+            <label for="nombre"><strong>Nombre*:</strong></label><input type="text" name="nombre" id="nombre" class="form" maxlength="20" autofocus required><br>
+            <label for="apellidos">Apellidos:</label><input type="text" name="apellidos" id="apellidos" class="form" maxlength="30"><br>
+            <label for="email"><strong>Correo Electrónico*:</strong></label><input type="text" name="email" id="email" class="form" pattern="[^\s@]+@[^\s@]+\.[^\s]{2,}" maxlength="30" required><br>
         </div>
-        <label for="tazas">¿Cuantas tazas de cafe tomas al dia?</label>
-        <input type="radio" name="tazas" value="1-2" checked>1 o 2 tazas
-        <input type="radio" name="tazas" value="2-5 tazas">2-5 tazas
-        <input type="radio" name="tazas" value="5+">Mas de 5 tazas
+        <label for="taza12">¿Cuantas tazas de cafe tomas al dia?</label>
+        <input type="radio" name="tazas" id="taza12" value="1-2" checked>1 o 2 tazas
+        <input type="radio" name="tazas" id="taza25" value="2-5 tazas">2-5 tazas
+        <input type="radio" name="tazas" id="taza5" value="5+">Mas de 5 tazas
         <br>
         <div class="contenedorForm">
-            <label for="tomarCafe">¿Como te gusta preparar el cafe?</label><select name="tomarCafe" class="form">
+            <label for="tomarCafe">¿Como te gusta preparar el cafe?</label><select name="tomarCafe" id="tomarCafe" class="form">
             <option value="hidden">Selecciona una opcion</option>
             <option value="expreso">Expreso</option>
             <option value="largo">Largo</option>
@@ -37,7 +36,7 @@
             <option value="carajillo">Carajillo</option>
             </select>
             <br>
-            <label for="tomarCafe">¿Que café te gusta mas?</label>
+            <label for="tipoCafe">¿Que café te gusta mas?</label>
             <select name="tipoCafe" id="tipoCafe" class="form" multiple size="3">
                 <option value="ar">Arabica</option>
                 <option value="ro">Robusta</option>
@@ -46,20 +45,20 @@
             <br>
             <br>
             <br>
-            <label for="referencia">¿Cómo nos has encontrado?</label><input type="text" name="referencia" class="form" list="sugerencias" />
+            <label for="referencia">¿Cómo nos has encontrado?</label><input type="text" name="referencia" id="referencia" class="form" list="sugerencias">
             <datalist id="sugerencias">
                 <option value="anuncio de televisión"></option>
                 <option value="buscadores"></option>
                 <option value="un amigo"></option>
             </datalist>
             <br>
-            <label for="edad">Edad:</label><input type="number" name="edad" class="form" min="18" max="99">
+            <label for="edad">Edad:</label><input type="number" name="edad" id="edad" class="form" min="18" max="99">
             <br>
-            <label for="telefono">Teléfono:</label><input type="tel" class="form" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+            <label for="telefono">Teléfono:</label><input type="tel" class="form" name="telefono" id="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
             <br>
-            <label for="medidorCafeina">Que nivel de cafeina te gusta?</label><input type="range" name="cafeina" class="form" min="0" max="12">
+            <label for="cafeina">Que nivel de cafeina te gusta?</label><input type="range" name="cafeina" id="cafeina" class="form" min="0" max="12">
             <br>
-            <label for="comentarios">Comentario:</label><textarea name="comentarios" class="form" rows="4" cols="50"></textarea>
+            <label for="comentarios">Comentario:</label><textarea name="comentarios" id="comentarios" class="form" rows="4" cols="50"></textarea>
             <br>
             <br>
             <br>

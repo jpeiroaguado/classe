@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+</head>
+<body>
+    <script>
+        class Cards{  
+            constructor(suit, value){
+                if(suit<1||suit>4||value < 1 || value > 10){
+                    return null
+                }
+
+                this.suit=suit;
+                this.value=value;
+            }
+
+            // We give suit and value to the
+            giveValue(suit, value) {
+                if (suit >= 1 && suit <= 4 && value >= 1 && value <= 10) {
+                    this.suit = suit;
+                    this.value = value;
+                }
+            }
+            // We switch here the numers to a name of the suits
+            getSuitName() {
+                switch (this.suit) {
+                    case 1: return "Coins";
+                    case 2: return "Swords";
+                    case 3: return "Clubs";
+                    case 4: return "Cups";
+                    default: return "Unknown Suit";
+                }
+            }
+
+            // This also, chamge some of the values for a more common names
+            getValueName() {
+                switch (this.value) {
+                    case 1: return "Ace";
+                    case 7: return "Handle";
+                    case 8: return "Jack";
+                    case 9: return "Horse";
+                    case 10: return "King";
+                    default: return this.value.toString(); // Los valores numéricos 2-7 se devuelven como texto
+                }
+            }
+
+            // We return the string, calling the methods getValueName and GetSuitName
+            toString() {
+                return `${this.getValueName()} of ${this.getSuitName()}`;
+            }
+        }
+        class CardsDeck{
+            //We fill the deck
+            constructor(){
+                this.cards=[];
+                for(var su=1;su<=4;su++){
+                    for(var va=1;va<=10;va++){
+                        const card=new Cards(su, va);
+                        this.cards.push(card);
+                    }
+                } 
+            }
+            //We suffle it
+            shuffleDeck(){
+                for(var s=0;s<this.cards.length;s++){
+                    var r=Math.floor(Math.random()* 40);
+                    [this.cards[s], this.cards[r]]=[this.cards[r], this.cards[s]]
+                }
+            }
+            //Finally, we print it
+            toString(){
+                for(var c=0;c<this.cards.length;c++){
+                    document.write(this.cards[c]+"<br>");
+                }
+            }
+        }
+
+
+        const Deck = new CardsDeck;
+        Deck.shuffleDeck();
+        Deck.toString();
+    </script>
+    
+</body>
+</html>

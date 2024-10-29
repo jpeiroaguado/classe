@@ -132,10 +132,8 @@ nav.lista{
 main.cuerpoPreparacion{
     width:80%;
 }
-aside[name="widgets"]{
-    float:right;
-    align-content: center;
-    width: 20%;
+iframe[name="tiempo"]{
+    background-color: white;
 }
 
 

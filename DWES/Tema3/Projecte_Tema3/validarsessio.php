@@ -1,12 +1,7 @@
 <?php
+include_once 'funcions.php';
 
 
-function neteja_dades($dada){
-    $dada=trim($dada);
-    $dada=stripslashes($dada);
-    $dada=htmlspecialchars($dada);
-    return $dada;
-}
 
 $usuaris = [
     'pedro@tupots.es' => password_hash('ContPedro', PASSWORD_DEFAULT),
