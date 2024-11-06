@@ -1,0 +1,270 @@
+/*No se porqué no me coge la fuente...*/
+@font-face {
+    font-family: "Matrix";
+    src: url('./fonts/matrix.ttf') format('truetype');
+}
+
+/*Animació*/
+.cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+  
+.drop {
+    position: absolute;
+    color:aquamarine; /*color*/
+    text-shadow: 
+                0 0 5px #00ffcc, 
+                0 0 10px #00ffcc, 
+                0 0 20px #00ffcc, 
+                0 0 40px #00bfa5,
+                0 0 80px #00bfa5, 
+                0 0 120px #008080;
+    font-family: monospace;
+    font-size: 1em;
+    opacity: 1;
+    animation: fall 2s linear infinite;
+    transform: rotate(90deg);
+    width: 10px;
+    text-align: center;
+}
+  
+@keyframes fall {
+    0% {
+      transform: translateY(-200%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(50%) translateX(sin(time(1s) * 360deg) * 10px);
+
+    }
+    100% {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+  }
+
+
+/*UNIVERSALES*/
+
+:root{
+    font-family: "Matrix", sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000;
+    overflow: auto;
+}
+
+aside {
+    position: fixed;
+    width: 250px;
+    margin-top: 30px;
+    padding: 10px;
+    color:beige;
+    
+}
+main {
+    position: absolute;
+    margin-top: 270px;
+    margin-left: 270px;
+    padding: 10px;
+    width: 1000px;
+    text-align:left;
+    border:2px solid white;
+    background-color: rgba(0, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+}
+nav {
+    position: absolute;
+    margin-top: 210px;
+    margin-left: 270px;
+}
+header{
+    float: left;
+    margin-left: 270px;
+}
+footer{
+    position:absolute;
+    margin-top: 2000px;
+    margin-left: 500px;
+    width: 100%;
+    color: #00ffcc;
+            font-size: 1rem;
+            font-weight: bold;
+
+            /* Sombras para el efecto neon */
+            text-shadow: 
+                0 0 5px #00ffcc,
+                0 0 10px #00ffcc, 
+                0 0 20px #00ffcc, 
+                0 0 40px #00bfa5,
+                0 0 80px #00bfa5, 
+                0 0 120px #008080;
+}
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.8rem;
+    border-radius: 5px;
+    float: right;
+    width: 100px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar { 
+    background-color: darkgray; /* Fondo de la barra */
+    border-radius: 5px;
+}
+/*ID*/
+aside img#foto{
+    width: 60%;
+    margin: 1rem auto;
+    display: block;
+    border-radius: 1rem;
+    border: 2px solid #ebfbfb;
+    box-shadow: /*halo*/
+        0 0 5px #00ffcc, 
+        0 0 10px #00ffcc, 
+        0 0 20px #00ffcc, 
+        0 0 40px #00bfa5,
+        0 0 80px #00bfa5, 
+        0 0 120px #008080;
+}
+
+/*CLASES*/
+.tit{
+    color: #00ffcc; 
+    font-weight: bold;
+
+    /* Sombra efecto neón */
+    text-shadow: 
+        0 0 5px #00ffcc, 
+        0 0 10px #00ffcc, 
+        0 0 20px #00ffcc, 
+        0 0 40px #00bfa5,
+        0 0 80px #00bfa5, 
+        0 0 120px #008080;
+    -webkit-text-stroke: 0.5px #00ffa6;
+    font-size: 1.3rem;
+}
+.fecha{
+    text-align:right;
+    float:right;
+}
+aside div.container{
+    border:2px solid white;
+    background-color: rgba(0, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    border-radius: 0.5rem;
+}
+/*MIXTOS*/
+aside strong{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color:rgb(2, 80, 80)
+}
+aside h3{
+    text-transform: uppercase;
+    color: #00ffcc; 
+    font-weight: bold;
+    text-align: center;
+
+    /* Sombra efecto neón */
+    text-shadow: 
+        0 0 5px #00ffcc,  
+        0 0 10px #00ffcc, 
+        0 0 20px #00ffcc, 
+        0 0 40px #00bfa5, 
+        0 0 80px #00bfa5, 
+        0 0 120px #008080;
+    -webkit-text-stroke: 0.5px #00ffa6;
+    font-size: 1.3rem;
+}
+:is(progress[value="75"])::-webkit-progress-value{
+background-color: greenyellow;
+}
+:is(progress[value="80"])::-webkit-progress-value{
+background-color:chartreuse;
+}
+
+:is(progress[value="90"])::-webkit-progress-value{
+background-color:yellowgreen;  
+}
+
+:is(progress[value="100"])::-webkit-progress-value{
+background-color:green; 
+}
+p:has(> progress) {
+    color:bisque;
+}
+aside strong + p {
+    color:bisque; 
+}
+aside div.container:last-child{
+    color:bisque; 
+}
+h3::first-letter{
+    text-transform: uppercase;
+}
+nav .botonNav {
+    background-color: rgba(0, 255, 255, 0.5); 
+    border: 2px solid #00f7ff;
+    color: #00f7ff;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+    transition: all 0.3s ease;
+}
+nav .botonNav:hover {
+    background-color: rgba(0, 255, 255, 0.7); 
+    color: black;
+    box-shadow: 0 0 10px #00f7ff, 0 0 40px #00f7ff, 0 0 50px #00f7ff;
+}
+
+nav .botonNav:active {
+    background-color: rgba(0, 255, 255, 0.9); 
+    box-shadow: 0 0 20px #00f7ff, 0 0 60px #00f7ff, 0 0 70px #00f7ff;
+}
+header h1{
+    font-family:'ZenDots', Helvetica, sans-serif;
+    color: #00ffcc;
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+
+            /* Sombra efecto neón */
+            text-shadow: 
+                0 0 5px #00ffcc, 
+                0 0 10px #00ffcc, 
+                0 0 20px #00ffcc, 
+                0 0 40px #00bfa5, 
+                0 0 80px #00bfa5, 
+                0 0 120px #008080;
+                -webkit-text-stroke: 2px #ebfbfb;}
+a[class="botonNav"] a{
+    text-decoration: none; 
+    color: inherit;
+}
+main article h3{
+    color:rgb(2, 80, 80);
+}
+main ul{
+    list-style-type:circle;
+}
+/*Disculpa que no esté más ordenado, no me ha dado tiempo a meter más comentarios y ordenar*/

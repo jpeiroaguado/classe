@@ -17,11 +17,11 @@
                 this.value=value;
             }
 
-            // We give suit and value to the
+            // We give suit and value to the array
             giveValue(suit, value) {
                 if (suit >= 1 && suit <= 4 && value >= 1 && value <= 10) {
-                    this.suit = suit;
-                    this.value = value;
+                    this.suit = this.getSuitName(suit);
+                    this.value = this.getValueName(value);
                 }
             }
             // We switch here the numers to a name of the suits
@@ -49,9 +49,10 @@
 
             // We return the string, calling the methods getValueName and GetSuitName
             toString() {
-                return `${this.getValueName()} of ${this.getSuitName()}`;
+                return `${(this.value)} of ${(this.suit)}`;
             }
         }
+
         class CardsDeck{
             //We fill the deck
             constructor(){
@@ -59,18 +60,17 @@
                 for(var su=1;su<=4;su++){
                     for(var va=1;va<=10;va++){
                         const card=new Cards(su, va);
+                        card.giveValue(su, va);
                         this.cards.push(card);
                     }
                 } 
             }
-            //We suffle it
+            //We suffle the array with sort
             shuffleDeck(){
-                for(var s=0;s<this.cards.length;s++){
-                    var r=Math.floor(Math.random()* 40);
-                    [this.cards[s], this.cards[r]]=[this.cards[r], this.cards[s]]
-                }
+                this.cards.sort(() => Math.random() - 0.5);
             }
-            //Finally, we print it
+                
+            //Finally, we print it, we created the method toString in every card, then it enter on crea
             toString(){
                 for(var c=0;c<this.cards.length;c++){
                     document.write(this.cards[c]+"<br>");

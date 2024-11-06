@@ -1,0 +1,81 @@
+<script>
+    //Valores y declaraciones
+    let resultado = "hola" / 2; // NaN
+    let x; console.log(x); // undefined
+    let array = new Array(2);console.log(array); // [undefined, undefined]
+    let frutas = ['manzana', 'banana'];//el elemento se convierte en undefined, pero el índice se mantiene.
+    delete frutas[1];console.log(frutas); // ["manzana", <1 empty item>]
+    const datos=[4.5,6.78,7.12,9.123];
+    let matriz = [
+    [1, 2, 3],
+    [4, 5, 6]];
+    //var "se eleva", let solo dentro del bloque, const igual
+    // IF (EXPR) ? TRUE : FALSE; otra manera de hacer un if
+    //METODOS
+    delete dias[2];//Elimina un elemento de un array
+    array.pop();//Elimina el último elemento del array
+    array.push("pera");//Añade por el final
+    array.unshift("pera");//Añade pero por el principio
+    array.shift();//Elimina el primer elemento del array
+    array2=array1.slice();//Copiamos un array
+    texto3=texto1.concat(texto2);//Concatena 2 arrays
+    let posicionLimitada = texto.lastIndexOf("Hola", 15);
+    console.log(posicionLimitada); // Imprimirá 7 (la búsqueda a partir del índice 15, es opcional)
+    console.log(texto.endsWith(“estática”)); //Devuelve true o false si termina asi ,igual startsWith
+    let texto="Esto es una estructura estática";
+    console.log(texto.slice(3,10); // Escribe “o es un” no modifica el array
+    let subcadena = texto.substr(5, 6);//Imprimira es
+    String.fromCharCode(65,66,67));//Transforma numeros a codigos, las minusculas van del 97 al 122 y las mayusculas del 65 al 90
+    let letra = "A"; console.log(letra.charCodeAt(0))//imprimira 25;
+    console.log(texto.split(“ “)); //Escribe [ ‘Esto’, ‘es’, ‘una’, ‘estructura’, ‘estática’ ]
+    let fruits = ['apple', 'banana', 'orange']; removedFruits = fruits.splice(1, 2); //RemovedFruits='apple', 'banana' y fruits='orange'
+    function shuffle(array){//Funcion para reordenar un array
+        array.sort(() => Math.random() - 0.5);
+    }
+    frutas.Join(" ")//Transforma un array en un string, separado por lo que le
+    array.slice(1); //Método para extraer subcadena, el numero es la posicion de la que empieza
+    frutas.reverse();//Cambia la orientación del array, por ej: hola a aloh
+    Math.abs();//Valor Absoluto
+    Math.floor();//Redondea, como Math.round();
+    Math.min(a,b);//Retorna el minimo de 2 numeros
+    Math.pow(a,b);//Potencia de a y b
+    Math.random();//Numero random entre 0 y 1: ej: 3.045
+    array.sort();//Ordena un array, las letras sobre su valor numerico
+    let day2= new Date(yyyy,mm,dd,hh,mm,sec,ms);//Para fechas, se podria: year = today.getFullYear();
+    //OBJETOS
+    class Computadora {
+        constructor(marca, modelo) {
+            this.marca = marca;
+            this.modelo = modelo;
+        }
+        toString() {
+                return `<hr>Marca: ${this.marca}<br> 
+                Modelo: ${this.modelo}<br>`;//Impòrtante comilla invertida para llamar a this
+        }
+    }
+    class Portatil extends Computadora {
+        constructor(marca, modelo, autonomia=4){
+            super(marca, modelo);
+            this.autonomia=autonomia;
+        }
+        toString(){//Esto añade el metodo string del padre, para mostrar ambos
+                return `${super.toString()}<br>Autonomia: ${this.autonomia} <br> `;
+        }
+    }
+    function fibonacciRecur(num){//Ejemplo de función recursiva
+                return fibonacciRecur(num - 1) + fibonacciRecur(num - 2);
+            } 
+    let portatil = new Portatil("Slimbook", "Titan", 8);//como llamarlo
+    expression.charAt(lengthcadena)//Busca poosiciones en la cadena con un for
+    const provincias=new Map();//Mapas
+    provincias.set(1," Álava");provincias.set(2," Valencia");
+    const personas=new Map([[1, "Álava"],[2,"Valencia"]]);//Otra forma
+    provincias.get(2)//Para obtener valores
+    for(let k of claves){console.log(k);}
+    console.log(" ----------- ");
+    let valores=provincias.values();
+    for(let v of valores){console.log(v);}//Imprimira 1, 2 --------Álava, Valencia
+    for(let elemento of provincias){
+        console.log(elemento);
+    }//Recorrer el array provincias.keys() para las claves y provincias.values() para valores
+</script>

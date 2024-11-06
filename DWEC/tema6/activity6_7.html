@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de NIFS</title>
+    <script>
+        
+        class NIF {
+            constructor(nif) {
+                this.nif = nif.toUpperCase().trim();
+                this.letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            }
+
+            // Here we validate the NIF format
+            validarFormato() {
+                const patronNIF = /^[XYZ]?\d{7}[A-Z]$/;
+                return patronNIF.test(this.nif);
+            }
+
+            
+            calcularLetra() {
+                //We extract the last letter and put it in a constant to compare
+                let parteNumeros = this.nif.slice(0, -1);
+                const ultimaLetra = this.nif.slice(-1);
+
+                //We change the X, Y and Z puting the character and slicing the array
+                if (parteNumeros[0] === 'X') {
+                    parteNumeros = '0' + parteNumeros.slice(1);
+                } else if (parteNumeros[0] === 'Y') {
+                    parteNumeros = '1' + parteNumeros.slice(1);
+                } else if (parteNumeros[0] === 'Z') {
+                    parteNumeros = '2' + parteNumeros.slice(1);
+                }
+
+                const num = parseInt(parteNumeros, 10);
+                const letraCorrecta = this.letras[num % 23];
+
+                return { letraCorrecta, ultimaLetra };
+            }
+
+            // HEre we validate if the letter is correct
+            validarNIF() {
+                if (!this.validarFormato()) 
+                    return false;
+
+                const { letraCorrecta, ultimaLetra } = this.calcularLetra();
+                if (letraCorrecta == ultimaLetra)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <script>
+        var NIFPrueba=new NIF(prompt("Introduce un NIF"));
+        
+        //We try first the format alone to try catch if you put more or less numbers/letters
+        if (!NIFPrueba.validarFormato()){
+            document.write("El patrón no es válido");
+        }else{//After that we proceed to try the NIF
+            if(!NIFPrueba.validarNIF())
+                document.write("El NIF no es válido");
+            else
+                document.write("¡¡El NIF es válido!!");
+        }
+    </script>
+</body>
+</html>

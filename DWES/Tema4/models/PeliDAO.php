@@ -3,7 +3,7 @@ require_once __DIR__.'/Peli.php';
 require_once __DIR__.'/DBConnection.php';
 require_once __DIR__.'/IDbAccess.php';
 
-class PeliDao /*implements IDbAccess*/{
+class PeliDao implements IDbAccess{
     public static function getAll():?array{
 
         $conn=DBConnection::connectDB();

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMACIONES</title>
+    <style>
+        @charset "utf-8";
+        @font-face {
+            font-family: Arial, Helvetica, sans-serif;
+            src: url(./ttf/Mifuente.ttf);
+        }
+        @keyframes anim1 {/*No se ejecuta hasta que no se invoque*/
+            0%{/*from es tambien 0%*/
+                background-color: blue;
+                box-shadow: 2px 2px 3px grey;
+            }
+            25%{
+                box-shadow: 2px 2px 3px yellow;
+                transform:none;
+            }
+            50%{
+                transform:translate(10rem, 0);/*El primero es la x la segunda la y*/
+
+            }
+            100%{/*too es tambien 100%*/
+                background-color: red;
+                box-shadow: 2px 2px 3px blue;
+                transform:translate(20rem) rotate(360deg);
+            }
+        }
+        @keyframes anim2{
+            0%, 60%{
+                background-color:red;
+                border:2px solid;
+            }
+            30%,100%{
+                background-color:brown;
+                border:1px solid brown;
+            }
+        }
+        /*Animaciones Concatenadas*/
+        @keyframes anim3a{
+            from{background-color:grey;}
+            to{transform:translate(10rem) scale(1.2);}
+        }
+        @keyframes anim3b{
+            from{background-color:grey;}
+            to{background-color:red;}
+        }
+        @keyframes anim3c{
+            from{transform:translate(10rem) scale(1.2);}
+            to{transform:translate(10rem) scale(1.2) rotate(360deg);}
+        }
+        /*CSS*/
+        *{  margin:0; padding:0;
+            box-sizing:border-box;
+        }
+        :root{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:16px;
+        }
+        body{
+            width:calc(100% - 2rem);/*Hay que poner espacios para que funcione correctamente*/
+            margin: 0 auto;
+            border-left: 2px solid grey;
+            border-right: 2px solid grey;
+            padding: 2rem;
+        }
+        main section{
+            margin:2rem;
+        }
+        main section div{
+            width:5rem; 
+            height: 5rem;
+            border:2px solid;
+            background-color: grey;
+        }
+        main section div#d1{
+            animation:anim1 5s ease forwards;/*Forwards es bastante importante, hace que se la animación se quede en su estado final*/
+            /*animation-name:anim1;
+            animation-duration:5s;
+            animation-timing-function:ease;
+            animation-fill-mode:forwards;
+            animation-iteration-count:4 | infinite;
+            animation-direction:alternate | reverse;
+            */
+        }
+        main section div#d2{
+            animation:anim2 3s ease 1s infinite;
+            /*este segundo tiempo es un delay*/
+        }
+        main section div#d3{
+            animation:anim3a 2s ease forwards, anim3b 3s ease 2s/*delay de 2s*/ forwards,
+            anim3c 2s ease 5s forwards;
+            /*Concatenamos mini animaciones con los delays*/
+        }
+        main section div#d4{
+            animation: anim1 5s ease forwards 4 alternate;
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EJERCICIOS DE ANIMACIONES</h1>
+    </header>
+    <main>
+    <section>
+        <div id="d1"></div>
+    </section>
+    <section>
+        <div id="d2"></div>
+    </section>
+    <section>
+        <div id="d3"></div>
+    </section>
+    <section>
+        <div id="d4"></div>
+        <button onclick="play()">Animar</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="reinicia()">Reinicia</button>
+    </section>
+    </main>
+</body>
+<script>
+    function play(){
+        /*Por DOM le cambio valor a la propiedad*/
+        document.getElementById('d4').style.animationPlayState="running";
+    }
+    function pause(){
+        document.getElementById('d4').style.animationPlayState="paused";
+    }
+    function reinicia(){
+        document.getElementById('d4').style.animationName="none";
+        document.getElementById('d4').style.animationFillMode="none";
+    }   
+</script>
+</html>

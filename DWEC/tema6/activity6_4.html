@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Actividad de extends clase</title>
     <script>
+        //We construct the computer properties
         class Computadora {
             constructor(marca, modelo, ram = 4, discoDuro = 512, pulgadas = 17) {
                 this.marca = marca;
@@ -14,28 +15,32 @@
                 this.discoDuro = discoDuro;
                 this.pulgadas = pulgadas;
             }
+        //We create a toString function to print the computer
             toString() {
-                return `Marca: ${this.marca}, 
-                Modelo: ${this.modelo}, 
-                RAM: ${this.ram}, 
-                Disco Duro: ${this.discoDuro},
-                Pulgadas: ${this.pulgadas}"`;
+                return `<hr>Marca: ${this.marca}<br> 
+                Modelo: ${this.modelo}<br>  
+                RAM: ${this.ram}<br>  
+                Disco Duro: ${this.discoDuro}<br> 
+                Pulgadas: ${this.pulgadas}`;
             }
         }
-
+        //Now we create a "sub-class"
         class Portatil extends Computadora {
             constructor(marca, modelo, ram, discoDuro = 256, pulgadas = 12, autonomia = 4) {
                 super(marca, modelo, ram, discoDuro, pulgadas);
-                this.autonomia = autonomy;
+                this.autonomia = autonomia;
+            }
+            //We add toString to the parent method, because we have new attributes to show
+            toString(){
+                return `${super.toString()}<br>Autonomia: ${this.autonomia} <br> `;
             }
         }
 
-
-        // Example usage:
-        let ordenador1 = new Computadora("Dell", "Alienware Aurora", 32, 21);
-        document.write(ordenador1.toString()+"<br>");
-
-        let portatil = new Portatil("Slimbook", "Titan", 32, 15, 7);
+        // We try it
+        let ordenador1 = new Computadora("Dell", "Alienware Aurora", 16,512,);
+        document.write(ordenador1.toString());
+        //Now i add my computer :D
+        let portatil = new Portatil("Slimbook", "Titan", 32,1024, 15, 8);
         document.write(portatil.toString());
     </script>
 </head>
