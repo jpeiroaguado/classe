@@ -39,10 +39,10 @@ class Peli{
     public function setTitol($titol){
         $this->titol=$titol;
     }
-    public function getvaloracio(){
+    public function getValoracio(){
         return $this->valoracio;
     }
-    public function setvaloracio($valoracio){
+    public function setValoracio($valoracio){
         $this->valoracio=$valoracio;
     }
     public function getPais(){
@@ -51,7 +51,7 @@ class Peli{
     public function setPais($pais){
         $this->pais=$pais;
     }
-    public function getdirector(){
+    public function getDirector(){
         return $this->director;
     }
     public function setDirector($director){

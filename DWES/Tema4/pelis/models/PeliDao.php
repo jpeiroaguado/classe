@@ -3,7 +3,7 @@ require_once __DIR__.'/Peli.php';
 require_once __DIR__.'/DBConnection.php';
 require_once __DIR__.'/IDbAccess.php';
 
-class PeliDao /*implements IDbAccess*/{
+class PeliDao {/*implements IDbAccess*/
     public static function getAll():?array{
 
         $conn=DBConnection::connectDB();
@@ -31,7 +31,7 @@ class PeliDao /*implements IDbAccess*/{
         $conn=DBConnection::connectDB();
         if(!is_null($conn)){
             //La id que es passa ésautomáticament posada amb cometes. no hi ha capnrisc d'injecció SQL
-            $stmt=$conn->prepare("SELECT    id,
+            $stmt=$conn->prepare("SELECT        id,
                                                 titol,
                                                 valoracio,
                                                 pais,
@@ -91,8 +91,9 @@ class PeliDao /*implements IDbAccess*/{
             ]);
             return $stmt->rowCount();//Retorna el numero de files afegides
         }
+        return 0;
     }
-    public static function delete ($object): int{
+    public static function delete($object): int{
         $conn=DBConnection::connectDB();
         if(!is_null($conn)){
             $stmt=$conn->prepare("DELETE FROM pelis WHERE id=:id");
@@ -112,11 +113,11 @@ class PeliDao /*implements IDbAccess*/{
                                             genere=:genere,
                                             duracio=:duracio,
                                             any=:any,
-                                            sinopsi=:sinopsi
+                                            sinopsi=:sinopsi,
                                             imatge=:imatge
                                     WHERE   id=:id");
             $stmt->execute([
-                'id'=>object->getId(),
+                'id'=>$object->getId(),
                 'titol'=>$object->getTitol(),
                 'valoracio'=>$object->getValoracio(),
                 'pais'=>$object->getPais(),

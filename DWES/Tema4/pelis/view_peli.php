@@ -75,7 +75,7 @@ if(($_SERVER['REQUEST_METHOD']=="GET")){
     </div>
   </div>
   <?php
-    }//fi dels detalls peli
+    }//fi dels detalls peli, si no hem trobat pel·li
     else{
     ?>
       <div class="bg" style="background-image:

@@ -19,8 +19,10 @@ $duracio=100;
 $any=date("Y");
 $sinopsi="";
 
-$is_actualitzat=false;
-$is_insertat=false;
+$imatge_nova="";
+$is_actualitzat=false;//Per a mostrar un missatge quan actualitzem
+$is_insertat=false;//Per a mostrar un missatge quan insertem
+
 
 
 //Inicialització de selects
@@ -41,12 +43,8 @@ $llista_generes_select=[
   'Història',
   'Terror'
 ];
-#En cas de que vinga del formulari:
 
-  $imatge_nova="";
-  $is_actualitzat=false;//Per a mostrar un missatge quan actualitzem
-  $is_insertat=false;//Per a mostrar un missatge quan insertem
-  
+
 
 #Cas 1: És una nova pel·li-Carreguem formulari en blanc
 $peli=new peli();
@@ -69,7 +67,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     $titol_pagina=$titol;//Canviem el títol de la pàgina
     $imatge_portada=(!empty($peli->getImatge()))?"uploads/".$peli->getImatge():"assets/proximamente.png";
     $valoracio=(!empty($peli->getValoracio()))?$peli->getValoracio():"1";
-    $director=(!empty($peli->getDirector()))?$peli->getDiretor():"";
+    $director=(!empty($peli->getDirector()))?$peli->getDirector():"";
     $generes=(!empty($peli->getGenere()))?$peli->getGenere():"";
     //Convertim la llista de generes separats per comes en un array
     $llista_generes_peli=explode(",", $generes);
@@ -79,6 +77,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     $sinopsi=(!empty($peli->getSinopsi()))?$peli->getSinopsi():"";
   }
 }
+#En cas de que vinga del formulari:
 
 if(isset($_POST['formulari'])){
   //Arrepleguem tots els valors
@@ -172,13 +171,13 @@ $titol_pagina=$titol;
       <?php
       //Mostrem missatges si ve d'actualizar o d'insertar
       if($is_insertat){?>
-        <div class="alert alert-sucess alert-dimissible fade show" role="alert"></div>
+        <div class="alert alert-sucess alert-dimissible fade show" role="alert">
           Pel·licula insertada correctament!
           <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Close"></button>
         </div>
       <?php
       }else if($is_actualitzat){?>
-        <div class="alert alert-sucess alert-dimissible fade show" role="alert"></div>
+        <div class="alert alert-sucess alert-dimissible fade show" role="alert">
           Pel·licula actualitzada correctament!
           <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Close"></button>
         </div>
@@ -222,11 +221,12 @@ $titol_pagina=$titol;
           <?php }?>
 
         </div>
+          <!--DADES DE LA PEL·LICULA-->
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Dades de la pel·lícula</h4>
-          <form class="needs-validation" method="post" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" enctype="multipart/form-data">
+          <form class="needs-validation" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
             <div class="row g-3">
-              <input type="hidden" name="id" value="<?=$id?>"/>
+              <input type="hidden" name="id" value="<?= $id?>"/>
 
               <!--Títol-->
               <div class="col-sm-6">
@@ -280,13 +280,13 @@ $titol_pagina=$titol;
               <!--Gènere-->
               <div class="col-6">
                 <label for="genere" class="form-label">Gènere</label>
-                <select class="form-select" name="genere[]" id="genere" multiple aria-label="multiple select example">
+                <select class="form-select" name="genere[]" id="genere" multiple aria-label="multiple select">
                   <option selected>Selecciona un o més géneres</option>
                   <?php
                   foreach ($llista_generes_select as $genere_select){
                     $selected="";
                     if(in_array($genere_select, $llista_generes_peli)){
-                      $selected="selectd";
+                      $selected="selected";
                     }
                     echo "<option value=\"$genere_select\" $selected>$genere_select</option>\n";
                   }
@@ -314,12 +314,12 @@ $titol_pagina=$titol;
               </div>
                 <!--Sinopsi-->
               <div class="col-12">
-                <label for="exampleFormControlTextarea1" class="form-label">Sinopsi</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="sinopsi" rows="3" required><?= $sinopsi?></textarea>
+                <label for="FormControlTextarea1" class="form-label">Sinopsi</label>
+                <textarea class="form-control" id="FormControlTextarea1" name="sinopsi" rows="3" required><?= $sinopsi?></textarea>
               </div>
               <!--Imatge portada-->
               <div class="col-12">
-                <label for="file_portada" class="form-label">Imatge portada</label>
+                <label for="imatge_portada" class="form-label">Imatge portada</label>
                 <input type="file" class="form-control" name="imatge_portada" accept="image/*" placeholder="imatge_portada">
               </div>
 

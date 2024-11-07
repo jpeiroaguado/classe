@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+</head>
+<body>
+<script>
+    //We construct the Cards
+    class Cartas{  
+    constructor(palo, valor){
+        this.palo=palo;
+        this.valor=valor;
+    }
+    darValor(palo, valor) {
+        this.palo = this.getPaloName(palo);
+    }
+
+        // We switch here the numers to a name of the palos
+        getPaloName() {
+            switch (this.palo) {
+                case 1: return "Tréboles";
+                case 2: return "Diamantes";
+                case 3: return "Corazones";
+                case 4: return "Picas";
+            }
+        }
+        //This is to print
+        toString() {
+            return `${(this.valor)} de ${(this.palo)}`;
+        }
+        //This return only the value of the card, to work with it
+        tornarValor(){
+            return this.valor;
+        }
+    }
+
+    //We construct the Deck here
+    class Baraja{
+        constructor(){
+            this.cartas=[];
+            for(var pa=1;pa<=4;pa++){
+                for(var va=1;va<=13;va++){
+                    const carta=new Cartas(pa, va);
+                    carta.darValor(pa, va);
+                    this.cartas.push(carta);
+                }
+            } 
+        }
+        //We sort it
+        barajar(){
+            this.cartas.sort(() => Math.random() - 0.5);
+        }
+        //This is to print only
+        imprimir(){
+            for(var cont=0;cont<this.cartas.length;cont++){
+                document.write(this.cartas[cont]+"<br>");
+            }
+        }
+        //We need it to know the lenght of the object and work with it more later
+        longitud(){
+                return this.cartas.length;
+        }
+        //We get a card and splice it from the array
+        sacarCarta(){
+            let cart=Math.floor(Math.random()*this.cartas.length);
+            let cartaRand=this.cartas.splice(cart,1);
+            return cartaRand;
+        }
+    }
+    //We create the deck and new object cards to work with tornarValor to compare
+    const baraja = new Baraja;
+    baraja.barajar();
+
+  
+    let cartaSecreta=baraja.sacarCarta();
+    
+
+    let cartaMostrada=new Array();
+
+    //Counters and continue
+    let contadorVictorias=0;
+    let contadorDerrotas=0;
+    let continuar=0;
+    let adivina=0;
+    //One do while check if you cancel the prompt, the other is for check if the deck reach 0 cards, if is the case. 
+    //The second do while ask for continue and in case affirmative we reset all the variables to start a new game
+    do{
+        do{
+        cartaMostrada=baraja.sacarCarta();
+        document.write("La carta a mostrar es: "+cartaMostrada.toString());
+        adivina=prompt("Adivina si la carta mostrada es mayor '1', menor '2' o igual '3' que la mostrada");
+        //Case more
+        if(adivina==1&&cartaMostrada.tornarValor()>cartaSecreta.tornarValor()){
+            contadorVictorias++;
+        }else if(adivina==1&&cartaMostrada.tornarValor()<=cartaSecreta.tornarValor()){
+            contadorDerrotas++;
+        }
+        //Case less
+        if(adivina==2&&cartaMostrada.tornarValor()<cartaSecreta.tornarValor()){
+            contadorVictorias++;
+        }else if(adivina==1&&cartaMostrada.tornarValor()>=cartaSecreta.tornarValor()){
+            contadorDerrotas++;
+        }
+        //Case equal
+        
+        if(adivina==3&&cartaMostrada.tornarValor()==cartaSecreta.tornarValor()){
+            contadorVictorias++;
+        }else if(adivina==1&&cartaMostrada.tornarValor()!=cartaSecreta.tornarValor()){
+            contadorDerrotas++;
+        }
+        }while(baraja.longitud()>=0);
+        if(baraja.longitud()==0){
+            continuar=prompt("Quieres volver a empezar? introduce 1 para SI, introduce 2 para NO");
+            if(continuar==1){
+                baraja = new Baraja;
+                baraja.barajar();
+                cartaSecreta=baraja.sacarCarta();
+                cartaMostrada=baraja.sacarCarta();
+            }else{
+                break;
+            }
+        }
+    }while(adivina!=null)
+    
+    
+    
+    
+
+</script>
+       
+    
+</body>
+</html>

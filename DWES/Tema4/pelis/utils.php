@@ -6,7 +6,7 @@ function neteja_dades($dada){
     return $dada;
 }
 function pujar_imatge($nom_form, $nom_foto){
-    $target_dir="./uploads/";
+    $target_dir="./uploads";
     $nom_foto=str_replace(" ", "_",$nom_foto);
   
     $tmp_name= $_FILES[$nom_form]['tmp_name'];
@@ -15,7 +15,7 @@ function pujar_imatge($nom_form, $nom_foto){
   
       //Si es tracta de una imatge
       if(((strpos($img_type, "gif")||strpos($img_type, "jpg")||strpos($img_type, "jpeg"))||strpos($img_type, "png"))){
-        if((strpos($img_type, "jpeg"))){
+        if(strpos($img_type, "jpeg")){
           $extensio='jpeg';
         }else{
           $extensio=substr($img_type, -3, 3);

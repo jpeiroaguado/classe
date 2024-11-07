@@ -1,7 +1,9 @@
 <?php
-include_once __DIR__ . '/header.php';
-include_once __DIR__ . '/models/Peli.php';
 include_once __DIR__ . '/models/PeliDao.php';
+include_once __DIR__ . '/models/Peli.php';
+include_once __DIR__ . '/header.php';
+
+
 
 //Comprovem si ve d'eliminar una pel·li
 session_start();
@@ -11,7 +13,7 @@ if(isset($_SESSION['missatge_borrat'])){
   unset($_SESSION["missatge_borrat"]);
 }
 //Llista pelis
-$llista_pelis=peliDAO::getAll();
+$llista_pelis=peliDao::getAll();
 ?>
 <main>
   <div class="bg"
@@ -73,13 +75,14 @@ $llista_pelis=peliDAO::getAll();
                     <small class="text-muted"><?=$peli->getAny()?></small>
                     <div class="btn-group">
                       <a href="view_peli.php?id=<?=$peli->getId()?>" class="btn btn-dark"><i class="fa fa-eye"></i></a>
-                      <a href="edit_peli.php?id<?=$peli->getId()?>" class="btn btn-danger"><i class="fa fa-pencil-square"></i></a>
+                      <a href="edit_peli.php?id=<?=$peli->getId()?>" class="btn btn-danger"><i class="fa fa-pencil-square"></i></a>
                     </div>
 
                   </div>
                 </div>
               </div>
             </div>
+          <!--Fi peli-->
         <?php
          }//Tanca el foreach
         }//Tanca el else
