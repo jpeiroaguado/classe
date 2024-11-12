@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aliquid reiciendis quasi, praesentium sequi voluptas. Quisquam sequi quibusdam aperiam dolorum, enim molestiae rem tempore sapiente ea perferendis placeat facere ipsa.</p>
+    <p>Possimus quis aspernatur nulla sed! Minima optio eveniet ad facere a. Vero esse nulla sequi eligendi maxime id ullam quas culpa nemo, obcaecati quasi, natus harum recusandae voluptas non ipsam.</p>
+    <p id="nostrum">Aspernatur <strong>accusantium quam molestiae </strong>maxime. Nam eligendi, aspernatur dolorum et vero similique! Exercitationem laudantium corporis magnam suscipit quam libero. Eligendi fugiat incidunt cum fuga labore dignissimos expedita vitae voluptas neque.</p>
+    <p>Labore enim, quas distinctio ab dolores laudantium fuga voluptatibus voluptate aspernatur molestias ea repellat officiis vitae. Asperiores, necessitatibus eligendi ipsa cum aut natus officiis, culpa reiciendis rerum ipsum provident voluptate!</p>
+    <p>Consequatur repellat, quas nam distinctio pariatur, quaerat adipisci nisi ab temporibus in corrupti, atque quisquam quam cum excepturi? Reprehenderit magni dolorum fuga doloremque ducimus eum voluptatibus, rem cupiditate recusandae facere?</p>
+    <p>Quas corrupti soluta libero adipisci voluptatibus delectus suscipit vel porro doloribus! Enim explicabo alias beatae ab, tempora repellendus odio reprehenderit quo, incidunt, voluptatum commodi iusto facilis adipisci suscipit id! Sunt?</p>
+    <p>Delectus dolorem necessitatibus facilis. Inventore tempora praesentium qui? Vitae magni sint accusamus. Beatae ab a ex magnam officiis expedita aliquid, veritatis aperiam ratione dignissimos animi obcaecati blanditiis ullam deserunt quae?</p>
+    <p>Eveniet, dignissimos asperiores ab harum libero maiores, aliquid recusandae, consequuntur quis natus assumenda nisi facilis nostrum dicta ad nobis? Recusandae quam consequatur sapiente maxime magni deserunt officia amet deleniti impedit.</p>
+    <p>Quas error repudiandae voluptatum quo eos labore neque quos, a modi nihil ducimus facere dolores est minus! Neque ratione possimus dicta ab voluptas voluptates labore vitae rem, magnam, debitis illo.</p>
+</body>
+<script>
+    let parrafo=document.querySelector("#nostrum");//
+    document.write(parrafo.textContent);
+    document.write('<br>'+parrafo.innerHTML);
+    parrafo.textContent="Hemos venido los mejores";
+    let parrafo2=document.querySelector("p");//parrafo2 ahora es un selector y coge el primero que encuentra
+    parrafo2.textContent="Hemos venido los mejores";
+    let parrafos=document.querySelectorAll("p");//parrafos ahora es un selector y coge el primero que encuentra, o poniendo [2] selecciona la posicion 2
+    parrafos.forEach(p=>p.textContent="Hemos venido los mejores");
+    /*.textContent trabaja SOLO con texto plano
+    .innerHTML trabaja además con etiquetas
+    
+    querySelector       Selector individual
+    queySelectorAll     Selector Multiple objeto[...nodelist] para transformarlo en array haces: let arrayElementos=[...nodelist]; o la otra forma es: let arrayElementos=Array.from(nodeList);
+    getElementById      Selector individual
+    ---------------- Selectores "muertos" que solo se ejecutan con el html "inicial"
+    getElementsByName   Selector Multiple objeto[...nodelist] para transformarlo en array haces: let arrayElementos=[...nodelist]; o la otra forma es: let arrayElementos=Array.from(nodeList);
+    getElementsByTagName    Selector Multiple objeto[...nodelist] para transformarlo en array haces: let arrayElementos=[...nodelist]; o la otra forma es: let arrayElementos=Array.from(nodeList);
+    getElementsByClassName  Selector Multiple objeto[...nodelist] para transformarlo en array haces: let arrayElementos=[...nodelist]; o la otra forma es: let arrayElementos=Array.from(nodeList);
+    */
+
+</script>
+</html>

@@ -1,3 +1,5 @@
+<?php include_once __DIR__. '/utils.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,12 +50,20 @@
           <!--<h4 class="text-white">Sobre el projecte</h4>
           <p class="text-white">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>-->
         </div>
+        <!--Es personalitzarà el menú: si l’usuari no està registrat tindrem els enllaços login i registrar-se. Si l’usuari està registrat apareixeran els enllaços afegir pàgina i tancar sessió-->
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Admin</h4>
-          <ul class="list-unstyled">
+          <?php
+          if(isset($_SESSION['usuari'])){ ?>
             <li><a href="edit_peli.php" class="text-white">Afegir nova pel·lícula</a></li>
+            <li><a href="logout.php" class="text-white">Tancar sessió</a></li>
+          <?php }else{ ?>
             <li><a href="login.php" class="text-white">Accedir</a></li>
             <li><a href="registre.php" class="text-white">Registrar-se</a></li>
+          <?php } ?>
+          <ul class="list-unstyled">
+            
+            
           </ul>
         </div>
       </div>

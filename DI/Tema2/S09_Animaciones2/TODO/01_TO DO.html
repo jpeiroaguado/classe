@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplos botoneras y otros</title>
+    <style type="text/css">
+        /*DIRECTIVAS*/
+        @charset "utf-8";
+
+        /*INICIALIZACIONES*/
+
+        *{
+            margin:0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;/*Esto hace que tamaño de padding t border no se sume al tamaño width del container*/
+            /*border:1px dotted red;/*Muy útil para maquetar y cer cada container hasta donde llega, luego ya lo retiras*/
+        }
+        :root{
+            --color-primario: pink;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:16px;
+            background-image: url('./img/flecha.jpg'), url('./img/fondo.webp');
+            background-repeat: no-repeat, repeat;
+            background-position: 1rem 1rem, left top; /* dexplazamiento en x y en y*/
+            background-attachment: scroll, fixed;/*defecto es scroll*/
+            background-size:1rem 1rem, 40% 40%; /*Tamaño x y*/
+        }
+        body{
+            width: calc(100% - 5rem);
+            margin: 0 auto;
+            background-color: color-mix(in srgb, var(--color-primario) 70%, black);
+            padding: 2rem;
+        }
+        /*CABECERA*/
+        header h1{
+            width:20rem;
+            font-size: 1.2rem;;
+            padding:0.5rem;
+            color: var(--color-primario);
+            border:12px double color-mix(in srgb, var(--color-primario) 50%, black);
+            margin-bottom:1em;
+        }
+        header h2{
+            width: 20rem;
+            border: 1px solid red;
+        }
+        /*Botonera a partir de lista*/
+        nav ul#botonera1{
+            margin: 3em;
+            list-style: none;
+        }
+        nav ul#botonera1 li{
+            display: inline-block;
+            margin:1,5em;
+        }
+        nav ul#botonera1 li a{
+            display: block;/*Todo el enlace ocupará toda la posición del contenedor*/
+            width: 10em;
+            border: 1px solid red;
+            color:red;
+            font-weight: bold;
+            background-color: white;
+            border-radius: 0.5em;
+            text-align: center;
+            padding: 0.5em 1em;
+            box-shadow:0.3em 0.3em 0.2em black;
+        }
+    
+    </style>
+
+</head>
+<body>
+ <header>
+  <h1>Ejemplos botoneras y otros</h1>
+  <h2>Cabecera 2</h2>
+ </header>
+ <nav>
+    <ul id="botonera1">
+        <li><a href="#">Opc1</a></li>
+        <li><a href="#">Opcion 2</a></li>
+        <li><a href="#">Opcion 3</a></li>
+    </ul> 
+     
+    <ul id="botonera2">
+        <li><a href="#">Opc1</a></li>
+        <li><a href="#">Opcion 2</a></li>
+        <li><a href="#">Opcion 3</a></li>
+    </ul>    
+ </nav>
+ <main>
+     <section>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+        <div id="galeria"><img src="img/1.jpg"/><img src="img/2.jpg"/> </div> 
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+         
+         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+         
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+     </section>
+ </main>
+ <footer></footer>
+</body>
+</html>

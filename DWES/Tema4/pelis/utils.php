@@ -28,4 +28,12 @@ function pujar_imatge($nom_form, $nom_foto){
     }  
     return null;
   }
+function estaAutenticat() {
+    session_start();
+    if (!isset($_SESSION['usuari'])) {
+        // Si no está autenticat, el redirigim a la página de login
+        header('Location: login.php');
+        exit;
+    }
+}
 ?>

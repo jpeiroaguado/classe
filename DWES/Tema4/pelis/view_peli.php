@@ -1,10 +1,13 @@
 <?php
-include_once __DIR__. '/models/PeliDao.php';
+session_start();
+include_once __DIR__. '/models/PeliDAO.php';
 include_once __DIR__. '/models/Peli.php';
 include_once __DIR__. '/header.php';
 include_once __DIR__. '/utils.php';
 
+//Para buscar botones en bootstrapp icons, hay ejemplo de uso en el icono de guardar peli
 $peli=null;
+
 
 //Comprovem si ens han enviat una id i intentem recuperar la pel.li
 if(($_SERVER['REQUEST_METHOD']=="GET")){
@@ -21,7 +24,7 @@ if(($_SERVER['REQUEST_METHOD']=="GET")){
   <!-- imatge de capçalera-->
   <div class="bg"
       style="background-image: 
-      url('uploads/<?=$peli->getImatge()?>'); 
+      url('uploads/<?=($peli->getImatge() != "" )? $peli->getImatge() : 'proximamente.png';?>'); 
       background-size: cover; 
       background-position: center; 
       height: 30vh;">
@@ -33,7 +36,7 @@ if(($_SERVER['REQUEST_METHOD']=="GET")){
         <div class="col-md-12">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col-md-4 d-none d-lg-block">
-              <img src="uploads/<?=$peli->getImatge()?>" class="object-fit-cover" alt="portada_peli" height="450" width="100%">
+              <img src="uploads/<?=($peli->getImatge() != "" )? $peli->getImatge() : 'proximamente.png';?>" class="object-fit-cover" alt="portada_peli" height="450" width="100%">
 
             </div>
             <!-- Dades de la pel·li-->

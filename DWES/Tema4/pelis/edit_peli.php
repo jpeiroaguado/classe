@@ -1,8 +1,16 @@
 <?php
-include_once __DIR__ . '/models/PeliDao.php';
+session_start();
+include_once __DIR__ . '/models/PeliDAO.php';
 include_once __DIR__ . '/models/Peli.php';
 include_once __DIR__ . '/header.php';
 include_once __DIR__ . '/utils.php';
+
+//Si no está loguejat el redirigim a login
+if (!isset($_SESSION['usuari'])) {
+  header('Location: index.php');
+  exit;
+}
+
 
 //Iniciem variables per a pintar
 $id="";
@@ -60,6 +68,11 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     $id=neteja_dades($_GET["id"]);
     $peli=PeliDao::select($id);
 
+    //Si la pel·li no existeix el redirigim al index.
+    if ($peli == null) {
+      header("Location: index.php");
+      exit;
+    }
     //Carreguem info en les variables a pintar
     //Ho fem amb ñ'operador ternari per controlar els camps que són opcionals
     $imatge_cap=(!empty($peli->getImatge()))?"uploads/".$peli->getImatge():"assets/film.jpg";

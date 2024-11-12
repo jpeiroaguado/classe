@@ -1,19 +1,25 @@
 <?php
-include_once __DIR__ . '/models/PeliDao.php';
+session_start();
+include_once __DIR__ . '/models/PeliDAO.php';
 include_once __DIR__ . '/models/Peli.php';
 include_once __DIR__ . '/header.php';
 
+$search_term = isset($_GET['search']) ? trim($_GET['search']) : '';
 
+// Si venim de buscar
+if ($search_term !== '') {
+    $llista_pelis = PeliDao::getSearch($search_term);
+} else {
+    // Si NO venim de buscar
+    $llista_pelis = PeliDao::getAll();
+}
 
 //Comprovem si ve d'eliminar una pel·li
-session_start();
 $missatge_borrat="";
 if(isset($_SESSION['missatge_borrat'])){
   $missatge_borrat=$_SESSION['missatge_borrat'];
   unset($_SESSION["missatge_borrat"]);
 }
-//Llista pelis
-$llista_pelis=peliDao::getAll();
 ?>
 <main>
   <div class="bg"
@@ -67,7 +73,8 @@ $llista_pelis=peliDao::getAll();
             ?>
             <div class="col">
               <div class="card shadow-sm">
-                <img class="card-img-top object-fit-cover" height="450" width="100%" src="uploads/<?=$peli->getImatge()?>" alt="Card image cap">
+                <!--Controlamos si tiene o no pelicula-->
+                <img class="card-img-top object-fit-cover" height="450" width="100%" src="uploads/<?= ($peli->getImatge() != "" )? $peli->getImatge() : 'proximamente.png'; ?>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><?=$peli->getTitol()?></h5>
                   <p class="card-text"><?=substr($peli->getSinopsi(), 0, 150)?></p>
@@ -75,7 +82,11 @@ $llista_pelis=peliDao::getAll();
                     <small class="text-muted"><?=$peli->getAny()?></small>
                     <div class="btn-group">
                       <a href="view_peli.php?id=<?=$peli->getId()?>" class="btn btn-dark"><i class="fa fa-eye"></i></a>
-                      <a href="edit_peli.php?id=<?=$peli->getId()?>" class="btn btn-danger"><i class="fa fa-pencil-square"></i></a>
+                      <?php if (isset($_SESSION['usuari'])){ ?>
+                        <!-- Botóde edició sols per usuaris registrats -->
+                        <a href="edit_peli.php?id=<?=$peli->getId()?>" class="btn btn-danger"><i class="fa fa-pencil-square"></i></a>
+                      <?php } ?>
+                      
                     </div>
 
                   </div>
