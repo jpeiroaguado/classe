@@ -1,0 +1,193 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Ocupa toda la ventana */
+    background-image: url('./assets/cabecera.webp');
+    background-size: cover; /* La imagen cubre todo el fondo */
+    background-repeat: no-repeat;
+    background-position: center center; /* Centra la imagen */
+    color: beige; /* Color de texto predeterminado */
+}
+
+/* Header comprimido y expandible */
+.header {
+    background-color: darkred; /* Rojo oscuro */
+    color: white;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    max-height: 0px; /* Altura inicial comprimida */
+    padding: 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* Asegura que el header no bloquee el contenido */
+}
+
+#expand-toggle {
+    display: none; /* Oculta el checkbox visualmente */
+}
+
+.label-toggle {
+    background-color: #5A2C2C; /* Marrón oscuro */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 10px;
+    right: 10px; /* Alineado a la derecha */
+    z-index: 10; /* Asegura que el botón esté encima del contenido */
+    flex-direction: column; /* Apila las líneas verticalmente */
+}
+
+.label-toggle div {
+    width: 20px; /* Ancho de las líneas */
+    height: 4px; /* Alto de las líneas */
+    background-color: white;
+    margin: 2px 0; /* Separación entre líneas */
+    transition: 0.4s;
+}
+
+#expand-toggle:checked + .label-toggle + .header {
+    max-height: 100px; /* Altura del header expandido */
+    padding: 10px 10px;
+    z-index: 1; /* Hace que el header esté por encima del contenido */
+}
+
+.header ul {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.header li {
+    margin: 5px 0;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Contenido principal */
+#expand-toggle:checked ~ .content {
+    margin-top: 150px; /* Mueve el contenido hacia abajo al expandir el header */
+}
+
+h1 {
+    text-align: center; /* Centra el texto */
+    font-size: 3em; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    color: white; /* Destaca sobre el fondo */
+    text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385; /* Sombra de neón */
+    margin: 20px 0;
+    animation: neonPulse 1.5s ease-in-out infinite; /* Animación de pulsado */
+    padding: 20px;
+    transition: margin-top 0.4s ease;
+    padding-top: 60px; /* Da espacio al header */
+}
+
+/* Animación para efecto pulsante */
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385;
+    }
+    50% {
+        text-shadow: 0 0 5px #ff3385, 0 0 10px #ff3385, 0 0 15px #ff3385;
+    }
+    100% {
+        text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385;
+    }
+}
+
+/* Formulario de login */
+fieldset {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white;
+    padding: 20px;
+    margin: 50px auto; /* Centrado */
+    border-radius: 10px;
+    width: 80%; /* Ancho ajustable */
+    max-width: 400px; /* Ancho máximo */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 94%; /* Ocupa casi todo el contenedor */
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f4f4f4; /* Fondo gris claro */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #8B4513; /* Color del borde al enfocarse */
+}
+
+input[type="submit"] {
+    background-color: #5A2C2C; /* Marrón oscuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%; /* Ocupa todo el ancho */
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #8B4513; /* Cambio de color al pasar el mouse */
+}
+
+.msgError,
+.msgCredencials {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.msgError {
+    color: red;
+}
+
+.msgCredencials {
+    color: green;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label[for="recordar"] {
+    color: white;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 10px;
+}

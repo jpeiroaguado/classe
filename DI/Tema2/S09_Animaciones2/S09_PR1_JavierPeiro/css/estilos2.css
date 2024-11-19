@@ -1,0 +1,59 @@
+/* Animación*/
+@keyframes pulsoNeon {
+    0%, 100% {
+        box-shadow: 
+            0 0 0.5rem rgb(0, 255, 255),
+            0 0 1rem rgb(0, 255, 255),
+            0 0 2rem rgb(0, 255, 255),
+            0 0 3rem rgb(0, 255, 255),
+            0 0 4rem rgb(0, 255, 255); /* Pulsos suaves y menos grandes */
+    }
+    50% {
+        box-shadow: 
+            0 0 1rem rgb(0, 255, 255),
+            0 0 2rem rgb(0, 255, 255),
+            0 0 3rem rgb(0, 255, 255),
+            0 0 4rem rgb(0, 255, 255),
+            0 0 5rem rgb(0, 255, 255); /* Pulso más pequeño y menos intenso */
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: darkslategray; /* Fondo oscuro */
+    font-family: 'Arial', sans-serif;
+}
+
+.neon {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: #00bfff; /* Texto azul neón */
+    text-align: center;
+    text-decoration: none;
+    border: 0.1rem solid #00bfff; /* Borde neón */
+    border-radius: 14px;
+    background: rgba(0, 191, 255, 0.2); /* Fondo azul semitransparente */
+    box-shadow: 
+        0 0 0.5rem #00bfff,
+        0 0 1rem #00bfff; /* Sombras iniciales */
+    animation: pulsoNeon 2s infinite;
+}
+

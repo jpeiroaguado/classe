@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejemplo display:table </title>
+<style type="text/css">
+   *{
+      margin: 0px; padding: 0px; box-sizing: border-box;
+      border: 1px solid gray;
+    }
+    :root{
+      font-size: 16px;
+    }
+      /************ header **************/
+   
+    header{
+      display:table;/*Hacemos que el header se comporte como una tabla*/
+    }
+    header>section{
+      display:table-row;/*Cada section es una Fila de la Tabla*/
+    }
+    header>section>*{
+      display:table-cell;/*Lo de dentro de cada Fila son Celdas*/
+    }
+    /*Como ambas filas son de la misma tabla, solo dimensionando 
+    la primera fila, la seguna cogerá ese tamaño*/
+    header>section>h1{
+      width: 40%;
+    }
+    header>section>div{
+      width: 60%;
+    }
+    .blue{ background-color: lightblue; }
+    .pink{ background-color: pink; }
+    .green{ background-color: lightgreen;  }
+    .orange{ background-color: orange;  }
+    
+    body { width: 80%;  margin: 0 auto; }
+    header, main, footer { width: 100%; }
+        
+    /************* main **************/
+    /*Ya que cada fila tiene su propio layout, lo mejor es que cada una
+     sea una tabla distinta*/
+    main>section{
+      display:table;/*Hacemos que el header se comporte como una tabla*/
+      width:100%;
+      height: 3rem;
+    }
+    main>section>div{
+      display:table-cell;
+    }
+    main section div.green{
+      width:70%;
+      height: 5rem;/*Si queremos que crezcan en altura, ahremos crecer las del lado
+      aunque no les pongamos nada*/
+    }
+    main section div.orange{
+      width:30%;
+    }
+    /************ footer *************/
+    /*Aunque no es recomendable, podemos decir directamente que se comporten como
+    celdas sin haber declarado el padre como display:table; */
+    footer>p{
+      display: table-cell;/*Equivale a display:inline; */
+    }
+
+
+</style>
+</head>
+<body>
+ <header>
+    <!-- 1ª Fila del header -->
+    <section>
+      <h1 class="blue">Esto es un título </h1>
+      <div class="pink">Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad  
+      </div>
+    </section>
+    <!-- 2ª Fila del header --> 
+    <section>
+      <h2 class="pink">Subtitulo</h2>
+      <article class="blue">Texto de relleno, texto de relleno <br/>
+                                Texto de relleno, texto de relleno
+      </article>
+    </section>
+ </header>
+ <main>
+    <!-- 1ª Fila del main --> 
+    <section> 
+        <div class="green">70%</div>
+        <div class="orange">30%</div>
+    </section>
+    <!-- 2ª Fila del main --> 
+    <section>
+        <div class="orange">30%</div>
+        <div class="green">70%</div>
+    </section> 
+ </main>
+<footer><p> Copyright 2017</p><p>Autor:E.S.</p></footer>
+</body>
+</html>

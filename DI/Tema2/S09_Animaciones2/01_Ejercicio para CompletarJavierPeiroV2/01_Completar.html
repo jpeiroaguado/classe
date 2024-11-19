@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplos botoneras y otros</title>
+    <!-- Todos los ejercicios se deben completar en styles.css -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+ <header>
+  <h1>Ejemplos botoneras y otros</h1>
+  <h2>Cabecera 2</h2>
+ </header>
+ <nav>
+    <ul id="botonera1">
+        <li><a href="#">Opc1</a></li>
+        <li><a href="#">Opcion 2</a></li>
+        <li><a href="#">Opcion 3</a></li>
+    </ul> 
+     
+    <ul id="botonera2">
+        <li><a href="#">Opc1</a></li>
+        <li><a href="#">Opcion 2</a></li>
+        <li><a href="#">Opcion 3</a></li>
+    </ul>    
+ </nav>
+ <main>
+     <section>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+        <div id="galeria">
+            <span><img src="img/1.jpg"/>
+                <p>Imagen Montaña</p>
+            </span>
+            <img src="img/2.jpg"/> 
+        </div>  
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+         
+         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+         
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit condimentum augue, nullam rutrum vel etiam porttitor quis dictumst eu tristique imperdiet, sapien integer mi accumsan pharetra lobortis semper hac. Cum dictum rhoncus interdum nec habitasse metus scelerisque magna neque, sapien natoque blandit condimentum nullam venenatis ullamcorper donec habitant, vulputate vitae ultrices ligula justo facilisi phasellus cubilia. Duis phasellus et vel aliquet fames nunc proin diam ultricies sed, purus nisl erat nisi sagittis habitasse faucibus conubia.
+        </p>
+     </section>
+ </main>
+ <footer></footer>
+ <aside id="cookies">
+    <p>Esta web contiene cookies, bla, bla, bla</p>
+    <p><button onclick="cerrarCookies()">Cerrrar</button></p>
+ </aside>
+</body>
+<script>
+    function cerrarCookies(){
+        var obj=document.querySelector('aside#cookies');
+        /*obj.style="transform: translateY(100%); transition: all 05 ease;";*/
+
+    obj.style.transform = "translateY(100%)";
+    obj.style.transition = "all 0.5s ease";
+}
+    
+</script>
+</html>

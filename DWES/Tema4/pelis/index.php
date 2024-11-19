@@ -4,11 +4,11 @@ include_once __DIR__ . '/models/PeliDAO.php';
 include_once __DIR__ . '/models/Peli.php';
 include_once __DIR__ . '/header.php';
 
-$search_term = isset($_GET['search']) ? trim($_GET['search']) : '';
+$busqueda = isset($_GET['peli_query']) ? neteja_dades($_GET['peli_query']) : '';
 
 // Si venim de buscar
-if ($search_term !== '') {
-    $llista_pelis = PeliDao::getSearch($search_term);
+if ($busqueda !== '') {
+    $llista_pelis = PeliDao::selectTitDir($busqueda);
 } else {
     // Si NO venim de buscar
     $llista_pelis = PeliDao::getAll();
@@ -35,10 +35,10 @@ if(isset($_SESSION['missatge_borrat'])){
         <div class="col-lg-6 col-md-8 mx-auto text-white">
           <h1 class="fw-light">Pelis DWES</h1>
           <p class="lead">Projecte de prova de l'alumnat de DWES.</p>
-          <form method="post" action="#">
+          <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="input-group">
-              <input class="form-control" type="text" name="peli_query" placeholder="Quina pel·licula estàs buscant?" aria-label="Buscar">
-              <button class="btn btn-primary" type="submit">
+              <input class="form-control" type="text" name="peli_query" placeholder="Quina pel·licula estàs buscant?" value="<?= $busqueda?>" aria-label="Buscar">
+              <button class="btn btn-primary" type="submit" name="busqueda" id="busqueda">
                 <i class="bi bi-search"></i>
               </button>
             </div>

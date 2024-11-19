@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    background: linear-gradient(45deg, #00bfff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: Nombre 1s ease-out, ampliar 4s ease-out 1s, rotarYRebotar 8s ease 5s, desvanecer 4s ease-in 13s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes Nombre {
+    0% {
+        font-size: 1rem;
+        opacity: 0;
+    }
+    100% {
+        font-size: 2rem;
+        opacity: 1;
+    }
+}
+
+@keyframes ampliar {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes rotarYRebotar {
+    0% {
+        transform: scale(1.5) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.5) rotate(360deg);
+    }
+    100% {
+        transform: scale(1.5) rotate(720deg) translateY(-30px);
+    }
+}
+
+@keyframes desvanecer {
+    0% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}

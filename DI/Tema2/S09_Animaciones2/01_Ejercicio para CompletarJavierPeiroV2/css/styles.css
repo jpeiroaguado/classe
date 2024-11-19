@@ -1,0 +1,262 @@
+    /* DIRECTIVAS */
+    /* EJERCICIO 0: Añade directivas y propiedades para... 
+       añadir la fuente "Vargas" (en fichero) como fuente de cabecera h1 */ 
+    @charset "utf-8";
+    @font-face { 
+        font-family: 'Vargas';
+        src: url('../ttf/Vargas.ttf');
+    }
+    @keyframes neonPulsante {/*5.1) y 5.2) Animacion con al menos 3 fotogramas, hago una sombra pulsante de neón*/
+        0% {
+            box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+        }
+        50% {
+            box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+        }
+        100% {
+            box-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+        }
+    }
+    
+    /*** INICIALIZACIONES */
+    *{
+       /* EJERCICIO 1: Aquí las inicializaciones que hacemos siempre */ 
+       margin:0;
+       padding: 0;
+       text-decoration: none;
+       box-sizing: border-box;
+       border: 1px dotted red;
+    }
+
+    :root{
+        --color-primario: pink;
+        font-family: Arial, Helvetica, sans-serif; /* Ponemos siempre fuentes de "fall-back" */
+        font-size: 16px;
+        background-image: url(../img/flecha.jpg), url(../img/O5GLLH0.jpg);
+        background-repeat: no-repeat, repeat;/* por defecto es repeat */
+        background-position: 1rem 1rem, left top; /* desp x y */
+        background-attachment: scroll, fixed; /* defecto es scroll */
+        
+    }
+
+    body{
+        width: calc(90% - 13rem);
+        margin: 0 auto;
+        background-color: color-mix(in srgb, var(--color-primario) 60%, transparent);
+        padding: 2rem;
+        scrollbar-color: red white;
+        scrollbar-width: thin;
+        /*overflow-y: auto;           Asegura que el scroll aparezca cuando sea necesario */
+    }
+
+    /* Estilos personalizados para la barra de desplazamiento */
+    body::-webkit-scrollbar {
+        width: 8px; /* Ancho de la barra */
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: red; /* Color de la barra */
+        border-radius: 10px;   /* Bordes redondeados */
+    }
+
+    body::-webkit-scrollbar-track {
+        background: transparent; /* Fondo del track transparente */
+}
+    /*** CABECERA ***/
+    header h1{
+        font-family: 'Vargas', sans-serif;
+        font-size: 1.2rem;
+        width: 20rem;
+        padding: 0.5em;
+        color: color-mix(in srgb, var(--color-primario) 70%, black);
+        border: 12px double color-mix(in srgb, var(--color-primario) 50%, black);
+        margin-bottom: 1em;
+        animation: neonPulsante 2s ease-in-out 4 forwards; /* 5.3) y 5.4) 2 segundos, en bucle, de adelante a atrás y 4 veces */
+        color: white;
+        position: relative;/*Si ponemos static ignorará las coordenadas, por defecto*/
+        top: 1rem;
+        left: 1rem;
+    }
+
+    header h2{
+        position: fixed;
+        top:0;
+        left:0;
+        width: 20rem;
+        border: 1px solid red;
+    }
+
+    /*** AREA NAVEGACIÓN ***/
+    /* Botonera a partir de lista */
+    nav ul#botonera1{
+        margin: 3em;
+        list-style: none;
+    }
+
+    nav ul#botonera1 li{
+        display: inline-block;
+        margin-right: 1.5em;
+    }
+
+    nav ul#botonera1 li a{
+        display: block; /* todo el enlace ocupará lo que le deje el li */
+        width: 10em;
+        border: 1px solid red;
+        color: red;
+        font-weight: bold;
+        background-color: white;
+        border-radius: 0.5em;
+        text-align: center;
+        padding: 0.5em 1em;
+        box-shadow: 0.3em 0.3em 0.2em black;
+        /* 2e: Transición de medio segundo, ease hace que sea mas suave */
+        transition: all 0.5s ease;
+    }
+
+    nav ul#botonera1 li a:hover{
+       /* EJERCICIO 2: Le damos comportamiento al botón...
+       a) Que pase de fondo rojo a blanco a rojo
+       b) Que pase de color de letra roja a blanca
+       c) Que la sombra decrezca un poquito (p.e. que los desplazamientos sean de 0.2rem, y la difusión de 0.1)
+       d) Que sufra una pequeña transformación: que se reduzca un 2% el tamaño (scale 0.98) y que se desplace 2px abajo y a derecha. 
+       E) QUE TODAS ESTOS COMPORTAMIENTOS SE HAGAN MEDIANTE UNA TRANSICIÓN QUE DURE MEDIO SEGUNDO. 
+          La transición la definís en el Selector de arriba
+       */
+       /* a: Cambiar el fondo de blanco a rojo */
+        background-color: red;
+
+        /* b: Cambiar el color de la letra de rojo a blanco */
+        color: white;
+
+        /* c: Que la sombra decrezca un poquito */
+        box-shadow: 0.2em 0.2em 0.1em black;
+
+        /* d: Que sufra una pequeña transformación: que se reduzca un 2% el tamaño (scale 0.98) y que se desplace 2px abajo y a derecha. */
+        transform: scale(0.98) translate(2px, 2px);
+        }
+
+    /* EJERCICIO 3: Haced una botonera a partir de la lista UL#botonera2, que sea diferente a la botonera1.
+    Requisitos: 1) que tenga un aspecto diferente en colores, formas del botón, etc, 
+                2) que cuando pasemos por encima haga una transición dinámica. */
+    nav ul#botonera2{
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 1em; /* Espaciado entre botones */
+     }
+    nav ul#botonera2 li{
+        margin: 0;
+     }
+    nav ul#botonera2 li a{
+        display: inline-block;
+        width: 10em;
+        text-align: center;
+        padding: 0.7em 1.2em;
+        border-radius: 1.5em; 
+        font-weight: bold;
+        background-color: steelblue;
+        color: aliceblue;
+        border: 2px solid transparent;
+        box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease-in-out;
+     }
+    nav ul#botonera2 li a:hover{
+        background-color: lightblue;
+        color: midnightblue;
+        border-color: lightskyblue;
+        box-shadow: 0 0.3em 0.4em rgba(0, 0, 0, 0.15);
+        transform: scale(1.03) rotate(-2deg) translateX(3px);
+        }
+
+    
+    /*** AREA PRINCIPAL DE CONTENIDOS ***/
+    main section>*{   /* Cualquier cosa hijo de section */
+        margin: 1rem;
+        text-align: justify;
+    }
+
+    main div#galeria{
+        padding: 2rem 0;
+        display: flex; /* Esto lo veremos más adelante */
+        justify-content: space-evenly;
+    }
+    main div#galeria *{
+        width: 15rem;
+    }
+    /* EJERCICIO 4: Transiciones cuando pasemos por encima de las imágenes (hover)... 
+      NOTA1: Los selectores deben hacerse con pseudoclases, sin modificar el html.
+      NOTA2: Los ectos Sepia y Blanco/Negro se hacen con la propiedad CSS "filter" (investiga en W3Schools)
+        1) Primera imagen será de color sepia, y cuando pasemos por encima se muestra normal
+        2) Primera imagen será en Blanco y Negro y cuando pasemos por encima se muestra normal
+        3) Los efectos se aplicarán mediante una transición de 0.5s de tipo ease
+    */
+    #galeria img[src="img/1.jpg"]{/* 4.1) Imagen de color sepia */
+        filter: sepia(50%); 
+        transition: filter 0.5s ease;/* 4.3) transición de 0.5s de tipo ease */
+    }
+    #galeria img[src="img/1.jpg"]:hover{ /*4.1) Cuando pasamos por encima se muestra normal*/
+        filter: sepia(0%);
+    }
+    #galeria img[src="img/2.jpg"]{ /* 4.2) Imagen en blanco y negro*/
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;/* 4.3) transición de 0.5s de tipo ease */
+    }
+    #galeria img[src="img/2.jpg"]:hover{/* 4.2) Removemos el filtro al pasar por encima */
+        filter: grayscale(0%);
+    }
+    
+
+    /* EJERCICIO 5: Realiza una animación para el h1 del header: (podéis repasar del PDF de Aules)
+      1. Recuerda que las animaciones las hacemos mediante directiva "@keyframes" arriba del todo), 
+      2. La animación tendrá almenos 3 fotogramas
+      3. La animación se la aplicamos al h1, durará 2 segundos, se ejecutará en bucle 4 veces (alternando dirección).
+      4. Cuando acabe se quedará en el fotograma final (forwards)
+
+    /*Prueba de Overflow*/
+
+    /*main section{
+        height: 20rem;
+        /* overflow: hidden; A partir de donde le das la información se corta y no muestra nada, no recomendable, el overflw solo funciona en el eje altura */
+        /* overflow: scroll; Pinta una barra para que puedas navegar en el contenido */
+        /*overflow: auto;  A partir de cierto punto pinta una barra para que puedas navegar en el contenido, solo e caso necesario */
+        /*Se aconseja o no poner tamaño maximo, o que si pones, poner overflow auto y personalizar la barra*/
+    /*}*/
+    /*Banner Cookies-> position: fixed, z-index:99999*/
+    aside#cookies{
+        position:fixed;
+        left:0;
+        bottom:0;
+        padding:2em;
+        width: 100%;
+        z-index:99999;
+        background-color: black;
+        color: white;
+        text-align:center;
+    }
+    aside#cookies button{
+        margin:1em;
+        padding: 0.5em;
+        background-color: red;
+    }
+    nav{
+        position: sticky;
+        z-index: 1;
+        top:0;
+        background-color: var(--color-primario);
+    }
+    div#galeria span{
+        position:relative; /*le digo relative, pero no le pongo ni top ni left, lo hago 
+        para que sea origen de coordenadas  de sus descendientes*/
+    }
+    div#galeria span p{
+        position:absolute;/*Coge como origen a su primer ancestro no  'static'*/
+        bottom: 0.5em;
+        left: 0.5em;
+        color: red;
+    }
+    /*Texto a 3 columnes: propiedad column count*/
+    main section p{
+        column-count: 2;
+        column-gap: 2rem;
+    }
+    

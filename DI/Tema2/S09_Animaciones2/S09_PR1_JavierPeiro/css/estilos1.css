@@ -1,0 +1,39 @@
+@keyframes banner{
+    0%,30%{
+        background-image:url(../img/background1.jpeg);
+        opacity:1;
+    }
+    31%, 34%{
+        opacity:0.1;
+    }
+    35%,65%{
+        background-image:url(../img/background2.jpeg);
+        opacity:1;
+    }
+    66%, 69%{
+        opacity:0.1;
+    }
+    70%,100%{
+        background-image:url(../img/background3.jpeg);
+        opacity:1;
+    }
+}
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;/*Esto hace que tamaño de padding t border no se sume al tamaño width del container*/
+}
+:root{
+    font-size:16px;
+}
+.banner{
+    width:44rem;
+    height: 19rem;
+    border: 3px solid red;
+    margin:auto;
+    background-image: url(./background.jpg);
+    background-size: 100% 100%;
+    animation: banner 10s infinite;
+    animation-direction:alternate;
+}

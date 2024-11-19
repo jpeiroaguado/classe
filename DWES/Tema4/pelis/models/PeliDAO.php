@@ -54,7 +54,7 @@ class PeliDao {/*implements IDbAccess*/
         return null;
     }
     
-    public static function selectTitDir($query): ?Peli{
+    public static function selectTitDir($consulta): ?array{
         $conn=DBConnection::connectDB();
         if(!is_null($conn)){
             //La id que es passa ésautomáticament posada amb cometes. no hi ha capnrisc d'injecció SQL
@@ -72,10 +72,10 @@ class PeliDao {/*implements IDbAccess*/
                                             FROM pelis
                                             WHERE titol LIKE :titol OR director LIKE :director");
             $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Peli');
-            $stmt->execute(['titol'=>'%'.$query.'%','director'=>'%'.$query.'%']);
-            $peli=$stmt->fetchAll();
-            if($peli){
-                return $peli;
+            $stmt->execute(['titol'=>'%'.$consulta.'%','director'=>'%'.$consulta.'%']);
+            $pelis=$stmt->fetchAll();
+            if($pelis){
+                return $pelis;
             }     
         }
         return null;
@@ -161,22 +161,6 @@ class PeliDao {/*implements IDbAccess*/
         }
         return 0;
     }
-    public static function getSearch(string $peli_buscada): ?array {
-        $conn = DBConnection::connectDB();
-        if (!is_null($conn)) {
-            $query = "SELECT id, titol, valoracio, pais, director, genere, duracio, any, sinopsi, imatge, timestamp
-                      FROM pelis
-                      WHERE titol LIKE :peli_buscada OR director LIKE :peli_buscada";
-            $stmt = $conn->prepare($query);
-            $stmt->bindValue(':peli_buscada', '%' . $peli_buscada . '%', PDO::PARAM_STR);
-            $stmt->execute();
-            $pelis = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Peli');
-    
-            if ($pelis) {
-                return $pelis;
-            }
-        }
-        return null;
-    }
+
 }
 
