@@ -3,7 +3,7 @@ require_once __DIR__.'/Territori.php';
 require_once __DIR__.'/DBConnection.php';
 require_once __DIR__.'/IDbAccess.php';
 
-class MapaDao {
+class TerritoriDao {
     public static function getAll():?array{
 
         $conn=DBConnection::connectDB();

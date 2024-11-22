@@ -45,7 +45,7 @@ if(isset($_SESSION['missatge_borrat'])){
   <div class="mapes">
     <div class="container">
     <?php
-      //Missatge pel·licula eliminada
+      //Missatge mapa eliminat
       if(!empty($missatge_borrat)){?>
         <div class="Missatge_borrat">
           Mapa eliminat correctament!
@@ -53,10 +53,10 @@ if(isset($_SESSION['missatge_borrat'])){
         </div>
       <?php
       }//fi missatge mapa eliminat
-      //No hi ha pel.lis
+      //No hi ha mapes
       if(!$llista_mapes){
       ?>
-      <h1>No s'han trobat mapes</h1>
+      <h2>No s'han trobat mapes</h2>
       <div style="width:100%;height:0;padding-bottom:57%;"><img src="./assets/mapa_standar_no.webp" width="100%" height="80%"></div> 
      <?php
       }else{//si hi ha mapes?>
@@ -72,10 +72,10 @@ if(isset($_SESSION['missatge_borrat'])){
                 <p class="card-text"><?=substr($mapa->getTamany(), 0, 50)?></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="botones">
-                    <a href="ver_mapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_ver.png"></img></a>
+                    <a href="mostrarmapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_ver.png"></img></a>
                     <?php if (isset($_SESSION['usuari'])){ ?>
                       <!-- Botóde edició sols per usuaris registrats -->
-                      <a href="edit_mapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_editar.png"></img></a>
+                      <a href="editarmapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_editar.png"></img></a>
                     <?php } ?>
                   </div>
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 9</title>
+</head>
+<body>
+    <h1>Primates List</h1>
+    <ul id="primates">
+        <li>Baboon</li>
+        <li>Monkey</li>
+        <li>Chimpanzee</li>
+        <li>Bonobo</li>
+        <li>Gorilla</li>
+        <li>Macaque</li>
+        <li>Marmoset</li>
+        <li>Mandrill</li>
+        <li>Tamarin</li>
+        <li>Orangutan</li>
+    </ul>
+</body>
+<script>
+    // this start when the page loads
+    window.onload = function() {
+        // We wait for 5 seconds
+        setTimeout(function() {
+
+            var question = prompt("Do you want to sort the list alphabetically? (yes/no)");
+
+            if (question && question.toLowerCase() === "yes") {
+                //we get the element
+                var list = document.getElementById("primates");
+
+                // We put it in an array
+                var items = Array.from(list.children);
+
+                // We sort it and put in a var
+                var sortedItems = items.sort(function(a, b) {
+                    return a.textContent.localeCompare(b.textContent);
+                });
+
+                // we "delete" the existing list
+                list.innerHTML = "";
+
+                // We fill again sorted
+                sortedItems.forEach(function(item) {
+                    list.appendChild(item);
+                });
+            }
+        }, 5000); // 5 seconds
+    };
+</script>
+</html>

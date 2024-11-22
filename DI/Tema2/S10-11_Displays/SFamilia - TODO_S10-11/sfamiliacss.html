@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="utf-8" />
+   <title>La sagrada familia</title>
+   <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+   <link rel="stylesheet" type="text/css" href="./css/styles_home.css" />
+   <meta name="author" content="Javier Peiro">
+</head>
+<body>
+<header>
+	<img id="imglogo" src="img/logoglory.jpg" alt=" foto cabecera">
+</header>
+
+<div id="tabular">
+   <nav>
+      <ul>
+        <li><a href="http://wikipedia.org">Wikipedia</a></li>
+        <li><a href="http://www.google.es">Google</a></li>
+        <li><a href="http://www.hotmail.com">Hotmail</a></li>
+      </ul>
+   </nav>
+   <main>
+  	<article>
+      <p><strong>Dicen que para terminar la sagrada Familia faltan unos 150 años, que ni nuestros hijos la verán acabada. No obstante pronto podremos contemplarla tal y como su autor la ideó. Las gracias a Gaudí, al cine y a la tecnología.</strong></p>
+      <img class="imgborde" src="img/familia1.jpg" alt=" foto sagrada familia" width="329" height="450">
+      <p class="verde">La película <em>Glory Day (El misterio de la Sagrada Familia)</em>, de unos 90 minutos de duración, permitirá poner en <em>imagen virtual</em>, por primera vez en la historia, cómo sería la 
+      <strong>Sagrada Familia de Barcelona</strong> 
+      tal y como el arquitecto <em>Antonio Gaudí</em> la proyectó. 
+      </p>
+      <p>
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+
+      </p>
+      <p>Texto con float que quiero que esté debajo de la imágen</p>
+    </article>       
+   </main>
+</div>
+<footer>
+     Fuente de información: 
+     <a href="http://wikipedia.org" target="_blank">
+      Wikipedia
+     </a>
+     <br />
+      
+</footer>
+<aside id="cookies">
+   <p>Esta página contiene cookies</p>
+   <button onClick="cerrarCookies()">Entendido</button>
+</aside>
+</body>
+<script>
+   function cerrarCookies(){
+      var obj=document.querySelector("aside#cookies");
+      obj.style="transition: all 0.5s ease; transform: translateY(100%);";
+   }
+</script>
+</html>

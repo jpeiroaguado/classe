@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity2</title>
+</head>
+<body>
+    <script>
+        // Crear el párrafo
+        let parrafo = document.createElement("p");
+        parrafo.innerHTML = "Press Alt+F12 to change background image";
+        parrafo.style.position = "absolute"; // Mejor hacerlo así en vez de en cadena
+        parrafo.style.top = "50%";
+        parrafo.style.left = "50%";
+        parrafo.style.transform = "translate(-50%, -50%)"; // Para centrar correctamente
+        document.body.appendChild(parrafo);
+
+        // Establecer color de fondo inicial
+        document.body.style.backgroundColor = "blue";
+
+        // Escuchar el evento keyup
+        document.addEventListener("keyup", function (ev) {
+            if (ev.key === "F12" && ev.altKey) {
+                // Cambiar la imagen de fondo y otras propiedades
+                document.body.style.backgroundImage = "url('https://picsum.photos/700/400?random')";
+                document.body.style.backgroundRepeat = "no-repeat";
+                document.body.style.backgroundSize = "cover"; // Mantener el tamaño original de la imagen
+            }
+        });
+    </script>
+</body>
+</html>

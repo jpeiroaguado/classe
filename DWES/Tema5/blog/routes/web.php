@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\Controlador;
+use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\PruebaController2;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,13 +24,8 @@ Route::get('saludo/{nombre?}/{id?}',
          ->where('id', "[0-9]+")//Le podemos pasar datos
          ->name('saludo');
 
-Route::get('inicio', function(){//Pasem una variable sols amb la ruta.
-    $nombre="Javier";
-    $grup="DAW2";
-    return view('inicio', ['nombre'=>$nombre, 'grup'=>$grup]);
-    //se puede hacer también con: return view('inicio', compact('nombre', 'grup'));
-    //otra manera seria return view('inicio')->with(['nombre'=>$nombre, 'grup'=>$grup]);
-})->name('inici');
+Route::get('inici', PruebaController2::class)->name('inici');
+
 
 //Para cosas muy muy sencillas en vez de Route::get se puede hacer de la siguiente manera.
 //Podemos cargar la vista anterior pasandole unas nuevas variables.
@@ -43,8 +40,13 @@ Route::get('lista', function(){
     return view('lista', compact('libros'));
 })->name('posts_llistat');
 
-Route::get('posts/{id}', function($id){
-    $posts="Llistat de posts ".$id;
+Route::get('posts/{id?}', function($id = null){
+    $posts = $id ? "Llistat de posts " . $id : "Llistat de tots els posts";
     return view('posts', compact('posts'));
-})->where('id', "[0-9]+")
-    ->name('posts_fitxa');
+})->where('id', "[0-9]*")
+  ->name('posts_fitxa');
+//Entramos a controlador 1
+Route::get('/PruebaController', [PruebaController::class, 'index']);
+
+//Route::resource('ControladorLibro', ControladorLibro::class);
+

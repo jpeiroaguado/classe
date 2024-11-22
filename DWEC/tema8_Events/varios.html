@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const cols=5;//Podria ponerlo porque no afecta al dom
+    // Cosas como el let elt=docment.querySelector deberian ir dentro del DOMContentloaded ya que modifica el DOM
+    document.addEventListener("DOMContentloaded", ()=>{//Carga todo cuando ya este el dom cargando, el load cuando este todo cargado.
+        //se ha de hacer SIEMPRE para el codigo Javascript
+
+    
+    
+
+    document.addEventLister("keydown", ()=>(console.log("Abajo")))//Hay que comprobar, a veces las funciones de teclado van un poco random, así que hay que probar.
+    document.addEventLister("keyup", ()=>(console.log("Arriba")))
+    document.addEventLister("press", ()=>(console.log("Press")))
+});
+</script>
+</html>

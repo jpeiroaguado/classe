@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+	<title>Ejemplo Form maquetado con CSS</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+		@font-face {
+			font-family: Tranquila;
+			src: url('./ttf/tranquila.otf');
+		}
+		/*TO DO*/ 
+		*{
+			margin: 0; padding:0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		:root{
+			font-size:16px;
+		}
+		
+		form fieldset legend{
+			font-family: 'tranquila', sans-serif;
+			font-size:30px;/*Lo he puesto de 30 por que de 40 daba un salto de linea*/
+			color: darkblue;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			display: block;
+		}
+		form fieldset{
+			display: table;
+			width: 500px;
+			margin: 50px auto;
+			transform:rotate(10deg);
+			border: 10px ridge grey;
+			border-radius: 1rem;
+			box-shadow: 15px 15px 15px darkblue;
+			padding: 50px;
+		}
+		form fieldset>p{
+			display: table-row;
+		}
+		form fieldset p>*{
+			display:table-cell;
+		}
+		form fieldset p>label{
+    		font-family: 'Open Sans Condensed', sans-serif;
+			vertical-align: top;
+		}
+		form fieldset p span>label{
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		form fieldset p>input{
+			margin:0.5rem;
+		}
+		form fieldset p>input:is([type="text"], [type="password"]){
+			border-color: blue;
+			margin:5px;padding:5px;
+			width: 100%;
+		}
+		form fieldset p>textarea{
+			border-color: blue;
+			margin:5px;padding:5px;
+			width: 100%;
+		}
+		form fieldset p>input:is([type=button], [type=reset]){
+			width:100%;
+			height: 1.5rem;
+			margin: 0px auto;
+			margin-top: 0.5rem;
+			border: 1px solid grey;
+			background: linear-gradient(white, lightgrey);
+			color: grey;
+		}
+		form fieldset span>input:is([type="checkbox"], [type="radio"]){
+			margin-left:0.5rem;
+
+		}
+	</style>
+  </head>
+  <body>
+    <main>
+	  <form>	<!--TO DO -->
+    <!-- el enctype importante si usamos input type="file"-->
+
+	    <fieldset>
+		  <legend>Datos personales</legend>
+		  <!-- 1a linea -->
+		  <p>
+			<label for="nom">Nombre</label>
+			<input type="text" name="nombre" placeholder="Nombre Completo" id="nom"  /> <!--TO DO -->
+		  </p>
+		  <!-- 2a linea -->
+		  <p>
+			<label for="pwd">Password</label>
+			<input type="password" name="pwd" id="pwd" />
+		  </p>	
+		  <!-- 3a linea -->
+		  <p>	
+			<label>Sexo:</label>
+				<span><input type="radio" name="sexo" id="home" /><!--TO DO -->
+					 <label for="home">Hombre</label>&nbsp;&nbsp;
+					 <input type="radio" name="sexo" id="dona"/>
+					 <label for="dona">Mujer</label> 
+				</span>
+		  </p>	
+		  <!-- 4a linea -->
+		  <p>	
+			<label>Carnet conducir:</label>
+				<span><input type="checkbox" name="carnet[]" id="cA"/>
+					 <label for="cA"> A </label>
+					 <input type="checkbox" name="carnet[]" id="cB"/>
+					 <label for="cB"> B </label>
+				</span>
+		  </p>
+		  <!-- 5a linea -->
+		  <p>	
+			<label for="foto">Foto</label>
+			<input type="button" value="Subir Archivo"/>
+			<!--TO DO -->
+		  </p>
+		  <!-- 6a linea -->
+		  <p>
+			<label for="info">Otra información</label>
+			<textarea name="info" id="info" cols="70" rows="7"></textarea> 
+				<!--entre etiqueta de apertura y cerrado no poner nada que no se desee-->
+		  </p>
+		  <!-- 7a linea -->
+		  <p>	
+			<span></span>
+			<input type="button" value="Enviar"/>
+			<input type="reset" value="Borrar"/>
+		  </p>			
+	    </fieldset>	
+	  </form>	
+    </main>
+  </body>
+</html>

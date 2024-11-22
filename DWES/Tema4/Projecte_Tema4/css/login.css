@@ -1,5 +1,6 @@
+/* Estilos generales */
 body {
-    background-image: url('./assets/cabecera.webp');
+    background-image: url('../assets/cabecera.webp');
     background-size: cover; /* La imagen cubre todo el fondo */
     background-repeat: no-repeat;
     background-position: center center; /* Centra la imagen */
@@ -35,7 +36,6 @@ h1 {
 /* Formulario de login */
 fieldset {
     background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-    margin: 150px auto 50px; /* Separa el formulario del header */
     color: white;
     padding: 20px;
     margin: 50px auto;
@@ -115,3 +115,8 @@ label[for="recordar"] {
     display: inline-block;
     margin-top: 10px;
 }
+h1 {
+        padding: 20px;
+        transition: margin-top 0.4s ease;
+        padding-top: 60px; /* Da espacio al header fijo */
+    }

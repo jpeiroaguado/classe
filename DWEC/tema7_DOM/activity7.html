@@ -62,12 +62,14 @@
 <script>
     //We select the paragraphs in the body
     nodoParagrafos=document.querySelectorAll("body > p");
+
     //after this, we transform to an array
     let arrayParagrafos=Array.from(nodoParagrafos);
-    //We itirenate in the array starting from the last
+
+    //We itirenate in the array starting from the last, in reverse order
     arrayParagrafos.reverse().forEach(paragraph=>{
-        //We move every paragraph at the last position
-        document.body.apendChild(paragraph);
+        //We move every paragraph at the last position in each itirenation, reversing all
+        document.body.appendChild(paragraph);
     });
 
 </script>

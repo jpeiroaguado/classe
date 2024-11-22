@@ -1,14 +1,21 @@
 /* Estilos generales */
 body, html {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100vh; /* Ocupa toda la ventana */
-    background-image: url('./assets/cabecera.webp');
+    background-image: url('../assets/cabecera.webp');
     background-size: cover; /* La imagen cubre todo el fondo */
     background-repeat: no-repeat;
     background-position: center center; /* Centra la imagen */
     color: beige; /* Color de texto predeterminado */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    flex: 1;
 }
 
 /* Header comprimido y expandible */
@@ -81,20 +88,22 @@ body, html {
     margin-top: 150px; /* Mueve el contenido hacia abajo al expandir el header */
 }
 
+/* Título principal */
 h1 {
     text-align: center; /* Centra el texto */
     font-size: 3em; /* Tamaño grande */
     font-weight: bold; /* Negrita */
     color: white; /* Destaca sobre el fondo */
     text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385; /* Sombra de neón */
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
     animation: neonPulse 1.5s ease-in-out infinite; /* Animación de pulsado */
     padding: 20px;
     transition: margin-top 0.4s ease;
     padding-top: 60px; /* Da espacio al header */
 }
 
-/* Animación para efecto pulsante */
+/* Animación para el efecto pulsante */
 @keyframes neonPulse {
     0% {
         text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385;
@@ -112,10 +121,10 @@ fieldset {
     background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
     color: white;
     padding: 20px;
-    margin: 50px auto; /* Centrado */
+    margin: 50px auto;
     border-radius: 10px;
     width: 80%; /* Ancho ajustable */
-    max-width: 400px; /* Ancho máximo */
+    max-width: 400px; /* Establece un ancho máximo */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
@@ -134,7 +143,7 @@ label {
 
 input[type="email"],
 input[type="password"] {
-    width: 94%; /* Ocupa casi todo el contenedor */
+    width: 94%; /* Ocupa todo el ancho del contenedor */
     padding: 10px;
     margin: 8px 0;
     border: 2px solid #5A2C2C; /* Borde marrón oscuro */
@@ -146,11 +155,11 @@ input[type="password"] {
 input[type="email"]:focus,
 input[type="password"]:focus {
     outline: none;
-    border-color: #8B4513; /* Color del borde al enfocarse */
+    border-color: #8B4513; /* Color de borde al enfocarse */
 }
 
 input[type="submit"] {
-    background-color: #5A2C2C; /* Marrón oscuro */
+    background-color: #5A2C2C; /* Color de fondo marrón oscuro */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -163,24 +172,22 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #8B4513; /* Cambio de color al pasar el mouse */
+    background-color: #8B4513; /* Cambia de color al pasar el mouse */
 }
 
 .msgError,
 .msgCredencials {
     text-align: center;
+    color: red;
     font-weight: bold;
     margin-top: 10px;
-}
-
-.msgError {
-    color: red;
 }
 
 .msgCredencials {
     color: green;
 }
 
+/* Checkbox recordar */
 input[type="checkbox"] {
     margin-right: 10px;
 }
@@ -190,4 +197,21 @@ label[for="recordar"] {
     font-size: 0.9em;
     display: inline-block;
     margin-top: 10px;
+}
+
+/* Footer */
+.contenedorfooter {
+    background-color: #5A2C2C; /* Color marrón oscuro */
+    color: white; /* Color del texto */
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center; /* Centra el texto dentro del footer */
+    width: 100%; /* Asegura que ocupe todo el ancho de la pantalla */
+    position: relative;
+    bottom: 0; /* Asegura que esté al final de la página */
+    flex-shrink: 0; /* Evita que se encoja el footer */
+}
+
+.contenedorfooter p {
+    margin: 0; /* Elimina el margen por defecto */
+    font-size: 1.2em; /* Tamaño de fuente adecuado */
 }

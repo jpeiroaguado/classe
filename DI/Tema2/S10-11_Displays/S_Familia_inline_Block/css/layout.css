@@ -1,0 +1,87 @@
+@charset "utf-8";
+/*Estilos comunes a todas las páginas del sitio*/
+*{
+    margin:0; padding:0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-image: url('../img/fondo.jpg');
+    
+}
+body{
+    width:80%;
+    margin:0 auto;/*arriba y abajo 0, derecha e izquierda auto*/
+    background-color: rgb(255, 228, 196, 60);
+    min-width: 800px;
+    max-width: 1900px;
+    border-radius:0 0 2em 2em;
+    box-shadow: 4px 4px 10px lightgray;
+    margin-bottom: 20px;
+    /*opacity:50%;en vez de hacer esto, es mejor ponerle opacidad al background
+    ya que solo se queda el background como semitransparente con rgb y no
+    todo el contenido*/
+}
+/*CABECERA*/
+header{
+    position:sticky;
+    top:0;
+    z-index: 1;
+}
+header img{
+    display:block;
+    width: 100%;
+    height: 12rem;
+}
+/*NAV Y MAIN A 2 columnas*/
+div#tabular{
+    display:block;/*El padre de los 2 inline. No haria falta ponerlo, ya que por defecto es block*/
+    font-size:0;/*Truco 3, fuente al padre 0*/
+    background-color: rgb(222, 184, 135, 0.s6);
+}
+div#tabular nav{
+    display:inline-block;
+    width:  20%;
+    min-width: 10rem;
+    background-color: transparent;/*El padre*/
+    vertical-align: top;
+    font-size:1rem;
+}
+div#tabular main{
+    display:inline-block;
+    width: 80%;
+    background-color: bisque;
+    padding: 2rem;
+    vertical-align: top;
+    font-size:1rem;
+}
+/*BOTONERA*/
+nav ul{
+    list-style:none;
+}
+nav ul li a{
+    display: block;
+    width: 80%;
+    margin:0.5em auto;
+    padding:0.5em;
+    background-color: chocolate;
+    color:bisque;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0.4em;
+    transition: all 0.5s ease;
+}
+nav ul li a:hover{
+    color: chocolate;
+    background-color: bisque;
+    transition: all 0.5s ease;
+}
+/*Footer*/
+footer{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,76,9,1) 41%, rgba(245,164,0,1) 63%, rgba(255,205,0,1) 100%);
+    padding:1.5em;
+    border-radius:0 0 2em 2em;
+}

@@ -55,7 +55,7 @@
           <h4 class="text-white">Admin</h4>
           <?php
           if(isset($_SESSION['usuari'])){ ?>
-            <li><a href="edit_mapes.php" class="text-white">Afegir nous mapes</a></li>
+            <li><a href="edit_peli.php" class="text-white">Afegir nova pel.li</a></li>
             <li><a href="logout.php" class="text-white">Tancar sessió</a></li>
           <?php }else{ ?>
             <li><a href="login.php" class="text-white">Accedir</a></li>

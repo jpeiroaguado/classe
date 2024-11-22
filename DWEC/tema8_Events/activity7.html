@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+        }
+        .div1{
+            background-color: rgba(229, 255, 0);
+            float: left;
+
+        }
+        .div2{
+            background-color: rgb(249, 0, 0);
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    /*Create an app that displays 2 layers of the same size, specifically 200 pixels wide by 100 pixels high.
+    - The first one will show the text "I am draggable" and will have a yellow background and the second one
+    shows "I am destiny" and has a white background. Both leave a 1 px border, black.
+    - The app allows you to drag the first one over the second one.
+    - During dragging, the first layer will be displayed with an opacity of 50%. When you drag over the second one,
+    it (the destination) is displayed with a red background. When you drop on that second layer, the first one
+    disappears and the second layer will display the text "You did it!"*/
+    const div1=document.createElement('div');
+    div1.id='div1';
+    div1.classList.add('div1');
+    div1.innerHTML="I am draggable";
+    div1.draggable=true;
+    document.body.appendChild(div1);
+    //Hi ha que ferl draggable, está en els apunts
+
+    const div2=document.createElement('div');
+    div2.id='div2';
+    div2.classList.add('div2');
+    div2.innerHTML="I am destiny"
+    document.body.appendChild(div2);
+    //Hay que desactivar el evento drag para que funcione el drop
+
+    div1.addEventListener("dragstart", ()=>{
+
+            div1.style.opacity="50%";
+        });
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejemplo display:table </title>
+<style type="text/css">
+    *{
+        margin: 0px; padding: 0px; box-sizing: border-box;
+        border: 1px solid gray;
+    }
+    
+    .blue{ background-color: lightblue; }
+    .pink{ background-color: pink; }
+    .green{ background-color: lightgreen;  }
+    .orange{ background-color: orange;  }
+    
+    body { width: 80%;  margin: 0 auto; }
+    header, main, footer { width: 100%; }
+    
+    /************ header **************/
+    header section{
+      display:block;
+      background-color: lightblue;
+    }
+    header section>*{
+      vertical-align: top;/*Imprescindible ya que si no los inlineblock se alinean debajo
+      si no son de la misma altura*/
+      height: 100px;
+    }
+    /*Truco de que no sumen 10%;*/
+    header section h1{
+      display: inline-block;
+      width: 39%;/*Entre los 2 no tienen que sumar 100% o se saldrán del bloque*/
+    }
+    header section div{
+      display: inline-block;
+      width: 60%;
+    }
+    /*2 Truco del margin -4px;*/
+    header section h2{
+      display:inline-block;
+      width: 40%;
+      margin-right: -4px;
+    }
+    header section article{
+      display: inline-block;
+      width: 60%;
+    }
+    /*3ª y 4ª sección*/
+    /*Truco de poner la fuente a 0 e el contenedor y luego volverla a definir en l contenido*/
+    main section{
+      font-size:0;
+    }
+    main section div.green{
+      display: inline-block;
+      width: 70%;
+      font-size:1rem;/*Le reestablecemos la fuente a los hijos*/
+      vertical-align: top;
+      min-height: 100px;
+    }
+    main section div.orange{
+      display: inline-block;
+      width: 30%;
+      font-size:1rem;/*Le reestablecemos la fuente a los hijos*/
+      vertical-align: top;
+      min-height: 100px;
+    }
+    /************* main **************/
+    
+    
+    /************ footer *************/
+    footer>p{
+      display: inline-block;
+      padding: 1em;
+    }
+    /*************/
+    /*VISTA MOvIL*/
+    /*************/
+
+</style>
+</head>
+<body>
+ <header>
+    <!-- 1ª Fila del header -->
+    <section>
+      <h1 class="blue">Esto es un título </h1>
+      <div class="pink">Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad  
+      </div>
+    </section>
+    <!-- 2ª Fila del header --> 
+    <section>
+      <h2 class="pink">Subtitulo</h2>
+      <article class="blue">Texto de relleno, texto de relleno <br/>
+                                Texto de relleno, texto de relleno
+      </article>
+    </section>
+ </header>
+ <main>
+    <!-- 1ª Fila del main --> 
+    <section> 
+        <div class="green">70%</div>
+        <div class="orange">30%</div>
+    </section>
+    <!-- 2ª Fila del main --> 
+    <section>
+        <div class="orange">30%</div>
+        <div class="green">70%</div>
+    </section> 
+ </main>
+<footer><p> Copyright 2017</p><p>Autor:E.S.</p></footer>
+</body>
+</html>
