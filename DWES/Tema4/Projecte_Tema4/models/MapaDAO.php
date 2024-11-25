@@ -44,7 +44,7 @@ class MapaDao {
         return null;
     }
     
-    public static function selectNomTam($consulta): ?array{
+    public static function selectNomTamPro($consulta): ?array{
         $conn=DBConnection::connectDB();
         if(!is_null($conn)){
             //La id que es passa ésautomáticament posada amb cometes. no hi ha capnrisc d'injecció SQL
@@ -55,9 +55,9 @@ class MapaDao {
                                                 imatge,
                                                 timestamp
                                             FROM mapes
-                                            WHERE nomMapa LIKE :nomMapa OR tamany LIKE :tamany");
-            $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Peli');
-            $stmt->execute(['nomMapa'=>'%'.$consulta.'%','tamany'=>'%'.$consulta.'%']);
+                                            WHERE nomMapa LIKE :nomMapa OR tamany LIKE :tamany OR propietari LIKE :propietari");
+            $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Mapa');
+            $stmt->execute(['nomMapa'=>'%'.$consulta.'%','tamany'=>'%'.$consulta.'%','propietari'=>'%'.$consulta.'%']);
             $mapes=$stmt->fetchAll();
             if($mapes){
                 return $mapes;
@@ -107,10 +107,10 @@ class MapaDao {
                                     SET     nomMapa=:nomMapa,
                                             tamany=:tamany,
                                             propietari=:propietari,
-                                            imatge=:imatge,
+                                            imatge=:imatge
                                     WHERE   id=:id");
             $stmt->execute([
-                'id'=>null,
+                'id'=>$object->getId(),
                 'nomMapa'=>$object->getNomMapa(),
                 'tamany'=>$object->getTamany(),
                 'propietari'=>$object->getPropietari(),

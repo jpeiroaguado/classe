@@ -1,6 +1,6 @@
 <footer>
-    <div class="contenedorFooter">
-        <p><a href="#">Subir</a></p><br>
+    <div id="contenedorFooter">
+        <p><a href="#" class="link">Subir</a></p>
         <p>Copyright @JavierPeiro 2024</p>
     </div>
 </footer>

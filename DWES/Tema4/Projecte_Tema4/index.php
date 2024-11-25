@@ -9,7 +9,7 @@ $busqueda = isset($_GET['busqueda_mapa']) ? neteja_dades($_GET['busqueda_mapa'])
 
 // Si venim de buscar
 if ($busqueda !== '') {
-    $llista_mapes = MapaDao::selectNomTam($busqueda);
+    $llista_mapes = MapaDao::selectNomTamPro($busqueda);
 } else {
     // Si NO venim de buscar
     $llista_mapes = MapaDao::getAll();
@@ -23,18 +23,12 @@ if(isset($_SESSION['missatge_borrat'])){
 }
 ?>
 <main>
-  <div class="bg"
-    style="background-image: 
-      url('assets/film.jpg'); 
-      background-size: cover; 
-      background-position: center; 
-      height: 30vh;">
     <section class="py-5 text-center container">
       <div>
-        <h1 class="fw-light">Projecte Mapes.</h1>
+        <h1 class="fw-light">MAPES</h1>
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <div class="input-group">
-            <input type="text" name="busqueda_mapa" placeholder="Selecciona el nom del mapa o un tamany" value="<?= $busqueda?>" aria-label="Buscar">
+            <input type="text" name="busqueda_mapa" placeholder="Buscar en mapes" value="<?= $busqueda?>" aria-label="Buscar">
             <button type="submit" name="busqueda" id="busqueda">Buscar</button>
           </div>
         </form>
@@ -57,7 +51,7 @@ if(isset($_SESSION['missatge_borrat'])){
       if(!$llista_mapes){
       ?>
       <h2>No s'han trobat mapes</h2>
-      <div style="width:100%;height:0;padding-bottom:57%;"><img src="./assets/mapa_standar_no.webp" width="100%" height="80%"></div> 
+      <h1><a href="index.php" class="link">Tornar</a></h1>
      <?php
       }else{//si hi ha mapes?>
         <div name="mapa">
@@ -66,20 +60,25 @@ if(isset($_SESSION['missatge_borrat'])){
           foreach($llista_mapes as $mapa){
             ?>
             <div class="col">
-              <!--Controlamos si tiene o no pelicula-->
-              <img class="card-img-top object-fit-cover" height="450" width="100%" src="uploads/<?= ($mapa->getImatge() != "" )? $mapa->getImatge() : 'mapa_standar.webp'; ?>" alt="'mapa_standar.webp'">
-                <h5><?=$mapa->getNomMapa()?></h5>
-                <p class="card-text"><?=substr($mapa->getTamany(), 0, 50)?></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="botones">
-                    <a href="mostrarmapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_ver.png"></img></a>
-                    <?php if (isset($_SESSION['usuari'])){ ?>
-                      <!-- Botóde edició sols per usuaris registrats -->
-                      <a href="editarmapa.php?id=<?=$mapa->getId()?>"><img src="./assets/boton_editar.png"></img></a>
-                    <?php } ?>
-                  </div>
+              <div class="divDades">
+                <h2><?=$mapa->getNomMapa()?></h2>
+                <p class="tamany"><?=substr($mapa->getTamany(), 0, 50)?></p>
+              </div>
+              <img class="img_index" height="500" width="500" src="uploads/<?= ($mapa->getImatge() != "" )? $mapa->getImatge() : 'mapa_standar.webp'; ?>" alt="'mapa_standar.webp'">
+              <div class="botones">
+                <a href="mostrarmapa.php?id=<?=$mapa->getId()?>" class="tooltip">
+                  <img class="icono-pequeño" src="./assets/boton_ver.png" alt="Ver mapa"></img>
+                  <span   class="tooltip-text">Vore mapa</span>
+                </a>
+                <?php if (isset($_SESSION['usuari'])&& $_SESSION['usuari']['email'] === $mapa->getPropietari()){ ?>
+                  <a href="editarmapa.php?id=<?=$mapa->getId()?>" class="tooltip">
+                    <img class="icono-pequeño" src="./assets/boton_editar.png" alt="Editar mapa"></img>
+                    <span class="tooltip-text">Editar mapa</span>
+                  </a>
+                <?php } ?>
+              </div>
 
-                </div>
+
             </div>
           <!--Fi mapes-->
         <?php
@@ -94,3 +93,4 @@ if(isset($_SESSION['missatge_borrat'])){
 
 <?php
 include_once __DIR__ . '/footer.php';
+?>

@@ -17,6 +17,7 @@ function pujar_imatge($nom_form, $nom_foto){
     $nom_foto=str_replace(" ", "_",$nom_foto);
   
     $tmp_name= $_FILES[$nom_form]['tmp_name'];
+    
     if(is_dir($target_dir)&& is_uploaded_file($tmp_name)){
       $img_type=$_FILES[$nom_form]['type'];
   

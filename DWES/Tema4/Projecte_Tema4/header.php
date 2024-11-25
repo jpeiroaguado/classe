@@ -8,7 +8,7 @@
     <meta name="author" content="Javier Peiro">
     <title>Mapes</title>
     <link rel="stylesheet" href="./css/estilos.css">
-    
+
 </head>
 <body>
 
@@ -24,13 +24,31 @@
 
 <!-- Contenido del header que se expande y contrae hacia arriba -->
 <header class="header">
+
+<?php //Obtenim en quina página estem per a que ens pinte el menu
+        $current_page = basename($_SERVER['PHP_SELF']); 
+        ?>
     <ul>
-        <?php if(isset($_SESSION['usuari'])) { ?>
-            <li><a href="editarmapa.php">Afegir nou mapa</a></li>
+        <?php if(isset($_SESSION['usuari'])) {?>
+            <?php if ($current_page != 'index.php') { ?>
+                <li><a href="index.php">Tornar al Index</a></li>
+            <?php } ?>
+
+            <?php if ($current_page != 'editarmapa.php') { ?>
+                <li><a href="editarmapa.php">Afegir nou mapa</a></li>
+            <?php } ?>
+
             <li><a href="logout.php">Tancar sessió</a></li>
         <?php } else { ?>
-            <li><a href="login.php">Accedir</a></li>
-            <li><a href="registre.php">Registrar-se</a></li>
+            <?php if ($current_page != 'login.php') { ?>
+                <li><a href="login.php">Accedir</a></li>
+            <?php } ?>
+            <?php if ($current_page != 'registre.php') { ?>
+                <li><a href="registre.php">Registrarse</a></li>
+            <?php } ?>
+            <?php if ($current_page != 'index.php') { ?>
+                <li><a href="index.php">Accedir sense loguejarse</a></li>
+            <?php } ?>
         <?php } ?>
     </ul>
 </header>
@@ -39,6 +57,3 @@
 
    
 
-
-</body>
-</html>

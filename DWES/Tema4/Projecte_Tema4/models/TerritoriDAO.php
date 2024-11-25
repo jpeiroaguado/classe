@@ -119,6 +119,15 @@ class TerritoriDao {
         }
         return 0;
     }
+    public static function deleteTerritorisByMapaId($idMapa): int {
+        $conn = DBConnection::connectDB();
+        if (!is_null($conn)) {
+            $stmt = $conn->prepare("DELETE FROM territoris WHERE idMapa = :idMapa");
+            $stmt->execute(['idMapa' => $idMapa]);
+            return $stmt->rowCount();
+        }
+        return 0;
+    }
     public static function update($object): int{
         $conn=DBConnection::connectDB();
         if(!is_null($conn)){
@@ -140,6 +149,8 @@ class TerritoriDao {
         }
         return 0;
     }
+    
+    
 
 }
 

@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 ?>
-
+<main>
 <fieldset>
     <legend>Registre</legend>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -71,12 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Registrar-se -->
         <button type="submit" class="btn btn-primary w-100" name="registre" id="registre">Registrat</button>
     </form>
+    <div>
+        <p>Ja tens un compte? <a href="login.php">Inicia sessió ací</a></p>
+    </div>
 </fieldset><br>
         <!-- Inici sessió -->
-        <div>
-          <p>Ja tens un compte? <a href="login.php">Inicia sessió ací</a></p>
-        </div>
+        
 
-
+</main>
   <?php
 include_once __DIR__ . '/footer.php';
