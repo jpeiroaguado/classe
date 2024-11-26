@@ -1,16 +1,13 @@
 @extends('plantilla')
 
-@section('titulo_head', 'Classe | Detalle del Libro')
-@section('titulo_pagina', 'Detalle del Libro')
+@section('titulo_head', 'Blog|Listado posts')
 
 @section('contenido')
-@if(session()->has('mensaje'))
-    <div class="alert alert-success">{{session('mensaje')}}</div>
-@endif
- <ul>
-    @forelse ($libros as $libro)
-        <li>{{$libro['titulo']}}-{{$libro['autor']}}</li>
-    @empty
+<h1>Listado de posts</h1>
+<ul class="list-group">
+@forelse
+    @forelse ($posts as $post)
+        <li class></li>
         <li>No hay libros para mostrar</li>
     @endforelse
  </ul>

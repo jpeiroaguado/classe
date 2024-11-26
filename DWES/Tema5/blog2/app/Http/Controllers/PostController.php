@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class PostController extends Controller
 {
@@ -11,13 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=[
-            ['id'=> '1', 'titol'=>'proba1'],
-            ['id'=> '2', 'titol'=>'proba2'],
-            ['id'=> '3', 'titol'=>'proba3'],
-            ['id'=> '4', 'titol'=>'proba4']
-        ];
-        return $posts;
+        $posts=Post::get();
+
+        return view('posts.index', ['posts'=>$posts]);
     }
 
     /**
@@ -41,7 +39,9 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post=Post::findOrFail($id);
+
+        return view('posts.show', compact('post'));
     }
 
     /**

@@ -5,6 +5,7 @@
 	<meta charset="utf-8"/>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+		/*@charset "utf-8";*/
 		@font-face {
 			font-family: Tranquila;
 			src: url('./ttf/tranquila.otf');
@@ -17,36 +18,41 @@
 		}
 		:root{
 			font-size:16px;
+			font-family: "Open Sans Condensed", "Arial", sans-serif;
 		}
 		
 		form fieldset legend{
-			font-family: 'tranquila', sans-serif;
-			font-size:30px;/*Lo he puesto de 30 por que de 40 daba un salto de linea*/
+			font-family: 'Tranquila', "Arial", sans-serif;
+			font-size:2rem;/*Lo he puesto de 30 por que de 40 daba un salto de linea*/
 			color: darkblue;
 			text-align: center;
 			text-transform: uppercase;
-			letter-spacing: 5px;
+			letter-spacing: 0.3rem;
 			display: block;
 		}
 		form fieldset{
 			display: table;
-			width: 500px;
-			margin: 50px auto;
+			width: 32rem;
+			margin: 4rem auto;
 			transform:rotate(10deg);
-			border: 10px ridge grey;
-			border-radius: 1rem;
-			box-shadow: 15px 15px 15px darkblue;
-			padding: 50px;
+			border: 0.3rem ridge grey;
+			border-radius: 1.5rem;
+			box-shadow: 1rem 1rem 1rem darkblue;
+			padding: 4rem;
 		}
 		form fieldset>p{
 			display: table-row;
 		}
-		form fieldset p>*{
+		form fieldset>p>*{
 			display:table-cell;
+			margin: 0.5rem 0;
 		}
 		form fieldset p>label{
-    		font-family: 'Open Sans Condensed', sans-serif;
+    	font-family: 'Open Sans Condensed', sans-serif;
 			vertical-align: top;
+		}
+		form fieldset>p>*>:nth-child(even){
+			width: 100%;
 		}
 		form fieldset p span>label{
 			font-family: 'Open Sans Condensed', sans-serif;
@@ -75,13 +81,16 @@
 		}
 		form fieldset span>input:is([type="checkbox"], [type="radio"]){
 			margin-left:0.5rem;
-
 		}
+		form fieldset input:is([type="file"]){
+			display: none;/*Esconde el elemento, es como poner hidden*/
+		}
+
 	</style>
   </head>
   <body>
     <main>
-	  <form>	<!--TO DO -->
+	  <form name="datos" action="procesa-php" form-data="enctype">	<!--TO DO -->
     <!-- el enctype importante si usamos input type="file"-->
 
 	    <fieldset>
@@ -117,7 +126,8 @@
 		  <!-- 5a linea -->
 		  <p>	
 			<label for="foto">Foto</label>
-			<input type="button" value="Subir Archivo"/>
+				<input type="button" onclick="abrirFile()" value="Subir Foto"></input>
+				<input type="file" name="foto" id="foto" accept="image/png, image/jpeg"/>
 			<!--TO DO -->
 		  </p>
 		  <!-- 6a linea -->
@@ -135,5 +145,10 @@
 	    </fieldset>	
 	  </form>	
     </main>
+		<script>
+			function abrirFile(){
+				document.querySelector('form input[type="file"]').click();
+			}
+		</script>
   </body>
 </html>
