@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejemplo display:table </title>
+<style type="text/css">
+    *{
+        margin: 0px; padding: 0px; box-sizing: border-box;
+        border: 1px solid gray;
+    }
+    :root{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+    
+    .blue{ background-color: lightblue; }
+    .pink{ background-color: pink; }
+    .green{ background-color: lightgreen;  }
+    .orange{ background-color: orange;  }
+    
+    body { width: 80%;  margin: 0 auto; }
+    header, main, footer { width: 100%; }
+    
+    /************ header **************/
+    header{
+      display:grid;/*Solo actua con los hijos directos*/
+      grid-template-columns:repeat(10, 1fr);
+      /*grid-template-columns: 4fr 6fr;/*Equivale a poner 40% y 60% del disponible en GRID se suele rabajar con fracciones(fr) en vez de porcentajes*/
+      grid-template-rows: 6rem 3rem;/*Las filas son desiguales, por esos e mestra distinto*/
+    }
+    /*Nota: grid solo actua sobre hijos*/
+    header h1{/*Ocupa la 1ª celda de arriba*/
+      grid-row-start:1;
+      grid-row-end:2;
+      grid-column-start:1 ;
+      grid-column-end:5;
+    }
+    header div{
+      grid-row:1/3;
+      grid-column: 5/11;
+    }
+    header h2{
+      grid-row:2/3;
+      grid-column:1/5;
+    }
+    header article{
+      grid-row:2/3;
+      grid-column:5/11;
+    }
+        
+    /************* main **************/
+    main{
+      display:grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: auto auto;
+    }
+    /*Primera fila*/
+    main div:nth-child(1){
+      grid-row:1/2; grid-column:1/8;
+      height: 3rem;/*Actua como table y flex, y dando tamaño al primer elemento los demás de la fila lo adquieren*/
+    }
+    main div:nth-child(2){
+      grid-row:1/2; grid-column:8/11;
+    }
+    /*Segunda fila*/
+    main div:nth-child(3){
+      grid-row:2/3; grid-column:1/4;
+    }
+    main div:nth-child(4){
+      grid-row:2/3; grid-column:4/span 7;/*Equivale a 4/11, hace que se "expanda" lo del span*/
+    }
+        
+    /************ footer *************/
+    footer{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      /*imaginaros que es una galeria y no se cuantas filas.... no pasa nada si no defino el grid-template-rows*/
+      grid-row-gap:1rem;
+      justify-items: center;/*eje horizontal*/
+      align-items:center;/*eje vertical*/
+    }
+    footer p{
+      height: 5rem;
+      width: 5rem;
+      background-color: red;
+    }
+</style>
+</head>
+<body>
+ <header>
+    <!-- 1ª Fila del header -->
+    <!--<section>-->
+      <h1 class="blue">Esto es un título </h1>
+      <div class="pink">Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad<br/>Publicidad  
+      </div>
+    </section>
+    <!-- 2ª Fila del header --> 
+    <!--<section>-->
+      <h2 class="pink">Subtitulo</h2>
+      <article class="blue">Texto de relleno, texto de relleno <br/>
+                                Texto de relleno, texto de relleno
+      </article>
+    </section>
+ </header>
+ <main>
+    <!-- 1ª Fila del main --> 
+    <!--<section>-->  
+        <div class="green">70%</div>
+        <div class="orange">30%</div>
+    <!--</section>-->
+    <!-- 2ª Fila del main --> 
+    <!--<section>-->
+        <div class="orange">30%</div>
+        <div class="green">70%</div>
+    <!--</section>-->  
+ </main>
+<footer><p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p>
+  <p> Copyright 2017</p><p>Autor:E.S.</p></footer>
+</body>
+</html>

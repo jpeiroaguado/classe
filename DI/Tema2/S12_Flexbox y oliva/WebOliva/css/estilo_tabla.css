@@ -1,0 +1,165 @@
+/*GENERALES*/
+*{
+  margin: 0; padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  /*border: 1px dotted red;*/
+}
+:root{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  width:80%;
+  margin: 0 auto;
+}
+header{
+  display: table;
+  width: 100%;
+}
+/*Sección 1 y 2*/
+header>section{
+  display: table-row;
+}
+header>section:first-child{
+  color:white;
+  background-color: rgba(0, 0, 0, 80%);  
+  text-align: right;
+}
+img[src="./img/face_twit.png"]{
+  width:80px;
+}
+/*NAV 1*/
+header>nav{
+  width: 100%;
+  background-color: lightblue;
+  opacity: 80%;
+  padding:0.5rem;
+}
+header nav>ul{
+  list-style:none;
+}
+header ul>li>a{
+  text-decoration:none;
+}
+header nav>ul{
+  display: table-row;
+  width: 100%;
+  opacity: 80%;
+}
+header nav>ul>li{
+  display: table-cell;
+}
+header nav>ul>li>a{
+  text-decoration: none;
+  font-family: "Tahoma", "Verdana";
+  font-size: 16pt;
+  color:black;
+  margin-left:2rem;
+}
+header nav>ul>li>a:hover{
+  background-color: red;
+}
+/*MAIN*/
+main{
+  width:100%;
+}
+main .cuerpo{
+  display: table;
+  width: 100%;
+}
+/*H1*/
+main>h1{
+
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  color:green;
+  border-bottom: 5px solid green;
+  padding:1.5rem;
+}
+/*NAV 2*/
+main nav{
+  display: table-cell;
+  background-color: lightblue;
+  width: 20%;
+  vertical-align: top;
+}
+main nav ul{
+  list-style: none;
+  margin: 0.5rem;
+
+}
+main nav ul li {
+  color: black;
+  padding: 0.25rem;
+}
+main nav>ul>li:hover {
+  color: red; 
+}
+main nav ul>ul>li:hover {
+  text-decoration: underline; 
+}
+/*ARTICLE*/
+main .cuerpo>article{/*Column count*/
+  display: table;
+  background-color: white;
+  /*align-items: center;
+  justify-content: center;*/
+  padding:5rem;
+  height: 80%;
+  width: 100%;
+}
+main .cuerpo>article>h2{
+  display: table-row;
+  color: blue;
+  letter-spacing: 2px;
+}
+main .cuerpo>article>div{
+  display: table;
+  width: 100%;
+
+}
+/*ARTICULO: TABLA y IMG*/
+main .cuerpo>article>div>table{
+  border-collapse: collapse;
+}
+main .cuerpo>article>div>table tr td{
+  border: 1px dotted red;
+  padding:0.5rem;
+}
+main .cuerpo>article>div>table,
+main .cuerpo>article>div>img{
+  display: table-cell;
+  vertical-align: top;
+}
+main .cuerpo>article>div>img{
+  width:18.75rem;
+  height: auto;
+}
+
+/*FOOTER*/
+footer{
+  display: table;
+  width: 100%;
+  background-color: lightgray;  
+}
+footer p{
+  display:table-row;
+  color:grey;
+  background-color: lightgray;
+  font-size:small;
+  font-style:italic;
+}
+footer div.container{
+  display: table-row;
+  height: 7.5rem;
+  background-color: darkgray;
+  background-image: url(../img/silueta.png);
+  text-align: right;
+}
+/*titlulo y nav en flex, banderas en table
+ni han dos parts en la web en flex*/
+/*grid*/

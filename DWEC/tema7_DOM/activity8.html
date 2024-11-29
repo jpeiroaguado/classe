@@ -62,7 +62,7 @@
     // We add event listener beforeunload event. beforeunload join when the windows get off, and we put it in a cookie
 
     window.addEventListener("beforeunload", () => {
-        document.cookie = `scroll=${window.scrollY}; path=/;`;
+        document.cookie = `scroll=${window.scrollY}; path=/; expires=3600;`;
     });
 
     // When we load the navigator, we read the cookie

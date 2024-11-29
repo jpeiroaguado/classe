@@ -4,5 +4,6 @@
     </a>
     <ul class="nav nav-pills">
         <li class="nav-item"><a href="{{ route('inicio') }}" class="nav-link {{setActive('inicio')}}">Inicio</a></li>
-        <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link {{setActive('posts.*')}}">Posts</a></li </ul>
+        <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link {{setActive('posts.*')}}">Posts</a></li>
+     </ul>
 </header>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="texto">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius doloremque, adipisci nihil ex eligendi ipsam ratione dolore animi! Labore necessitatibus distinctio beatae, rem soluta quod suscipit doloremque molestiae blanditiis dolores. Rerum, omnis ipsa. At nesciunt, eos nostrum minus ipsam nisi, velit repudiandae, sequi nobis voluptatem consectetur doloremque recusandae in mollitia.</p>
+    <p>Excepturi assumenda exercitationem non numquam consequuntur. Magnam consequuntur dignissimos voluptate natus quis error incidunt provident cum ullam distinctio porro, adipisci quod veniam rem quisquam nemo debitis voluptas dolor totam unde mollitia numquam nostrum! Fugiat esse ut qui corrupti adipisci. Pariatur aliquam dolorum numquam impedit nostrum a cum neque maiores ut?</p>
+    <p>Expedita magnam quas error nihil explicabo et voluptas nobis consequuntur maxime rerum, laudantium hic eius ea architecto, impedit tempora quis! Sit deleniti nam iste minima quas quis sint reprehenderit. Debitis eveniet temporibus maiores ducimus nihil rerum enim beatae, delectus illum recusandae sequi accusantium magnam sunt excepturi quae porro, labore maxime!</p>
+    <p>Excepturi mollitia nobis eius nemo voluptate dolor vero, provident, maxime a perferendis pariatur, vitae minus! Quam iste repellat possimus quasi nihil molestias pariatur dolore! Nostrum, provident voluptate. Nostrum, atque animi! Velit rerum voluptatibus assumenda dolorem consequuntur odio fuga, voluptas eaque error reiciendis id, officia iste. Perferendis excepturi accusamus voluptatibus quas.</p>
+    <p>Officiis possimus nulla ab soluta suscipit harum quas. Impedit laborum, sint sapiente magni quod neque a quia similique iste? Optio veniam, odio autem velit tenetur quisquam. Est rerum laboriosam, magnam nesciunt hic quis obcaecati distinctio dolorum ut veritatis quo temporibus repellat iste dolor deleniti ducimus, sit exercitationem corrupti, perferendis nam.</p>
+    <p>Eum accusamus sequi beatae cupiditate, officiis ipsam officia eveniet minus provident, enim accusantium rerum culpa recusandae molestias aperiam saepe. Id atque, ducimus ipsam animi, non aperiam dolore eaque ipsa quos officiis quaerat facere recusandae labore provident quidem pariatur. Ad soluta sint accusamus quidem deserunt vitae laboriosam harum impedit minima nobis?</p>
+    <p>Pariatur minus unde distinctio repudiandae, porro exercitationem, tempora minima atque quidem praesentium iure. Quam dolores quisquam, dolorem cum maiores quasi nam, tenetur incidunt quis eaque, repellendus porro rem. Quos consequatur necessitatibus laudantium ullam neque, odit rem aperiam dolores ad ea earum tempore, odio repudiandae asperiores deserunt quasi, labore facere. Quas!</p>
+    <p>Cumque consectetur, provident voluptas maiores quidem, vero dolores iste pariatur nihil similique esse fuga dolorum! Nulla ratione beatae nihil dignissimos dicta, porro nostrum debitis autem aperiam veritatis? Animi molestias magnam mollitia temporibus, itaque eum nam accusamus impedit, laudantium illum ea dolor. Minima nobis beatae facere expedita voluptates accusantium enim tenetur!</p>
+    <p>Vitae, tenetur! Quae minima, placeat voluptate unde ut quos, ipsam fugit voluptatum laboriosam alias veniam nostrum quia ratione iure aspernatur impedit explicabo quidem quas fugiat. Iste, iure pariatur. Ea dolorum dolores, ex corrupti, a placeat ullam temporibus cupiditate quibusdam quisquam at recusandae eligendi reprehenderit blanditiis ratione. Itaque eligendi quo illo.</p>
+    <p>Adipisci nam atque minima consectetur. Enim asperiores sit aspernatur? Voluptates exercitationem voluptatibus, necessitatibus minima rem autem ullam recusandae expedita, quis corrupti harum sint quaerat aut repudiandae. Esse voluptas consequuntur ducimus! Expedita neque voluptate, adipisci natus unde deleniti tempore, nesciunt dolores perspiciatis maiores repellat earum accusantium cupiditate itaque amet velit quo.</p>
+  </div>
+  <footer id="footer">
+
+  </footer>
+</body>
+<script>
+  /*
+  I tried here to generate 10* lore ipsum paragraphs, but too much effort to do it xD  
+  document.body.style="width:100%; height:100%;";
+  let divText=document.createElement("div");
+  divText.style="width:50%; height:50%; top:25%; left:25%;"
+  for(let x=0; x<10;x++)
+    divText.appendChild("p")*/ 
+  document.body.style="width:100%; height:100%;";
+  let texto=document.getElementById("texto");
+  texto.style="width:50%; height:50%; top:25%; left:25%; position:absolute; overflow:auto;";
+  
+  texto.addEventListener("scroll", function scrollFinal(){
+    if(texto.scrollTop+texto.clientHeight+120>=texto.scrollHeight){
+      let foot=document.getElementById("footer");
+      foot.style="width: 100%; text-align: center; background-color: black; color: white; padding: 20px; position: absolute; bottom: 0;";
+      
+      let boton=document.createElement("button");
+      boton.innerHTML="Cerrar";
+      boton.addEventListener("click", function clicar(){
+        boton.remove();
+        foot.style="";
+      })
+      
+      
+      foot.appendChild(boton);
+      // console.log(texto.scrollTop+' '+texto.clientHeight+' '+texto.scrollHeight);
+      texto.removeEventListener("scroll", scrollFinal);
+    }
+  });
+</script>
+</html>

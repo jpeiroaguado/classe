@@ -35,7 +35,7 @@
     const div1=document.createElement('div');
     div1.id='div1';
     div1.classList.add('div1');
-    div1.innerHTML="I am draggable";
+    div1.innerHTML="Soy arrastrable";
     div1.draggable=true;
     document.body.appendChild(div1);
     //Hi ha que ferl draggable, está en els apunts
@@ -43,10 +43,10 @@
     const div2=document.createElement('div');
     div2.id='div2';
     div2.classList.add('div2');
-    div2.innerHTML="I am destiny"
+    div2.innerHTML="Soy el destino"
     document.body.appendChild(div2);
     //Hay que desactivar el evento drag para que funcione el drop
-
+    
     div1.addEventListener("dragstart", ()=>{
 
             div1.style.opacity="50%";

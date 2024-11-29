@@ -13,8 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::get();
-
+        $posts =Post::with('usuario')->orderBy('titulo')->paginate(5);/*Esto se valorará en el examen, esto rebaja la carga del servidor al hacer menos consultas para saber los usuarios de los posts a mostrar*/
         return view('posts.index', ['posts'=>$posts]);
     }
 
@@ -23,7 +22,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $post=new Post();
+        $post->titulo='Titulo'.rand(1,1000);
+        $post->contenido='Contenido del post'.rand(1,1000);
+        $post->save();
+
+        return redirect()->route('posts.index')->with('mensaje', 'Post añadido correctamente');
     }
 
     /**
@@ -49,7 +53,12 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post=Post::findOrFail($id);
+        $post->titulo='Modificado'.$post->titulo;
+        $post->contenido='Modificado'.$post->contenido;
+        $post->save();
+
+        return redirect()->route('posts.index')->with('mensaje', 'Post actualizado correctamente');
     }
 
     /**
@@ -65,6 +74,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post=Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('mensaje', 'Post eliminado');
     }
 }

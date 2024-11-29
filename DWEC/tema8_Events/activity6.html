@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://picsum.photos/700/400?random" alt="https://picsum.photos/700/400?random">
+  
+</body>
+<script>
+  let imagenes=[];
+  /*https://lorempixel.com/1920/1048
+  https://source.unplash.com/random
+  https://www.fillmurray.com/640/360
+  https://loremflickr.com/1920/1048 */
+  for(let x=0;x<10;x++){
+    let imagen=new Image();
+    imagen.src="https://picsum.photos/700/400?random";
+    imagenes.push(imagen);
+  }
+  imagenes.forEach(imagen => {
+    document.body.appendChild(imagen);
+  });
+
+</script>
+</html>

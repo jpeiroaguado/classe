@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity3</title>
+</head>
+<body>
+  
+</body>
+ <script>
+  document.body.style=`width:100%; height:100%;`;
+  let divChanger=document.createElement("div");
+  divChanger.style=`width: 50%; height: 50%; top: 25%; left: 25%; position:absolute; border:2px solid black;`;
+  document.body.appendChild(divChanger);
+  divChanger.addEventListener('mouseenter', function(){
+    divChanger.style.backgroundColor="green";//You need put style. And not style="......." because you overrwrite the style he had already.
+  });
+  divChanger.addEventListener('mouseleave', function(){
+    divChanger.style.backgroundColor="white";
+  });
+  divChanger.addEventListener('mousedown', function(){
+    divChanger.style.backgroundColor="red";
+  });
+  divChanger.addEventListener('mouseup', function(ev){
+    if(ev.button==0)//0 is left button, 1 center button, 2 right button This line only ocurrs if right button is clicked
+      divChanger.style.backgroundColor="green";
+  });
+  divChanger.addEventListener('contextmenu', function(evento){
+    evento.preventDefault();
+    divChanger.style.backgroundColor="blue";
+  })
+ </script>
+</html>
