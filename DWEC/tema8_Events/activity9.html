@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #taskContainer {
+            width: 300px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        li span {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <div id="taskContainer">
+        <input type="text" id="taskInput" placeholder="Enter a task..." />
+        <button id="addButton">+</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const addButton = document.getElementById("addButton");
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    // Function to add a task
+    const addTask = () => {
+        const taskContent = taskInput.value.trim();
+        if (taskContent) {
+            // Create new task
+            const li = document.createElement("li");
+            const taskName = document.createElement("span");
+            taskName.textContent = taskContent;
+            taskName.addEventListener("click", () => moveToTop(li));
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "remove";
+            removeButton.addEventListener("click", () => removeTask(li));
+
+            li.appendChild(taskName);
+            li.appendChild(removeButton);
+            taskList.appendChild(li);
+
+            // Clear the input
+            taskInput.value = "";
+        }
+    };
+
+    // Function to remove a task
+    const removeTask = (taskElement) => {
+        taskList.removeChild(taskElement);
+    };
+
+    // Function to move a task to the top
+    const moveToTop = (taskElement) => {
+        taskList.removeChild(taskElement);
+        taskList.prepend(taskElement);
+    };
+
+    // Event listener for the add button
+    addButton.addEventListener("click", addTask);
+
+    // Allow adding tasks with the "Enter" key
+    taskInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    });
+});
+</script>
+</html>

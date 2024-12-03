@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo Grid 3x3 y posicionamiento con coord.</title>
+	<style rel="stylesheet">
+		*{ margin: 0;  padding: 0; 
+			box-sizing: border-box;
+			/* border: 1px dotted red;*/
+		}
+
+		:root{ background-color: grey; 
+			 font-size: 16px;
+		}
+
+		body{
+			background-color: white;
+			width: 90%;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 8rem 4fr 1fr; /* fr: Fraccion de lo disponible */
+			grid-template-rows: 4rem auto 2rem;
+
+			/** NOVEDAD... Súper-util **/
+			grid-template-areas: "lg hd hd" 
+								 "nv mn bn"
+								 "ft ft .."; /* .. indica slot vacio */ 
+			/* se enlaza con prop grid-area de los hijos */
+		}
+
+		header{
+			background-color: red;
+			grid-area: hd; /** SIN COMILLAS **/
+		}
+
+		aside#logo{
+			grid-area: lg;
+		}
+
+		nav{
+			background-color: blue;
+			grid-area: nv;
+		}
+
+		main{
+			min-height: 40rem;
+			background-color: cornsilk;
+			grid-area: mn;
+
+		}
+
+		aside#banner{
+			background-color: orange;
+			grid-area: bn;
+		}
+
+		footer{
+			background-color: pink;
+			grid-area: ft;
+		}
+		/******** Subgrid ******/
+
+		main section#subgrid{
+			margin: 2rem;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			/** no pongo rows, segun vengan los apila en columnas */
+			gap: 2rem; /* grid-column-gap: 2rem PREDECATED*/
+			justify-items: center; /* del eje primario */
+			align-content: center; /* no hace nada, al no fijar tamaño de rows */
+		}
+
+		main section#subgrid div{
+			background-color: lightblue;
+			height: 5em;
+			width: 4em;
+		}	
+
+		main section#subgrid div:last-child{
+			
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Título</h1>
+	</header>
+	<aside id="logo">
+		<h3>Logo</h3>
+	</aside>
+	<nav></nav>
+	<main>
+		<section id="subgrid">
+			<div><p>1</p></div>
+			<div><p>2</p></div>
+			<div><p>3</p></div>
+			<div><p>4</p></div>
+			<div><p>5</p></div>
+			<div><p>6</p></div>
+			<div><p>7</p></div>
+		</section>
+	</main>
+	<aside id="banner">
+		<p>Banners</p>
+	</aside>
+	<footer>
+		<p>copyright 2021</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+@charset "utf-8"; /* Importante */
+/* Estilos comunes a todas las páginas del site */
+*{
+    margin: 0; padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+   /* border: 1px dotted red; */ 
+}
+
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-image: url('../img/fondo.jpg');
+}
+
+body{
+    width: 80%;
+    margin: 0 auto;
+    /*background-color: rgb(255, 228, 196, 60%);*/
+    min-width: 800px;
+    max-width: 1900px;
+    border-radius: 0 0 2em 2em; /* También en el footer */
+    box-shadow: 4px 4px 10px lightgray;
+    margin-bottom: 4em;
+    /**  DEFINO EL GRID 2x5**/
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas: "hea hea hea hea hea"
+                         "mai mai mai mai nav"
+                         "foo foo foo foo foo";
+}
+
+
+/* CABECERA */
+header{
+    grid-area: hea;
+    
+}
+
+header img{
+    display: block;
+    width: 100%;
+    height: 12rem;
+}
+
+/** OJO: ya no tengo div#tabular, ahora todo son hijos directos de body **/
+nav{
+    grid-area: nav;
+    min-width: 10rem;
+    background-color: rgb(222, 184, 135,0.6);
+}
+
+main{
+    grid-area: mai;
+    background-color:  rgb(255, 228, 196, 60%);
+    padding: 2rem;
+}
+
+/* BOTONERA */
+nav ul{
+    list-style: none;
+}
+
+nav ul li a{
+    display: block;
+    width: 80%;
+    margin: 0.5em auto;
+    padding: 0.5em;
+    background-color: chocolate;
+    color: bisque;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0.5em;
+    transition: color 0.5s ease, background-color 0.3s linear;
+}
+nav ul li a:hover{
+    color: chocolate;
+    background-color: bisque;
+}
+
+/* FOOTER */
+
+footer{
+    grid-area: foo;
+    background-color: chocolate;
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(161,91,28,1) 45%, rgba(244,138,24,1) 68%, rgba(244,138,24,1) 83%);
+    padding: 1.5em;
+    border-radius: 0 0 2em 2em; /* empieza por borde sup-izq, y va en sentido horario */
+}

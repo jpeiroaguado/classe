@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <paragraph index="9" node_type="writer"> RESUMEN HTML	</paragraph>
+ <paragraph index="10" node_type="writer">	Por Javier Peiro Aguado (2DAW)</paragraph>
+ <paragraph index="11" node_type="writer">1- ¿Qué es HTML?</paragraph>
+ <paragraph index="13" node_type="writer">	Es el lenguaje básico que se utiliza para construir las páginas web que vemos en internet. Imagina que es como un conjunto de instrucciones que le damos a un navegador (como Chrome, Firefox o Safari) para que muestre el contenido de una manera organizada.</paragraph>
+ <paragraph index="15" node_type="writer">
+2-Estructura de una página HTML: </paragraph>
+ <paragraph index="17" node_type="writer">HTML: Lenguaje para escritura de páginas Web.</paragraph>
+ <paragraph index="18" node_type="writer">Estructura básica: html, head, title, meta, body. </paragraph>
+ <paragraph index="19" node_type="writer">Etiquetas: Entornos que rodean el contenido y envían instrucciones al navegador.</paragraph>
+ <paragraph index="20" node_type="writer">Head ( &lt; head &gt;): Contiene datos de páginas ( título, codificación).</paragraph>
+ <paragraph index="21" node_type="writer">Body ( &lt; body &gt;): Muestra el contenido de página que usted puede ver.</paragraph>
+ <paragraph index="22" node_type="writer">Mayúsculas y minúsculas: HTML no es sensibles a mayúsculas y minúsculas.</paragraph>
+ <paragraph index="23" node_type="writer">DOCTYPE – Indica al navegador que el documento es un HTML.</paragraph>
+ <paragraph index="24" node_type="writer">Charset — Define el código de caracteres. El más común es UTF-8.</paragraph>
+ <paragraph index="26" node_type="writer">3-Salto de linea &lt;br&gt;</paragraph>
+ <paragraph index="28" node_type="writer">&lt;br&gt; en HTML crea un salto de línea.</paragraph>
+ <paragraph index="30" node_type="writer">Sirve para separar texto en diferentes líneas dentro de una página web.</paragraph>
+ <paragraph index="31" node_type="writer">Se escribe &lt;br&gt; donde quieras que empiece una nueva línea.</paragraph>
+ <paragraph index="32" node_type="writer">Es útil para formatear textos, direcciones, poemas y otros contenidos donde la separación en líneas es importante.</paragraph>
+ <paragraph index="33" node_type="writer">Ejemplo:</paragraph>
+ <paragraph index="35" node_type="writer">HTML</paragraph>
+ <paragraph index="37" node_type="writer">&lt;body&gt;</paragraph>
+ <paragraph index="38" node_type="writer">  Esto es una línea.&lt;br&gt;</paragraph>
+ <paragraph index="39" node_type="writer">  Esto es otra línea.</paragraph>
+ <paragraph index="40" node_type="writer">&lt;/body&gt;</paragraph>
+ <paragraph index="42" node_type="writer">4-Párrafo&lt;p&gt;
+
+El elemento &lt;p&gt; en HTML define párrafos, que son bloques de texto separados por un espacio respecto a otros párrafos. Dentro de un párrafo se pueden incluir saltos de línea con &lt;br&gt;.</paragraph>
+ <paragraph index="43" node_type="writer">Ejemplo: </paragraph>
+ <paragraph index="44" node_type="writer">&lt;p&gt;</paragraph>
+ <paragraph index="45" node_type="writer">Prrafo de ejemplo 1</paragraph>
+ <paragraph index="46" node_type="writer">&lt;/p&gt;</paragraph>
+ <paragraph index="47" node_type="writer">&lt;p&gt;</paragraph>
+ <paragraph index="48" node_type="writer">parrafo de ejemplo 2</paragraph>
+ <paragraph index="49" node_type="writer">&lt;/p&gt;</paragraph>
+ <paragraph index="50" node_type="writer">&lt;p&gt; proviene de paragraph.</paragraph>
+ <paragraph index="51" node_type="writer">No es recomedable usar únicamente &lt;br&gt; para dar formato; es mejor estructurar con párrafos y añadir saltos dentro de ellos si es necesario.</paragraph>
+ <paragraph index="52" node_type="writer">5-Titulos h1, h2, h3, h4, h5, h6</paragraph>
+ <paragraph index="54" node_type="writer">Los elementos &lt;h1&gt; a &lt;h6&gt; en HTML se usan para definir títulos, siendo &lt;h1&gt; el de mayor nivel y tamaño y h6 el menor. El navegador determina el tamaño de la fuente según el nivel del título.</paragraph>
+ <paragraph index="55" node_type="writer">Cada título se muestra en una línea nueva, sin importar cómo se escriba en el código.</paragraph>
+ <paragraph index="56" node_type="writer">Los motores de búsqueda usan los títulos para identificar los temas de la página.</paragraph>
+ <paragraph index="57" node_type="writer">&lt;h1&gt; significa heading, que significa título.</paragraph>
+ <paragraph index="58" node_type="writer">No son los títulos del contenido con el título de la página, que se define en &lt;head&gt;.</paragraph>
+ <paragraph index="59" node_type="writer">6-Enfasis (&lt;em&gt; &lt;strong&gt;)</paragraph>
+ <paragraph index="61" node_type="writer">Los elementos &lt;strong&gt; y &lt;em&gt; en HTML se usan para enfatizar texto:</paragraph>
+ <paragraph index="62" node_type="writer">&lt;strong&gt; aplica un énfasis más fuerte (usualmente en negrita).</paragraph>
+ <paragraph index="63" node_type="writer">&lt;em&gt; aplica un énfasis menos fuerte (generalmente en itálica).</paragraph>
+ <paragraph index="64" node_type="writer">Características:</paragraph>
+ <paragraph index="65" node_type="writer">No generan saltos de línea como los títulos.</paragraph>
+ <paragraph index="66" node_type="writer">&lt;em&gt; proviene de emphasis (énfasis) y &lt;strong&gt; significa fuerte.</paragraph>
+ <paragraph index="67" node_type="writer">7 - Hipervínculo a otra página del mismo sitio &lt;a&gt;</paragraph>
+ <paragraph index="69" node_type="writer">El elemento más importante en una página web es el hipervínculo (&lt;a&gt;), que permite navegar entre páginas. Esto diferencia a una página web de un libro, ya que en un sitio web podemos tener distintas alternativas de recorrido.</paragraph>
+ <paragraph index="70" node_type="writer">Ejemplo:</paragraph>
+ <paragraph index="71" node_type="writer">&lt;a href=&quot;pagina2.html&quot;&gt;Noticias&lt;/a&gt;</paragraph>
+ <paragraph index="72" node_type="writer">El texto entre las etiquetas aparece subrayado por defecto, y al hacer clic, se carga la página indicada.</paragraph>
+ <paragraph index="73" node_type="writer">Introduce el concepto de propiedad, como href, que tiene un nombre y un valor (en este caso, la URL), el cual va entre comillas.</paragraph>
+ <paragraph index="74" node_type="writer">8-Hipervínculo a otro sitio de internet &lt;a&gt;</paragraph>
+ <paragraph index="76" node_type="writer">Para crear un hipervínculo que dirija a otro sitio web, la sintaxis es:</paragraph>
+ <paragraph index="77" node_type="writer">&lt;a href=&quot;http://www.google.com&quot;&gt;Buscador Google&lt;/a&gt;
+</paragraph>
+ <paragraph index="78" node_type="writer">La propiedad href incluye el protocolo (como http) seguido del dominio del sitio (www.google.com).</paragraph>
+ <paragraph index="79" node_type="writer">Si no se especifica una página dentro del dominio, el servidor devuelve la página principal configurada por defecto.</paragraph>
+ <paragraph index="80" node_type="writer">También se pueden enlazar páginas específicas de un dominio, indicando la ruta exacta. Por ejemplo:</paragraph>
+ <paragraph index="81" node_type="writer">html</paragraph>
+ <paragraph index="82" node_type="writer">Copiar código</paragraph>
+ <paragraph index="83" node_type="writer">&lt;a href=&quot;http://tutorialesprogramacionya.com/acercade.html&quot;&gt;Acerca de Google&lt;/a&gt;</paragraph>
+ <paragraph index="84" node_type="writer">Hay que conocer el nombre de la página y, si está en una subcarpeta, proporcionar la ruta completa.</paragraph>
+ <paragraph index="86" node_type="writer">9- Imágenes dentro de una página</paragraph>
+ <paragraph index="88" node_type="writer">Para insertar imágenes en una página web se utiliza la etiqueta &lt;img&gt;, que no necesita cierre (igual que &lt;br&gt;). Esta etiqueta tiene dos propiedades básicas:</paragraph>
+ <paragraph index="89" node_type="writer">src: Indica la ruta del archivo de imagen. Si la imagen está en el mismo directorio que la página, basta con poner el nombre del archivo. En sistemas Linux, recuerda que los nombres de archivos son sensibles a mayúsculas y minúsculas, así que usa minúsculas para evitar problemas.</paragraph>
+ <paragraph index="90" node_type="writer">alt: Proporciona una descripción de la imagen. Es útil para navegadores que no muestran imágenes o usuarios con accesibilidad especial.</paragraph>
+ <paragraph index="91" node_type="writer">Ejemplo básico:</paragraph>
+ <paragraph index="92" node_type="writer">&lt;img src=&quot;foto1.jpg&quot; alt=&quot;Pintura geométrica&quot;&gt;</paragraph>
+ <paragraph index="93" node_type="writer">&lt;img&gt; viene de image (imagen).</paragraph>
+ <paragraph index="94" node_type="writer">src significa source (fuente).</paragraph>
+ <paragraph index="95" node_type="writer">alt es de alternative (alternativa).</paragraph>
+ <paragraph index="96" node_type="writer">10-Hipervínculo mediante una imagen &lt;a&gt; y &lt;img&gt;</paragraph>
+ <paragraph index="98" node_type="writer">Podemos combinarlos para crear enlaces donde, en lugar de texto, se muestre la imagen.</paragraph>
+ <paragraph index="99" node_type="writer">Esto se logra colocando la etiqueta &lt;img&gt; dentro de las etiquetas &lt;a&gt;.</paragraph>
+ <paragraph index="100" node_type="writer">
+Ej:
+&lt;a href=&quot;pagina1.html&quot;&gt;&lt;img src=&quot;../foto1.jpg&quot; alt=&quot;Pintura geométrica&quot;&gt;&lt;/a&gt;
+
+11-Apertura de un hipervínculo en otra pestaña del navegador</paragraph>
+ <paragraph index="102" node_type="writer">La propiedad target del elemento &lt;a&gt; permite especificar dónde se abrirá el enlace. Para abrirlo en una nueva pestaña, usamos el valor &quot;_blank&quot;.
+
+Ej:</paragraph>
+ <paragraph index="103" node_type="writer">&lt;a href=&quot;pagina2.html&quot; target=&quot;_blank&quot;&gt;Abrirá esto en otra pestaña&lt;/a&gt;</paragraph>
+ <paragraph index="105" node_type="writer">12-Hipervínculo a un cliente de correo &lt;a&gt;</paragraph>
+ <paragraph index="107" node_type="writer">La etiqueta &lt;a&gt; también puede usarse para abrir un programa de correo configurado en la computadora.</paragraph>
+ <paragraph index="108" node_type="writer">
+Ej:
+&lt;a href=&quot;http://www.clarin.com.ar&quot; target=&quot;_blank&quot;&gt;Periódico Clarín&lt;/a&gt;</paragraph>
+ <paragraph index="110" node_type="writer">13-Anclas llamadas desde la misma página</paragraph>
+ <paragraph index="112" node_type="writer">En HTML, podemos crear anclas dentro de una página para permitir que los usuarios se desplacen fácilmente entre diferentes secciones, especialmente en páginas largas.
+
+Ej:
+&lt;a name=&quot;nombreancla&quot;&gt;&lt;/a&gt; (Sería el sitio al que queremos ir tras pulsar el vínculo)
+
+&lt;a href=&quot;#nombreancla&quot;&gt;Texto del enlace&lt;/a&gt;(Sería el vínculo
+</paragraph>
+ <paragraph index="113" node_type="writer">14-Anclas llamadas desde otra página:</paragraph>
+ <paragraph index="114" node_type="writer">
+Es posible enlazar anclas desde otras páginas. Para ello, simplemente agregamos el nombre de la página y el ancla:
+
+&lt;a name=&quot;introduccion&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;pagina2.html#introduccion&quot;&gt;Introducción&lt;/a&gt;(En la otra página)
+
+15-Lista Ordenada (&lt;ol&gt;)</paragraph>
+ <paragraph index="116" node_type="writer">En HTML podemos crear listas ordenadas con la etiqueta &lt;ol&gt;, que numera los ítems automáticamente:</paragraph>
+ <paragraph index="117" node_type="writer">&lt;ol&gt;</paragraph>
+ <paragraph index="118" node_type="writer">  &lt;li&gt;Primer ítem&lt;/li&gt;</paragraph>
+ <paragraph index="119" node_type="writer">  &lt;li&gt;Segundo ítem&lt;/li&gt;</paragraph>
+ <paragraph index="120" node_type="writer">&lt;/ol&gt;</paragraph>
+ <paragraph index="122" node_type="writer">16-Lista NO Ordenada (&lt;ul&gt;)</paragraph>
+ <paragraph index="124" node_type="writer">En HTML podemos crear listas no ordenadas con la etiqueta &lt;ul&gt;, que usa símbolos en lugar de números:</paragraph>
+ <paragraph index="126" node_type="writer">&lt;ul&gt;</paragraph>
+ <paragraph index="127" node_type="writer">  &lt;li&gt;Primer ítem&lt;/li&gt;</paragraph>
+ <paragraph index="128" node_type="writer">  &lt;li&gt;Segundo ítem&lt;/li&gt;</paragraph>
+ <paragraph index="129" node_type="writer">&lt;/ul&gt;</paragraph>
+ <paragraph index="130" node_type="writer">17-Lista de definiciones(&lt;dl)</paragraph>
+ <paragraph index="131" node_type="writer">
+La lista de definiciones (&lt;dl&gt;) se usa para asociar un término con su definición. El navegador destaca y separa ambos elementos. Se utiliza comúnmente para crear definiciones, como la de varios lenguajes de programación.</paragraph>
+ <paragraph index="132" node_type="writer">&lt;dl&gt; viene de definition list</paragraph>
+ <paragraph index="133" node_type="writer">&lt;dt&gt; viene de definition term</paragraph>
+ <paragraph index="134" node_type="writer">&lt;dd&gt; viene de definition description</paragraph>
+ <paragraph index="135" node_type="writer">
+18-Listas anidadas</paragraph>
+ <paragraph index="136" node_type="writer">
+HTML deja anidar listas dentro de otras, como por ejemplo tener una lista ordenada con elementos que incluyen listas no ordenadas.</paragraph>
+ <paragraph index="137" node_type="writer">Ej:</paragraph>
+ <paragraph index="138" node_type="writer">&lt;li&gt;Diarios</paragraph>
+ <paragraph index="139" node_type="writer">  &lt;ul&gt;</paragraph>
+ <paragraph index="140" node_type="writer">    &lt;li&gt;&lt;a href=&quot;http://www.lanacion.com.ar&quot;&gt;La Nación&lt;/a&gt;&lt;/li&gt;</paragraph>
+ <paragraph index="141" node_type="writer">    &lt;li&gt;&lt;a href=&quot;http://www.clarin.com.ar&quot;&gt;Clarín&lt;/a&gt;&lt;/li&gt;</paragraph>
+ <paragraph index="142" node_type="writer">     &lt;/ul&gt;</paragraph>
+ <paragraph index="143" node_type="writer">&lt;/li&gt;</paragraph>
+ <paragraph index="145" node_type="writer">Poniendo indentación o sangrado (espacios en blanco a la izquierda) mejorará la legibilidad del código, pero el navegador no lo toma en cuenta. Esto ayuda a identificar fácilmente el inicio y fin de cada marca HTML.</paragraph>
+ <paragraph index="146" node_type="writer">
+19- Tabla(&lt;table&gt;&lt;tr&gt;&lt;td&gt;)
+</paragraph>
+ <paragraph index="147" node_type="writer">Las tablas en HTML se utilizan para organizar datos en filas y columnas. No deben usarse para el diseño completo de una página, ya que eso se hace con CSS. Los elementos clave para crear una tabla son:</paragraph>
+ <paragraph index="148" node_type="writer">&lt;table&gt;: Marca de inicio de la tabla, que debe cerrarse.</paragraph>
+ <paragraph index="149" node_type="writer">&lt;tr&gt;: Define una fila dentro de la tabla, también necesita cerrarse, viene de table rot.</paragraph>
+ <paragraph index="150" node_type="writer">&lt;td&gt;: Es una celda dentro de una fila, que también debe cerrarse, viene de table data.</paragraph>
+ <paragraph index="151" node_type="writer">
+20-Tabla con encabezado(&lt;th&gt;)</paragraph>
+ <paragraph index="153" node_type="writer">En una tabla, las celdas de encabezado se indican con el elemento &lt;th&gt;, en lugar de &lt;td&gt;, para marcar los títulos de cada columna. Estas celdas se encuentran dentro de una fila, es decir, entre las marcas &lt;tr&gt; y &lt;/tr&gt;. Los navegadores muestran las celdas de encabezado de manera diferente a las de los datos.</paragraph>
+ <paragraph index="154" node_type="writer">&lt;th&gt; proviene de &quot;table header cell&quot; (celda de encabezado de tabla).</paragraph>
+ <paragraph index="156" node_type="writer">21-Tabla con título(&lt;caption&gt;)</paragraph>
+ <paragraph index="158" node_type="writer">Para agregar un título a una tabla, utilizamos el elemento &lt;caption&gt;, que debe colocarse justo después de abrir la etiqueta &lt;table&gt;. Este elemento requiere tanto la marca de apertura como la de cierre.</paragraph>
+ <paragraph index="159" node_type="writer">Por ejemplo, para una tabla que muestre la población de varios países, se usaría:</paragraph>
+ <paragraph index="161" node_type="writer">&lt;caption&gt;Población de distintos países&lt;/caption&gt;</paragraph>
+ <paragraph index="162" node_type="writer">&lt;caption&gt; significa título.</paragraph>
+ <paragraph index="164" node_type="writer">22-Tabla y combinación de celdas</paragraph>
+ <paragraph index="166" node_type="writer">En algunos casos, es necesario que una celda ocupe el espacio de varias celdas, ya sea de manera horizontal o vertical. Para esto, se utilizamos las propiedades colspan y rowspan en las etiquetas &lt;td&gt; o &lt;th&gt; y le asignamos un valor entero, generalmente a partir de 2.</paragraph>
+ <paragraph index="167" node_type="writer">colspan se usa para que una celda ocupe varias columnas. Por ejemplo, si queremos que una celda ocupe tres columnas, usamos:</paragraph>
+ <paragraph index="169" node_type="writer">&lt;td colspan=&quot;3&quot;&gt;Facturación de los últimos tres meses&lt;/td&gt;</paragraph>
+ <paragraph index="170" node_type="writer">rowspan se usa para que una celda ocupe varias filas. Por ejemplo, para que una celda ocupe tres filas:</paragraph>
+ <paragraph index="172" node_type="writer">&lt;td rowspan=&quot;3&quot;&gt;Secciones&lt;/td&gt;</paragraph>
+ <paragraph index="173" node_type="writer">Esto permite combinar celdas en tablas para una presentación más organizada y eficiente.</paragraph>
+ <paragraph index="174" node_type="writer">
+23- Contenido de la cabecera de la página(&lt;title&gt;)</paragraph>
+ <paragraph index="176" node_type="writer">El elemento &lt;title&gt; se utiliza para definir el título que aparecerá en la barra del navegador, en la parte superior de la ventana. Aunque la cabecera del archivo HTML contiene información que generalmente no se muestra en la página, el título es una excepción, ya que es visible y ayuda a identificar de qué trata la página.</paragraph>
+ <paragraph index="177" node_type="writer">Es importante elegir un título claro y relevante para el contenido que se presenta. Aquí tienes un ejemplo de una página simple con un título y un hipervínculo a otra página con un título diferente:</paragraph>
+ <paragraph index="179" node_type="writer">24- Contenido de la cabecera de la página(&lt;meta&gt;)</paragraph>
+ <paragraph index="181" node_type="writer">El elemento &lt;meta&gt; se utiliza en la cabecera de una página HTML para proporcionar metadatos, como la codificación de caracteres y otra información relevante para los motores de búsqueda y los navegadores. Un uso común es definir la codificación de caracteres de la página:</paragraph>
+ <paragraph index="183" node_type="writer">&lt;meta charset=&quot;UTF-8&quot;&gt;</paragraph>
+ <paragraph index="184" node_type="writer">Hay muchos metas pero hay algunos más comuines como author, copyright o description.</paragraph>
+ <paragraph index="185" node_type="writer">
+25-Comentarios&lt;!-- --&gt;</paragraph>
+ <paragraph index="186" node_type="writer">Los comentarios en HTML son textos que los navegadores ignoran y están pensados para facilitar el trabajo del desarrollador. Son útiles para dejar anotaciones, explicar partes del código o deshabilitar temporalmente fragmentos durante el desarrollo.</paragraph>
+ <paragraph index="187" node_type="writer">Usos habituales de los comentarios:</paragraph>
+ <paragraph index="188" node_type="writer">Notas explicativas: Ayudan a documentar el código.</paragraph>
+ <paragraph index="189" node_type="writer">Deshabilitar código temporalmente: Permiten probar cambios sin eliminar partes del código.</paragraph>
+ <paragraph index="190" node_type="writer">&lt;!-- Ejemplo de comentario --&gt;
+
+26-Sintaxis para caracteres especiales</paragraph>
+ <paragraph index="192" node_type="writer">En HTML, no podemos usar directamente ciertos caracteres especiales, como &lt; y &gt;, porque el navegador los interpretaría como marcas HTML. Para solucionarlo, usamos entidades HTML, que son combinaciones de caracteres que representan símbolos específicos.</paragraph>
+ <paragraph index="193" node_type="writer">Principales caracteres y la sintaxis:</paragraph>
+ <paragraph index="194" node_type="writer">&lt; se escribe como &amp;lt;</paragraph>
+ <paragraph index="195" node_type="writer">&gt; se escribe como &amp;gt;</paragraph>
+ <paragraph index="196" node_type="writer">&amp; se escribe como &amp;amp;</paragraph>
+ <paragraph index="197" node_type="writer">Espacio en blanco: &amp;nbsp;</paragraph>
+ <paragraph index="198" node_type="writer">Símbolo de copyright: &amp;copy;</paragraph>
+ <paragraph index="199" node_type="writer">Euro: &amp;euro;</paragraph>
+ <paragraph index="201" node_type="writer">27- Formulario-(&lt;form&gt;)
+</paragraph>
+ <paragraph index="202" node_type="writer">Un formulario permite a los visitantes de un sitio ingresar datos y enviarlos al servidor para su procesamiento, aunque HTML solo se encarga de construir el formulario. El registro y manejo de los datos se realiza con lenguajes de servidor como por ejemplo PHP, ASP, NodeJS, etc.</paragraph>
+ <paragraph index="203" node_type="writer">Elementos clave de un formulario:</paragraph>
+ <paragraph index="204" node_type="writer">Estructura básica
+El elemento &lt;form&gt; define el formulario y utiliza las propiedades:</paragraph>
+ <paragraph index="205" node_type="writer">action: Especifica la página que procesará los datos en el servidor (por ejemplo, registrardatos.php).</paragraph>
+ <paragraph index="206" node_type="writer">method: Define cómo se envían los datos:</paragraph>
+ <paragraph index="207" node_type="writer">post: Datos enviados en el cuerpo de la solicitud (sin límite de tamaño).</paragraph>
+ <paragraph index="208" node_type="writer">get: Datos enviados en la URL (limitado en tamaño).</paragraph>
+ <paragraph index="210" node_type="writer">&lt;form action=&quot;registrardatos.php&quot; method=&quot;post&quot;&gt;</paragraph>
+ <paragraph index="211" node_type="writer">Cuadros de texto
+Para crear un cuadro donde el usuario pueda ingresar texto, usamos el elemento &lt;input&gt; con el atributo type=&quot;text&quot;.</paragraph>
+ <paragraph index="212" node_type="writer">name: Nombre identificador del campo.</paragraph>
+ <paragraph index="213" node_type="writer">size: Tamaño visual del cuadro (cantidad de caracteres mostrados).</paragraph>
+ <paragraph index="215" node_type="writer">Ingrese su nombre:</paragraph>
+ <paragraph index="216" node_type="writer">&lt;input type=&quot;text&quot; name=&quot;nombre&quot; size=&quot;20&quot;&gt;</paragraph>
+ <paragraph index="217" node_type="writer">Botón de envío
+Para enviar los datos al servidor, se utiliza &lt;input&gt; con el atributo type=&quot;submit&quot;.</paragraph>
+ <paragraph index="218" node_type="writer">value: Texto que aparecerá en el botón.</paragraph>
+ <paragraph index="220" node_type="writer">&lt;input type=&quot;submit&quot; value=&quot;enviar&quot;&gt;</paragraph>
+ <paragraph index="221" node_type="writer">Cierre del formulario
+El formulario se cierra con &lt;/form&gt;.</paragraph>
+ <paragraph index="222" node_type="writer">Ej:</paragraph>
+ <paragraph index="223" node_type="writer">&lt;form action=&quot;formEjemp.php&quot; method=&quot;post&quot;&gt;</paragraph>
+ <paragraph index="224" node_type="writer">  Ingresa el nombre:</paragraph>
+ <paragraph index="225" node_type="writer">  &lt;input type=&quot;text&quot; name=&quot;nombre&quot; size=&quot;20&quot;&gt;</paragraph>
+ <paragraph index="226" node_type="writer">  &lt;br&gt;</paragraph>
+ <paragraph index="227" node_type="writer">  &lt;input type=&quot;submit&quot; value=&quot;enviar&quot;&gt;</paragraph>
+ <paragraph index="228" node_type="writer">&lt;/form&gt;</paragraph>
+ <paragraph index="230" node_type="writer">
+28- Formulario- input type=”text”/”password”</paragraph>
+ <paragraph index="232" node_type="writer">&lt;input type=”text”&gt; Crea un campo tipo dexto que te permite introducir cadenas de texto dentro
+
+Usa &lt;input type=&quot;password&quot;&gt; es igual que el tipo texto, pero para que los caracteres ingresados aparezcan como asteriscos.</paragraph>
+ <paragraph index="233" node_type="writer">Ejemplo:</paragraph>
+ <paragraph index="234" node_type="writer">&lt;input type=&quot;password&quot; name=&quot;clave&quot; size=&quot;12&quot;&gt;</paragraph>
+ <paragraph index="235" node_type="writer">Botón de reinicio:
+Usa &lt;input type=&quot;reset&quot;&gt; para borrar todos los datos del formulario.</paragraph>
+ <paragraph index="236" node_type="writer">Ejemplo:</paragraph>
+ <paragraph index="238" node_type="writer">&lt;input type=&quot;reset&quot; value=&quot;borrar&quot;&gt;</paragraph>
+ <paragraph index="239" node_type="writer">Atributo name:
+Cada campo debe tener un nombre único para ser identificado en el servidor.</paragraph>
+ <paragraph index="240" node_type="writer">Formulario de ejemplo:</paragraph>
+ <paragraph index="242" node_type="writer">&lt;form action=&quot;procesar.php&quot; method=&quot;post&quot;&gt;</paragraph>
+ <paragraph index="243" node_type="writer">  Usuario: &lt;input type=&quot;text&quot; name=&quot;usuario&quot;&gt;</paragraph>
+ <paragraph index="244" node_type="writer">  Contraseña: &lt;input type=&quot;password&quot; name=&quot;clave&quot;&gt;</paragraph>
+ <paragraph index="245" node_type="writer">  &lt;input type=&quot;submit&quot; value=&quot;enviar&quot;&gt;</paragraph>
+ <paragraph index="246" node_type="writer">  &lt;input type=&quot;reset&quot; value=&quot;borrar&quot;&gt;</paragraph>
+ <paragraph index="247" node_type="writer">&lt;/form&gt;</paragraph>
+ <paragraph index="249" node_type="writer">29-Formulario- textarea</paragraph>
+ <paragraph index="251" node_type="writer">El elemento &lt;textarea&gt; permite ingresar texto en varias líneas, ideal para comentarios largos.</paragraph>
+ <paragraph index="252" node_type="writer">Ej:</paragraph>
+ <paragraph index="253" node_type="writer">&lt;textarea name=&quot;comentarios&quot; rows=&quot;5&quot; cols=&quot;60&quot;&gt;&lt;/textarea&gt;</paragraph>
+ <paragraph index="254" node_type="writer">Propiedades:</paragraph>
+ <paragraph index="255" node_type="writer">name: Identifica el campo en el servidor.</paragraph>
+ <paragraph index="256" node_type="writer">rows y cols: Determinan el número de filas y columnas visibles.</paragraph>
+ <paragraph index="258" node_type="writer">30- Formulario- input type=”checkbox”</paragraph>
+ <paragraph index="259" node_type="writer">
+El elemento checkbox permite al usuario seleccionar o deseleccionar opciones. Es ideal para elegir múltiples valores independientes.</paragraph>
+ <paragraph index="260" node_type="writer">Ej:</paragraph>
+ <paragraph index="261" node_type="writer">&lt;input type=&quot;checkbox&quot; name=&quot;java&quot;&gt;Java&lt;br&gt;</paragraph>
+ <paragraph index="262" node_type="writer">Detalles:</paragraph>
+ <paragraph index="263" node_type="writer">type=&quot;checkbox&quot;: Define el elemento como casilla de verificación.</paragraph>
+ <paragraph index="264" node_type="writer">name: Identifica el control para su procesamiento en el servidor.</paragraph>
+ <paragraph index="265" node_type="writer">Texto adicional puede colocarse junto al elemento para describir la opción.</paragraph>
+ <paragraph index="267" node_type="writer">31- Formulario- input type=”radio”</paragraph>
+ <paragraph index="268" node_type="writer">
+Los botones de selección (radio) se usan cuando se necesita elegir solo una opción dentro de un grupo de opciones.
+Ej:
+&lt;input type=&quot;radio&quot; name=&quot;estudios&quot; value=&quot;1&quot;&gt;Sin estudios&lt;br&gt;</paragraph>
+ <paragraph index="269" node_type="writer"> &lt;input type=&quot;radio&quot; name=&quot;estudios&quot; value=&quot;2&quot;&gt;Primario&lt;br&gt; </paragraph>
+ <paragraph index="270" node_type="writer">&lt;input type=&quot;radio&quot; name=&quot;estudios&quot; value=&quot;3&quot;&gt;Secundario&lt;br&gt;
+
+32- Formulario- select(cuadro de selección individual)</paragraph>
+ <paragraph index="272" node_type="writer">Con el elemento &lt;select&gt; crea un cuadro que permite elegir una opción entre varias.
+
+Propiedades:</paragraph>
+ <paragraph index="273" node_type="writer">&lt;select&gt;:</paragraph>
+ <paragraph index="274" node_type="writer">	Se utiliza para abrir el cuadro de selección.</paragraph>
+ <paragraph index="275" node_type="writer">	La propiedad name define el nombre que recibirá el servidor.</paragraph>
+ <paragraph index="276" node_type="writer">&lt;option&gt;:</paragraph>
+ <paragraph index="277" node_type="writer">	Define cada opción dentro del cuadro de selección.</paragraph>
+ <paragraph index="278" node_type="writer">	La propiedad value indica el valor enviado al servidor al seleccionar esa opción.</paragraph>
+ <paragraph index="279" node_type="writer">	El texto entre las etiquetas &lt;option&gt; es lo que se muestra en pantalla.</paragraph>
+ <paragraph index="280" node_type="writer">size:</paragraph>
+ <paragraph index="281" node_type="writer">Por defecto, muestra una opción visible (tamaño 1).</paragraph>
+ <paragraph index="282" node_type="writer">Si se cambia el valor, muestra varias opciones simultáneamente, aunque solo permite seleccionar una a la vez.</paragraph>
+ <paragraph index="284" node_type="writer">33-Formulario-select (cuadro de selección múltiple)</paragraph>
+ <paragraph index="285" node_type="writer">
+El cuadro de selección múltiple permite que el usuario seleccione varias opciones de una lista, a diferencia de un cuadro de selección estándar, que solo permite una selección.
+Ej:
+&lt;select name=&quot;trabajos[]&quot; size=&quot;2&quot; multiple&gt;
+El usuario puede seleccionar varias opciones manteniendo presionada la tecla Ctrl (en Windows) o Cmd (en Mac), y haciendo clic en opciones no consecutivas.
+
+34- Formulario- select (agrupamiento de opciones)</paragraph>
+ <paragraph index="286" node_type="writer">
+El elemento &lt;optgroup&gt; permite agrupar varias opciones dentro de un cuadro de selección, lo cual es útil si este contiene numerosos elementos.
+&lt;select name=&quot;productos&quot;&gt; </paragraph>
+ <paragraph index="287" node_type="writer">	&lt;optgroup label=&quot;Aficiones&quot;&gt; </paragraph>
+ <paragraph index="288" node_type="writer">		&lt;option value=&quot;1&quot;&gt;Warhammer&lt;/option&gt; </paragraph>
+ <paragraph index="289" node_type="writer">		&lt;option value=&quot;2&quot;&gt;Juegos PC&lt;/option&gt;</paragraph>
+ <paragraph index="290" node_type="writer">	&lt;/optgroup&gt;  </paragraph>
+ <paragraph index="291" node_type="writer">	&lt;optgroup label=&quot;Trabajos&quot;&gt; </paragraph>
+ <paragraph index="292" node_type="writer">		&lt;option value=&quot;4&quot;&gt;Programador&lt;/option&gt; </paragraph>
+ <paragraph index="293" node_type="writer">		&lt;option value=&quot;5&quot;&gt;Electricista&lt;/option&gt; </paragraph>
+ <paragraph index="294" node_type="writer">	&lt;/optgroup&gt; </paragraph>
+ <paragraph index="295" node_type="writer">&lt;/select&gt;
+35- Formulario- button</paragraph>
+ <paragraph index="297" node_type="writer">El elemento &lt;button&gt; se utiliza para crear botones en un formulario. Ofrece más opciones que los elementos &lt;input type=&quot;submit&quot;&gt; o &lt;input type=&quot;reset&quot;&gt;, ya que permite incluir contenido dentro del botón, como texto, imágenes o elementos HTML más complejos.</paragraph>
+ <paragraph index="299" node_type="writer">36- Formulario-input type=”button”</paragraph>
+ <paragraph index="301" node_type="writer">El elemento &lt;input type=&quot;button&quot;&gt; crea un botón de acción personalizada. A diferencia de los botones de tipo submit o reset, este botón no tiene ninguna función predefinida en HTML. Su comportamiento depende de un programa en JavaScript que le asigne una acción cuando el usuario haga clic en él. El atributo value especifica el texto que se muestra en el botón.
+Ej:
+&lt;input type=&quot;button&quot; value=&quot;Haz algo&quot;&gt;</paragraph>
+ <paragraph index="303" node_type="writer">37- Formulario-input type=”file”</paragraph>
+ <paragraph index="305" node_type="writer">El control de tipo file permite a los usuarios cargar archivos desde su dispositivo y enviarlos al servidor. Este control solo indica al navegador que debe permitir la selección de archivos, pero el servidor debe contar con un programa para recibir y almacenar el archivo.</paragraph>
+ <paragraph index="306" node_type="writer">Ej:</paragraph>
+ <paragraph index="307" node_type="writer">&lt;input type=&quot;file&quot; name=&quot;archi&quot;&gt;</paragraph>
+ <paragraph index="308" node_type="writer">type=&quot;file&quot;: Define el campo para subir archivos</paragraph>
+ <paragraph index="309" node_type="writer">name: Define el nombre del campo, que se utilizará para identificar el archivo en el servidor.</paragraph>
+ <paragraph index="313" node_type="writer">38- Formulario-input type=”hidden”</paragraph>
+ <paragraph index="314" node_type="writer">El elemento &lt;input type=&quot;hidden&quot;&gt; crea un campo oculto que no es visible para el usuario en el formulario. Este tipo de campo se utiliza principalmente para almacenar datos que el servidor necesita recibir, pero que no deben ser modificados ni visualizados por el usuario.</paragraph>
+ <paragraph index="315" node_type="writer">name: Define el nombre del campo oculto, utilizado para identificar el dato que se enviará al servidor.</paragraph>
+ <paragraph index="316" node_type="writer">value: Almacena el valor que será enviado al servidor al enviar el formulario.</paragraph>
+ <paragraph index="318" node_type="writer">39- Formulario-Agrupamiento de controles</paragraph>
+ <paragraph index="320" node_type="writer">El elemento &lt;fieldset&gt; en HTML se utiliza para agrupar y recuadrar varios controles dentro de un formulario. Todos los controles que queremos agrupar deben ir entre las etiquetas &lt;fieldset&gt; y &lt;/fieldset&gt;. Además, podemos añadir un título a este recuadro utilizando el elemento &lt;legend&gt;.</paragraph>
+ <paragraph index="322" node_type="writer">40- Formulario-agrupamiento de iniciales</paragraph>
+ <paragraph index="324" node_type="writer">En HTML, los controles de formularios pueden inicializarse con valores predeterminados. Para hacerlo:</paragraph>
+ <paragraph index="325" node_type="writer">Texto: Se usa la propiedad value en un &lt;input type=&quot;text&quot;&gt;. Ejemplo: &lt;input type=&quot;text&quot; value=&quot;aqui su nombre&quot;&gt;.</paragraph>
+ <paragraph index="326" node_type="writer">Textarea: El texto inicial se coloca entre las etiquetas &lt;textarea&gt;. Ejemplo: &lt;textarea&gt;Ingrese aqui su curriculum&lt;/textarea&gt;.</paragraph>
+ <paragraph index="327" node_type="writer">Checkbox: Se marca el checkbox por defecto con la propiedad checked. Ejemplo: &lt;input type=&quot;checkbox&quot; checked&gt;.</paragraph>
+ <paragraph index="328" node_type="writer">Radio: Igual que el checkbox, pero solo un radio puede estar marcado por defecto. Ejemplo: &lt;input type=&quot;radio&quot; checked&gt;.</paragraph>
+ <paragraph index="329" node_type="writer">Select (individual): Se selecciona un valor por defecto en un &lt;option&gt; con la propiedad selected. Ejemplo: &lt;option value=&quot;2&quot; selected&gt;España&lt;/option&gt;.</paragraph>
+ <paragraph index="330" node_type="writer">Select (múltiple): Varios elementos option pueden tener la propiedad selected para que estén seleccionados por defecto. Ejemplo: &lt;option value=&quot;1&quot; selected&gt;Rojo&lt;/option&gt;.</paragraph>
+ <paragraph index="332" node_type="writer">41- Formulario-orden de foco de controles</paragraph>
+ <paragraph index="334" node_type="writer">La propiedad tabindex permite definir el orden en que los controles de un formulario reciben el foco al presionar la tecla &quot;Tab&quot;. Este valor, que puede ser un número entre 0 y 32767, establece el flujo de navegación entre los campos.</paragraph>
+ <paragraph index="335" node_type="writer">Por ejemplo:</paragraph>
+ <paragraph index="336" node_type="writer">&lt;input type=&quot;text&quot; name=&quot;text1&quot; tabindex=&quot;1&quot;&gt;</paragraph>
+ <paragraph index="337" node_type="writer">&lt;input type=&quot;text&quot; name=&quot;text2&quot; tabindex=&quot;4&quot;&gt;</paragraph>
+ <paragraph index="338" node_type="writer">&lt;input type=&quot;text&quot; name=&quot;text3&quot; tabindex=&quot;7&quot;&gt;</paragraph>
+ <paragraph index="339" node_type="writer">Los valores de tabindex no necesitan ser consecutivos, pero el foco seguirá el orden establecido según estos números. Todos los controles de formulario pueden usar esta propiedad para personalizar el orden de navegación.</paragraph>
+ <paragraph index="341" node_type="writer">42- Formulario-Inhabilitat controles</paragraph>
+ <paragraph index="343" node_type="writer">Para inhabilitar controles en un formulario, se utiliza la propiedad disabled, que se puede aplicar a varios elementos como button, input, optgroup, option, select, y textarea.</paragraph>
+ <paragraph index="344" node_type="writer">Por ejemplo, deshabilitar un control de tipo radio:</paragraph>
+ <paragraph index="346" node_type="writer">&lt;input type=&quot;radio&quot; name=&quot;seccion&quot; value=&quot;1&quot; disabled&gt;Niños</paragraph>
+ <paragraph index="347" node_type="writer">Esta propiedad se utiliza comúnmente en combinación con JavaScript, permitiendo habilitar o deshabilitar controles dinámicamente, según las interacciones del usuario con la página. Por ejemplo, podríamos mostrar tres secciones en un formulario, pero hacer que una de ellas no esté disponible para selección.</paragraph>
+ <paragraph index="349" node_type="writer">43- Formulario-text/password y maxlenght</paragraph>
+ <paragraph index="351" node_type="writer">Los controles de tipo &quot;text&quot; y &quot;password&quot; tienen una propiedad llamada &quot;maxlength&quot; que limita la cantidad de caracteres que el usuario puede ingresar. Se asigna un valor entero que define el número máximo de caracteres permitidos. Es importante no confundir &quot;maxlength&quot; con &quot;size&quot;, ya que esta última solo controla la cantidad de caracteres visibles antes de que sea necesario hacer scroll.</paragraph>
+ <paragraph index="353" node_type="writer">44-Formulario-text/password/textarea y readonly</paragraph>
+ <paragraph index="355" node_type="writer">La propiedad &quot;readonly&quot; se puede aplicar a los controles de tipo &quot;text&quot;, &quot;password&quot; y &quot;textarea&quot;. Cuando se usa, el control se vuelve de solo lectura, lo que significa que el usuario no puede modificar su contenido. Esta propiedad es útil cuando un script cambia el estado del control en respuesta a ciertos eventos. Al contrario de &quot;disabled&quot;, el control con &quot;readonly&quot; aún puede recibir foco, pero no se puede editar, mientras que con &quot;disabled&quot;, el control no recibe foco y generalmente aparece deshabilitado visualmente.</paragraph>
+ <paragraph index="357" node_type="writer">45-Formulario-Envios de datos mediante mail</paragraph>
+ <paragraph index="359" node_type="writer">Para enviar los datos de un formulario por correo electrónico usando solo HTML, se utiliza la propiedad action con el valor mailto: seguido de la dirección de correo, como en:</paragraph>
+ <paragraph index="361" node_type="writer">&lt;form action=&quot;mailto:pizzasya@htmlya.com&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;</paragraph>
+ <paragraph index="362" node_type="writer">Usaremos enctype=&quot;text/plain&quot; para enviar los datos como texto plano, pero no se pueden adjuntar archivos. </paragraph>
+ <paragraph index="364" node_type="writer">46- Formulario-label</paragraph>
+ <paragraph index="366" node_type="writer">El elemento &lt;label&gt; se utiliza para asociar un texto con un control de formulario, lo que mejora la accesibilidad, especialmente para personas con discapacidad visual que usan programas de lectura de pantalla. En lugar de escribir el texto y el control por separado, se puede usar así:</paragraph>
+ <paragraph index="368" node_type="writer">&lt;label for=&quot;nombre&quot;&gt;Ingrese su nombre:&lt;/label&gt;</paragraph>
+ <paragraph index="369" node_type="writer">&lt;input type=&quot;text&quot; name=&quot;nombre&quot; size=&quot;20&quot; id=&quot;nombre&quot;&gt;</paragraph>
+ <paragraph index="370" node_type="writer">El atributo for del &lt;label&gt; hace referencia al id del control, lo que permite una mejor asociación entre ambos, facilitando la interacción y accesibilidad.</paragraph>
+ <paragraph index="373" node_type="writer">47- Frames</paragraph>
+ <paragraph index="375" node_type="writer">Antes se usaban para mostrar varios archivos HTML en una misma ventana del navegador, permitiendo la interacción entre ellos. Sin embargo, su uso dificulta la accesibilidad y la impresión de contenido, por lo que solo deberían utilizarse en casos muy específicos o cuando se mantengan sitios antiguos que los utilizen.</paragraph>
+ <paragraph index="377" node_type="writer">48- Frames-Actualización de un frame a partir del enclace de otro frame
+
+Se solían utilizar para permitir la actualización de contenido en un frame a partir de un enlace en otro, y se podían hacer interactuar unos con otros. Tener en cuenta lo que hemos dicho antes sobre de que son antiguos, etc.</paragraph>
+ <paragraph index="379" node_type="writer">49-Frames-Asignación de medidas en píxeles</paragraph>
+ <paragraph index="381" node_type="writer">Es común asignar medidas a los frames, ya sea en porcentajes o en valores absolutos.</paragraph>
+ <paragraph index="382" node_type="writer">Cuando se usan porcentajes, como en &lt;frameset cols=&quot;20%,80%&quot;&gt;, los frames se redimensionan proporcionalmente al cambiar el tamaño de la ventana del navegador. Sin embargo, si se desea que un frame tenga un tamaño fijo, como el de un menú lateral que no debe cambiar, se puede utilizar un valor absoluto, por ejemplo: &lt;frameset cols=&quot;200px,*&quot;&gt;, para garantizar que ese frame se mantenga con un tamaño fijo mientras el otro se ajusta al resto del espacio.</paragraph>
+ <paragraph index="384" node_type="writer">50-Frames-Propiedades del elemento frame</paragraph>
+ <paragraph index="386" node_type="writer">es importante entender algunas propiedades adicionales del elemento &lt;frame&gt;:</paragraph>
+ <paragraph index="387" node_type="writer">noresize: Al incluir esta propiedad, se evita que el frame sea redimensionado por el usuario con el mouse. Esto es útil, por ejemplo, en menús laterales.</paragraph>
+ <paragraph index="388" node_type="writer">frameborder: Esta propiedad controla la visibilidad del borde del frame. Con un valor de 1, se muestra el borde; con 0, se oculta.</paragraph>
+ <paragraph index="389" node_type="writer">scrolling: Define el comportamiento de las barras de desplazamiento dentro del frame. Los valores posibles son:</paragraph>
+ <paragraph index="390" node_type="writer">&quot;auto&quot;: Muestra la barra de desplazamiento solo si el contenido no cabe en el frame.</paragraph>
+ <paragraph index="391" node_type="writer">&quot;yes&quot;: La barra de desplazamiento siempre está visible.</paragraph>
+ <paragraph index="392" node_type="writer">&quot;no&quot;: Nunca muestra la barra de desplazamiento.</paragraph>
+ <paragraph index="395" node_type="writer">51-Frames- anidamiento de frameset</paragraph>
+ <paragraph index="397" node_type="writer">Se puede anidar un &lt;frameset&gt; dentro de otro para crear una estructura de múltiples marcos. Esto se hace al incluir un frameset en el lugar de un frame, lo que permite dividir el área de la página en más de una sección.</paragraph>
+ <paragraph index="398" node_type="writer">Por ejemplo, si queremos crear una página con dos columnas, donde la segunda columna se divide en dos filas, podemos usar el siguiente enfoque:</paragraph>
+ <paragraph index="400" node_type="writer">&lt;frameset cols=&quot;50%,50%&quot;&gt;</paragraph>
+ <paragraph index="401" node_type="writer">  &lt;frame src=&quot;columna1.html&quot;&gt;</paragraph>
+ <paragraph index="402" node_type="writer">  &lt;frameset rows=&quot;50%,50%&quot;&gt;</paragraph>
+ <paragraph index="403" node_type="writer">    &lt;frame src=&quot;fila1.html&quot;&gt;</paragraph>
+ <paragraph index="404" node_type="writer">    &lt;frame src=&quot;fila2.html&quot;&gt;</paragraph>
+ <paragraph index="405" node_type="writer">  &lt;/frameset&gt;</paragraph>
+ <paragraph index="406" node_type="writer">&lt;/frameset&gt;</paragraph>
+ <paragraph index="409" node_type="writer">52-iframes</paragraph>
+ <paragraph index="411" node_type="writer">El elemento &lt;iframe&gt; en HTML permite incrustar un documento dentro de otro, funcionando de manera similar a una imagen, pero con contenido dinámico. Algunas de las propiedades útiles de un iframe son:</paragraph>
+ <paragraph index="412" node_type="writer">src: Especifica el archivo que se mostrará dentro del iframe.</paragraph>
+ <paragraph index="413" node_type="writer">width: Define el ancho del iframe en píxeles.</paragraph>
+ <paragraph index="414" node_type="writer">height: Establece la altura del iframe en píxeles.</paragraph>
+ <paragraph index="415" node_type="writer">frameborder: Controla si se muestra un borde alrededor del iframe. Puede ser 1 (borde visible) o 0 (sin borde).</paragraph>
+ <paragraph index="416" node_type="writer">scrolling: Define el comportamiento de la barra de desplazamiento. Los valores pueden ser:</paragraph>
+ <paragraph index="417" node_type="writer">&quot;auto&quot;: El navegador decide si mostrarla.</paragraph>
+ <paragraph index="418" node_type="writer">&quot;yes&quot;: La barra de desplazamiento siempre es visible.</paragraph>
+ <paragraph index="419" node_type="writer">&quot;no&quot;: Nunca se muestra la barra de desplazamiento.</paragraph>
+ <paragraph index="420" node_type="writer">name: Asigna un nombre al iframe, útil si se desea acceder o modificar su contenido desde otra página.</paragraph>
+ <paragraph index="422" node_type="writer">53-Declaración de DOCTYPE</paragraph>
+ <paragraph index="424" node_type="writer">La declaración DOCTYPE es esencial para definir el tipo de documento en una página HTML, lo que garantiza que se utilicen los estándares adecuados para la visualización en los navegadores. El W3C, que establece los estándares web, promueve el uso de directivas que aseguren la compatibilidad futura con nuevas versiones de navegadores.</paragraph>
+ <paragraph index="425" node_type="writer">La declaración DOCTYPE debe colocarse en la primera línea del archivo HTML, antes de la etiqueta &lt;html&gt;. En HTML5, la declaración DOCTYPE es simplificada y se utiliza la siguiente cadena:</paragraph>
+ <paragraph index="427" node_type="writer">&lt;!DOCTYPE html&gt;</paragraph>
+ <paragraph index="428" node_type="writer">Aunque lo ideal es usar HTML estricto para garantizar la correcta estructura y validación de las páginas, a veces se sigue utilizando HTML transitional, especialmente cuando se tiene un gran volumen de páginas antiguas que no son completamente compatibles con el HTML estricto. Esto permite una transición gradual hacia estándares más modernos</paragraph>
+ <paragraph index="431" node_type="writer">54-Declaración de DOCTYPE. HTML Transitional
+
+La declaración DOCTYPE HTML Transitional se utiliza principalmente para el mantenimiento de sitios web antiguos. En este tipo de documento, se permite el uso de elementos HTML obsoletos relacionados con la presentación, como los de fuentes, alineación y colores, que en versiones más modernas de HTML están desaconsejados.</paragraph>
+ <paragraph index="432" node_type="writer">El HTML Transitional ofrece mayor flexibilidad en cuanto a la ubicación y el anidamiento de los elementos, lo que facilita la compatibilidad con páginas más antiguas. Sin embargo, se recomienda evitar su uso en nuevos proyectos, ya que existen estándares más modernos que favorecen una mejor estructura y accesibilidad.
+</paragraph>
+ <paragraph index="433" node_type="writer">55-Declaración de DOCTYPE. HTML Estricto
+
+La declaración DOCTYPE HTML Estricto excluye los elementos y atributos de presentación obsoletos, como aquellos relacionados con el diseño visual (fuentes, colores, alineación), que el W3C busca eliminar en favor del uso de hojas de estilo CSS. Se recomienda utilizar el DTD Estricto siempre que sea posible, ya que asegura una mayor coherencia y accesibilidad en la web.</paragraph>
+ <paragraph index="434" node_type="writer">Sin embargo, si es necesario soportar elementos de presentación antiguos, se puede recurrir al DTD Transicional. Para las páginas desarrolladas, puede ser necesario realizar ajustes para que cumplan con las validaciones del HTML estricto.</paragraph>
+ <paragraph index="435" node_type="writer">
+</paragraph>
+ <paragraph index="436" node_type="writer">56-Declaración de DOCTYPE. Para Frames</paragraph>
+ <paragraph index="438" node_type="writer">Cuando se emplean frames en HTML, es necesario usar una declaración DOCTYPE específica. Para una página con frames, el DOCTYPE debe ser:</paragraph>
+ <paragraph index="440" node_type="writer">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;</paragraph>
+ <paragraph index="441" node_type="writer">&quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</paragraph>
+ <paragraph index="442" node_type="writer">En este caso, se utiliza la palabra &quot;Frameset&quot; en lugar de &quot;Transitional&quot; o dejarla vacía como en el HTML estricto.</paragraph>
+ <paragraph index="444" node_type="writer">57- Validación de la página a través de un enlace
+
+Para validar una página HTML a través de un enlace, la W3C ofrece un ícono que puedes incluir en tu sitio. Este ícono es un enlace al validador de HTML que verifica si tu página cumple con los estándares. Solo necesitas agregar el código en un párrafo:</paragraph>
+ <paragraph index="445" node_type="writer">Ej:</paragraph>
+ <paragraph index="446" node_type="writer">&lt;p&gt;</paragraph>
+ <paragraph index="447" node_type="writer">&lt;a href=&quot;http://validator.w3.org/check?uri=referer&quot;&gt;&lt;img</paragraph>
+ <paragraph index="448" node_type="writer">src=&quot;http://www.w3.org/Icons/valid-html401&quot;</paragraph>
+ <paragraph index="449" node_type="writer">alt=&quot;Valid HTML 4.01 Strict&quot; height=&quot;31&quot; width=&quot;88&quot;&gt;&lt;/a&gt;</paragraph>
+ <paragraph index="450" node_type="writer">&lt;/p&gt;</paragraph>
+ <paragraph index="452" node_type="writer">58- Conceptos básicos de hojas de estilo
+
+Las hojas de estilo en cascada (CSS) separan el contenido de la presentación en HTML. Mientras que HTML se encarga de mostrar el contenido, CSS define cómo se verá ese contenido. En las primeras versiones de HTML, se usaban elementos para mejorar la presentación, pero con la introducción de CSS, la presentación quedó completamente separada del contenido.</paragraph>
+ <paragraph index="453" node_type="writer">En CSS, cada elemento HTML tiene una propiedad llamada &quot;style&quot; que se utiliza para definir su apariencia. Las propiedades más comunes incluyen color (para el color del texto) y background-color (para el color de fondo). Estas propiedades se definen dentro de la etiqueta style, separadas por punto y coma.</paragraph>
+ <paragraph index="454" node_type="writer">Los colores en CSS se definen en formato hexadecimal (por ejemplo, #0000ff para azul). Es importante recordar que CSS es sensible a mayúsculas y minúsculas, por lo que color no es lo mismo que COLOR.</paragraph>
+ <paragraph index="455" node_type="writer">En resumen, CSS permite personalizar la apariencia de los elementos HTML, y es fundamental para mejorar el diseño y la accesibilidad de las páginas web.</paragraph>
+ <paragraph index="457" node_type="writer">59-Propiedades relacionadas al texto en CSS</paragraph>
+ <paragraph index="459" node_type="writer">En CSS, hay varias propiedades que se pueden aplicar al texto para modificar su apariencia y alineación:</paragraph>
+ <paragraph index="460" node_type="writer">text-align: Alinea el texto a la izquierda, derecha, centro o justificado.</paragraph>
+ <paragraph index="461" node_type="writer">text-decoration: Aplica efectos como subrayado, tachado, línea superior o ninguno.</paragraph>
+ <paragraph index="462" node_type="writer">letter-spacing: Define el espacio entre caracteres.</paragraph>
+ <paragraph index="463" node_type="writer">word-spacing: Ajusta el espacio entre palabras.</paragraph>
+ <paragraph index="464" node_type="writer">text-indent: Indenta la primera línea de un párrafo, pudiendo usar valores negativos.</paragraph>
+ <paragraph index="465" node_type="writer">text-transform: Controla la capitalización del texto (mayúsculas, minúsculas, o iniciales en mayúscula).</paragraph>
+ <paragraph index="466" node_type="writer">Estas propiedades permiten un control detallado sobre la apariencia del texto, mejorando la presentación en la página web.</paragraph>
+ <paragraph index="469" node_type="writer">60-Elementos HTML &lt;div&gt; y &lt;span&gt;</paragraph>
+ <paragraph index="471" node_type="writer">Los elementos HTML &lt;div&gt; y &lt;span&gt; se utilizan para agrupar otros elementos y aplicarles reglas de estilo.</paragraph>
+ <paragraph index="472" node_type="writer">&lt;div&gt; es un contenedor de bloque, lo que significa que genera saltos de línea antes y después de su contenido, similar a las etiquetas &lt;h1&gt;, &lt;p&gt;, etc.</paragraph>
+ <paragraph index="473" node_type="writer">&lt;span&gt; es un contenedor en línea, por lo que no produce saltos de línea y se utiliza para aplicar estilo a pequeñas partes de texto o elementos dentro de una línea.</paragraph>
+ <paragraph index="474" node_type="writer">Ambos son más útiles cuando se combinan con CSS para dar estilo a los elementos agrupados.</paragraph>
+ <paragraph index="476" node_type="writer">
+61- Elemento HTML &lt;pre&gt;
+
+El elemento HTML &lt;pre&gt; muestra el contenido tal como ha sido escrito, respetando los espacios en blanco y los saltos de línea. Por lo general, el texto dentro de esta etiqueta se muestra con una fuente monoespaciada, donde cada letra ocupa el mismo espacio en píxeles.
+</paragraph>
+ <paragraph index="477" node_type="writer">62-Propiedades relacionadas a las fuentes en CSS</paragraph>
+ <paragraph index="479" node_type="writer">Las propiedades CSS más importantes relacionadas con las fuentes son:</paragraph>
+ <paragraph index="480" node_type="writer">font-family: Define la fuente a aplicar, como Arial, Courier New, Times New Roman, entre otras.</paragraph>
+ <paragraph index="481" node_type="writer">font-size: Establece el tamaño de la fuente, pudiendo ser en píxeles.</paragraph>
+ <paragraph index="482" node_type="writer">font-style: Permite definir el estilo de la fuente, con valores como normal, italic u oblique.</paragraph>
+ <paragraph index="483" node_type="writer">font-weight: Determina el grosor de la fuente, usando valores como normal, bold, bolder o lighter.</paragraph>
+ <paragraph index="486" node_type="writer">63-Elementos y propiedades de HTML que no se deben usar</paragraph>
+ <paragraph index="488" node_type="writer">Existen elementos y propiedades de HTML que ya no deben utilizarse, ya que sus funciones se resuelven mejor con CSS. Algunos son:</paragraph>
+ <paragraph index="489" node_type="writer">Elementos:</paragraph>
+ <paragraph index="490" node_type="writer">&lt;u&gt;, &lt;s&gt;, &lt;strike&gt;, &lt;center&gt;, &lt;menu&gt;, &lt;dir&gt;, &lt;blink&gt;, &lt;marquee&gt;, &lt;font&gt;, &lt;b&gt;, &lt;i&gt;, &lt;big&gt;, &lt;small&gt;, &lt;hr&gt;, &lt;basefont&gt;, &lt;isindex&gt;.</paragraph>
+ <paragraph index="491" node_type="writer">Propiedades:</paragraph>
+ <paragraph index="492" node_type="writer">text, bgcolor, background, link, alink, vlink, align.</paragraph>
+ <paragraph index="495" node_type="writer">64- Subir las páginas HTML a un servidor de internet</paragraph>
+ <paragraph index="497" node_type="writer">Para subir una página HTML a un servidor de Internet, primero debemos gestionar un dominio y un servicio de hosting. Si es solo para aprender, podemos usar un hosting gratuito, como 000webhost, que nos permitirá gestionar un subdominio y subir nuestras páginas mediante FTP.</paragraph>
+ <paragraph index="498" node_type="writer">Los pasos son:</paragraph>
+ <paragraph index="499" node_type="writer">Registrar una cuenta en un hosting gratuito, por ejemplo, 000webhost, y crear un subdominio.</paragraph>
+ <paragraph index="500" node_type="writer">Obtener los datos FTP de conexión desde el panel de control del hosting.</paragraph>
+ <paragraph index="501" node_type="writer">Instalar un programa FTP como FileZilla y configurarlo con los datos obtenidos.</paragraph>
+ <paragraph index="502" node_type="writer">Conectar FileZilla al servidor utilizando los datos FTP proporcionados por la empresa de hosting.</paragraph>
+ <paragraph index="503" node_type="writer">Subir los archivos desde tu computadora a la carpeta public_html en el servidor.</paragraph>
+ <paragraph index="504" node_type="writer">Subir una página index.html para que se cargue de forma predeterminada al acceder al sitio.</paragraph>
+ <paragraph index="505" node_type="writer">Así, cualquiera con acceso a Internet podrá visualizar estas páginas HTML.</paragraph>
+</indexing>

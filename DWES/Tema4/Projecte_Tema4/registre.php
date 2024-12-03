@@ -39,15 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['registre_exitos'] = true;
             header('Location: login.php');
             exit;
-        }
-    }else if (empty($_POST['email'])){
-      $msgErrorMail="Debes introducir un mail";
-    }else if(empty($_POST['password']||$_POST['confirm-password'])){
-        $msgErrorPass = "&#128561 las contraseñas no pueden estar vacias.";
-        $msgErrorConfirmPass =  "&#128561 las contraseñas no pueden estar vacias.";
-    }else if($_POST['confirm-password']==$_POST['password']) {
-        $msgErrorPass = "&#128561 las contraseñas no coinciden.";
-        $msgErrorConfirmPass = "&#128561 las contraseñas no coinciden.";
+        }else if (empty($_POST['email'])){
+            $msgErrorMail="Debes introducir un mail";
+          }else if(empty($_POST['password']||$_POST['confirm-password'])){
+              $msgErrorPass = "&#128561 las contraseñas no pueden estar vacias.";
+              $msgErrorConfirmPass =  "&#128561 las contraseñas no pueden estar vacias.";
+          }else if($_POST['confirm-password']==$_POST['password']) {
+              $msgErrorPass = "&#128561 las contraseñas no coinciden.";
+              $msgErrorConfirmPass = "&#128561 las contraseñas no coinciden.";
+          }
     }
 
 ?>

@@ -16,7 +16,6 @@
 
         }
         .div2{
-            background-color: rgb(249, 0, 0);
             float:right;
         }
     </style>
@@ -48,8 +47,25 @@
     //Hay que desactivar el evento drag para que funcione el drop
     
     div1.addEventListener("dragstart", ()=>{
-
-            div1.style.opacity="50%";
-        });
+        div1.style.opacity="50%";     
+    });
+    div1.addEventListener("dragend", ()=>{
+        div1.style.opacity="100%";     
+    });
+    div2.addEventListener("dragenter", (evento)=>{
+        evento.preventDefault();
+        div2.style.backgroundColor="red";  
+    });
+    div2.addEventListener("dragover", (evento)=>{
+        evento.preventDefault();
+    });
+    div2.addEventListener("dragleave", ()=>{
+        div2.style.backgroundColor="white";
+    });
+    div2.addEventListener("drop", ()=>{
+                div2.style.backgroundColor="yellow";
+                div2.innerHTML="Lo has conseguido!";
+                document.body.removeChild(div1);
+    });
 </script>
 </html>
