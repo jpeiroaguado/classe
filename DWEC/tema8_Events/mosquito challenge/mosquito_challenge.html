@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Mosquito vs Bebé</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f4f4f4;
+          font-family: Arial, sans-serif;
+      }
+
+      .game-container {
+          text-align: center;
+      }
+
+      #start-btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          margin-bottom: 10px;
+          cursor: pointer;
+      }
+
+      #game-area {
+          position: relative;
+          width: 400px;
+          height: 400px;
+          background-color: #ddd;
+          border: 2px solid #333;
+          margin: 0 auto;
+          overflow: hidden;
+      }
+
+      .baby, .mosquito, .deadmosquito {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          background-size: cover;
+          z-index: 2;
+      }
+
+      .baby {
+          background-image: url('baby.png'); /* Ruta a la imagen del bebé */
+      }
+
+      .mosquito {
+          background-image: url('mosquito.png'); /* Ruta a la imagen del mosquito */
+          cursor: pointer;
+      }
+
+      .deadmosquito {
+          background-image: url('deadmosquito.png'); /* Ruta a la imagen del mosquito muerto */
+      }
+
+      #game-info {
+          margin-top: 10px;
+          font-size: 18px;
+      }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <button id="start-btn" onclick="startGame()">Empezar</button>
+        <div id="game-area">
+            <!-- El bebé y el mosquito se generan dinámicamente -->
+        </div>
+        <div id="game-info">
+            <span>Nivel: <span id="level-counter">1</span></span>
+            <span id="gameover-message"></span>
+        </div>
+    </div>
+  
+</body>
+<script>
+  let gameInterval;
+let level = 1;
+const speedFactor = 50; // Milisegundos por pixel
+
+// Función para empezar el juego
+function startGame() {
+    const startBtn = document.getElementById("start-btn");
+    startBtn.disabled = true;
+    document.getElementById("gameover-message").textContent = "";
+
+    const gameArea = document.getElementById("game-area");
+    gameArea.innerHTML = ""; // Limpia el área de juego
+    level = 1;
+    updateLevel();
+
+    // Crear bebé y mosquito en posiciones aleatorias
+    const baby = createElement("baby");
+    const mosquito = createElement("mosquito");
+    gameArea.appendChild(baby);
+    gameArea.appendChild(mosquito);
+
+    moveMosquito(mosquito, baby);
+}
+
+// Crear un elemento con clase y posición aleatoria
+function createElement(type) {
+    const element = document.createElement("div");
+    element.classList.add(type);
+
+    const x = Math.random() * (360);
+    const y = Math.random() * (360);
+
+    element.style.left = `${x}px`;
+    element.style.top = `${y}px`;
+
+    if (type === "mosquito") {
+        element.addEventListener("click", () => killMosquito(element));
+    }
+
+    return element;
+}
+
+// Mover el mosquito hacia el bebé
+function moveMosquito(mosquito, baby) {
+    clearInterval(gameInterval);
+
+    gameInterval = setInterval(() => {
+        const mosquitoPos = mosquito.getBoundingClientRect();
+        const babyPos = baby.getBoundingClientRect();
+        const gameAreaPos = document.getElementById("game-area").getBoundingClientRect();
+
+        // Calcula la diferencia de posición
+        const dx = babyPos.left - mosquitoPos.left;
+        const dy = babyPos.top - mosquitoPos.top;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Movimiento en función de la distancia
+        if (distance > 1) {
+            mosquito.style.left = `${mosquito.offsetLeft + (dx / distance)}px`;
+            mosquito.style.top = `${mosquito.offsetTop + (dy / distance)}px`;
+        } else {
+            endGame();
+        }
+    }, speedFactor / level);
+}
+
+// Eliminar mosquito al hacer clic
+function killMosquito(mosquito) {
+    const gameArea = document.getElementById("game-area");
+    const deadMosquito = createElement("deadmosquito");
+    deadMosquito.style.left = mosquito.style.left;
+    deadMosquito.style.top = mosquito.style.top;
+
+    gameArea.appendChild(deadMosquito);
+    mosquito.remove();
+
+    // Incrementar nivel y crear un nuevo mosquito
+    level++;
+    updateLevel();
+    const newMosquito = createElement("mosquito");
+    gameArea.appendChild(newMosquito);
+    const baby = document.querySelector(".baby");
+    moveMosquito(newMosquito, baby);
+}
+
+// Actualizar nivel en la interfaz
+function updateLevel() {
+    document.getElementById("level-counter").textContent = level;
+}
+
+// Terminar el juego
+function endGame() {
+    clearInterval(gameInterval);
+    document.getElementById("gameover-message").textContent = "GAME OVER!";
+    document.getElementById("start-btn").disabled = false;
+}
+
+// Resetear el juego
+function resetGame() {
+    clearInterval(gameInterval);
+    document.getElementById("start-btn").disabled = false;
+    const gameArea = document.getElementById("game-area");
+    gameArea.innerHTML = "";
+    level = 1;
+    updateLevel();
+}
+</script>
+</html>

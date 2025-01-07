@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity4</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const api_key="2a4b28f58ce4de01b0a951260cfe97f0";
+
+  //We create the elements
+  let selector1=document.createElement('select');
+  let selector2=document.createElement('select');
+  let cantidad=document.createElement('input');
+  let resultado=document.createElement('input');
+  let boton=document.createElement('button');
+
+  //We give a bit format to the elements
+  cantidad.type = "number";
+  cantidad.placeholder = "Cantidad";
+  resultado.type = "text";
+  boton.innerHTML = "Convertir";
+
+  //We fill the selects with te symbols
+  fetch("https://api.exchangeratesapi.io/v1/symbols?access_key="+api_key)
+    .then(response => {
+        return response.json();
+      })
+    .then(valorjson=>{
+      let keys=Object.keys(valorjson.symbols);
+      keys.forEach(element => {
+        let opcion1=document.createElement('option');
+        let opcion2=document.createElement('option');
+        opcion1.value=element;
+        opcion2.value=element;
+        opcion1.innerHTML=element;
+        opcion2.innerHTML=element;
+        selector1.appendChild(opcion1);
+        selector2.appendChild(opcion2);
+      });
+    })
+    .catch(err => {
+      console.error(err.message);
+    });
+
+    //Now we add the event to the button
+    boton.addEventListener('click', ()=>{
+      let cant=parseFloat(cantidad.value);
+      let monBase=selector1.value;
+      let monObjetivo=selector2.value;
+
+      fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=${api_key}&base=${monBase}`)
+        .then(respuesta => respuesta.json())
+        .then(valorjson => {
+
+            //We extract the exange rate
+            let tasa = valorjson.rates[monObjetivo];
+
+            //We have all elements ready to do the task
+            let cantConvertida = (cant * tasa).toFixed(2);
+            resultado.value = cantConvertida;
+        })
+        .catch(error => console.error("Error en la solicitud:", error));
+      });
+    
+    //We print all
+    document.write('Choose your currency: ');
+    document.body.appendChild(cantidad);
+    document.body.appendChild(selector1);
+    document.write('<br>Choose the target currency to convert: ');
+    document.body.appendChild(selector2);
+    document.write('<br>');
+    document.body.appendChild(boton);
+    document.write('<br>');
+    document.body.appendChild(resultado);
+  
+</script>
+</html>

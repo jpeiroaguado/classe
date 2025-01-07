@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .span {
+        border : 1px solid black;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div id="desorden" style="width:60%; border: 3px dashed red;  padding: 30px; font-size: 30px;  text-align: center; "></div><br>
+    <div id="solucion" style ="width:60%; border: 3px dashed blue;  padding: 30px; font-size: 30px;  text-align: center;"></div><br>
+    <button id="comprobar" style="font-size: 20px; padding: 10px;">Comprobar</button>
+    <button id="resolver" style="font-size: 20px; padding: 10px;">Resolver</button>
+</body>
+<script>
+    const arraySecuencias = [[1,1,2,3,5,8,13,21], //Fibonacci
+    [2,3,5,7,11,13,17,19], // Números primos
+    [1,5,10,14,28,32,64,68], // Sumamos 4, multiplicamos por 2
+    [5,3,9,7,21,19,57,55], // Restamos 2, multiplicamos por 3
+    [1,2,3,4,5,6,7,8]] // Números enteros
+
+    let definicionSecuencias = new Map([[0,"Fibonacci"],[1,"Números primos"],[2,"Sumamos 4, multiplicamos por 2"],[3,"Restamos 2, multiplicamos por 3"],[4,"Enteros"]])
+
+    // Selecciona los 2 contenedores (desorden y solucion) y los 2 botones (comprobar y resolver)
+    let divDesorden = document.getElementById('desorden');
+    let divSolucion = document.getElementById('solucion');
+    let comprobarBoton = document.getElementById('comprobar');
+    let resolverBoton = document.getElementById('resolver');
+
+    // genera un numero aleatorio para seleccionar una de las posiciones de arraySecuencias
+    let aleatorio = parseInt(Math.random() * arraySecuencias.length);
+    var Secuencia = arraySecuencias[aleatorio];
+    const Solucion = arraySecuencias[aleatorio].slice();
+
+
+
+    // Desordena el array Secuencia
+    Secuencia.sort(()=>Math.floor(Math.random() * 3) - 1);
+
+
+
+    // Bucle para añadir un span por cada posicion del array con el contenido de mismo
+    for(i=0; i<Secuencia.length; i++){
+      let span = document.createElement('span');
+      span.innerHTML = Secuencia[i] + " ";
+      divDesorden.appendChild(span);
+    }
+
+    divDesorden.addEventListener("click", function(ev){
+      if(ev.target.previousSibling !== null){ //comprueba que no sea el primer numero
+        let numActual = ev.target; // el numero que queremos desplazar
+        let numAnterior = ev.target.previousSibling; // el numero anterior
+        divDesorden.insertBefore(numActual, numAnterior); // desplaza el numero actual una posicion a la izquierda
+      }
+    })
+
+    comprobarBoton.addEventListener("click", function(ev){
+      let numDes = divDesorden.querySelectorAll('span'); // Selecciona todos los span
+      let arrayRespuesta = new Array(); // Se crea un array para almacenar el contenido de cada span
+      for(i=0; i<8; i++){ // bucle para recorrer todos los span
+        var numerito = divDesorden.children[i].textContent; // asigno a la variable el contenido del span
+        numerito = numerito.trim(); // le quito los espacios al string
+        numerito = parseInt(numerito) // lo convierto a integer para poder compararlo con solucion
+        arrayRespuesta.push(numerito); // añado el numero al arrayRespuesta
+      }
+
+      var yonoqueria = false; // variable que no puedo nombrar
+      for(i=0; i<arrayRespuesta.length; i++){
+        if(arrayRespuesta[i] !== Solucion[i]){
+          yonoqueria = true; // si los numeros son diferentes cambiará a true
+        }
+      }
+      if(yonoqueria){
+        confirm("perdiste socio");
+      }else{
+        confirm("ganaste compadre");
+      }
+
+    })
+
+    resolverBoton.addEventListener("click", function(ev){
+
+        let p = document.createElement('p');
+        p.textContent = Solucion.join();
+        divSolucion.appendChild(p);
+
+        let p2 = document.createElement('p');
+        p2.textContent = definicionSecuencias.get(aleatorio)
+        p2.textContent;
+        divSolucion.appendChild(p2);
+      })
+
+
+
+
+
+
+
+
+    </script>
+</html>

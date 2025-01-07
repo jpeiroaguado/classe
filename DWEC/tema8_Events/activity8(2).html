@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 8</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    header {
+      background-color: orange;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    #imatge {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+      background-color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input, textarea, button {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    textarea {
+      resize: none;
+      display: none; /* Oculto inicialmente */
+    }
+    .error {
+      color: white;
+      background-color: red;
+      padding: 5px;
+      margin-top: 5px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .input-error {
+      border: 2px solid red;
+    }
+    .success {
+      color: green;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    ISSUE REPORT
+  </header>
+  <main>
+    <div id="imatge">Imagen no disponible</div>
+    <form>
+      <label for="issues">Issue type</label>
+      <select name="issues" id="issues">
+        <option value="distribution">Distribution</option>
+        <option value="office">Office</option>
+        <option value="production">Production</option>
+      </select>
+      <button type="button" id="show-description">Show description</button>
+      <textarea id="description" placeholder="Describe the issue"></textarea>
+      
+      <label for="serial-number">Serial Number</label>
+      <input type="text" id="serial-number" placeholder="e.g., 123ABCD1">
+      <button type="button" id="validate-serial">Send data</button>
+      <div id="message"></div>
+    </form>
+  </main>
+  
+  <script>
+    const issueSelect = document.getElementById('issues');
+    const imatgeDiv = document.getElementById('imatge');
+    const showDescriptionButton = document.getElementById('show-description');
+    const descriptionTextarea = document.getElementById('description');
+    const serialInput = document.getElementById('serial-number');
+    const validateButton = document.getElementById('validate-serial');
+    const messageDiv = document.getElementById('message');
+
+    // Imágenes correspondientes a cada tipo de incidente
+    const images = {
+      distribution: './imagesA8/distribution.jpg',
+      office: './imagesA8/office.jpg',
+      production: './imagesA8/production.jpg',
+    };
+
+    // Cambiar la imagen según el tipo seleccionado
+    issueSelect.addEventListener('change', () => {
+      const selectedIssue = issueSelect.value;
+      const imageUrl = images[selectedIssue];
+      
+      if (imageUrl) {
+        imatgeDiv.style.backgroundImage = `url('${imageUrl}')`;
+        imatgeDiv.textContent = ''; // Elimina el texto por defecto
+      } else {
+        imatgeDiv.style.backgroundImage = '';
+        imatgeDiv.textContent = 'Imagen no disponible';
+      }
+    });
+
+    // Mostrar el área de texto para descripción
+    showDescriptionButton.addEventListener('click', () => {
+      descriptionTextarea.style.display = 'block';
+    });
+
+    // Validar el número de serie
+    validateButton.addEventListener('click', () => {
+      const serialNumber = serialInput.value;
+      const serialPattern = /^[0-9]{3}[A-Za-z]{4}[12A]$/;
+      
+      if (serialPattern.test(serialNumber)) {
+        messageDiv.textContent = 'Serial number is valid.';
+        messageDiv.className = 'success';
+        serialInput.classList.remove('input-error');
+      } else {
+        messageDiv.textContent = 'Invalid serial number. Format: 3 digits, 4 letters, end with 1, 2, or A.';
+        messageDiv.className = 'error';
+        serialInput.classList.add('input-error');
+      }
+    });
+
+    // Eliminar errores al enfocar el campo de número de serie
+    serialInput.addEventListener('focus', () => {
+      messageDiv.textContent = '';
+      messageDiv.className = '';
+      serialInput.classList.remove('input-error');
+    });
+  </script>
+</body>
+</html>

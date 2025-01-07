@@ -4,15 +4,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    min-height: 100vh; /* Asegura que el contenido cubra al menos la ventana */
+    min-height: 100vh; 
     display: flex;
-    flex-direction: column; /* Ordena elementos verticalmente */
+    flex-direction: column;
     overflow: hidden;
     color: beige;
-    transition: margin-top 0.4s ease; /* Asegura una transición suave al mover el contenido */
+    transition: margin-top 0.4s ease;
 }
 main {
-    flex: 1; /* Ocupa todo el espacio disponible */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,9 +25,9 @@ main {
 .content {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido dentro del contenedor */
-    align-items: center; /* Centra el contenido horizontalmente */
-    height: 100%; /* Asegúrate de que el contenedor use toda la altura disponible */
+    justify-content: center; 
+    align-items: center;
+    height: 100%; 
 }
 
 /* Header comprimido y expandible */
@@ -36,11 +36,11 @@ main {
     color: white;
     overflow: hidden;
     transition: max-height 0.4s ease;
-    max-height: 0px; /* Altura inicial comprimida */
-    position: relative; /* Cambiado de absolute a relative */
+    max-height: 0px; 
+    position: relative; 
     width: 100%;
     max-width: 100%;
-    z-index: 1; /* Asegura que el header no quede encima del contenido */
+    z-index: 1; 
 }
 
 
@@ -57,31 +57,31 @@ main {
     font-size: 16px;
     position: fixed;
     top: 10px;
-    right: 10px; /* Alineado a la derecha */
+    right: 10px;
     z-index: 10;
     flex-direction: column;
 }
 
 .label-toggle div {
-    width: 20px; /* Ancho de las líneas */
-    height: 4px; /* Alto de las líneas */
+    width: 20px;
+    height: 4px; 
     background-color: white;
-    margin: 2px 0; /* Separación entre líneas */
+    margin: 2px 0; 
     transition: 0.4s;
 }
 #expand-toggle {
-    display: none; /* Oculta el checkbox visualmente */
+    display: none;
 }
 #expand-toggle:checked + .label-toggle + .header {
-    max-height: 100px; /* Altura del header expandido */
+    max-height: 100px; 
     padding: 10px 10px;
-    z-index: 1; /* Hace que el header esté por encima del contenido */
+    z-index: 1; 
 }
 #expand-toggle:checked ~ .content {
-    margin-top: 150px; /* Ajusta esta cantidad según el tamaño de tu header expandido */
+    margin-top: 150px; 
 }
 #expand-toggle:checked ~ body {
-    margin-top: 150px; /* Mueve el body hacia abajo cuando el header se expanda */
+    margin-top: 150px; 
 }
 .header ul {
     margin: 10px 0 0;
@@ -100,35 +100,65 @@ main {
 
 /* Contenido principal */
 a.link{
-    color: inherit; /* Hereda el color del texto del contenedor */
-    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; 
+    text-decoration: none;
     margin-top: 20px;
     }
-/* Si quieres un efecto de hover similar al resto de la página, puedes añadirlo */
+
 a.link:hover {
-    color: inherit; /* Mantiene el color del texto al pasar el mouse */
-    text-decoration: none; /* Asegura que no haya subrayado */
+    color: inherit; 
+    text-decoration: none; 
+}
+
+.container {
+    max-height: 60vh; 
+    overflow-y: auto; 
+    padding: 20px; 
+    border: 2px solid #5A2C2C; 
+    border-radius: 10px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+}
+/* barra de desplaçament */
+.container::-webkit-scrollbar {
+    width: 1rem; 
+    height: 1rem; 
+}
+
+.container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
 }
 
 
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+}
 /* Título principal */
 h1 {
-    text-align: center; /* Centra el texto */
-    font-size: 3em; /* Tamaño grande */
-    font-weight: bold; /* Negrita */
-    color: white; /* Destaca sobre el fondo */
-    text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385; /* Sombra de neón */
+    text-align: center;
+    font-size: 3em; 
+    font-weight: bold; 
+    color: white;
+    text-shadow: 0 0 3px #ff3385, 0 0 5px #ff3385, 0 0 8px #ff3385; 
     margin-top: 20px;
     margin-bottom: 20px;
-    animation: neonPulse 1.5s ease-in-out infinite; /* Animación de pulsado */
+    animation: neonPulse 1.5s ease-in-out infinite; 
     padding: 20px;
     transition: margin-top 0.4s ease;
-    padding-top: 60px; /* Da espacio al header */
+    padding-top: 60px;
 }
 h2 {
-    text-align: center; /* Centra el texto */
-    font-weight: bold; /* Negrita */
-    color: #5A2C2C; /* Destaca sobre el fondo */
+    text-align: center;
+    font-weight: bold; 
+    color: #5A2C2C; 
     text-shadow: 0 0 10px #ffe600, 0 0 15px #ffe600, 0 0 30px #ffe600;
 }
 
@@ -147,22 +177,22 @@ h2 {
 
 /* Formulario de login */
 fieldset {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.7); 
     color: white;
     padding: 20px;
     margin: 50px auto;
     border-radius: 10px;
-    width: 80%; /* Ancho ajustable */
-    max-width: 400px; /* Establece un ancho máximo */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    width: 80%; 
+    max-width: 400px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: space-between;
-    flex-direction: column; /* Para apilar los elementos verticalmente */
+    flex-direction: column;
 }
 fieldset div {
-    display: flex;  /* Activa el modelo de caja flexible */
-    align-items: center;  /* Alinea verticalmente al centro los elementos */
-    margin-bottom: 15px; /* Espacio entre los campos */
+    display: flex;
+    align-items: center;  
+    margin-bottom: 15px; 
 }
 legend {
     font-size: 1.5em;
@@ -173,108 +203,111 @@ legend {
 
 label {
     font-weight: bold;
-    text-align: left; /* Alinea el texto del label a la izquierda */
-    flex-basis: 30%; /* Asigna un 30% del espacio al label */
-    margin-right: 10px; /* Espacio entre el label y el campo */
+    text-align: left;
+    flex-basis: 30%; 
+    margin-right: 10px; 
 }
 input[type="text"],
 input[type="file"],
 button,
 select {
-    flex-grow: 1; /* Hace que el input ocupe el espacio restante */
+    flex-grow: 1; 
     padding: 10px;
     margin: 0;
-    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
+    border: 2px solid #5A2C2C; 
     border-radius: 5px;
     font-size: 1em;
-    background-color: #f4f4f4; /* Fondo gris claro */
+    background-color: #f4f4f4; 
     margin-top: 15px;
 }
 
 /* Cambiar el color cuando se selecciona un archivo */
 input[type="file"] {
-    color: #5A2C2C; /* Aquí puedes cambiar el color del texto */
+    color: #5A2C2C; 
 }
-button[type="submit"],
+button a{
+    color: inherit;
+    text-decoration: inherit;
+}
+button[class="submit"],
 button[name="eliminar"]{
-        background-color: #5A2C2C; /* Color de fondo marrón oscuro */
+        background-color: #5A2C2C; 
         color: white;
         border: 1px solid #ffe600;
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 1.1em;
         cursor: pointer;
-        width: auto; /* Eliminar el 100% de ancho */
-        margin: 15px auto; /* Centrado y margen arriba/abajo */
+        width: auto; 
+        margin: 15px auto; 
         transition: background-color 0.3s ease;
-        display: inline-block; /* Asegura que el botón se muestre como bloque */
+        display: inline-block;
     
 }
 button[type="submit"]:hover,
 button[name="eliminar"]:hover {
     transition: background-color 0.3s ease;
-    background-color: #8B4513; /* Cambia de color al pasar el mouse */
+    background-color: #8B4513; 
     color: #ffe600;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 94%; /* Ocupa todo el ancho del contenedor */
+    width: 94%; 
     padding: 10px;
     margin: 8px 0;
-    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
+    border: 2px solid #5A2C2C; 
     border-radius: 5px;
     font-size: 1em;
-    background-color: #f4f4f4; /* Fondo gris claro */
+    background-color: #f4f4f4;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
     outline: none;
-    border-color: #8B4513; /* Color de borde al enfocarse */
+    border-color: #8B4513; 
 }
 
 input[type="submit"] {
-    background-color: #5A2C2C; /* Color de fondo marrón oscuro */
+    background-color: #5A2C2C; 
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1.1em;
     cursor: pointer;
-    width: 100%; /* Ocupa todo el ancho */
+    width: 100%; 
     margin-top: 15px;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #8B4513; /* Cambia de color al pasar el mouse */
+    background-color: #8B4513; 
 }
 .divDades{
-    flex-grow: 1; /* Hace que el input ocupe el espacio restante */
+    flex-grow: 1; 
     margin: 0;
-    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
+    border: 2px solid #5A2C2C; 
     border-radius: 5px;
     font-size: 1em;
-    background-color: rgb(161, 146, 165, 0.7);/* Fondo gris claro */
+    background-color: rgb(161, 146, 165, 0.7);
     margin-top: 15px;
 }
 .divTerritoris{
     display:flex;
-    flex-direction: column; /* Asegura que el contenido interno se apile verticalmente */
+    flex-direction: column;
     justify-content: flex-end;
     margin: 0;
-    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
+    border: 2px solid #5A2C2C;
     border-radius: 5px;
     font-size: 1em;
-    background-color: rgb(161, 146, 165, 0.7);/* Fondo gris claro */
-    margin-top: 15px;
+    background-color: rgb(161, 146, 165, 0.7);
     padding: 10px;
 }
 .territori-item {
     display: flex;
-    justify-content: space-between; /* Esto separa el texto y el botón */
-    align-items: center; /* Alinea verticalmente */
+    justify-content: space-between; 
+    align-items: center; 
     margin-bottom: 10px;
 }
 
@@ -283,37 +316,48 @@ input[type="submit"]:hover {
 }
 
 .territori-item button {
-    margin-left: 10px; /* Espaciado entre el texto y el botón */
+    margin-left: 10px; 
 }
 .divDades2, .extraInfo {
-    flex: 1; /* Permitir que ocupen espacio proporcional */
-    margin: 0 10px; /* Espaciado horizontal */
-    display: flex; /* Hacer los hijos flexibles si necesitas alinear su contenido */
-    flex-direction: column; /* Asegura que el contenido interno se apile verticalmente */
-    justify-content: center; /* Centra el contenido verticalmente */
-    max-width: 200px; /* Ajusta este valor según tus necesidades */
+    flex: 1; 
+    margin: 0 10px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    max-width: 200px;
     min-height: 800px;
-    border: 2px solid #5A2C2C; /* Borde marrón oscuro */
-    background-color: rgb(161, 146, 165, 0.7);/* Fondo gris claro */
+    border: 2px solid #5A2C2C; 
+    background-color: rgb(161, 146, 165, 0.7);
     border-radius: 5px;
 }
+main div.msgInfo {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0;
+    border: 2px solid #5A2C2C;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: rgb(161, 146, 165, 0.7);
+    padding: 10px;
+}
 .display{
-    display: flex; /* Activa Flexbox */
-    align-items: stretch;
-    flex-wrap: wrap; /* Permite que los elementos pasen a una nueva línea si es necesario */
-    justify-content: space-between; /* Espacio entre elementos */
-    align-items: center; /* Alinea verticalmente los elementos al centro */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 10px;
     border-radius: 5px;
     margin-top: 15px;
     padding: 10px;
-    width: 100%; /* Ocupa todo el ancho del contenedor padre */
-    max-width: 1200px; /* Puedes limitar su tamaño máximo si es necesario */
-    margin: 0 auto; /* Añade margen interno */
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto;
 }
 .tamany {
-    text-align: center; /* Centra el texto */
-    font-weight: bold; /* Negrita */
-    color: #ffe600; /* Destaca sobre el fondo */
+    text-align: center;
+    font-weight: bold;
+    color: #ffe600;
     text-shadow: 0 0 10px #aa00ff, 0 0 15px #aa00ff, 0 0 30px #aa00ff;
 }
 
@@ -347,8 +391,8 @@ footer div#contenedorFooter {
     background-color: #5A2C2C;
     text-align: center;
     width: 100%;
-    padding: 0; /* Elimina rellenos internos */
-    margin: 0; /* Asegúrate de no tener márgenes */
+    padding: 0;
+    margin: 0;
 }
 
 footer {
@@ -356,15 +400,15 @@ footer {
     text-align: center;
     width: 100%;
     margin-top: auto;
-    height: auto; /* Ajusta el tamaño automáticamente según el contenido */
-    min-height: unset; /* Elimina cualquier valor mínimo */
-    box-sizing: border-box; /* Asegura que el padding no afecte al tamaño */
+    height: auto; 
+    min-height: unset; 
+    box-sizing: border-box;
 }
 /*Imagenes y contenedores de imagenes*/
 .cont_img_mapa {
     display: flex; 
-    justify-content: center; /* Centrado horizontal */
-    margin: 20px auto; /* Centrado en el flujo normal */
+    justify-content: center; 
+    margin: 20px auto;
     border: 3px solid  rgba(95,9,121,1);
     border-radius: 15px; 
     background-color: #8B4513;
@@ -376,9 +420,9 @@ footer {
     background-color: #8B4513;
 }
 .img_index {
-    flex: 2; /* La imagen ocupará más espacio proporcionalmente */
-    justify-content: center; /* Centrado horizontal */
-    margin: 20px auto; /* Centrado en el flujo normal */
+    flex: 2; 
+    justify-content: center; 
+    margin: 20px auto; 
     border: 3px solid  rgba(95,9,121,1);
     border-radius: 15px; 
     background-color: #8B4513;
@@ -386,15 +430,15 @@ footer {
     max-width: 800px; 
 }
 .icono-pequeño {
-    width: 70px; /* Ajusta el tamaño según lo que necesites */
-    height: 70px; /* Mantén las proporciones */
+    width: 70px;
+    height: 70px; 
     border-radius: 10px;
-    transition: transform 0.2s ease; /* Efecto de transición para el hover */
+    transition: transform 0.2s ease;
     margin: 10px;
 }
   
 .icono-pequeño:hover {
-    transform: scale(1.2); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    transform: scale(1.2); 
     box-shadow: 0 0 14px #aa00ff;
 }
 /*Tooltips*/
@@ -403,33 +447,31 @@ footer {
     display: inline-block;
   }
   
-  /* El texto del tooltip */
 .tooltip .tooltip-text {
-    visibility: hidden; /* Ocultar por defecto */
-    width: 120px; /* Ancho del texto del tooltip */
-    background-color: black; /* Fondo negro */
-    color: #fff; /* Color del texto */
+    visibility: hidden;
+    width: 120px; 
+    background-color: black; 
+    color: #fff; 
     text-align: center;
     border-radius: 5px;
     padding: 5px;
     position: absolute;
     top: -40px;
     left: 50%;
-    transform: translateX(-50%); /* Centra el tooltip */
-    opacity: 0; /* Inicialmente transparente */
-    transition: opacity 0.5s, visibility 0s linear 0.5s; /* Retraso y transición */
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0s linear 0.5s; 
 }
-  
-/* Muestra el tooltip con retraso cuando el ratón se encuentra sobre el icono */
+
 .tooltip:hover .tooltip-text {
     visibility: visible;
-    opacity: 1; /* Aparece el texto */
-    transition-delay: 0.5s; /* Retraso de 0.5 segundos antes de mostrar */
+    opacity: 1; 
+    transition-delay: 0.5s; 
 }
 .botones {
-    display: flex;                /* Usa flexbox para alinear los elementos */
-    justify-content: center;      /* Centra los elementos horizontalmente */
-    align-items: center;          /* Centra los elementos verticalmente (si es necesario) */
-    gap: 10px;                    /* Espaciado entre los botones */
-    margin-top: 20px;             /* Espacio superior para dar margen */
+    display: flex;               
+    justify-content: center;     
+    align-items: center;          
+    gap: 10px;                    
+    margin-top: 20px;            
 }

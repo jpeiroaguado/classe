@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usuarios</title>
+    <link rel="preload" as="style" href="listadousuarios_files/app-DRj-cot2.css"><link rel="modulepreload" href="listadousuarios_files/app-DCF3fk7r.js"><link rel="stylesheet" href="listadousuarios_files/app-DRj-cot2.css"><script type="module" src="listadousuarios_files/app-DCF3fk7r.js"></script>
+</head><body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="http://127.0.0.1:8001/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-primary text-decoration-none">
+        <span class="fs-3"><i class="bi bi-images"></i> PhotoDay </span>
+    </a>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="http://127.0.0.1:8001/" class="nav-link ">Inicio</a>
+        </li>
+                    <li class="nav-item">
+                <a href="http://127.0.0.1:8001/usuarios" class="nav-link active">Usuarios</a>
+            </li>
+                                            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/logout" class="nav-link ">Logout</a>
+            </li>
+        
+    </ul>
+</header>
+        <h1></h1>
+        
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Listado de Usuarios</h2>
+    </div>
+        <ul class="list-group">
+                    
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-warning">Pendiente</span>
+                <strong>classe</strong> | classe@gmail.com
+
+                                    <form method="post" action="http://127.0.0.1:8001/usuarios/14" style="display:inline">
+                        <input type="hidden" name="_token" value="LNZYe9ztBh7h0UTjD6RDUKlHT5TBDNQUX0UEVWgX" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <input type="hidden" name="accion" value="Activo">
+                        <button class="btn btn-success" title="Aceptar usuario"><i class="bi bi-person-fill-check mr-1"></i></button>
+                    </form>
+                    <form method="post" action="http://127.0.0.1:8001/usuarios/14" style="display:inline">
+                        <input type="hidden" name="_token" value="LNZYe9ztBh7h0UTjD6RDUKlHT5TBDNQUX0UEVWgX" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <input type="hidden" name="accion" value="Rechazado">
+                        <button class="btn btn-danger" title="Rechazar usuario"><i class="bi bi-person-fill-slash mr-1"></i></button>
+                    </form>
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-success">Activo</span>
+                <strong>eloy</strong> | eloy@gmail.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-success">Activo</span>
+                <strong>admin</strong> | admin@admin.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-success">Activo</span>
+                <strong>Myrtle Senger</strong> | reilly.kianna@bartoletti.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-danger">Rechazado</span>
+                <strong>Buddy Rutherford</strong> | mckenzie.robyn@hotmail.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-danger">Rechazado</span>
+                <strong>Madalyn Nicolas</strong> | fheller@hotmail.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-danger">Rechazado</span>
+                <strong>Meaghan Wilderman</strong> | daniel.dedric@ferry.com
+
+                            </li>
+                    <li class="list-group-item py-3">
+                <span class="badge text-bg-success">Activo</span>
+                <strong>Aisha O'Reilly</strong> | cheyenne56@yahoo.com
+
+                            </li>
+        </ul>
+
+<nav class="d-flex justify-items-center text-end">
+        <div class="d-flex justify-content-center flex-fill d-sm-none">
+            <ul class="pagination">
+                
+                                    <li class="page-item disabled" aria-disabled="true">
+                        <span class="page-link">« Previous</span>
+                    </li>
+                
+                
+                                    <li class="page-item">
+                        <a class="page-link" href="http://127.0.0.1:8001/usuarios?page=2" rel="next">Next »</a>
+                    </li>
+                            </ul>
+        </div>
+
+        <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-center">
+
+
+            <div>
+                <ul class="pagination">
+                    
+                                            <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                            <span class="page-link" aria-hidden="true">‹</span>
+                        </li>
+                    
+                    
+                                            
+                        
+                        
+                                                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                                                <li class="page-item"><a class="page-link" href="http://127.0.0.1:8001/usuarios?page=2">2</a></li>
+                                                                                                        
+                    
+                                            <li class="page-item">
+                            <a class="page-link" href="http://127.0.0.1:8001/usuarios?page=2" rel="next" aria-label="Next »">›</a>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    </div>
+
+
+
+</body></html>

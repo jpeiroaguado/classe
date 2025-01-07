@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo con Flexbox</title>
+  <style>
+ body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #ccc; /* Fondo gris */
+}
+
+/* Contenedor del contenido */
+.background {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+/* Contenedor de aside y contenido principal */
+.content-wrapper {
+  display: flex;
+  gap: 1rem; /* Espacio entre aside y contenido principal */
+  width: 60%; /* Ocupa el 60% del ancho de la ventana */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para flotarlo */
+  padding: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #f4f4f4; /* Fondo gris claro */
+  width: 30%; /* 30% del ancho del contenedor */
+  padding: 1rem;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1; /* Ocupa el espacio restante */
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.main-content h2 {
+  margin-top: 0;
+}
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="content-wrapper">
+      <aside class="sidebar">
+        <h2>Menú</h2>
+        <ul>
+          <li>Inicio</li>
+          <li>Sobre mí</li>
+          <li>Servicios</li>
+          <li>Contacto</li>
+        </ul>
+      </aside>
+      <section class="main-content">
+        <h2>Contenido Principal</h2>
+        <p>Este es el contenido principal de la página. Aquí puedes añadir texto, imágenes o cualquier otro elemento que necesites.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

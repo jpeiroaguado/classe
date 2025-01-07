@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 5</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    #contenedor {
+      display: flex;
+      flex-wrap: wrap; /* Las imágenes se ajustan a nuevas filas */
+      justify-content: center; /* Centra las imágenes horizontalmente */
+      gap: 10px; /* Espacio entre imágenes */
+      width: 90%;
+    }
+    img {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="contenedor"></div>
+</body>
+<script>
+  // Obtenemos el contenedor
+  const contenedor = document.getElementById('contenedor');
+
+  // Array de imágenes borrosas
+  let arrayBorrosas = [];
+
+  // Función para rellenar las imágenes
+  async function renderizarImagenes() {
+    for (let c = 1; c <= 200; c++) {
+      let img = document.createElement('img');
+      let estaBorrosa = arrayBorrosas.includes(c);
+
+      let urlImagen;
+      if(estaBorrosa){
+        urlImagen = `https://picsum.photos/300/300?image=${c}&blur`;
+      }else {
+        urlImagen = `https://picsum.photos/300/300?image=${c}`;
+      }
+
+      try {
+        let respuesta = await fetch(urlImagen);
+        if (!respuesta.ok) {
+          throw new Error(`Imagen ${c} no disponible`);
+        }
+        img.src = respuesta.url;
+
+        img.addEventListener('click', () => {
+          imagenBorrosa(c, img);
+        });
+        contenedor.appendChild(img);
+      } catch (error) {
+        console.error(`Fallo al cargar la imagen ${c}`, error);
+      }
+    }
+  }
+
+  // Función para alternar el estado de difuminado
+  async function imagenBorrosa(idImagen, elementoImagen) {
+    let estaBorrosa = arrayBorrosas.includes(idImagen);
+    let urlImagen;
+
+    if (estaBorrosa) {
+      urlImagen = `https://picsum.photos/300/300?image=${idImagen}`;
+    } else {
+      urlImagen = `https://picsum.photos/300/300?image=${idImagen}&blur`;
+    }
+
+    try {
+      let respuesta = await fetch(urlImagen);
+
+      if (!respuesta.ok) {
+        throw new Error(`Error al cambiar estado de la imagen ${idImagen}`);
+      }
+      elementoImagen.src = respuesta.url;
+
+      if (estaBorrosa) {
+        arrayBorrosas = arrayBorrosas.filter(id => id !== idImagen); // Remover de las imágenes difuminadas
+      } else {
+        arrayBorrosas = [idImagen]; // Solo mantener una imagen difuminada
+      }
+    } catch (error) {
+      console.error(`Error al cambiar el difuminado de la imagen ${idImagen}:`, error);
+    }
+  }
+
+  renderizarImagenes();
+</script>
+</html>
+
+      
+    

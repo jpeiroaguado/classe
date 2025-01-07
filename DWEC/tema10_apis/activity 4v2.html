@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+</head>
+<body>
+  <script>
+    const api_key = "2a4b28f58ce4de01b0a951260cfe97f0";
+
+    // Crear elementos
+    const selector1 = document.createElement('select');
+    const selector2 = document.createElement('select');
+    const cantidad = document.createElement('input');
+    const resultado = document.createElement('input');
+    const boton = document.createElement('button');
+
+    // Configurar elementos
+    cantidad.type = "number";
+    cantidad.placeholder = "Amount";
+    resultado.type = "text";
+    resultado.readOnly = true;
+    boton.innerHTML = "Convert";
+
+    // Añadir elementos al DOM
+    document.body.appendChild(document.createTextNode('Enter the amount to convert: '));
+    document.body.appendChild(cantidad);
+    document.body.appendChild(document.createElement('br'));
+
+    document.body.appendChild(document.createTextNode('Choose the base currency: '));
+    document.body.appendChild(selector1);
+    document.body.appendChild(document.createElement('br'));
+
+    document.body.appendChild(document.createTextNode('Choose the target currency: '));
+    document.body.appendChild(selector2);
+    document.body.appendChild(document.createElement('br'));
+
+    document.body.appendChild(boton);
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(document.createTextNode('Converted amount: '));
+    document.body.appendChild(resultado);
+
+    // Obtener los símbolos de las monedas
+    fetch(`https://api.exchangeratesapi.io/v1/symbols?access_key=${api_key}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          const symbols = data.symbols;
+          Object.keys(symbols).forEach(currency => {
+            const option1 = document.createElement('option');
+            const option2 = document.createElement('option');
+            option1.value = currency;
+            option2.value = currency;
+            option1.innerHTML = currency;
+            option2.innerHTML = currency;
+            selector1.appendChild(option1);
+            selector2.appendChild(option2);
+          });
+        } else {
+          console.error("Error fetching symbols:", data.error);
+        }
+      })
+      .catch(err => console.error("Fetch error:", err));
+
+    // Manejar la conversión
+    boton.addEventListener('click', () => {
+      const amount = parseFloat(cantidad.value);
+      const baseCurrency = selector1.value;
+      const targetCurrency = selector2.value;
+
+      if (isNaN(amount) || !baseCurrency || !targetCurrency) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+
+      fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=${api_key}&base=${baseCurrency}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            const rate = data.rates[targetCurrency];
+            if (rate) {
+              const convertedAmount = (amount * rate).toFixed(2);
+              resultado.value = convertedAmount;
+            } else {
+              alert("Error: Target currency rate not found.");
+            }
+          } else {
+            console.error("Error fetching rates:", data.error);
+          }
+        })
+        .catch(err => console.error("Fetch error:", err));
+    });
+  </script>
+</body>
+</html>

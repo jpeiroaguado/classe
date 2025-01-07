@@ -1,10 +1,13 @@
-Apretaves 2 vegades en eliminar y et donaba error.
-De vegades no s'elimina el mapa.
-El sistema de login.
-Els missatges de login.
+ARREGLATS
+Apretaves 2 vegades en eliminar y et donaba error. //Ara sols mostra eliminar si hi ha un mapa seleccionat
+De vegades no s'elimina el mapa.//Fallo de algo de pasar a la bbdd nova, a mi em funciona be
 Cuan cambiaves la imatge de un mape desapareixen els territoris.
-Intentar el carrusel.
-Tinc errors greus en el crud.
+El sistema de login.
+Comprobar cookies
+Intentar el carrusel o fer un scroll.
 Pasar el el sql sançer.
+
+ENCARA NO
+
 
 

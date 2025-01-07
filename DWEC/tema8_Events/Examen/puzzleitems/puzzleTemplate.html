@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Numérico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<header>Flag Puzzle</header>
+
+<body>
+    <figure>
+        <img src="img/Mauritius.png" alt="Flag of Mauritius" id="country-flag" width="100" />
+    </figure>
+    <main>
+        <form id="user-form">
+            <p>Before starting the game, please enter your name (only one word) and your Iban account (2 letters
+                followed by 22 numbers).</p>
+            <div>
+                <label for="username">Name:</label>
+                <input type="text" id="username" value="Yourname">
+            </div>
+            <div>
+                <label for="iban">IBAN:</label>
+                <input type="text" id="iban" value="ES61 1234 3456 42 0456323532" size=30>
+            </div>
+            <div>
+                <input type="checkbox" id="terms" name="terms">
+                <label for="terms">I accept the terms and conditions</label>
+            </div>
+            <input type="submit" id="enviar"></button>
+            <div id="form-notifications" aria-live="polite" style="color :red"></div>
+        </form>
+        <div id="game-section" style="display: none;">
+            <div id="puzzle"></div>
+            <button id="shuffle-button">Shuffle</button>
+        </div>
+    </main>
+</body>
+<script>
+    //We capture he send event to prevent it
+    const botonEnviar=document.getElementById('enviar');
+    botonEnviar.addEventListener("click", function(evento){
+        evento.preventDefault();
+        //We get the elements to work with it, and declare the expressions to test it
+
+        let nombre=document.getElementById('username').value;
+        let nombreInput=document.getElementById('username');
+        let iban=document.getElementById('iban').value;
+        let ibanInput=document.getElementById('iban');
+        let chequeado=document.getElementById('terms');
+        const expresionNombre=/^\w+$/;
+        const expresionIBAN=/[A-Z]{2}[0-9]{22}$/;
+        let notificaciones=document.getElementById('form-notifications');
+        
+        //We remove the spaces
+        iban=iban.split(" ").join("");
+
+
+        if(!expresionNombre.test(nombre)){//If the name is incorrect
+            notificaciones.innerHTML="The name is incorrect";
+            nombreInput.style.borderColor="red";
+            nombreInput.addEventListener('focus', function(){
+                nombreInput.style="none";
+                notificaciones.innerHTML="";
+            });
+        }else if(!expresionIBAN.test(iban)){//If the IBAN is inscorrect
+            notificaciones.innerHTML="The IBAN is incorrect";
+            ibanInput.style.borderColor="red";
+            ibanInput.addEventListener('focus', function(){
+                ibanInput.style="none";
+                notificaciones.innerHTML="";
+            });
+        }else if(chequeado.checked){//If the terms are checked and all is checked, we start the game
+            juego();
+        }else{//If the terms isn't checked
+            notificaciones.innerHTML="Tienes que aceptar los terminos y condiciones";  
+        }
+
+    });
+    //When we click on a imput, he clear the styles
+    document.addEventListener('focus', function(){
+        nombreInput.style="none";
+        ivanInput.style="none";
+    });
+    
+
+   function juego(){
+    
+        const PUZZLE_SIZE = 4; // 4x4 grid
+        const colours = ["red", "blue", "yellow", "green"];
+        let tiles = []; // cells
+
+
+        // Check if two positions are adjacent
+        function isAdjacent(index1, index2) {
+            const row1 = Math.floor(index1 / 4);
+            const col1 = index1 % 4;
+            const row2 = Math.floor(index2 / 4);
+            const col2 = index2 % 4;
+            return (Math.abs(row1 - row2) + Math.abs(col1 - col2)) === 1;
+        }
+
+        function crearJuego(){
+            let random=Math.floor(Math.random()*4);
+            let contadorFilas=0;
+            //First we fill the array
+            for(let filaCelda=0;filaCelda<4;filaCelda++){
+                for(let celda=0; celda<4;celda++){
+                    tiles.push([celda, colours[filaCelda]]);
+                }
+                
+            }
+            //Now we rearrange the array for randomize It doesn't work!!! :(
+            /*for(let cont=tiles.length;cont>0;cont--){
+                let random=Math.floor(Math.random()*tiles.length+1);
+                tiles[cont],tiles[random]=tiles[random], tiles[cont];
+            }*/
+            tiles.sort(()=>Math.random()-0.5);
+            //Finally we remove the last element as you wish in the exam
+            tiles.pop();
+            tiles.push();
+            //We sort again, ecause if we dont do it, we always pop the same colour
+            tiles.sort(()=>Math.random()-0.5);
+            //And we print the game
+            imprimir(tiles);
+        }
+
+        function imprimir(tiles){
+            //we get the div "pantalla" as printer of the puzzle, then we clean the html
+            let pantalla=document.getElementById('game-section');
+            pantalla.style.display="block";
+            let divJuego=document.getElementById('puzzle');
+            divJuego.innerHTML="";
+            
+            //We print the array
+            for(let casillas=0; casillas<tiles.length; casillas++){
+                    let casilla=document.createElement('div');
+                    casilla.classList.add("tile",tiles[casillas][1]);
+                    //We add a event to all the cells to swap it in the tiles cons
+                    casilla.addEventListener('click', function(){
+                            divJuego.removeChild(casilla);
+                            divJuego.prepend(casilla);
+                            imprimir();  
+                    });
+                    divJuego.appendChild(casilla);
+            }
+        }
+        function verificarVictoria(){
+            
+        }
+        crearJuego();//After declare the functions we start the game
+
+        /*Event listeners for the game*/
+
+    }//Fin Juego
+    
+
+</script>
+    
+</html>

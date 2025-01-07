@@ -32,6 +32,7 @@ function pujar_imatge($nom_form, $nom_foto){
         if(move_uploaded_file($tmp_name, $target_dir.'/'.$nom_foto.'.'.$extensio)){
           return $nom_foto.'.'.$extensio;
         }
+        
       }
     }  
     return null;

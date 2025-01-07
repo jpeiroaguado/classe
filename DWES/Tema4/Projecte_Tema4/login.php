@@ -23,10 +23,13 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
           $email = neteja_dades($_POST['email']);
-          $usuari = UsuariDao::selectByMail($email);
+          $pass = neteja_dades($_POST['password']);  
+
           //Verifique si existeix y que la contraseña es correcta
+          $usuari = UsuariDao::selectByMail($email);
+
           if(!empty($usuari)&&password_verify($_POST['password'], $usuari->getPass())){
-            $pass = neteja_dades($_POST['password']);   
+             
             $recordar = isset($_POST['recordar']) ? true : false;
             //Guardem en la session la id del usuari y igual amb la cookie
             $_SESSION['usuari'] = [
@@ -35,18 +38,21 @@
             ];
 
             if ($recordar) {
-              setcookie('usuari_id', $usuari->getId(), time() + 3600, "/", "", false, true); // Cookie segura
+              setcookie('usuari_id', $usuari->getId(), time() + 3600, "/", "", false, true); // Cookie per si volguerem treballar en ella mes endavant (encara que al final no utilitze)
               setcookie('usuari_email', $email, time() + 3600, "/", "", false, true); 
+              setcookie('usuari_password', password_hash($pass, PASSWORD_DEFAULT),time() + 3600, "/", "", false, true); 
+            }else{//Si no li dona a recordar, se carrega les que hi ha
+              setcookie('usuari_id', '', time() - 3600, "/", "", false, true);
+              setcookie('usuari_email', '', time() - 3600, "/", "", false, true);
+              setcookie('usuari_password', '', time() - 3600, "/", "", false, true);
             }
 
               //Redirigim al index
               header('Location: index.php');
               exit;
             } else {
-              $msgErrorPass = "&#128561 contraseña no valida.";
+              $msgErrorPass = "&#128561 Credenciales incorrectas.";
             }
-          } else {
-            $msgErrorEmail = "&#128561 email no valid.";
           }
         }   
 ?>  
@@ -56,11 +62,11 @@
     <legend>Login</legend>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="formulari_acces" method="post">
         <label for="email">Escriu el teu compter/correu: </label>
-        <input type="email" name="email" id="email" placeholder="email" value="<?=$email?>" required>
+        <input type="email" name="email" id="email" placeholder="email" value="<?=$email?>">
         <span class="msgError"><?=$msgErrorEmail?></span><br>
 
         <label for="password">Contrasenya: </label>
-        <input type="password" name="password" id="password" placeholder="password" value="<?=$pass?>" required>
+        <input type="password" name="password" id="password" placeholder="password" value="<?=$pass?>">
         <span class="msgError"><?=$msgErrorPass?></span><br>
 
         <label for="recordar">No tornar a preguntar</label>

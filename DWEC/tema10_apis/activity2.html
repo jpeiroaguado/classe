@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+    div#contenedor{
+      width: 40%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="contenedor"></div>
+</body>
+<script>
+  fetch('https://randomuser.me/api/?results=10')
+    .then(response => {
+      return response.json();
+    })
+    .then(valorjson => {
+      let contenedor = document.getElementById('contenedor');
+
+      valorjson.results.forEach(persona => {
+        let nombre = persona.name.first;
+        let email = persona.email;
+        let foto = persona.picture.large;
+        let pais = persona.location.country;
+
+        let contenedorPersona = document.createElement('div');
+        contenedorPersona.style.width = "50%";
+        contenedorPersona.innerHTML = `
+          <div><h1>${nombre}</h1></div>
+          <div>${email}</div>
+          <div><img src="${foto}"></div>
+          <div>${pais}</div>
+        `;
+
+        let boton = document.createElement('button');
+        boton.innerHTML = "Cambiar";
+        boton.addEventListener('click', (e) => {
+          fetch('https://randomuser.me/api/')
+            .then(valorjotason => {
+              return valorjotason.json();
+            })
+            .then(valorjson => {
+              let nuevaPersona = valorjson.results[0];
+
+              let nombre = nuevaPersona.name.first;
+              let email = nuevaPersona.email;
+              let foto = nuevaPersona.picture.large;
+              let pais = nuevaPersona.location.country;
+
+              e.target.parentNode.innerHTML = `
+                <div><h1>${nombre}</h1></div>
+                <div>${email}</div>
+                <div><img src="${foto}"></div>
+                <div>${pais}</div>
+              `;
+              let nuevoBoton = document.createElement('button');
+              nuevoBoton.innerHTML = "Cambiar";
+              e.target.parentNode.appendChild(nuevoBoton);
+
+              nuevoBoton.addEventListener('click', (e) => {
+                fetch('https://randomuser.me/api/')
+                  .then(valorjotason => valorjotason.json())
+                  .then(valorjson => {
+                    let persona = valorjson.results[0];
+                    let nombre = persona.name.first;
+                    let email = persona.email;
+                    let foto = persona.picture.large;
+                    let pais = persona.location.country;
+
+                    e.target.parentNode.innerHTML = `
+                      <div><h1>${nombre}</h1></div>
+                      <div>${email}</div>
+                      <div><img src="${foto}"></div>
+                      <div>${pais}</div>
+                    `;
+                  })
+                  .catch(err => {
+                    console.error(err);
+                  });
+              });
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+
+        contenedorPersona.appendChild(boton);
+        contenedor.appendChild(contenedorPersona);
+      });
+
+      Array.from(contenedor.children).forEach((child, index) => {
+        if ((index + 1) % 2 === 0) {
+          child.style.backgroundColor = "#ffffff";
+        } else {
+          child.style.backgroundColor = "#f0f0f0";
+        }
+      });
+    })
+    .catch(err => {
+      console.error(err);
+    });
+</script>
+</html>

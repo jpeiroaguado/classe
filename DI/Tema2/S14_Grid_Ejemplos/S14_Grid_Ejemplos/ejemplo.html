@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo con Flexbox</title>
+  <style>
+    .contenedor {
+      display: flex;
+      height: 100vh; /* Ajusta la altura al 100% de la viewport */
+    }
+
+    .izquierdo, .derecho {
+      width: 20%;
+      background-color: lightblue;
+    }
+
+    .centro {
+      width: 20%;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="izquierdo">Contenido izquierdo</div>
+    <div class="centro"></div>
+    <div class="derecho">Contenido derecho</div>
+  </div>
+</body>
+</html>

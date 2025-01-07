@@ -63,7 +63,8 @@ $territoris = TerritoriDao::getTerritorisMapa($id);
         }//fi dels detalls del mapa
         else{//No hem trobat cap mapa, o ens han intentat entrar en una id que no existeix
         ?>
-        <h2>No s'ha trobat cap mapa am aquesta ID</h2>
+        <h2>No s'ha trobat cap mapa amb aquesta ID</h2>
+        <h1><a href="index.php">Tornar</a></h1>
         <?php
         }//Fi de no s'ha trobat mapa
         ?>

@@ -6,15 +6,15 @@
   <title>Document</title>
   <style>
     body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #121212;
-    font-family: 'Audiowide', sans-serif;
-    color: #fff;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+
+        font-family: 'Audiowide', sans-serif;
+        color: #fff;
+    }
 
 .calculator {
     background-color: #2c2c2c;
@@ -25,7 +25,7 @@
     width: 300px;
 }
 
-.input-box {
+.caja-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -35,7 +35,7 @@
     box-sizing: border-box;
 }
 
-.result-box {
+.caja-resultado {
     margin-top: 10px;
     padding: 10px;
     background-color: #1a1a1a;
@@ -44,13 +44,11 @@
     text-align: center;
 }
 
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.botones {
+    display: flex; 
 }
 
-.btn {
+.boton {
     flex: 1 1 45%;
     margin: 5px;
     padding: 10px;
@@ -63,42 +61,43 @@
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #45a049;
+.boton:hover {
+    background-color: orange;
 }
 
-.clear-btn {
+.clear-boton {
     background-color: #f44336;
 }
 
-.clear-btn:hover {
+.clear-boton:hover {
     background-color: #d32f2f;
 }
 </style>
 </head>
 <body>
     <div class="calculator">
-        <input type="text" id="input1" class="input-box" placeholder="First number">
-        <div class="buttons">
-            <button class="btn" onclick="calculate('+')">+</button>
-            <button class="btn" onclick="calculate('-')">−</button>
-            <button class="btn" onclick="calculate('*')">×</button>
-            <button class="btn" onclick="calculate('/')">÷</button>
-            <button class="btn clear-btn" onclick="clearAll()">C</button>
+        <input type="text" id="input1" class="caja-input" placeholder="Primer número">
+        <div class="botones">
+            <button class="boton" onclick="calculate('+')">+</button>
+            <button class="boton" onclick="calculate('-')">−</button>
+            <button class="boton" onclick="calculate('*')">×</button>
+            <button class="boton" onclick="calculate('/')">÷</button>
+            <button class="boton clear-boton" onclick="clearAll()">C</button>
         </div>
-        <input type="text" id="input2" class="input-box" placeholder="Second number">
-        <div class="result-box" id="result">Result will appear here</div>
+        <input type="text" id="input2" class="caja-input" placeholder="Segundo número">
+        <div class="caja-resultado" id="resultado">El resultado aparecerá aquí</div>
     </div>
 </body>
 <script>
+    //Function calculate, we get the operator in the call
   function calculate(operator) {
-    const input1 = parseFloat(document.getElementById("input1").value);
-    const input2 = parseFloat(document.getElementById("input2").value);
-    let result = "";
+    //We parse the numbers, cause they are a texts
+        const input1 = parseFloat(document.getElementById("input1").value);
+        const input2 = parseFloat(document.getElementById("input2").value);
+        let result = "";
 
-    if (isNaN(input1) || isNaN(input2)) {
-        result = "Please enter valid numbers.";
-    } else {
+
+        //We switch it, im always doing if else... i want do a switch work xD
         switch (operator) {
             case "+":
                 result = input1 + input2;
@@ -113,15 +112,17 @@
                 result = input2 !== 0 ? input1 / input2 : "Cannot divide by zero";
                 break;
         }
+        
+
+        document.getElementById("resultado").textContent = result;
+        
+        
     }
-
-    document.getElementById("result").textContent = result;
-}
-
-function clearAll() {
-    document.getElementById("input1").value = "";
-    document.getElementById("input2").value = "";
-    document.getElementById("result").textContent = "Result will appear here";
-}
+    //Reset funtion
+    function clearAll() {
+            document.getElementById("input1").value = "";
+            document.getElementById("input2").value = "";
+        document.getElementById("resultado").textContent = "El resultado aparecerá aquí";
+    }
 </script>
 </html>

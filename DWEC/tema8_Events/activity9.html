@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Manager de Tareas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
         }
-        #taskContainer {
+        #contenedorTareas {
             width: 300px;
             margin: 0 auto;
             text-align: left;
@@ -18,13 +18,21 @@
         input[type="text"] {
             width: 70%;
             padding: 8px;
-            margin-right: 10px;
             font-size: 16px;
         }
         button {
             padding: 8px 12px;
             font-size: 16px;
             cursor: pointer;
+            color: white;
+            background-color: red;
+            border-radius: 0 5px 5px 0;
+        }
+        input{
+            border-color: red;
+        }
+        h1{
+            color:cadetblue;
         }
         ul {
             list-style: none;
@@ -47,61 +55,60 @@
     </style>
 </head>
 <body>
-    <h1>Task Manager</h1>
-    <div id="taskContainer">
-        <input type="text" id="taskInput" placeholder="Enter a task..." />
-        <button id="addButton">+</button>
-        <ul id="taskList"></ul>
+    <h1>Manager de Tareas</h1>
+    <div id="contenedorTareas">
+        <input type="text" id="inputTareas" placeholder="Introduce una tarea..." />
+        <button id="añadirBoton">+</button>
+        <ul id="listaTareas"></ul>
     </div>
-    <script src="script.js"></script>
 </body>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const addButton = document.getElementById("addButton");
-    const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
+    const añadirBoton = document.getElementById("añadirBoton");
+    const inputTareas = document.getElementById("inputTareas");
+    const listaTareas = document.getElementById("listaTareas");
 
     // Function to add a task
-    const addTask = () => {
-        const taskContent = taskInput.value.trim();
-        if (taskContent) {
-            // Create new task
+    const añadirTarea = () => {
+        const contenidoTareas = inputTareas.value.trim();
+        if (contenidoTareas) {
+            // We create new task
             const li = document.createElement("li");
             const taskName = document.createElement("span");
-            taskName.textContent = taskContent;
-            taskName.addEventListener("click", () => moveToTop(li));
+            taskName.textContent = contenidoTareas;
+            taskName.addEventListener("click", () => moverTarea(li));
 
             const removeButton = document.createElement("button");
             removeButton.textContent = "remove";
-            removeButton.addEventListener("click", () => removeTask(li));
+            removeButton.addEventListener("click", () => quitarTarea(li));
 
             li.appendChild(taskName);
             li.appendChild(removeButton);
-            taskList.appendChild(li);
+            listaTareas.appendChild(li);
 
-            // Clear the input
-            taskInput.value = "";
+            // We clear the input
+            inputTareas.value = "";
         }
     };
 
-    // Function to remove a task
-    const removeTask = (taskElement) => {
-        taskList.removeChild(taskElement);
+    // This function remove the task
+    const quitarTarea = (elementoTarea) => {
+        listaTareas.removeChild(elementoTarea);
     };
 
-    // Function to move a task to the top
-    const moveToTop = (taskElement) => {
-        taskList.removeChild(taskElement);
-        taskList.prepend(taskElement);
+    // Function move the task to the top
+    const moverTarea = (elementoTarea) => {
+        listaTareas.removeChild(elementoTarea);
+        listaTareas.prepend(elementoTarea);
     };
 
-    // Event listener for the add button
-    addButton.addEventListener("click", addTask);
+    // Event listener for to add a button
+    añadirBoton.addEventListener("click", añadirTarea);
 
-    // Allow adding tasks with the "Enter" key
-    taskInput.addEventListener("keypress", (event) => {
-        if (event.key === "Enter") {
-            addTask();
+    // We add tasks with the "Enter" key
+    inputTareas.addEventListener("keypress", (evento) => {
+        if (evento.key === "Enter") {
+            añadirTarea();
         }
     });
 });

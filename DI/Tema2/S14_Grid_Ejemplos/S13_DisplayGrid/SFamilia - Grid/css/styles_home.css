@@ -1,0 +1,48 @@
+/*   Directives CSS  */
+@charset "utf-8";
+
+/* Aquí exclusivamente lo de la página HOME */
+/* No hace falta Inicializaciones, ya están en Layout.css */
+
+main article strong{
+    color: darkred;
+}
+
+main article em{
+    color: green;
+}
+
+main article img{
+    float: left; /* float sigue siendo últil en estos casos */
+    margin: 1em;
+    border: 2px solid red;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+main article img:hover{
+    opacity: 1;
+}
+
+main article p{
+    margin-bottom: 1em;
+}
+
+main article p:last-child{
+    clear: both; /* esta propiedad hace q el float de cualquier otro elemento no le afecte */
+}
+
+/* Cookies */
+
+aside#cookies{
+    position: fixed; 
+    bottom: 0; left: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+aside#cookies button{
+    margin: 0.5em; padding: 1em;
+}

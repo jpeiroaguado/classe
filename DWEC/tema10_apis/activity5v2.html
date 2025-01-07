@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 5 – Images from the Cloud</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    #contenedor {
+      display: flex;
+      flex-wrap: wrap; /* Las imágenes se ajustan a nuevas filas */
+      justify-content: center; /* Centra las imágenes horizontalmente */
+      gap: 10px; /* Espacio entre imágenes */
+      width: 90%;
+    }
+    img {
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="contenedor"></div>
+</body>
+<script>
+  const contenedor = document.getElementById('contenedor');
+  const NUM_IMAGES = 200;
+
+  // Array en memoria para rastrear imágenes difuminadas
+  let blurredImages = [];
+
+  // Función para obtener y renderizar imágenes usando fetch
+  async function renderImages() {
+    for (let i = 1; i <= NUM_IMAGES; i++) {
+      const img = document.createElement('img');
+      const isBlurred = blurredImages.includes(i);
+      const imageUrl = `https://picsum.photos/300/300?image=${i}${isBlurred ? '&blur' : ''}`;
+
+      // Usar fetch para verificar si la imagen está disponible
+      try {
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+          throw new Error(`Imagen ${i} no disponible`);
+        }
+        img.src = response.url; // URL final de la imagen
+        img.alt = `Image ${i}`;
+        img.addEventListener('click', () => toggleBlur(i, img));
+        contenedor.appendChild(img);
+      } catch (error) {
+        console.error(`Error al cargar la imagen ${i}:`, error);
+      }
+    }
+  }
+
+  // Función para alternar difuminado al hacer clic
+  async function toggleBlur(imageId, imgElement) {
+    const isBlurred = blurredImages.includes(imageId);
+    const imageUrl = `https://picsum.photos/300/300?image=${imageId}${isBlurred ? '' : '&blur'}`;
+
+    // Usar fetch para cambiar el estado de la imagen
+    try {
+      const response = await fetch(imageUrl);
+      if (!response.ok) {
+        throw new Error(`Error al cambiar estado de la imagen ${imageId}`);
+      }
+      imgElement.src = response.url; // Actualizar URL de la imagen
+      if (isBlurred) {
+        blurredImages = blurredImages.filter(id => id !== imageId); // Remover de difuminadas
+      } else {
+        blurredImages = [imageId]; // Solo mantener una imagen difuminada
+      }
+    } catch (error) {
+      console.error(`Error al alternar difuminado de la imagen ${imageId}:`, error);
+    }
+  }
+
+  // Renderizar todas las imágenes
+  renderImages();
+</script>
+</html>

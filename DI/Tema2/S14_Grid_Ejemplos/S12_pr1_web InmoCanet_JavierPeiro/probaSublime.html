@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InmoCanet</title>
+  <meta name="author" content="Javier">
+  <meta name="description" content="Página de prueba InmoCanet">
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <header>
+    <img src="./img/logo.png" alt="Logo">
+    <div>
+      <img src="./img/bandera_esp.png" alt="Español">
+      <img src="./img/bandera_ing.png" alt="Inglés">
+      <img src="./img/bandera_fra.png" alt="Francés">
+      <img src="./img/bandera_ale.png" alt="Alemán">
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">Venta</a></li>
+      <li><a href="">Alquiler</a></li>
+      <li><a href="">Contacto</a></li>
+    </ul>
+    <div>
+      <input type="text" placeholder="Buscar">
+      <button>Buscar</button>
+    </div>
+  </nav>
+  <main>
+    <section>
+      <div>
+        <h2>Parcela Urbana en Miramar</h2>
+      </div>
+      <div>
+        <p>Ref: P333555A</p>
+        <button>+Info</button>
+      </div>
+      <img src="./img/Parcela1.jpg" alt="Imagen del inmueble">
+      <div>
+        <img src="./img/facebook.png" alt="Facebook">
+        <img src="./img/twitter.png" alt="Twitter">
+        <img src="./img/instagram.png" alt="Instagram">
+      </div>
+    </section>
+    <section>
+      <p>Envia email a <a href="mailto:info@inmocanet.eu">info@inmocanet.eu</a></p>
+      <form action="procesa.php" name="formulario_inmoCanet" method="GET">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required maxlength="75" autofocus>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required maxlength="75" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" maxlength="300" placeholder="En el mensaje cita la referencia del inmueble..."></textarea>
+          <input type="checkbox" checked> Sí, acepto política de privacidad
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

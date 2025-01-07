@@ -1,0 +1,186 @@
+@charset "utf8";
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');/*Mejora*/
+@font-face{
+  font-family: youre_gone;
+  src: url(../ttf/youre_gone.ttf);
+}
+
+/*GENERALES*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Arimo', sans-serif;/*Mejora*/
+  font-size: 13px;
+  width: 100%;
+	background-color: lightgrey;
+}
+
+/*HEADER*/
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 8rem;
+  background-color: white;
+}
+
+header>div{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0.3rem;
+}
+
+header>img{
+  height: 60px;
+}
+
+header>div>img{
+  width: 30px;
+  height: 20px;
+}
+
+/*NAVEGACIÓN Y BUSCADOR*/
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 8rem;
+  background-color: black;
+  font-family: "youre_gone", Arial, sans-serif;
+  font-size: 2rem;
+  color: white;
+  background: linear-gradient(to right, black, grey);
+}
+
+nav>ul{
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+nav>ul>li>a{
+  color: white;
+  text-decoration: none;
+  font-family: "youre_gone", Helvetica, sans-serif;
+  padding: 0.5rem;
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+nav>ul>li>a:hover{/*Mejora*/
+  background-color: aliceblue;
+  color: black;
+  transition: 0.5s;
+}
+
+nav>div{
+  display: flex;
+  gap: 1rem;
+}
+
+/*MAIN*/
+main{
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem 8rem;
+  
+}
+/*SECCIÓN PARCELA*/
+main>section:first-child{
+  flex: 60%;
+  background-color: darkslategrey;
+	font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+main>section:first-child>div:nth-of-type(2){
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+main>section:first-child>div:first-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+}
+main>section:first-child>div:nth-of-type(2)>button {
+  flex: 1;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+main>section:first-child>div:nth-of-type(2)>p{
+  flex: 1;
+  text-align: left;
+}
+
+main>section:first-child>img{/*Mejora*/
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 0.5s;
+}
+main>section:first-child>img:hover {/*Mejora*/
+  opacity: 1;
+}
+main>section:first-child>div:last-child{
+	text-align: right;
+}
+
+
+main>section:first-child>div:last-child>img{
+  width: 30px;
+  height: 30px;
+  margin: 0.5rem;
+}
+/*FORMULARIO*/
+main>section:last-child{
+  flex: 30%;
+  background-color: white;
+  padding: 2rem;
+  border-bottom-left-radius: 4rem;
+	border-top-right-radius: 4rem;
+}
+main>section:last-child>p{
+	padding: 1rem;
+}
+
+main>section:last-child>form {
+  display: flex;
+  flex-direction: column;
+}
+
+main>section:last-child>form>input,
+main>section:last-child>form>textarea {
+  width: 100%;
+}
+main>section:last-child>form>textarea{
+  height: 15rem;
+}
+/*IFRAME*/ /*Mejora*/
+section[name="iframeGoogle"]{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+section[name="iframeGoogle"]>h2{
+  width: 100%;
+}
+/*FOOTER*/
+footer{/*Mejora*/
+  text-align: center;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+}

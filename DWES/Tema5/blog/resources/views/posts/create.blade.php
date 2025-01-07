@@ -4,7 +4,7 @@
 
 @section('contenido')
     <h1>Nuevo post</h1>
-    <form action="{{route('posts.store')}}" method="POST">
+    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf<!--Important!!! focar esta linea en tots els formularis per a evitar que ens vinguen de un altre domini -->
         <div class="mb3">
             <label for="titulo" class="form-label">Título</label>
@@ -19,6 +19,13 @@
             <textarea  class="form-control" name="contenido" rows="6">{{old('contenido')}}</textarea>
             @if ($errors->has('contenido'))
                 <div class="text-danger">{{$errors->first('contenido')}}</div>
+            @endif
+        </div>
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="imgen" name="imagen" accept="image/*">
+            @if ($errors->has('imagen'))
+                <div class="text-danger">{{ $errors->first('imagen')}}</div>
             @endif
         </div>
         <div class="d-flex justify-content-between">

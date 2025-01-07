@@ -82,7 +82,7 @@ if (!isset($_SESSION['usuari'])) {
       }
       //Carreguem info en les variables a pintar
       //Ho fem amb l'operador ternari per controlar els camps que són opcionals
-      $nomMapa=(!empty($mapa->getNomMapa()))?$mapa->getNomMapa():"Nova pel·licula";
+      $nomMapa=(!empty($mapa->getNomMapa()))?$mapa->getNomMapa():"Nou mapa";
       $tamany=(!empty($mapa->getTamany()))?$mapa->getTamany():"500x500px";
       $propietari=(!empty($mapa->getPropietari()))?$mapa->getPropietari():"";
       $imatge=(!empty($mapa->getImatge()))?"uploads/".$mapa->getImatge():"assets/mapa_standar.webp";
@@ -104,7 +104,7 @@ if (!isset($_SESSION['usuari'])) {
       }
     
     #Cas 3: NO tenim id -> insertar
-      if (empty($_POST['id'])){
+    if (empty($_POST['id'])){
       $mapa=new Mapa();
       $mapa->setNomMapa($nomMapa);
       $mapa->setTamany($tamany);
@@ -124,6 +124,7 @@ if (!isset($_SESSION['usuari'])) {
           $mapa->setImatge($imatge_nova);
         }
       MapaDao::update($mapa);
+      $territoris = TerritoriDao::getTerritorisMapa($id) ?: [];
       $is_actualitzat=true;
     }
   }//Fi enviar
@@ -141,8 +142,8 @@ if (!isset($_SESSION['usuari'])) {
     
     
       if (!empty($territori->getNomTerritori()) && !empty($territori->getCoordenades())) {
-        TerritoriDao::insert($territori);
         $is_terr_insertat = true;
+        TerritoriDao::insert($territori);  
       } else {
         $_SESSION['msgErrorNomTerr'] = "Els camps del territori són obligatoris.";
       }
@@ -189,28 +190,30 @@ $tamanys=$mapa->getTamany();
     <?php
     //Mostrem missatges si ve actualització de dades
     if($is_insertat){?>
-    <div>
-        Mapa insertat correctament!
+    <div class="msgInfo">
+        <p class="tamany">Mapa insertat correctament!</p>
     </div>
     <?php
-    }else if($is_actualitzat){?>
-    <div>
-        Mapa actualitzat correctament!
+    }
+    if($is_actualitzat){?>
+    <div class="msgInfo">
+        <p class="tamany">Mapa actualitzat correctament!</p>
     </div>
     <?php
-    }else if($is_eliminat){?>
-      <div>
-        Mapa eliminat correctament!
+    }
+    if($is_eliminat){?>
+      <div class="msgInfo">
+        <p class="tamany">Mapa eliminat correctament!</p>
       </div>
     <?php }
     else if($is_terr_insertat){?>
-      <div>
-        Territori inserit correctament!
+      <div class="msgInfo">
+        <p class="tamany">Territori inserit correctament!</p>
       </div>
     <?php 
     }else if($is_terr_eliminat){?>
-      <div>
-        Territori eliminat correctament!
+      <div class="msgInfo">
+        <p class="tamany">Territori eliminat correctament!</p>
       </div>
     <?php }
     ?>
@@ -225,6 +228,7 @@ $tamanys=$mapa->getTamany();
         background-position: center; "></div>
       </div>
       <div class="divTerritoris">
+        <?php if((!$id==null)){ ?>
         <h2>TERRITORIS</h2>
           <!--Territoris del Mapa -->
           <?php
@@ -249,6 +253,7 @@ $tamanys=$mapa->getTamany();
               <?php
           }
           ?>
+        <?php }?>
       </div>
     </div>
 <div class="display">
@@ -284,33 +289,41 @@ $tamanys=$mapa->getTamany();
 
       <div>
         <button type="submit" name="enviar" id="enviar">Enviar</button>
-        <button name="eliminar" onclick="window.location.href='borrarmapa.php?id=<?= $id?>';">Eliminar</button>
+        <?php
+        if(!$id==null){//Si no hiha cap mapa seleccionat, no apareixerá el botó d'eliminar.
+        ?>
+          <button name="eliminar"><a href='borrarmapa.php?id=<?= $id ?>'>Eliminar</a></button>
+        <?php
+        }
+        ?>
       </div>
     </form>
   </fieldset>
-  <fieldset>
-    <legend>Territoris</legend>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">    
-      <!--Nom del territori-->
-      <div>
-        <label for="nomTerritori">Nom del Territori</label>
-        <input type="text" id="nomTerritori" name="nomTerritori" placeholder="Introdueix el nom del territori" value="<?= isset($_POST['nomTerritori']) ? $_POST['nomTerritori'] : '' ?>" required>
-        <span style="background-color:red"><?=$msgErrorNomTerr?></span>
-      </div>
-      <!-- Coordenades (en el futur será un areamap) -->
-      <div>
-        <label for="coordenades">Coordenades</label>
-        <input type="text" id="coordenades" name="coordenades" placeholder="Introdueix les coordenades" value="<?= isset($_POST['coordenades']) ? $_POST['coordenades'] : '' ?>" required>
-      </div> 
-        <input type="hidden" name="idMapa" value="<?= $id ?>">
-        <input type="hidden" name="id" value="<?= $id ?>">
+  <?php if((!$id==null)){ ?>
+    <fieldset>
+      <legend>Territoris</legend>
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">    
+        <!--Nom del territori-->
+        <div>
+          <label for="nomTerritori">Nom del Territori</label>
+          <input type="text" id="nomTerritori" name="nomTerritori" placeholder="Introdueix el nom del territori" value="<?= isset($_POST['nomTerritori']) ? $_POST['nomTerritori'] : '' ?>" required>
+          <span style="background-color:red"><?=$msgErrorNomTerr?></span>
+        </div>
+        <!-- Coordenades (en el futur será un areamap) -->
+        <div>
+          <label for="coordenades">Coordenades</label>
+          <input type="text" id="coordenades" name="coordenades" placeholder="Introdueix les coordenades" value="<?= isset($_POST['coordenades']) ? $_POST['coordenades'] : '' ?>" required>
+        </div> 
+          <input type="hidden" name="idMapa" value="<?= $id ?>">
+          <input type="hidden" name="id" value="<?= $id ?>">
 
-      <div>
-        <button type="submit" name="enviarTerritori">Enviar</button>
-        
-      </div>
-    </form>
-  </fieldset>
+        <div>
+          <button type="submit" name="enviarTerritori">Enviar</button>
+          
+        </div>
+      </form>
+    </fieldset>
+  <?php }?>
 </div><!--Fi display-->     
 
 </main>

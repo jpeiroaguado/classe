@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+<!--<link rel="stylesheet" href="estilos.css">-->
+</head>
+<body>
+  <main>
+      <h1>Imagen del día de la AEMET</h1>
+      <button id="cargar">Cargar mapa</button>
+  </main>
+<script>
+    let api_key= "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXZpZXJwZWlyb2FndWFkb0BnbWFpbC5jb20iLCJqdGkiOiIxY2Y1OGRkOC03MzQ2LTQzMmUtYTBlOC1kMzM2NGIxZDliM2MiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTczNDU0NzQ3MywidXNlcklkIjoiMWNmNThkZDgtNzM0Ni00MzJlLWEwZTgtZDMzNjRiMWQ5YjNjIiwicm9sZSI6IiJ9.IXbWfocEB7BPB15-Zs6EYqozB-e9xLlbv63-6rvjOfo";
+    let boton=document.getElementById("cargar");
+    boton.addEventListener("click", ()=>{
+      let img = document.createElement("img");
+      
+      fetch("https://opendata.aemet.es/opendata/api/mapasygraficos/analisis?api_key="+api_key)
+      .then(response => {
+          return response.json();
+        })
+      .then(valorjson=>{
+        img.src = valorjson.datos;
+        document.body.appendChild(img);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+      //blob
+    });
+    
+</script>
+</body>
+</html>

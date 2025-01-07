@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RequestPost;
 use App\Models\Post;
 use App\Models\Usuario;
+use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 use Ramsey\Collection\Map\AssociativeArrayMap;
 
 class PostController extends Controller
@@ -37,6 +39,11 @@ class PostController extends Controller
         $post->titulo=$request->get('titulo');
         $post->contenido=$request->get('contenido');
         $post->usuario()->associate(Usuario::inRandomOrder()->first()->id);
+
+        if($request->hasFile('imagen')){
+            $post->imagen=$request->file('imagen')->store('posts', 'public');
+        }
+
         $post->save();
 
         return redirect()->route('posts.index')->with('mensaje', 'Post añadido correctamente');
@@ -70,17 +77,23 @@ class PostController extends Controller
         $post->titulo=$request->get('titulo');
         $post->contenido=$request->get('contenido');
         $post->usuario()->associate(Usuario::inRandomOrder()->first()->id);
+        if($request->hasFile('imagen')){
+            if ($post->imagen){
+                FacadesStorage::disk('public')->delete($post->imagen);
+            }
+            $post->imagen=$request->file('imagen')->store('posts', 'public');
+        }
         $post->save();
 
         return redirect()->route('posts.index')->with('mensaje', 'Post actualizado correctamente');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         $post=Post::findOrFail($id);
+
         $post->delete();
 
         return redirect()->route('posts.index')->with('mensaje', 'Post eliminado');

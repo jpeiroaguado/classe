@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity1</title>
+  <style>
+    body{
+      width: 100%;
+      height: 100vh;
+    }
+    main{
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    h1{
+      background-color: cyan;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="persona"></div>
+  </main>
+</body>
+<script>
+  let personadiv=document.getElementById("persona");
+  fetch('https://randomuser.me/api/')
+    .then(response =>{
+      return response.json();
+    })
+    .then(valorjson => {
+      let persona=valorjson.results[0];
+      let nombre=persona.name.first;
+      let email=persona.email;
+      let foto=persona.picture.large;
+      let pais=persona.location.country;
+      personadiv.innerHTML=`<div><h1>${nombre}</h1></div>
+                                <div>${email}</div>
+                                <div><img src="${foto}"></div>
+                                <div>${pais}</div>`;
+
+      console.log(nombre);
+    })
+    .catch(err => { console.log(err) });
+</script>
+</html>

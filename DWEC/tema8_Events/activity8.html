@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 8</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    header {
+      background-color: orange;
+      color: white;
+      text-align: center;
+    }
+    main{
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      margin: 50px;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #imatge {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+      background-image:url('imagesA8/distribucion.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ISSUE REPORT</h1>
+  </header>
+  <main>
+    <div id="imatge"></div>
+    <form>
+      <label for="problemes">Issue type</label>
+      <select name="problemes" id="problemes">
+        <option value="distribucion" selected>Distribution</option>
+        <option value="oficina">Office</option>
+        <option value="produccion">Produccion</option>
+      </select>
+      <input type="text" id="numero-serial" placeholder="e.g., 123ABCD1">
+      <button type="button" id="mostrar-descripcion">Mostrar descripción</button> 
+      <button type="button" id="validar-serial">Enviar</button>
+      <div id="mensaje"></div>
+    </form>
+  </main>
+</body>
+<script>
+  //We declare the variables to work with it
+  const selectProblemes = document.getElementById('problemes');
+  const imatgeDiv = document.getElementById('imatge');
+  const mostrarDescripcion = document.getElementById('mostrar-descripcion');
+  const numeroSerial = document.getElementById('numero-serial');
+  const validarSerial = document.getElementById('validar-serial');
+  const mensajeDiv = document.getElementById('mensaje')
+
+  //We look if we change the list to change the image
+  selectProblemes.addEventListener('change', function(){
+    const selectedProblema = selectProblemes.value;
+    const imatgeUrl = `imagesA8/${selectedProblema}.jpg`;
+    imatgeDiv.style.backgroundImage = `url('${imatgeUrl}')`;
+  });
+
+  //We replace the button for the text area
+  mostrarDescripcion.addEventListener('click', () => {
+    const descripcionTextarea =document.createElement('textarea');
+    descripcionTextarea.id = 'descripcion-textarea';
+    descripcionTextarea.style.width = '100%';
+    descripcionTextarea.style.height = '100px';
+    descripcionTextarea.style.marginTop = '10px';
+    mostrarDescripcion.parentElement.replaceChild(descripcionTextarea, mostrarDescripcion);
+  });
+  //We look for the patron and test it, if is right the box style go to green, if not, red
+  validarSerial.addEventListener('click', () => {
+    const serialNumber = numeroSerial.value;
+    const serialRegex = /^[0-9]{3}[a-zA-Z]{4}([12]|A)$/;
+    //Case right
+    if (serialRegex.test(serialNumber)) {
+      mensajeDiv.textContent = 'Número de serie válido.';
+      mensajeDiv.style.backgroundColor = 'green';
+      mensajeDiv.style.color = 'white';
+      numeroSerial.style.border = '1px solid green';
+      numeroSerial.previousElementSibling.style.border = '1px solid green';
+    } else {//Case wrong
+      mensajeDiv.textContent = 'Número inválido. El formato correcto es: 3 dígitos, 4 letras, finaliza en 1, 2 o A.';
+      mensajeDiv.style.backgroundColor = 'red';
+      mensajeDiv.style.color = 'white';
+      numeroSerial.style.border = '1px solid red';
+      numeroSerial.previousElementSibling.style.border = '1px solid red';
+    }
+  });
+  //When we focus, we remove the styles
+  numeroSerial.addEventListener('focus', () => {
+      mensajeDiv.textContent = '';
+      mensajeDiv.style.backgroundColor = '';
+      mensajeDiv.style.color = '';
+      numeroSerial.style.border = '';
+      numeroSerial.previousElementSibling.style.border = '';
+    });
+</script>
+</html>
