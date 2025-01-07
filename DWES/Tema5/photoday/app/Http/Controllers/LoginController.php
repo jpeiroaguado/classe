@@ -11,7 +11,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
     public function login(Request $request){
-        $credenciales=$request->only('login', 'password');
+        $credenciales=$request->only('email', 'password');
 
         if(FacadesAuth::attempt($credenciales)){
             //S'ha autentificat correctament
