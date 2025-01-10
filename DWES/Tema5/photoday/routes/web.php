@@ -28,9 +28,13 @@ Route::middleware('auth')->group(function () {
     });
 
     // Fotos
+    Route::resource('photodays', PhotoDayController::class);/*->only(['index', 'show]); ->except(['edit', 'destroy']) Per a dir quines rutes mostrar o quines NO mostrar*/
+
+    /*
     Route::get('/photodays', [PhotoDayController::class, 'index'])->name('photodays.index');
     Route::get('/photodays/create', [PhotoDayController::class, 'create'])->name('photodays.create');
     Route::post('/photodays', [PhotoDayController::class, 'store'])->name('photodays.store');
     Route::get('/photodays/{photoDay}', [PhotoDayController::class, 'show'])->name('photodays.show');
     Route::delete('/photodays/{photoDay}', [PhotoDayController::class, 'destroy'])->name('photodays.destroy');
+    */
 });

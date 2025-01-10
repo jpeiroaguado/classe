@@ -20,6 +20,16 @@
                         <p class="card-text">{{ $photoday->descripcion }}</p>
                         <p class="card-text"><small class="text-muted">{{ Carbon\Carbon::parse($photoday->created_at)->format('d/m/Y') }}</small></p>
                     </div>
+                    <!-- Botones para acciones-->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ route('photodays.show', $photoday->id) }}" class="btn btn-info">Ver</a>
+                        <a href="{{ route('photodays.edit', $photoday->id) }}" class="btn btn-warning">Editar</a>
+                        <form action="{{route('photodays.destroy', $photoday->id)}}" method="POST" onsubmit="return confirm('¿Seguro que quieres eliminar esta foto?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

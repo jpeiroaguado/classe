@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+*{
+  padding: 0; margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+/**********************/
+/*****MOBILE FIRST*****/
+/**********************/
+
+/*VERSIÓN MÓVIL*/
+
+:root{
+  min-width: 600px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px; /*Normalmente en móvil se utiliza 15px*/
+  background-color: gold;
+}
+
+body{
+  margin: 2rem;
+  text-align: justify;
+}
+
+h1 img{
+  display: block;
+  width: 100%;
+}
+
+h1, h2{
+ color: blue;
+ border-bottom: 0.2em double green;
+ margin-top: 1em;
+ margin-bottom: 0.5em;
+}
+
+footer{
+  display: none;/*Ocultamos el footer en la versión móvil*/
+}
+aside#public{
+  display: none;/*Oculto para móvil*/
+}
+
+/*VERSION TABLET >=768px (breakpoint comunmente usado*/
+/*las reglas dentro de esta directiva @media solo se aplican cuando 
+el viewport es mayor que el indicado (768px en este caso)*/
+@media (min-width: 768px){
+  :root{
+    font-size: 16px; /*Sobreescribe el anterior, solo para dispositivosmayores que 768 px*/
+    background-color: aqua;
+  }
+  main{
+    column-count: 2;
+    gap:1em;
+  }
+  h1 img{
+    display:inline;
+    width: auto;
+  }
+  h1, h2{
+    color:darkred;
+  }
+  footer{/*Visible a partir de el table*/
+    display: block;
+    padding: 1em;
+    margin-top: 1em;
+  }
+}/*Fin del media table*/
+
+/*VERSION PC >=92px (breakpoint comunmente usado*/
+/*las reglas dentro de esta directiva @media solo se aplican cuando 
+el viewport es mayor que el indicado (992px en este caso)*/
+
+@media (min-width: 992px){
+  :root {
+    background-color: gray;
+  }
+  body{
+    width: 80%;
+    max-width: 1024px;
+    margin:0 auto;
+    background-color: orange;
+    margin-bottom: 1rem;
+    padding: 1em;
+  }
+  div#flex{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  main{
+    column-count:3;
+    width: 85%;
+    padding: 1em;
+  }
+  aside#publi{
+    display: block;
+    width: 15%;
+    background-color: white;
+    padding: 1em;
+  }
+}/*Fin de la versión PC*/

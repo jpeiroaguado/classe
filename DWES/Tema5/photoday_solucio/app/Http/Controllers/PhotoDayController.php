@@ -64,7 +64,11 @@ class PhotoDayController extends Controller
      */
     public function show(PhotoDay $photoDay)
     {
-        //
+        if ($photoDay->usuario_id !== Auth::id()){
+            return redirect()-> route('photodays.index')->with('error', 'no tienes permiso para ver esta foto');
+        }
+
+        return view('photodays.show', compact('photoDay'));
     }
 
     /**
@@ -72,7 +76,11 @@ class PhotoDayController extends Controller
      */
     public function edit(PhotoDay $photoDay)
     {
-        //
+        if($photoDay->usuario_id !== Auth::id()){
+            return redirect()->route('photodays.index')->with('error', 'No tienes permiso para editar esta foto');
+        }
+
+        return view ('photodays.edit', compact ('photoDay'));
     }
 
     /**
@@ -80,7 +88,18 @@ class PhotoDayController extends Controller
      */
     public function update(Request $request, PhotoDay $photoDay)
     {
-        //
+        if($photoDay->usuario_id !== Auth::id()){
+            return redirect()->route('photodays.index')->with('error', 'No tienes permiso para editar esta foto');
+        }
+
+        $photoDay->titulo=$request->get('titulo');
+        $photoDay->descripcion=$request->get('descripcion');
+
+        if($request->hasFile('imagen')){
+            $photoDay->imagen= $request->file('imagen')->store('photodays', 'public');
+        }
+
+        return redirect()->route('photodays.index')->with('sucess', 'Foto actualizada correctamente');
     }
 
     /**
@@ -88,6 +107,12 @@ class PhotoDayController extends Controller
      */
     public function destroy(PhotoDay $photoDay)
     {
-        //
+        if($photoDay->usuario_id !== Auth::id()){
+            return redirect()->route('photodays.index')->with('error', 'No tienes permiso para eliminar esta foto');
+        }
+
+        $photoDay->delete();
+
+        return redirect()->route('photodays.index')->with('sucess', 'foto eliminada correctamente');
     }
 }

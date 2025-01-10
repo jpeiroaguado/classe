@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/*Hoja de estilos que se usa cuando vayamos a imprimir la página*/
+
+*{
+  padding: 0; margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1, h2{
+  margin-top: 1em;
+  border-bottom: 0.2em solid black;
+}
+
+a{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+img{
+  display: none; /*Oculto las imagenes para imprimir*/
+}
