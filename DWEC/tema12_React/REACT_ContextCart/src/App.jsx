@@ -9,6 +9,7 @@ export default function App() {
       <div>
         <ShoppingList>
           <ShoppingCart />
+          <h1>Hola intruso</h1>
         </ShoppingList>
       </div>
     </div>

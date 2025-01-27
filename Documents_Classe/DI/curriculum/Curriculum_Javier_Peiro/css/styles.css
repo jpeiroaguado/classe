@@ -1,0 +1,249 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+  padding: 0; margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+:root{
+  font-size:14px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #2d3748;
+  line-height: 1.6;
+  width: 90%;
+  min-width: 350px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 2.5rem auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+header{
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+}
+div#container:nth-child(1) div.contacto{
+  width: 100%;
+
+}
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  color: #4a5568;
+  text-shadow: 0 0.25rem 0.25rem rgba(102, 126, 234);
+  margin-bottom: 1.25rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+h1::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 0.625rem auto 0 auto;
+}
+img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 4rem;
+  border: 0.15rem outset #667eea;
+  align-self: flex-start;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+img:hover{
+  border: 0.15rem inset #667eea;
+  border-radius: 2rem;
+  transform: scale(1.2) translateY(-0.1875rem);
+  box-shadow: 0 0 4rem rgba(102, 126, 234, 0.8);
+}
+
+
+.contacto {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.contacto a {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 0.9375rem;
+  transition: color 0.3s;
+}
+
+.contacto a:hover {
+  color: #667eea;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #2c5282;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.625rem;
+  height: 1.875rem;
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 0.3125rem;
+}
+
+ul {
+  padding-left: 2.5rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 3.125rem;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.etiqueta:hover {
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(102, 126, 234, 0.4);
+}
+
+.habilidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9375rem;
+}
+
+.resumen, .project, .experiencia, .educacion, .certificaciones, .idiomas, .otros {
+  background: #f7fafc;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.resumen:hover, .project:hover, .experiencia:hover, .educacion:hover, .certificaciones:hover, .idiomas:hover, .otros:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  color: #4a5568;
+  margin-bottom: 0.625rem;
+}
+@media(width >= 768px){
+  body{
+    width: 80%;
+  }
+}
+@media(width >= 992px){
+  body{
+    width: 70%;
+  }
+}
+
+@media print {
+  :root{
+    font-size: 10px;
+  }
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #2d3748;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: 90%;
+  }
+
+  .container {
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 1.25rem;
+    max-width: 100%;
+    padding: 2.5rem;
+    background: white;
+  }
+
+  h1 {
+    color: #4a5568;
+  }
+
+  h1::after {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+  }
+
+  .etiqueta {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+
+  a {
+    color: #4a5568;
+  }
+
+  .experiencia, .resumen, .educacion, .certificaciones, .idiomas, .otros {
+    background: #f7fafc;
+    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.1);
+  }
+
+  h2::before {
+    background: linear-gradient(180deg, #667eea, #764ba2);
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  img {
+    margin-right: 2rem;
+  }
+
+  h1 {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .contacto {
+    width: 100%;
+    text-align: center;
+  }
+}

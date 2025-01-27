@@ -1,0 +1,194 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+/*GENERALES*/
+*{
+  margin:0; padding:0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+}
+:root{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+
+}
+body{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:  "hea"
+                        "mai"
+                        "foo";
+}
+/*HEADER*/
+header{
+  grid-area: hea;
+  background-color: limegreen;
+  padding-bottom: 1rem;
+}
+/*MAIN*/
+main{
+  grid-area: mai;
+}
+main>section{
+  margin: 0.2rem 0;
+}
+
+
+
+/*NUMEROS*/
+section#numeros{
+  grid-area: num;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:  "nu1 nu2"
+                        "nu3 nu4";
+  margin-bottom: 0.2rem;
+  gap:0.2rem;
+}
+  section#numeros *{
+    background-color:lightblue;
+    padding-bottom: 1rem;
+  }
+  section#numeros>article:nth-child(1){
+    grid-area: nu1;
+  }
+  section#numeros>article:nth-child(2){
+    grid-area: nu2;
+  }
+  section#numeros>article:nth-child(3){
+    grid-area: nu3;
+  }
+  section#numeros>article:nth-child(4){
+    grid-area: nu4;
+  }
+
+/*LETRAS*/
+section#letras{
+  grid-area: let;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:  "le1 le2"
+                        "le3 le4";
+  gap:0.2rem;
+}
+  section#letras *{
+    background-color: gray;
+    padding-bottom: 1rem;
+  }
+  section#letras>article:nth-child(1){
+    grid-area: le1;
+  }
+  section#letras>article:nth-child(2){
+    grid-area: le2;
+  }
+  section#letras>article:nth-child(3){
+    grid-area: le3;
+  }
+  section#letras>article:nth-child(4){
+    grid-area: le4;
+  }
+
+/*DISPOSITIVOS*/
+section#dispositivos{
+  grid-area: dis;
+  background-color: aqua;
+}
+  section#dispositivos *{
+    padding-bottom: 1rem;
+  }
+  section#dispositivos>article#tablet{
+    display: none;
+  }
+  section#dispositivos>article#pc{
+    display: none;
+  }
+/*CARITAS*/
+  section#caritas{
+    grid-area: car;
+  }
+  section#caritas *{
+    padding-bottom: 1rem;
+    background-color: orange;
+  }
+  section#caritas>article:nth-child(1){
+    display: none;
+  }
+/*FOOTER*/
+footer{
+  grid-area: foo;
+  display: none;
+  background-color: limegreen;
+  padding-bottom: 1rem;
+}
+
+/**************/
+/****TABLET****/
+@media(width >= 768px){
+
+  main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:  "num"
+                          "dis"
+                          "let"
+                          "car";
+  }
+  /*DISPOSITIVO*/
+  section#dispositivos>article#mobil{
+    display: none;
+  }
+  section#dispositivos>article#tablet{
+    display: inherit;
+  }
+  /*NUMEROS*/
+  section#numeros{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "nu1 nu2 nu3 nu4";
+  }
+  /*LETRAS*/
+  section#letras{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "le1 le2 le3 le4";
+  }
+  /*CARITAS*/
+  section#caritas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:0.2rem;
+  }
+  section#caritas>article:nth-child(1){
+    display: block;
+  }
+  /*FOOTER*/
+  footer{
+    display: block;
+  }
+}
+    
+/**************/
+/******PC******/
+@media(width >= 992px){
+  :root{
+    font-size: 16px;
+  }
+  main{
+  grid-template-areas:  "num"
+                        "let"
+                        "dis"
+                        "car";
+  }
+  section#numeros{
+    grid-template-areas:  "... nu1 nu2 ..."
+                          "nu3 ... ... nu4";
+  }
+  section#caritas{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  section#caritas>article:nth-child(1){
+    grid-column: 2;
+  }
+  section#caritas>article:nth-child(2){
+    grid-column: 3;
+  }
+}

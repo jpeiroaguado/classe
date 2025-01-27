@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+* { padding: 0; margin: 0; box-sizing: border-box; text-decoration: none; } 
+    
+
+/***************************************************/
+/* FILOSOFÍA "MOBILE FIRST": PROGRESIVE ENHACEMENT */
+/***************************************************/
+
+/****************************/
+/*      VERSION MÓVIL       */
+/****************************/
+/* Empezamos por poner todas las reglas pensando en encajarlo bien en el móvil */
+
+:root { font-size: 15px; 
+	    font-family: Arial, sans-serif;  }
+
+body { 
+	background-color:yellow; 
+	margin: 2.5rem; 
+	text-align: justify;
+}
+
+h1, h2, h3 { color: blue; border-bottom: 7px double yellow;}
+
+h1 img { display: none; } /* Para vista móvil, se oculta la imagen */
+
+a { text-decoration: none; background-color: orange ; color: red ; }
+
+a:visited{ color: purple ; }
+
+
+/*********************************/
+/* VERSION TABLET  >=768 pixels */
+/*********************************/
+/* Las reglas dentro del @media solo se aplicarán 
+cuando viewport es mayor igual que 768px,  */
+/* O sea, estos selectores se añaden a los de arriba, con lo que:
+´   - propiedades nuevas se añaden a la pila de propiedades                 
+	- propiedades que ya había arriba se sobreescriben    */
+@media (min-width: 768px) {
+	:root{ 
+		font-size: 16px; /* se sobreescribe, y actuará en disp>=768px (Tablet y también PC) */ 
+	}
+	
+	body { 
+		background-color:orange; /* se sobreescribe */ 
+		column-count: 2;  /* se añade */
+		column-gap: 2rem; /* se añade */
+	}
+
+	h1, h2, h3 { color: darkcyan ; /* se sobreescribe */  }
+	
+	h1 img{ display: inline; } /* sobreescribe: Para vistas Tablet (o mayores), se muestra la imagen */
+}/* fi de media tablet */
+
+/**********************************/
+/* VERSION ORDENADOR >=960 pixels */
+/**********************************/
+/* Las reglas dentro del @media solo se aplicarán 
+cuando viewport es mayor igual que 960px,  */
+
+@media (min-width: 960px) {
+	
+	body { 
+		background-color:red;  /* se sobreescribe */
+		column-count: 3; /* se sobreescribe */
+		column-rule: 1px solid white; /* se añade */
+	}
+}
+/* fi de media PC */

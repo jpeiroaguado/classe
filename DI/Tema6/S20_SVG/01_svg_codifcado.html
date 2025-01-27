@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG</title>
+  <style>
+    img#milogo{
+      width: 10rem;
+      height: 5rem;
+    }
+    svg#batman{
+      animation: animarbatman 0.5s ease infinite alternate;
+    }
+
+    @keyframes animarbatman{
+      0%{
+        fill: red;
+      }
+      100%{
+        fill: pink;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h3>SVG con codigo</h3>
+  <section id="codificado">
+    <svg height="140" width="500" xmlns="http://www.w3.org/2000/svg">
+      <ellipse rx="100" ry="50" cx="120" cy="80"
+      style="fill:yellow;stroke:green;stroke-width:3" />
+    </svg>
+  </section>
+  <svg height="220" width="500" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,10 150,190 50,190" style="fill:lime;stroke:purple;stroke-width:3" />
+  </svg>
+
+  <h3>Svg con img</h3>
+  <section>
+    <img src="logoOpt.svg" alt="" srcset="">
+  </section>
+  <h3>Svg batman</h3>
+  <section>
+    <svg width="205mm" height="120mm" version="1.1" viewBox="0 0 205 120" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-2.74 -11.8)">
+      <path d="m206 72.9a101 57.8 0 0 1-101 57.4 101 57.8 0 0 1-100-58.1 101 57.8 0 0 1 101-57.5 101 57.8 0 0 1 100 58" fill="#d7ea00" stroke="#000" stroke-linejoin="bevel" stroke-width="3.39" style="paint-order:fill markers stroke"/>
+      <path d="m94.4 27c-0.798 8.18-0.51 17.4-3 25.2-0.401 1.25-0.492 2.12-2.05 3.63-3.45 2.63-5.77 2.67-8.7 2.78-15.8 0.591-25.7-15.4-13.4-27.5-62.6 17.9-64.1 58.6-14.8 77.9-15.4-20.4 5.72-28.9 21.2-12 9.11-15.9 19.9-5.78 31.3 14.5l-0.0636-7.01h0.136l-0.0289 3.18h-2e-3v0.253l-0.0191 2.1v-3.89h-0.0191v5.11h8e-3l-2e-3 0.256c11.4-20.3 22.2-30.4 31.3-14.5 15.5-16.9 36.7-8.41 21.2 12 49.3-19.3 47.8-60-14.8-77.9 12.3 12.1 2.43 28.1-13.4 27.5-2.93-0.109-5.25-0.149-8.7-2.78-1.56-1.51-1.65-2.38-2.05-3.63-2.49-7.75-2.2-17-3-25.2l-5.57 10.1-4.25-0.0274-0.762 0.0042-0.229-0.0096-4.62 0.0286z" style="paint-order:fill markers stroke"/>
+    </g></svg>
+  </section>
+</body>
+</html>

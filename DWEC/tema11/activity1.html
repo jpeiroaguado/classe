@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity1</title>
+</head>
+<body>
+  <canvas id="lienzo" width="500" height="300"></canvas>
+</body>
+<script>
+  const lienzo=document.getElementById("lienzo");
+  const ctx=lienzo.getContext("2d");
+
+  ctx.fillStyle="lightgray";
+
+  let x = 20, y = 20;
+
+do {
+  ctx.beginPath();
+  ctx.moveTo(x, y);           // Punto inicial
+  ctx.lineTo(x, y + 100);     // Línea hacia abajo
+  ctx.lineTo(x + 20, y + 100); // Línea hacia la derecha
+  ctx.lineTo(x + 20, y);      // Línea hacia arriba
+  ctx.lineTo(x, y);           // Línea de vuelta al inicio
+
+  ctx.fill(); // Rellenar la figura
+  ctx.closePath();
+
+  // Incrementar las posiciones
+  x += 40;
+} while (x < 480);
+
+</script>
+</html>

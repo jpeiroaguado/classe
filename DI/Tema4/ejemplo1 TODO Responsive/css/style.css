@@ -14,7 +14,7 @@
 :root{
   min-width: 600px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px; /*Normalmente en móvil se utiliza 15px*/
+  font-size: 3vw; /*Normalmente en móvil se utiliza 15px, esto es un 3% del viewport width*/
   background-color: gold;
 }
 
@@ -28,6 +28,12 @@ h1 img{
   width: 100%;
 }
 
+h1{
+  font-size:1.4rem;
+}
+h2{
+  font-size:1.2rem;
+}
 h1, h2{
  color: blue;
  border-bottom: 0.2em double green;
@@ -45,9 +51,10 @@ aside#public{
 /*VERSION TABLET >=768px (breakpoint comunmente usado*/
 /*las reglas dentro de esta directiva @media solo se aplican cuando 
 el viewport es mayor que el indicado (768px en este caso)*/
-@media (min-width: 768px){
+@media (width >= 768px){/*Se puede poner device-width si quieres impedir que se pase en una pantalla 
+  de una versión a otra porque te coge la ancharia real de la pantalla*/
   :root{
-    font-size: 16px; /*Sobreescribe el anterior, solo para dispositivosmayores que 768 px*/
+    font-size: 1.2vw; /*Sobreescribe el anterior, solo para dispositivosmayores que 768 px 1.2% del port width*/
     background-color: aqua;
   }
   main{
@@ -72,7 +79,7 @@ el viewport es mayor que el indicado (768px en este caso)*/
 /*las reglas dentro de esta directiva @media solo se aplican cuando 
 el viewport es mayor que el indicado (992px en este caso)*/
 
-@media (min-width: 992px){
+@media (width >= 992px){
   :root {
     background-color: gray;
   }

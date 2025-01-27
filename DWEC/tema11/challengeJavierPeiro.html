@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge Boles</title>
+</head>
+<body>
+  <canvas id="lienzo"></canvas>
+  <script>
+    document.body.style.backgroundColor = "aliceblue";
+    document.body.style.overflow = "hidden";
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+
+    const pilotes = [];
+
+
+
+    const lienzo = document.getElementById('lienzo');
+    const context = lienzo.getContext('2d');
+    lienzo.width = window.innerWidth;
+    lienzo.height = window.innerHeight;
+
+    const ratoli = { x: undefined, y: undefined };
+    window.addEventListener('mousemove', (event) => {
+      ratoli.x = event.clientX;
+      ratoli.y = event.clientY;
+    });
+
+    window.addEventListener('mouseout', () => {
+      ratoli.x = undefined;
+      ratoli.y = undefined;
+    });
+
+    // To generate rand numb and i don't call it all
+    function aleatori(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Classe Pilota
+    class Pilota {
+      constructor(tamany, color, posicio, desplaçament) {
+        this.tamany = tamany;
+        this.color = color;
+        this.radiInicial=tamany;
+        this.posicio = posicio;
+        this.desplaçament = desplaçament;
+      }
+
+      dibuixar() {
+        context.beginPath();
+        context.arc(this.posicio.x, this.posicio.y, this.tamany, 0, Math.PI * 2);
+        context.fillStyle = this.color;
+        context.fill();
+        context.closePath();
+      }
+
+      actualitzar() {//This is to update the position and bunce.
+    
+        this.posicio.x += this.desplaçament.dx;
+        this.posicio.y += this.desplaçament.dy;
+
+        if (this.posicio.x + this.tamany > lienzo.width || this.posicio.x - this.tamany < 0) {
+          this.desplaçament.dx *= -1;
+        }
+        if (this.posicio.y + this.tamany > lienzo.height || this.posicio.y - this.tamany < 0) {
+          this.desplaçament.dy *= -1;
+        }
+
+        const distància = Math.hypot(ratoli.x - this.posicio.x, ratoli.y - this.posicio.y);
+        
+        //We check the distance.
+        if (distància < 100) {
+          this.tamany = Math.min(this.tamany + 5, 70);
+        } else if (this.tamany > this.radiInicial) {
+          this.tamany = Math.max(this.tamany - 5, this.radiInicial);
+        }
+
+        this.dibuixar();
+      }
+    }
+
+    function crearPilota() {
+      const tamany = aleatori(14, 34);
+      const color = `rgb(${aleatori(0, 255)}, ${aleatori(0, 255)}, ${aleatori(0, 255)})`;
+      const posicio = {
+        x: aleatori(tamany, lienzo.width - tamany),
+        y: aleatori(tamany, lienzo.height - tamany)
+      };
+      const desplaçament = {
+        dx: aleatori(-3, 3) || 1,
+        dy: aleatori(-3, 3) || 1
+      };
+      return new Pilota(tamany, color, posicio, desplaçament);
+    }
+
+    //WE clear and update the new state of each pilotaaaaa xD
+    function animar() {
+      context.clearRect(0, 0, lienzo.width, lienzo.height);
+      pilotes.forEach((pilota) => pilota.actualitzar());
+      requestAnimationFrame(animar);
+    }
+
+    //I set up the interval to delete one ball and push the other
+    setInterval(() => {
+      if (pilotes.length >= 50) {
+        pilotes.shift();
+      }
+      pilotes.push(crearPilota());
+    }, 400);
+
+
+    for (let i = 0; i < 50; i++) {
+      pilotes.push(crearPilota());
+    }
+
+    animar();
+  </script>
+</body>
+</html>

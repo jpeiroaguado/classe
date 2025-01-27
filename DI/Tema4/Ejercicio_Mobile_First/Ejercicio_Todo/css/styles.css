@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+*{
+  padding: 0; margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+/**********************/
+/*****MOBILE FIRST*****/
+/**********************/
+
+/*VERSIÓN MÓVIL*/
+
+:root{
+  font-size: 4vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  width: 100%;
+  padding: 1rem;
+}
+/*Header*/
+header h1{
+  text-align: center;
+  font-size: 1.5rem;
+}
+header img{
+  display:none;
+}
+
+/*Botonera*/
+nav ul{
+  list-style:none;
+}
+nav ul li a{
+  display: block;
+  width:100%;
+  background-color: red;
+  margin: 0.5em auto;
+  padding: 0.2em 0;
+  color: white;
+  text-align: center;
+  border-radius: 0.3em;
+  border: 1px solid red;
+  transition: all ease 0.3s;
+  font-weight: bold;
+}
+
+nav ul li a:hover{
+  background-color: white;
+  color:red;
+}
+/*Texto*/
+section#texto{
+  text-align: justify;
+}
+section#texto p{
+  margin-top: 1em;
+}
+section#texto a{
+  text-decoration: underline;
+}
+/*Sección ventas*/
+section#ventas article{
+  width: 90%;
+  border:2px solid blue;
+  padding:0.5em;
+  text-align: center;
+  margin: 1em 0;
+}
+section#ventas article img{
+  width: 100%;
+  border: 1px solid red;
+}
+section#ventas article button{
+  padding: 0.3em 1em;
+}
+/*Aside tiempo*/
+aside#tiempo{
+  display: none;
+}
+/*********************************/
+/* VERSION TABLET  >=768 pixels */
+/*********************************/
+@media (width >= 768px) {
+  :root{
+    font-size: 2.4vw;
+    color: blue;
+  }
+  /*Header*/
+  header h1{
+    text-align: left;
+    font-size: 2rem;
+  }
+  header>img[alt="banner"]{
+    display:block;
+  }
+  /*Botnera*/
+
+  nav ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  nav ul li{
+    display:flex;
+    flex-wrap: nowrap;
+    font-size: 1.1rem;
+
+  }
+  nav ul li a{
+    display: flex;
+    padding: 1em 3em;
+    border-radius: 1.5em;
+  }
+  /*Textos*/
+  section#texto{
+    column-count: 2;
+    gap: 2em;
+  }
+  /*Ventas*/
+  section#ventas{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+  section#ventas article{
+    width: 40%;
+  }
+}
+/*********************************/
+/* VERSION PC  >=960 pixels */
+/*********************************/
+@media (width >= 960px) {
+  :root{
+    background-color: gray;
+    font-size: 1.7vw;
+    color: green;
+  }
+  
+  body{
+    width: 90%;
+    margin:0 auto;
+    background-color: white;
+    box-shadow: 0 0 1rem black;
+    margin: 0 auto 3rem auto;
+  }  
+  header image{
+    display: inline-block;
+  }
+  header h1{
+    display: inline-block;
+    font-size: 3rem;
+  }
+  /*botonera*/
+  nav ul{
+    display: block;
+  }
+  nav ul li a{
+    border-radius: 0.2em;
+    padding: 0.5em;
+    width: 80%;
+  }
+  aside#tiempo{
+    display: block;
+  }
+  /*Disposición columnas*/
+  div#cuerpo{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  nav{
+    flex: 15%;
+  }
+  main{
+    flex: 60%;
+    padding: 0 2em;
+  }
+  aside#tiempo{
+    flex: 15%;
+  }
+  section#ventas article{
+    width: 23%;
+  }
+}
+/*para hacerlo con grid, sería:
+ display:grid;
+ grid-template-columns: 2fr 8fr;(importante, si no no va)
+ gid template areas: "header header"
+                      "nav main"
+                      "footer footer"
+
+                      luego en grid-area en los elementos poner el nombre SIN comillas por ej grid-area: main;
+*/

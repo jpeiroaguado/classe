@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\LibroRequest;
 use App\Models\Autor;
 use App\Models\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class LibroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct(){
+        $this->middleware('auth:sanctum',
+        ['except'=>['index', 'show']]);
+    }
+
     public function index()
     {
         $libros=Libro::With('autor')->get();
@@ -34,7 +39,9 @@ class LibroController extends Controller
         $libro->titulo=$request->titulo;
         $libro->editorial=$request->editorial;
         $libro->precio=$request->precio;
-        $libro->autor()->associate(Autor::findOrFail($request->autor_id));
+        if($request->autor_id){
+            $libro->autor()->associate(Autor::findOrFail($request->autor_id));
+        }
         $libro->save();
 
         return response()->json($libro, 201);
@@ -46,6 +53,7 @@ class LibroController extends Controller
     public function show(Libro $libro)
     {
         $libro= $libro->load('autor');
+        return response()->json($libro, 200);
 
     }
 
@@ -58,7 +66,9 @@ class LibroController extends Controller
         $libro->titulo=$request->titulo;
         $libro->editorial=$request->editorial;
         $libro->precio=$request->precio;
-        $libro->autor()->associate(Autor::findOrFail($request->autor_id));
+        if($request->autor_id){
+            $libro->autor()->associate(Autor::findOrFail($request->autor_id));
+        }
         $libro->save();
 
         return response()->json($libro, 201);

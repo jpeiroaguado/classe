@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+button {
+  background-color: #f68b1e;
+  border: none;
+  color: white;
+}
+main {
+  display: flex;
+}
+.nav-shop {
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  padding: 1rem 2rem;
+  border: none;
+  border-bottom: 1px solid rgb(184, 175, 175);
+  display: flex;
+  justify-content: space-between;
+}
+nav .icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.not-count {
+  display: none;
+}
+nav div {
+  position: relative;
+}
+nav span {
+  font-size: 1.5rem;
+  position: absolute;
+  top: -0.75rem;
+}
+.shop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 4rem;
+  margin: 1.5rem 0;
+}
+.card {
+  max-height: 450px;
+  border: 1px solid #ccc;
+}
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+}
+.details-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+.details-div button {
+  padding: 0.5rem 1rem;
+}
+.title-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.title-price > p:nth-child(1) {
+  margin-bottom: 0.5rem;
+}
+button {
+  cursor: pointer;
+}
+.cart-component {
+  display: block;
+  max-width: 450px;
+  height: fit-content;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+.no-cart-component {
+  display: none;
+}
+.cart-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  gap: 0;
+}
+.cart-card div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+}
+.cart-card div:first-child button {
+  padding: 0.5rem;
+}
+.cart-card div:nth-child(2) {
+  width: 100%;
+}
+.cart-card div:nth-child(2) button {
+  padding: 5px 10px;
+}
+.cart-card div:nth-child(2) p:first-child {
+  margin-bottom: 1rem;
+}
+.cart-card div img {
+  margin-bottom: 0.5rem;
+}
+.cart-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.button-in-cart {
+  max-width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.totalprice-div {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.totalprice-div span {
+  margin-bottom: 0.5rem;
+}
+.disabled-btn {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

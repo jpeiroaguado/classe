@@ -11,7 +11,7 @@ class LibroRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,7 @@ class LibroRequest extends FormRequest
     {
         return [
             'titulo'=>'required',
-            'precio=>'=>'required|numeric|min:0'
+            'precio'=>'required|numeric|min:0'
         ];
     }
     public function messages(): array

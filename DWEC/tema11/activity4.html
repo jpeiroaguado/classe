@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <video src="video.mp4">
+  No se puede mostrar este vídeo en el navegador
+  </video>
+  <main>Pruebas</main>
+  </body>
+  DWEC - 24/25 UNIT11
+  16
+  <script>
+    let video = document.querySelector("video");
+    let main = document.querySelector("main");
+    let infoPanel = document.getElementById("infoPanel");
+    let panelVisible = false;
+
+
+    //  We adjust the video size
+    function adjustVideoSize() {
+      const maxWidth = window.innerWidth * 0.8;
+      video.style.width = maxWidth + "px";
+      video.style.height = "auto";
+      video.style.display = "block";
+      video.style.margin = "0 auto";
+    }
+
+    window.addEventListener("resize", adjustVideoSize);
+    adjustVideoSize();
+
+    video.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+
+    document.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      panelVisible = !panelVisible;
+      if (panelVisible) {
+        const totalMinutes = Math.floor(video.duration / 60);
+        const totalSeconds = Math.floor(video.duration % 60);
+        infoPanel.textContent = `Duración total: ${totalMinutes} minutos y ${totalSeconds} segundos`;
+        infoPanel.style.display = "block";
+        infoPanel.style.left = `${event.clientX}px`;
+        infoPanel.style.top = `${event.clientY}px`;
+      } else {
+        infoPanel.style.display = "none";
+      }
+    });
+  
+  </script>
+</html>

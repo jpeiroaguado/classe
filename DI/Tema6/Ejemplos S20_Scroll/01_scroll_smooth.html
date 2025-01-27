@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Behaviour smooth</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            scroll-behavior: smooth;/* ESTA PROP HACE LA MAGIA */
+            /* prop. no heredable, por eso se pone aquí */ 
+        }
+
+        main section:not(#accordion){
+            min-height: 20rem;
+        }
+
+        /*** USO DE PSEUDOCLASSE :target */
+        main section:target{/* los sections que se han linkeado con un <a>, al hacer click en enlace se les dibuja borde */
+            border: 2px solid red;
+        }
+        main section:target h3{
+            text-decoration: underline;
+            color: blue; /* También, al hacer click en su enlace, pondrán su h3 en rojo */
+        }
+        /**********************************/
+
+        main section:nth-child(even){
+            background-color: lightblue;
+        }
+
+        main section:nth-child(odd){
+            background-color: pink;
+        }
+        /*Accordion*/
+        section#accordion{
+            height: 0;
+            overflow: hidden;
+            border: 2px solid blue;
+            transition: 0.3 2 ease;
+        }
+
+        section#accordion:target{
+            height: 4rem;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Scroll smooth</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#s1">Seccion 1</a></li>
+            <li><a href="#s2">Seccion 2</a></li>
+            <li><a href="#s3">Seccion 3</a></li>
+            <li><a href="#s4">Seccion 4</a></li>
+            <li><a href="#s5">Seccion 5</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="s1">
+            <h3>Sección 1</h3>
+        </section>
+        <section id="s2">
+            <h3>Sección 2</h3>
+        </section>
+        <section id="s3">
+            <h3>Sección 3</h3>
+        </section>
+        <section id="s4">
+            <h3>Sección 4</h3>
+        </section>
+        <section id="s5">
+            <h3>Sección 5</h3>
+        </section>
+        <hr>
+        <a href="#accordion">Desplegar</a>
+        <section id="accordion">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, harum?</p>
+        </section>
+    </main>
+    <footer>
+        <p><a href="#">ir arriba</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagen del Día - NASA</title>
+  <style>
+    #imagen-contenedor {
+      text-align: center;
+      margin: 20px auto;
+    }
+    #titulo {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+    #descripcion {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: justify;
+    }
+    #fecha-selector {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">NASA - Imagen del Día</h1>
+  <input type="date" id="fecha-selector">
+  <div id="imagen-contenedor"></div>
+  <div id="titulo"></div>
+  <p id="descripcion"></p>
+  <script>
+    
+    const apiKey = "PQyuBnjRGgi6FWBSp21dGf8sgci4CJIefbf0DUM0";
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Muestra el JSON en la consola
+      })
+      .catch(error => {
+        console.error("Error al obtener los datos:", error);
+      });
+
+
+  </script>
+</body>
+</html>

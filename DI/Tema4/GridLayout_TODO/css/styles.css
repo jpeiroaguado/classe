@@ -1,0 +1,115 @@
+@charset "utf8";
+/*Inicializaciones*/
+*{ margin: 0; padding: 0; 
+  box-sizing: border-box;
+  text-decoration: none; 
+}
+/***************/
+/* VISTA MÓVIL */
+/***************/
+:root{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+body{
+  width: 100%;
+  padding: 0.3rem;
+  display: grid;
+  grid-template-columns: 1fr;/*En vista movil, solo una columna, se puede poner tmb 100% */
+  grid-template-areas: "hea"
+                        "nvm"
+                        "mai"
+                        "foo";
+}
+/*Etiquetado de todos los componentes*/
+header{
+  grid-area: hea;/*Es SIN comillas*/
+  background-color: red;
+  text-align: center;
+  font-size: 1.5rem;;
+}
+aside#banner{
+  grid-area: ban;
+  background-color: pink;
+  display: none;/*Oculto para la versión mobil*/
+}
+header h1{
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5em;
+}
+aside#logo{
+  display: none;/*Oculto para la versión mobil*/
+  grid-area:log;
+  background-color: pink;
+}
+nav#mov{
+  grid-area: nvm;/*Es SIN comillas*/
+  background-color: aqua;
+}
+nav#tab{
+  display: none;/*Oculto para la versión mobil*/
+  grid-area: nvt;/*Es SIN comillas*/
+  background-color: green;
+}
+main{
+  grid-area: mai;/*Es SIN comillas*/
+  min-height: 90vh;/*90% del viewport height*/
+  background-color: white;
+}
+footer{
+  grid-area: foo;
+  background-color: yellow;
+}
+
+/****************/
+/* VISTA TABLET */
+/****************/
+@media (width >= 768px){
+  :root{
+    font-size: 16px;
+  }
+  body{
+    /*No hace falta ni poner el display:grid porque ya está arriba ni nombrar las etiquetas por lo mismo*/
+    grid-template-columns: 3fr 1fr;/*A dos columnas */
+    grid-template-areas: "hea log"
+                          "mai nvt"
+                          "foo foo";
+  }
+  aside#logo{
+    display: initial; /*Le cambio el display para mostrarlo*/
+  }
+  nav#tab{
+    display: initial; /*Le cambio el display para mostrarlo*/
+  }
+nav#mov{
+    display: none; /*Le cambio el display para mostrarlo*/
+  }
+
+}
+      
+
+/****************/
+/*  VISTA PC    */
+/****************/
+@media (width >= 996px) {
+  :root{
+    background-color: grey;
+  }
+  body{
+    /*No hace falta ni poner el display:grid porque ya está arriba ni nombrar las etiquetas por lo mismo*/
+    grid-template-columns: 3fr 8fr 3fr;/*A dos columnas  si quisieramos zonas vacias pondremos tres puntos ... "... foo ..."*/
+    grid-template-areas: "log hea hea"
+                          "nvt mai ban"
+                          "foo foo foo";
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  /*Mostrar o ocultar*/
+  aside#banner{
+    display: initial;
+  }
+
+}

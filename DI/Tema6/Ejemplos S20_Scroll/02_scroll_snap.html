@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Snap</title>
+    <style>
+        *{
+            margin:0; padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            scroll-behavior: smooth; /* prop. no heredable */
+        }
+
+        :root{
+            font-size: 16px;
+        }
+
+        div#marco{
+            height: 100vh;
+            scroll-snap-type: y proximity; /* cómo se comportan los sections de dentro, respecto al scroll */
+                                           /* x o y - proximity o mandatory */
+            overflow: auto; /* muestra barra de escroll */    
+        }
+
+        header{
+            scroll-snap-align: start; /* crea un snap*/
+            height: 3rem;
+        }
+
+        nav{
+            background-color: blue;
+            height: 3rem;
+            position: sticky; top:0;
+            z-index: 1;
+        }
+
+        nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul a{
+            color: white;
+            font-weight: bold;
+        }
+        section{
+            min-height: 20rem;
+            scroll-snap-align: start; /* Aquí creo un snap al principio de cada section */
+                                     /* en este caso está al principio */
+            scroll-margin-block: 3rem;/* que pare 3rem antes del snapping, para que el nav no lo tape */    
+        }
+
+        section:nth-child(even){
+            background-color: lightblue;
+        }
+
+        section:nth-child(odd){
+            background-color: pink;
+        }
+
+        footer{
+            margin-bottom: 60vh;/* dejo algo de espacio por debajo */
+        }
+        /* Galeria fotos */
+        section#galeria{
+            display: flex;
+            scroll-snap-type: x proximity; /* cómo se comportan los sections de dentro, respecto al scroll */
+                                           /* x o y - proximity o mandatory */
+            overflow: auto; /* Scroll */
+            width: 100vw;
+        }
+
+        section#galeria article{
+            min-width: 50rem;
+            height: 23rem;
+            border: 1px solid red;
+            margin: 0.5em;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body>
+  <div id="marco">
+    <header>
+        <h1>Scroll smooth</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#s1">Seccion 1</a></li>
+            <li><a href="#s2">Seccion 2</a></li>
+            <li><a href="#s3">Seccion 3</a></li>
+            <li><a href="#s4">Seccion 4</a></li>
+            <li><a href="#s5">Seccion 5</a></li>
+        </ul>
+    </nav>
+    <section id="s1">
+        <h3>Sección</h3>
+    </section>
+    <section id="galeria">
+        <article><p>foto1</p></article>
+        <article><p>foto2</p></article>
+        <article><p>foto3</p></article>
+        <article><p>foto4</p></article>
+        <article><p>foto5</p></article>
+    </section>
+    <section id="s2">
+        <h3>Sección</h3>
+    </section>
+    <section id="s3">
+        <h3>Sección</h3>
+    </section>
+    <section id="s4">
+        <h3>Sección</h3>
+    </section>
+    <section id="s5">
+        <h3>Sección</h3>
+    </section>
+    <section id="s6">
+        <h3>Sección</h3>
+    </section>
+    <section id="s7">
+        <h3>Sección</h3>
+    </section>
+    
+    <footer>
+        <p><a href="#">ir arriba</a></p>
+        
+    </footer>
+  </div>
+</body>
+</html>

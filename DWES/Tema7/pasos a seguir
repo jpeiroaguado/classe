@@ -1,0 +1,30 @@
+Aquí tens un resum del enunciat:
+
+Es demana crear una API REST per gestionar marcadors i col·leccions. Els usuaris poden crear col·leccions (públiques o privades) i associar-hi marcadors. Les especificacions clau són:
+
+Taules:
+usuarios
+Camps: id, login, password, timestamps.
+colecciones
+Camps: id, nombre, publica (boolean), usuario_id, timestamps.
+marcadores
+Camps: id, web, descripcion (nullable), etiquetas (nullable), coleccion_id, timestamps.
+Requisits:
+Usuaris predeterminats: Es crearan 2 usuaris inicials com es va fer a classe.
+Protecció de col·leccions:
+Només l'usuari propietari pot consultar, crear, editar o eliminar les seves col·leccions.
+Si un usuari intenta modificar/eliminar una col·lecció aliena, s'enviarà un error 403.
+Restriccions de dades:
+No s'enviaran ni els timestamps ni els ID d'usuaris.
+Dades associades:
+Les col·leccions mostraran els seus marcadors associats.
+Ruta pública:
+/colecciones/publicas mostrarà les col·leccions públiques i estarà accessible per qualsevol usuari, autenticat o no.
+Seeder:
+Només es requerirà per als usuaris inicials.
+Recursos disponibles:
+/login: Autenticació.
+/colecciones: Operacions CRUD per a col·leccions.
+/marcadores: Operacions CRUD per a marcadors.
+/colecciones/publicas: Llistat de col·leccions públiques.
+Aquest és el resum de les funcionalitats i requisits de l’API. 😊

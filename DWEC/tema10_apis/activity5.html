@@ -14,9 +14,9 @@
     }
     #contenedor {
       display: flex;
-      flex-wrap: wrap; /* Las imágenes se ajustan a nuevas filas */
-      justify-content: center; /* Centra las imágenes horizontalmente */
-      gap: 10px; /* Espacio entre imágenes */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
       width: 90%;
     }
     img {
@@ -28,25 +28,25 @@
   <div id="contenedor"></div>
 </body>
 <script>
-  // Obtenemos el contenedor
+
   const contenedor = document.getElementById('contenedor');
 
-  // Array de imágenes borrosas
+  //The array of bluured images
   let arrayBorrosas = [];
 
-  // Función para rellenar las imágenes
+  // Function to fill the images
   async function renderizarImagenes() {
     for (let c = 1; c <= 200; c++) {
       let img = document.createElement('img');
       let estaBorrosa = arrayBorrosas.includes(c);
-
+      //We ensure if is blurr or not
       let urlImagen;
       if(estaBorrosa){
         urlImagen = `https://picsum.photos/300/300?image=${c}&blur`;
       }else {
         urlImagen = `https://picsum.photos/300/300?image=${c}`;
       }
-
+      //I did with try catch
       try {
         let respuesta = await fetch(urlImagen);
         if (!respuesta.ok) {
@@ -64,7 +64,7 @@
     }
   }
 
-  // Función para alternar el estado de difuminado
+  // This function is to alternate between bluured and normal images
   async function imagenBorrosa(idImagen, elementoImagen) {
     let estaBorrosa = arrayBorrosas.includes(idImagen);
     let urlImagen;
@@ -84,9 +84,9 @@
       elementoImagen.src = respuesta.url;
 
       if (estaBorrosa) {
-        arrayBorrosas = arrayBorrosas.filter(id => id !== idImagen); // Remover de las imágenes difuminadas
+        arrayBorrosas = arrayBorrosas.filter(id => id !== idImagen); // We remove the bluured images of the array when we don't have it in the state
       } else {
-        arrayBorrosas = [idImagen]; // Solo mantener una imagen difuminada
+        arrayBorrosas = [idImagen];
       }
     } catch (error) {
       console.error(`Error al cambiar el difuminado de la imagen ${idImagen}:`, error);

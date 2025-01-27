@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 6</title>
+  <style>
+    #face-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .face {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+      <div id="contenedor-cara"></div>
+      
+</body>
+<script>
+  // Function to generate the random faces
+  async function obtenerUsuariosAleatorios(cantidad) {
+    const respuesta = await fetch(`https://randomuser.me/api/?results=${cantidad}`);
+    const datos = await respuesta.json();
+    return datos.results.map(usuario => usuario.picture.large); //We extrract only the larger images because it has diferent types and is ahestetic
+  }
+
+  // We shuffle the array
+  function mezclarArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  // Function to generate the animation
+  async function crearAnimacion() {
+    const contenedorCaras = document.getElementById("contenedor-cara");
+    const cantidadCaras = 50;
+    const intervaloCambio = 200; // This are miliseconds
+    const caras = await obtenerUsuariosAleatorios(1000);
+
+    // We create the initial faces
+    for (let i = 0; i < cantidadCaras; i++) {
+      const img = document.createElement("img");
+      img.src = caras[i % caras.length];
+      img.alt = "Cara aleatoria";
+      img.className = "cara";
+      contenedorCaras.appendChild(img);
+    }
+    //We get all the faces
+    const elementosCaras = document.querySelectorAll(".cara");
+
+    //We set here the interval and call to mix the array
+    setInterval(() => {
+      mezclarArray(caras);
+      elementosCaras.forEach((img, indice) => {
+        img.src = caras[indice % caras.length];
+      });
+    }, intervaloCambio);
+  }
+
+// We start when the page loads
+document.addEventListener("DOMContentLoaded", crearAnimacion);
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 3</title>
+    <style type="text/css">
+        *{  margin: 0; padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        
+        :root{
+            font-family: "Times New Roman", serif;
+            font-size: 1.25vw; /* = 1,25% del ancho del disp.  */
+        }
+		
+		header, nav, article, footer{ 
+            border: 2px solid white;  
+            text-align: center; 
+            padding: 1rem 0;
+        }
+        
+        /* Coloreando los containers */
+        
+		header,footer{ background-color: lightgreen; }
+        nav{ background-color: cyan; }
+        article[id^="not"]{ background-color: lightblue; }
+        article[id^="art"]{ background-color: grey; }
+        article[id^="bann"]{ background-color: orange; }
+       
+		/***************/
+        /* VISTA MOVIL */
+        /***************/
+        
+        body{ 
+        
+		}
+        
+        header{  
+			
+		} 
+		
+		nav{
+				
+		}
+		
+        section#noticias{ 
+        
+		}
+        
+        section#ventas{ 
+        
+		}
+        
+        section#banners{ 
+				
+		}
+        
+		footer{ 
+        
+		}
+        
+		
+        /***************/
+        /* VISTA TABLET*/
+        /***************/
+        @media (min-width:768px){
+            
+			
+			
+			
+        }/* de tablet*/
+
+        /***************/
+        /* VISTA PC    */
+        /***************/
+        @media (min-width:992px){
+            
+			
+        } /* de PC */
+        
+        
+    </style>
+  </head>
+  <body>
+    <header >
+        <p> Header </p>
+    </header>  
+    <nav>
+        <p>Navegación</p>
+    </nav>
+    <section id="noticias" >
+      <article id="not1" > <p>1</p> </article>
+      <article id="not2" > <p>2</p> </article>
+      <article id="not3" > <p>3</p> </article>
+      <article id="not4" > <p>4</p> </article>
+    </section>
+    <section id="ventas" >
+      <article id="art1" > <p>A</p> </article>
+      <article id="art2" > <p>B</p> </article>
+      <article id="art3" > <p>C</p> </article>
+      <article id="art4" > <p>D</p> </article>
+    </section>
+    <section id="banners" >
+      <article id="bann1" > <p>:(</p> </article>
+      <article id="bann2" > <p>:D</p> </article>
+    </section>
+    <footer>
+        <p>Footer </p>
+    </footer>
+
+  </body>
+</html>

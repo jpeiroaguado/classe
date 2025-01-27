@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    
+  </main>
+</body>
+<script>
+var main=document.querySelector("main");
+navigator.geolocation.getCurrentPosition(pos=>{
+main.textContent=`latitud: ${pos.coords.latitude},` +
+`longitud: ${pos.coords.longitude}`;
+})
+
+</script>
+</html>

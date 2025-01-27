@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 7</title>
+  <style>
+    #imagen-contenedor {
+      text-align: center;
+      margin: 20px auto;
+    }
+    #titulo {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+    #descripcion {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: justify;
+    }
+    #fecha-selector {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">NASA - Imagen del Día</h1>
+  <input type="date" id="fecha-selector">
+  <div id="imagen-contenedor"></div>
+  <div id="titulo"></div>
+  <p id="descripcion"></p>
+  <script>
+    /*
+    const apiKey = "PQyuBnjRGgi6FWBSp21dGf8sgci4CJIefbf0DUM0";
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Muestra el JSON en la consola
+      })
+      .catch(error => {
+        console.error("Error al obtener los datos:", error);
+      });
+
+      They return this JSON:
+
+      const data = {
+        date: "2025-01-12",
+        explanation: "Whatever hit Mimas nearly destroyed it. What remains is one of the largest impact craters on one of Saturn's smallest round moons. Analysis indicates that a slightly larger impact would have destroyed Mimas entirely. The huge crater, named Herschel after the 1789 discoverer of Mimas, Sir William Herschel, spans about 130 kilometers and is featured here. Mimas' low mass produces a surface gravity just strong enough to create a spherical body but weak enough to allow such relatively large surface features. Mimas is made of mostly water ice with a smattering of rock - so it is accurately described as a big dirty snowball. The featured image was taken during the closest-ever flyby of the robot spacecraft Cassini past Mimas in 2010 while in orbit around Saturn.    Interactive: Take a trek across Mimas  January 14: Zoom APOD Lecture hosted by the Amateur Astronomers of Association of New York",
+        hdurl: "https://apod.nasa.gov/apod/image/2501/Mimas_Cassini_1800.jpg",
+        media_type: "image",
+        service_version: "v1",
+        title: "Mimas: Small Moon with a Big Crater",
+        url: "https://apod.nasa.gov/apod/image/2501/Mimas_Cassini_960.jpg"
+      };
+
+      
+      */
+
+  
+  // This funcion get the picture with an awaitto ensure we get the data
+  async function obtenerImagenDelDia(fecha = "") {
+    const apiKey = "PQyuBnjRGgi6FWBSp21dGf8sgci4CJIefbf0DUM0";
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}${fecha ? `&date=${fecha}` : ""}`;
+    const respuesta = await fetch(url);
+    const datos = await respuesta.json();
+    return datos;
+  }
+
+  // We display the image here
+  async function mostrarImagenDelDia(fecha = "") {
+    const contenedorImagen = document.getElementById("imagen-contenedor");
+    const titulo = document.getElementById("titulo");
+    const descripcion = document.getElementById("descripcion");
+    //The script wait until we have the response
+    const datos = await obtenerImagenDelDia(fecha);
+    //We need restart the img ocontainerm after that we fill it with the image
+    contenedorImagen.innerHTML = "";
+    const img = document.createElement("img");
+    img.src = datos.url;
+    img.alt = datos.title;
+    img.style.maxWidth = "100%";
+    img.style.border = "2px solid white";
+
+    titulo.textContent = datos.title;
+    //This is not necesary, but is easy and we read a description :D
+    descripcion.textContent = datos.explanation;
+
+    contenedorImagen.appendChild(img);
+  }
+
+  //When we change the day on the calendar, we hace an event who get the day and start the change
+  function configurarSelectorDeFecha() {
+    const selectorFecha = document.getElementById("fecha-selector");
+    selectorFecha.addEventListener("change", (evento) => {
+      const fecha = evento.target.value;
+      mostrarImagenDelDia(fecha);
+    });
+  }
+
+  // Function to start with the image of the current day
+  function inicializarPagina() {
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "white";
+    mostrarImagenDelDia();
+    configurarSelectorDeFecha();
+  }
+  //We start all
+  document.addEventListener("DOMContentLoaded", inicializarPagina);
+
+  </script>
+</body>
+</html>

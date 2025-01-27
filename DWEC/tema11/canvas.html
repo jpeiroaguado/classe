@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primer Canvas</title>
+</head>
+<body>
+  <canvas id="lienzo" width="500" height="300"></canvas>
+</body>
+<script>
+  const lienzo = document.getElementById("lienzo");
+  const ctx=lienzo.getContext("2d");
+
+  ctx.fillStyle="red";
+  ctx.strokeStyle="blue";
+  ctx.lineWidth="3";
+  /*ctx.fillRect(10,20,150,100);
+  ctx.strokeRect(30,40,150,100);
+
+  //Figura1
+  ctx.beginPath();//Indicamos que vamos a empezamar a trazar
+  ctx.moveTo(50, 100);//Posicinamos el "cursor"
+  ctx.lineTo(100,10);//Trazamos
+  ctx.lineTo(100,110);
+  ctx.lineTo(50,100);
+  ctx.stroke();//Ejecutamos los trazados
+  ctx.lineTo(50,50);
+  ctx.stroke();
+  ctx.closePath();//Cerramos
+
+  //Figura2
+  ctx.beginPath();
+  ctx.moveTo(50, 200);
+  ctx.lineTo(100,200);
+  ctx.lineTo(100,250);
+  ctx.lineTo(50,250);
+  ctx.arc(50, 225, 25, Math.PI/2, 1.5*Math.PI, false);//Generamos un arco, los tres primeros elementos son el centro del elemento y el radio
+  //los tres últimos elementos son el ángulo inicial, el ángulo final y a dirección (dentro o fuera)
+  ctx.stroke();
+
+  ctx.clearRect(0,0,500,300);
+
+  ctx.beginPath();
+  ctx.moveTo(50,50);
+  ctx.lineTo(200,50);
+  ctx.stroke();
+  ctx.strokeStyle="green";
+  ctx.font="bold 30px sans-serif"
+  ctx.fillText("Ja s'acaba", 50, 40);
+  ctx.closePath();
+
+  const img= new Image();
+  img.src="https://picsum.photos/200/300";
+  img.addEventListener("load", (ev)=>{
+    ctx.strokeRect(200,50,96,96);
+    ctx.drawImage(img, 200, 150);
+  });*/
+  ctx.beginPath();
+  ctx.moveTo(50,50);
+  ctx.lineTo(250,50);
+  ctx.lineTo(250,150);
+  ctx.lineTo(150,150);
+  ctx.lineTo(150,250);
+  ctx.lineTo(50,250);
+  ctx.lineTo(50,50);
+  
+  ctx.stroke();
+</script>
+</html>

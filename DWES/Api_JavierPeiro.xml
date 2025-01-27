@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <object alt="" name="Imagen1" object_type="graphic"/>
+ <object alt="" name="Imagen2" object_type="graphic"/>
+ <paragraph index="15" node_type="writer">	AXIOS	Javier Peiro</paragraph>
+ <paragraph index="17" node_type="writer">
+
+Axios serveix per a fer peticions asincrones (per exemple una api rest) amb la mateixa sintaxi que s’utilitza amb javascript.
+
+També he utilitzat express per a simplificar les peticions, com per exemple get, que es el que utiitzem a la api Lore picksum.</paragraph>
+ <paragraph index="19" node_type="writer">Al final he conseguit fet una xicoteta petició a una api rest amb la mateixa sintaxi que en javascript, simplificant-ho molt tot a l’hora de treballar.</paragraph>
+ <paragraph index="21" node_type="writer">CODI:</paragraph>
+ <paragraph index="25" node_type="writer">Exemple de us:</paragraph>
+</indexing>
