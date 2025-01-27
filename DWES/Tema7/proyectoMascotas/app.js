@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
-import routesMascotas from "./routes/mascotasRoute.js";
+import routesMascotas from "./routes/mascotaRoute.js";
+import routesUsuarios from "./routes/usuarioRoute.js"
 import bodyParser from "body-parser";
 import dbClient from "./config/dbClient.js";
 
@@ -8,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use("/usuarios", routesUsuarios);
 app.use("/mascotas", routesMascotas);
 
 try {

@@ -1,4 +1,4 @@
-import Mascota from '../schemas/mascotas.js';
+import Mascota from '../schemas/mascotaSchema.js';
 
 class mascotaModel {
  

@@ -1,12 +1,12 @@
-import mascotasModel from "../models/mascotasModel.js";
+import mascotaModel from "../models/mascotaModel.js";
 
-class mascotasController {
+class mascotaController {
   constructor() {}
 
   async getOne(req, res) {
     try {
         const { id } = req.params;
-        const data = await mascotasModel.getOne(id);
+        const data = await mascotaModel.getOne(id);
         res.status(201).json(data);
     } catch (e) {
       res.status(500).send(e);
@@ -15,7 +15,7 @@ class mascotasController {
 
   async getAll(req, res) {
     try {
-      const data = await mascotasModel.getAll();
+      const data = await mascotaModel.getAll();
       res.status(201).json(data);
     } catch (e) {
       res.status(500).send(e);
@@ -24,7 +24,7 @@ class mascotasController {
 
   async create(req, res) {
     try {
-      const data = await mascotasModel.create(req.body);
+      const data = await mascotaModel.create(req.body);
       res.status(201).json(data);
     } catch (e) {
       res.status(500).send(e);
@@ -34,7 +34,7 @@ class mascotasController {
   async update(req, res) {
     try {
         const { id } = req.params;
-        const data = await mascotasModel.update(id, req.body);
+        const data = await mascotaModel.update(id, req.body);
         res.status(200).json(data);
     } catch (e) {
         console.log(e);
@@ -45,7 +45,7 @@ class mascotasController {
   async delete(req, res) {
     try {
         const { id } = req.params;
-        const data = await mascotasModel.delete(id);
+        const data = await mascotaModel.delete(id);
         res.status(206).json(data);
     } catch (e) {
       res.status(500).send(e);
@@ -53,4 +53,4 @@ class mascotasController {
   }
 }
 
-export default new mascotasController;
+export default new mascotaController;
